@@ -1,0 +1,86 @@
+{
+    "signals": [
+        {
+            "id": "1",
+            "date": "2-9-2005",
+            "title": "buche",
+            "description": "buche nella strada",
+            "address": "Viamalpaga",
+            "lat": 45.849036,
+            "long": 11.233380,
+            "type": "efefefeefefe",
+            "category": "strada",
+            "pictures": [
+                {
+                    "imagefull": "http://www.corrieredelcorsaro.it/wp-content/uploads/2015/01/buche1.jpg"
+                },
+                {
+                    "imagefull": "http://leassicurazioniauto.com/wp-content/uploads/2014/12/buche.jpg"
+                }
+            ],
+
+            "state": "0"
+        },
+        {
+            "id": "2",
+            "date": "2-9-2006",
+            "title": "lampione",
+            "description": "lampione antico",
+            "address": "Viamalpaga",
+            "lat": 45.849036,
+            "long": 11.033320,
+            "type": "efefefeefefe",
+            "category": "strada",
+            "pictures": [
+                {
+                    "imagefull": "http://www.argoit.com/images/newssez/it/divisione-energie/1366811405-costi-dell-energia-ed-efficienza-energetica-arriva-il-lampione-intelligente.jpg"
+                }
+                        ],
+            "state": "0"
+        },
+        {
+            "id": "3",
+            "date": "2-9-2007",
+            "title": "lavori",
+            "description": "lavori in corso",
+            "address": "Viamalpaga",
+            "lat": 45.889036,
+            "long": 11.033350,
+            "type": "efefefeefefe",
+            "category": "disservizio",
+            "pictures": [
+                {
+                    "imagefull": "http://www.facilehosting.net/images/in_costruzione.jpeg"
+                },
+                {
+                    "imagefull": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQr2GI1y3x0aqfrRoPl_YIHi1pENq3UeIFVilp8CC8_MGvPX3YW"
+                }
+                        ],
+            "state": "1"
+        },
+        {
+            "id": "4",
+            "date": "2-9-2008",
+            "title": "nulla",
+            "description": "nulla da dichiarare se non  ",
+            "address": "Viamalpaga",
+            "lat": 45.889036,
+            "long": 11.033360,
+            "type": "efefefeefefe",
+            "category": "disservizio",
+            "state": "1"
+        },
+        {
+            "id": "5",
+            "date": "2-9-2008",
+            "title": "rifiuti",
+            "description": "rifiuti in mezzo alla strada",
+            "address": "Viamalpaga",
+            "lat": 45.889036,
+            "long": 11.033370,
+            "type": "efefefeefefe",
+            "category": "disservizio",
+            "state": "2"
+        }
+    ]
+}

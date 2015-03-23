@@ -1,0 +1,339 @@
+// This will be the REST calling JS api
+// npm install jquery
+
+// Need a simple test whether we are running under Node.js, so that we can 
+// load code differently when running under phonegap
+// If true we are running within Node.js, so 
+var inNode = false;
+if (typeof window === 'undefined') {
+    
+    console.log ("Assuming we are running in Node.js test environment");
+    inNode = true;
+    
+} else {
+    console.log ("Assuming we are running in a browser/Phonegap application");
+    inNode = false;
+}
+
+
+if (inNode) {
+    
+    // We need to create a DOM outside of jquery, now
+    var jsdom = require("jsdom"); 
+    var jq = require("jquery")(jsdom.jsdom().createWindow()); 
+    var https = require('https');
+
+    var request = require('request'),  
+    sys = require('sys');
+}
+
+else {
+    // Link to the jquery library, should be loaded directly by the
+    // toplevel index.html file
+    var jq = jQuery;
+}
+ 
+// Set to true to use the new POST mechanism on the event logging
+var usePOST = true;
+
+var lasttime;
+
+// Set up a global conection structure
+var Restlogging = { 
+
+    // Defaults
+    connection: {server: "http://150.241.239.65:8080",
+		 basedir: "/IESCities/api/log/app",
+		 appname: "nodejstester",
+		 sessionid: 0
+		},
+
+    init: function (server) {
+
+	var MAXSESSIONID = 100000000;
+
+	// Set up with a fresh (random) sessionid
+	var sess = Math.floor(Math.random() * MAXSESSIONID);
+
+	//Grab the app name from the top level document
+	//Assume that it lives in the app div in the first h1 block
+	try {
+	    var apptxt = document.getElementsByClassName('app');
+	    var header = apptxt[0].getElementsByTagName("h1");
+	    var appname = header[0].innerHTML;
+	}
+	catch (err) {
+	    //Do something if this is not found...
+	    appname = "UndefinedApplicationName";
+	}
+
+	console.log("Initialising app '" + appname + " (session id " 
+		    + sess + "') connecting to server " + server);
+
+	this.connection.appname = appname;
+	this.connection.server = server; 
+	this.connection.sessionid = sess;
+	this.bindEvents();
+
+	// STEFANOS: added this here, because for now events are not being handled in this app..
+	// TIM: need to discuss what is going wrong here.
+	console.log("Logger initialized!");
+	Restlogging.appStart();
+
+    },
+
+    // Bind common events
+    // Note that we handle switching away from the app as app close
+    // and resuming as app restart
+    // This should allow us to monitor screen time of the app
+    bindEvents: function() {
+
+	document.addEventListener('deviceready', this.onDeviceReady, false);
+	document.addEventListener('pause', this.onStop, false);
+	document.addEventListener('backbutton', this.onStop, false);
+	document.addEventListener('resume', this.onStart, false);
+	document.addEventListener('menubutton', this.onStop, false);
+    },
+
+    onDeviceReady: function() {
+        
+	//Restlogging.testAppAPI();
+        Restlogging.appStart();
+    },	
+
+    // Not technically closing the app, but we  need to register when the
+    // user switches away from it.
+    onStop: function () {
+	
+	Restlogging.appStop();
+    },
+
+    onStart: function () {
+	
+	Restlogging.appStart();
+    },	
+
+    // Note we do not currently use posting for the logging API
+    postURL: function (url, postdata) {
+
+	console.log ("Testing post mechanism <" + url + ">");
+	// Post and print drop the return result
+	
+	if (inNode) {
+
+	    request.post(url); //.form({key:'value'})
+	}
+	
+	else {
+	    // Add instrumentation to time the call end to end
+	    var starttime = (new Date).getTime();
+
+	    jq.ajax ({
+		dataType: "text",
+		type: "POST",
+		url: url,
+		crossDomain: true ,
+		data: postdata,   
+		cache:false,
+                async:false,
+                //xhrFields: {
+                  //  withCredentials: true
+                //},
+		success: function(data) {
+
+		    var timed = (new Date).getTime() - starttime;
+		    //console.log("success: " + data);
+		    console.log("Call completed in " + timed + "ms");
+
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+		
+		    console.log("Mistake: " +  errorThrown);
+		}
+	    });
+	}
+    },
+
+    // Get request to the url, checking the returned results against expected
+    // We use GET since it is easier to test
+    getURL: function (url, expected) {
+
+	if (inNode) {
+	    
+	    // Use the request library to get the call working in Node
+	    request({ uri:url }, function (error, response, body) {  
+		
+		if (error && response.statusCode !== 200) {
+		    console.log('Error logging')
+		}
+		else {
+		    //console.log("This is the body I get <" + body  + ">");
+		    
+		    if (body==expected) {
+			
+			console.log("Request:" + url + ":Got expected response");
+		    }
+		    else {
+			
+			console.log("Error:" + url + ":Got unexpected response" + body);
+		    }
+		}
+	    });
+	}
+	else {
+	    // Add instrumentation to time the call end to end
+	    var starttime = (new Date).getTime();
+
+	    jq.ajax ({
+		dataType: "text",
+		type: "GET",
+		url: url,
+		crossDomain: true ,
+		cache:false,
+                async:false,
+                //xhrFields: {
+                  //  withCredentials: true
+                //},
+		success: function(data) {
+		    //console.log("success: " + data);
+		    var timed = (new Date).getTime() - starttime;
+		    console.log("Call completed in " + timed + "ms");
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+		
+		    console.log("Mistake: " +  errorThrown);
+		}
+	    });
+	}
+    },
+
+
+    restPost: function (url) {
+
+	this.postURL (this.connection.server + this.connection.basedir + url);
+    },
+
+    restGet: function (url, response) {
+
+	this.getURL (this.connection.server + this.connection.basedir + url, response);
+    },
+
+    countLogApp: function () {
+
+	this.restGet("/getcountlogs", "");
+    },
+
+    // Test to see if the api is present where we think if is
+    testAppAPI: function () {
+
+	this.restGet("/here", "yes");
+    },
+
+
+    // This does app level logging
+    // Note we do not restrict event types here for now, this is done at server side
+    appLog: function (type, message) {
+
+	console.log("IES Logger will now log an event of type \"" + type 
+		    + "\" with message \"" + message + "\".");
+   
+	//Get the current time
+	time = (new Date).getTime()/1000 //Keep as seconds, with millisecond resolution
+
+	
+	if (usePOST) {
+
+	    this.restPost ("/event/" + time + "/" + this.connection.appname 
+			   + "/" + this.connection.sessionid + "/" 
+			   + type + "/" + message, "logged");
+	}
+	else { //Resort to old API call
+
+	    this.restGet ("/stamp/" + time + "/" + this.connection.appname 
+			  + "/" + this.connection.sessionid + "/" 
+			  + type + "/" + message, "logged");
+	}
+    },
+
+    // Log a performance statistic for event type and custom message 
+    perfLog: function (type, message, duration) {
+
+	//Get the current time
+	time = (new Date).getTime()/1000 //Keep as seconds, with millisecond resolution
+	
+	this.restPost ("/perf/" + time + "/" + this.connection.appname 
+		       + "/" + this.connection.sessionid + "/" 
+		       + type + "/" + duration + "/" + message, "logged");
+    },
+
+
+    appCustom: function (message){
+
+	console.log("AppCustom");
+	this.appLog ("AppCustom", message);
+    },
+
+    appStart: function () {
+	
+	lasttime = (new Date).getTime(); 
+	console.log("AppStart");
+	this.appLog ("AppStart", "Phone event");
+    },
+    
+    appStop: function () {
+
+	var active = (new Date).getTime() - lasttime;
+
+	console.log("Application active for " + active);
+	this.appLog ("AppStop", "Phone event");
+	//Also create app usage time log
+	this.perfLog("AppStop", "App active for", active);
+    },
+
+    appTime: function (func, testname) {
+
+	console.log(func);
+
+	//Test the overhead of spawning a log
+	var loops = 10
+	var starttime = (new Date).getTime();
+
+	for (var i = 0; i < loops; i++) {
+	    
+	    func.call(this); // This calls function in the correct context
+	}
+	
+	var endtime = (new Date).getTime() - starttime;
+
+	var div = document.body.children[1];
+	var span = document.createElement('span')
+
+	span.innerHTML = "<p> Time for test [" + testname + "] is " + endtime/loops + " ms";
+
+	// Add the performance log to the database
+	this.perfLog("AppCustom", testname, Math.floor(endtime/loops)); 
+	
+	div.appendChild(span)
+    },
+    
+
+    appTest: function () {
+
+	this.appTime(this.appStart, "single app log");
+	this.appTime(this.countLogApp, "get number of logged calls");
+    }
+
+};
+
+
+if (inNode) {
+
+    //Export the interface
+    exports.Restlogging = Restlogging;
+}
+
+
+
+
+
+
