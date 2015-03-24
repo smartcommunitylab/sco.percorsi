@@ -1,7 +1,9 @@
 angular.module('roveretoPercorsi.controllers.categorie', [])
 
-.controller('CategorieCtrl', function ($scope) {
+.controller('CategorieCtrl', function ($scope, $http) {
 
-    window.alert("ciao");
+    $http.get('data/categorie.json').success(function (data) {
+        $scope.categorie = data;
+    });
 
 })
