@@ -15,8 +15,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.filters',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
- 'services.geo'
-
+    'services.geo'
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, Login, GeoLocate) {
@@ -28,6 +27,7 @@ angular.module('roveretoPercorsi', [
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
+
         if (window.StatusBar) {
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
@@ -44,13 +44,13 @@ angular.module('roveretoPercorsi', [
         }
         Restlogging.init("http://150.241.239.65:8080");
     });
+
     $rootScope.login = function () {
         Login.login();
     };
 
     $rootScope.logout = function () {
         Login.logout();
-
     };
 
     // for BlackBerry 10, WP8, iOS
@@ -66,6 +66,7 @@ angular.module('roveretoPercorsi', [
             return this * Math.PI / 180;
         }
     }
+
     document.addEventListener("pause", function () {
         console.log('app paused');
         if (typeof $rootScope.locationWatchID != 'undefined') {
@@ -75,92 +76,95 @@ angular.module('roveretoPercorsi', [
             console.log('geolocation reset');
         }
     }, false);
+
     document.addEventListener("resume", function () {
         console.log('app resumed');
         GeoLocate.locate();
     }, false);
+
     GeoLocate.locate().then(function (position) {
         $rootScope.myPosition = position;
         //console.log('first geolocation: ' + position);
     }, function () {
         console.log('CANNOT LOCATE!');
     });
-
-
-
 })
 
 .config(function ($stateProvider, $urlRouterProvider, $translateProvider) {
-    $stateProvider
-
-        .state('app', {
+    $stateProvider.state('app', {
         url: "/app",
         abstract: true,
         templateUrl: "templates/menu.html",
         controller: 'AppCtrl'
     })
 
-
     .state('app.categorie', {
-            cache: false,
-            url: "/categorie",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/categorie.html",
-                    controller: 'CategorieCtrl'
-
-                }
+        cache: false,
+        url: "/categorie",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/categorie.html",
+                controller: 'CategorieCtrl'
             }
-        })
-        .state('app.profilo', {
-            cache: false,
+        }
+    })
 
-            url: '/profilo',
-            abstract: false,
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/profilo.html",
-                    controller: 'ProfiloCtrl'
-
-                }
+    .state('app.profilo', {
+        cache: false,
+        url: '/profilo',
+        abstract: false,
+        views: {
+            'menuContent': {
+                templateUrl: "templates/profilo.html",
+                controller: 'ProfiloCtrl'
             }
-        })
+        }
+    });
 
-    ;
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/categorie');
 
     $translateProvider.translations('it', {
+        menu_home: 'Categorie / HOME',
+        menu_profile: 'Profilo',
+        menu_login: 'Accedi',
+        menu_logout: 'Esci',
+        menu_credits: 'Credits',
+        categorie_title: 'Rovereto Percorsi',
         credits_title: 'Credits',
         credits_app: 'Rovereto Percorsi',
         credits_project: 'Un progetto di:',
         credits_sponsored: 'Con la collaborazione di:',
         credits_info: 'Per informazioni:',
-
-
     });
+
     $translateProvider.translations('en', {
+        menu_home: 'Categories / HOME',
+        menu_profile: 'Profile',
+        menu_login: 'Login',
+        menu_logout: 'Logout',
+        menu_credits: 'Credits',
+        categorie_title: 'Rovereto Paths',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
         credits_project: 'A project by:',
         credits_sponsored: 'In collaboration with:',
         credits_info: 'Further information:',
-
-
-
     });
+
     $translateProvider.translations('de', {
+        menu_home: 'Categories / HOME',
+        menu_profile: 'Profile',
+        menu_login: 'Login',
+        menu_logout: 'Logout',
+        menu_credits: 'Credits',
+        categorie_title: 'Rovereto Paths',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
         credits_project: 'Ein projekt:',
         credits_sponsored: 'In Zusammenarbeit mit der:',
         credits_info: 'Informationen:',
-
-
     });
-
-
-
 
     $translateProvider.preferredLanguage("en");
     $translateProvider.fallbackLanguage("en");
