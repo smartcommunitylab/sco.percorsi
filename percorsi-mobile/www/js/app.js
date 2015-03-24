@@ -150,6 +150,7 @@ angular.module('roveretoPercorsi', [
         credits_project: 'Un progetto di:',
         credits_sponsored: 'Con la collaborazione di:',
         credits_info: 'Per informazioni:',
+        paths_title: 'Percorsi'
     });
 
     $translateProvider.translations('en', {
@@ -164,6 +165,7 @@ angular.module('roveretoPercorsi', [
         credits_project: 'A project by:',
         credits_sponsored: 'In collaboration with:',
         credits_info: 'Further information:',
+        paths_title: 'Paths'
     });
 
     $translateProvider.translations('de', {
@@ -178,6 +180,7 @@ angular.module('roveretoPercorsi', [
         credits_project: 'Ein projekt:',
         credits_sponsored: 'In Zusammenarbeit mit der:',
         credits_info: 'Informationen:',
+        paths_title: 'Routen'
     });
 
     $translateProvider.preferredLanguage("en");

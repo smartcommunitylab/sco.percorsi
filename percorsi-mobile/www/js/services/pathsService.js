@@ -9,7 +9,7 @@ angular.module('roveretoPercorsi.services.paths', [])
         return counter;
     }
 
-    pathsService.getPathsByCategoryId = function (categoryId) {
+    pathsService.getPathsByCategoryId = function (categoryId, from) {
         var start = null;
         var deferred = $q.defer();
         /*temp*/
