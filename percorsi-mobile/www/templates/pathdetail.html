@@ -1,0 +1,24 @@
+<ion-view title="{{'archive_title' | translate}}">
+    <ion-tabs class="tabs-positive  tabs-top">
+
+
+
+        <ion-tab title="{{'archive_closed' | translate}}" href="#/app/tab/closed">
+            <ion-nav-view name="app-tab-closed"></ion-nav-view>
+        </ion-tab>
+
+
+
+        <ion-tab title="{{ 'archive_running' | translate}} " href="#/app/tab/processing">
+            <ion-nav-view name="app-tab-processing"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="{{ 'archive_waiting' | translate}} " href="#/app/tab/open">
+            <ion-nav-view name="app-tab-open"></ion-nav-view>
+        </ion-tab>
+
+
+    </ion-tabs>
+
+
+</ion-view>

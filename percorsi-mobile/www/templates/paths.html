@@ -6,10 +6,10 @@
             </div>
         </div>
         <ion-list ng-hide="emptylist">
-            <ion-item ng-repeat="path in paths.data" href="#/app/paths/{{path.id}}" type="item-link" back-img="{{path.image}}" ng-style="{'line-height': '180px'}">
+            <ion-item ng-repeat="path in paths.data" href="#/app/paths/{{path.id}}" type="item-link" >
                 <div id="container">
                     <p id="text">
-                        {{category.name| translate_remote}}
+                        {{path.images[0]}}
                     </p>
                 </div>
             </ion-item>

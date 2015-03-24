@@ -16,10 +16,11 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.categories',
     'roveretoPercorsi.controllers.profile',
     'roveretoPercorsi.controllers.paths',
+        'roveretoPercorsi.controllers.pathdetail',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
-    'roveretoPercorsi.services.paths'
+    'roveretoPercorsi.services.paths',
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, Login, GeoLocate) {
@@ -114,14 +115,63 @@ angular.module('roveretoPercorsi', [
     })
 
     .state('app.paths', {
-        url: "/categories/:id",
+            url: "/categories/:id",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/paths.html",
+                    controller: 'PathsCtrl'
+                }
+            }
+        })
+        .state('app.pathdetail', {
+            cache: false,
+
+            url: '/pathdetail/:id',
+            abstract: false,
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/pathdetail.html",
+                    controller: 'PathDetailCtrl'
+
+                }
+            }
+        })
+
+    // Each tab has its own nav history stack:
+
+    .state('app.pathdetail.info', {
+        cache: false,
+
+        url: '/info/:id',
         views: {
-            'menuContent': {
-                templateUrl: "templates/paths.html",
-                controller: 'PathsCtrl'
+            'app-tab-closed': {
+                templateUrl: 'templates/pathdetail-info.html',
+                controller: 'PathDetailInfoCtrl'
             }
         }
     })
+
+    .state('app.pathdetail.map', {
+            cache: false,
+
+            url: '/map/:id',
+            views: {
+                'app-tab-processing': {
+                    templateUrl: 'templates/pathdetail-map.html',
+                    controller: 'PathDetailMapCtrl'
+                }
+            }
+        })
+        .state('app.pathdetail.turist', {
+            cache: false,
+            url: '/turist/:id',
+            views: {
+                'app-tab-open': {
+                    templateUrl: 'templates/pathdetail-turist.html',
+                    controller: 'PathDetailTuristCtrl'
+                }
+            }
+        })
 
     .state('app.profile', {
         cache: false,
