@@ -37,3 +37,30 @@ body {
     border-color: transparent;
     background-color: transparent;
 }
+
+#categories .card {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#categories .card:first-child {
+    margin-top: 0;
+}
+
+#categories .card .item-content {
+    padding: 0;
+}
+
+#categories .card .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    padding: 0.5em;
+    width: 100%;
+    background-color: rgba(255,255,255,0.8);
+    color: #009688;
+    text-transform: uppercase;
+    font-weight: bold;
+}
