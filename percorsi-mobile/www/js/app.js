@@ -13,8 +13,10 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.categorie',
     'roveretoPercorsi.controllers.profilo',
     'roveretoPercorsi.filters',
+    'roveretoPercorsi.directives',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
+    'roveretoPercorsi.services.categories',
  'services.geo'
 
 ])

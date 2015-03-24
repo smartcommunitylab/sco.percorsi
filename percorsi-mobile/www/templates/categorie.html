@@ -1,5 +1,16 @@
 <ion-view title="{{'archivedetail_title' | translate}}" hide-back-button="true">
     <ion-content has-header="true" has-footer="true" padding="true">
-            categorie
+        <div class="card" ng-hide="!emptylist">
+            <div class="item item-text-wrap">
+                {{'archive_empty_list' | translate}}
+            </div>
+        </div>
+        <ion-list ng-hide="emptylist">
+            <ion-item ng-repeat="category in categories.data" href="#/app/categories/{{category.id}}" type="item-link" back-img="{{category.image}}">
+                <b> {{category.name| translate_remote}}</b> <span class="alignright">{{category.description| translate_remote}}</span>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="!noMoreCategoriesAvailable" on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>
     </ion-content>
 </ion-view>

@@ -14,7 +14,8 @@
                 "en": "description 1",
                 "de": "descrizionen 1"
 
-            }
+            },
+            "image": "http://stopthatpigeon.altervista.org/wp-content/uploads/2012/07/pane-e-vino.jpg"
         },
         {
             "name": {
@@ -30,7 +31,8 @@
                 "en": "description 2",
                 "de": "descrizionen 2"
 
-            }
+            },
+            "image": "http://www.superedo.it/sfondi/sfondi/Architettura/Castelli/castelli009.jpg"
         }
     ]
 }
