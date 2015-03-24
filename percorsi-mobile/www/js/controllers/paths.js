@@ -1,33 +1,33 @@
 angular.module('roveretoPercorsi.controllers.paths', [])
 
-.controller('PathsCtrl', function ($scope, $http, pathsService) {
-    $scope.categories = {};
-    $scope.noMoreCategoriesAvailable = false;
+.controller('PathsCtrl', function ($scope, $http, $stateParams, pathsService) {
+    $scope.paths = {};
+    $scope.noMorePathsAvailable = false;
     $scope.loadMore = function () {
 
         var length = 0;
-        if ($scope.categories.data) {
-            length = $scope.categories.data.length;
+        if ($scope.paths.data) {
+            length = $scope.paths.data.length;
         }
-        categoriesService.getCategoriesList(length).then(function (categories) {
+        pathsService.getPathsByCategoryId($stateParams, length).then(function (paths) {
             //check state for array
             $scope.emptylist = false;
-            if ($scope.categories.data) {
-                $scope.categories.data.push.apply($scope.categories.data, categories.data);
-                if (categories.data) {
-                    if (categories.data.length < categoriesService.getMaxCounter()) {
-                        $scope.noMoreCategoriesAvailable = true;
+            if ($scope.paths.data) {
+                $scope.paths.data.push.apply($scope.paths.data, paths.data);
+                if (paths.data) {
+                    if (paths.data.length < pathsService.getMaxCounter()) {
+                        $scope.noMorePathsAvailable = true;
                     }
                 }
                 /*temp */
-                if (categories.length == 0) {
-                    $scope.noMoreCategoriesAvailable = true;
+                if (paths.length == 0) {
+                    $scope.noMorePathsAvailable = true;
 
                 } /*temp */
             } else {
-                $scope.categories = categories;
+                $scope.paths = paths;
             }
-            if ($scope.categories.data.length == 0) {
+            if ($scope.paths.data.length == 0) {
                 $scope.emptylist = true;
             } else {
                 $scope.emptylist = false;
