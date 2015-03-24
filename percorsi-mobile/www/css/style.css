@@ -37,3 +37,9 @@ body {
     border-color: transparent;
     background-color: transparent;
 }
+
+ion-item .category-label {
+    display: table-cell;
+    vertical-align: bottom;
+    border: 1px solid #f00;
+}

@@ -6,8 +6,8 @@
             </div>
         </div>
         <ion-list ng-hide="emptylist">
-            <ion-item ng-repeat="category in categories.data" href="#/app/categories/{{category.id}}" type="item-link" back-img="{{category.image}}">
-                <b> {{category.name| translate_remote}}</b> <span class="alignright">{{category.description| translate_remote}}</span>
+            <ion-item ng-repeat="category in categories.data" href="#/app/categories/{{category.id}}" type="item-link" back-img="{{category.image}}" ng-style="{'line-height': '180px'}">
+                <div class="category-label">{{category.name| translate_remote}}</div>
             </ion-item>
         </ion-list>
         <ion-infinite-scroll ng-if="!noMoreCategoriesAvailable" on-infinite="loadMore()" distance="1%">
