@@ -1,6 +1,6 @@
-angular.module('roveretoPercorsi.controllers.categorie', [])
+angular.module('roveretoPercorsi.controllers.categories', [])
 
-.controller('CategorieCtrl', function ($scope, $http, categoriesService) {
+.controller('CategoriesCtrl', function ($scope, $http, categoriesService) {
     $scope.categories = {};
     $scope.noMoreCategoriesAvailable = false;
     $scope.loadMore = function () {

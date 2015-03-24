@@ -13,8 +13,8 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.filters',
     'roveretoPercorsi.directives',
     'roveretoPercorsi.controllers.common',
-    'roveretoPercorsi.controllers.categorie',
-    'roveretoPercorsi.controllers.profilo',
+    'roveretoPercorsi.controllers.categories',
+    'roveretoPercorsi.controllers.profile',
     'roveretoPercorsi.controllers.paths',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
@@ -102,13 +102,13 @@ angular.module('roveretoPercorsi', [
         controller: 'AppCtrl'
     })
 
-    .state('app.categorie', {
+    .state('app.categories', {
         cache: false,
-        url: "/categorie",
+        url: "/categories",
         views: {
             'menuContent': {
-                templateUrl: "templates/categorie.html",
-                controller: 'CategorieCtrl'
+                templateUrl: "templates/categories.html",
+                controller: 'CategoriesCtrl'
             }
         }
     })
@@ -123,20 +123,20 @@ angular.module('roveretoPercorsi', [
         }
     })
 
-    .state('app.profilo', {
+    .state('app.profile', {
         cache: false,
-        url: '/profilo',
+        url: '/profile',
         abstract: false,
         views: {
             'menuContent': {
-                templateUrl: "templates/profilo.html",
-                controller: 'ProfiloCtrl'
+                templateUrl: "templates/profile.html",
+                controller: 'ProfileCtrl'
             }
         }
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/categorie');
+    $urlRouterProvider.otherwise('/app/categories');
 
     $translateProvider.translations('it', {
         menu_home: 'Categorie / HOME',
@@ -144,7 +144,7 @@ angular.module('roveretoPercorsi', [
         menu_login: 'Accedi',
         menu_logout: 'Esci',
         menu_credits: 'Credits',
-        categorie_title: 'Rovereto Percorsi',
+        categories_title: 'Rovereto Percorsi',
         credits_title: 'Credits',
         credits_app: 'Rovereto Percorsi',
         credits_project: 'Un progetto di:',
@@ -159,7 +159,7 @@ angular.module('roveretoPercorsi', [
         menu_login: 'Login',
         menu_logout: 'Logout',
         menu_credits: 'Credits',
-        categorie_title: 'Rovereto Paths',
+        categories_title: 'Rovereto Paths',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
         credits_project: 'A project by:',
@@ -174,7 +174,7 @@ angular.module('roveretoPercorsi', [
         menu_login: 'Login',
         menu_logout: 'Logout',
         menu_credits: 'Credits',
-        categorie_title: 'Rovereto Paths',
+        categories_title: 'Rovereto Paths',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
         credits_project: 'Ein projekt:',

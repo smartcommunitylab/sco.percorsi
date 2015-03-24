@@ -13,7 +13,7 @@ angular.module('roveretoPercorsi.services.categories', [])
         var start = null;
         var deferred = $q.defer();
         /*temp*/
-        $http.get('data/categorie.json').success(function (data) {
+        $http.get('data/categories.json').success(function (data) {
             categories = data;
             if (from == 0)
                 deferred.resolve(categories);
