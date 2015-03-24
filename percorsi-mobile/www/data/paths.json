@@ -8,38 +8,33 @@
                 "b"
             ],
             "title": {
-
                 "it": "titolo 1",
                 "en": "title 1",
                 "de": "titelen 1"
-
             },
             "description": {
-
                 "it": "descrizione 1",
                 "en": "description 1",
                 "de": "descrizionen 1"
-
             },
             "length": "5 Km",
             "time": "2 h",
             "difficulty": 2,
             "images": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
 
             ],
             "videos": [
                 "https://www.youtube.com/watch?v=kt0g4dWxEBo",
                 "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                  "https://www.youtube.com/watch?v=nCkpzqqog4k"
-
+                "https://www.youtube.com/watch?v=nCkpzqqog4k"
             ],
             "audios": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
             ],
             "reviews": [
                 {
@@ -56,43 +51,36 @@
                 {
                     "id": "ididididpoi1",
                     "app-id": "roveretoappid",
-
                     "title": {
-
                         "it": "titolo POI 1",
                         "en": "title POI 1",
                         "de": "titelen POI 1"
-
                     },
                     "description": {
-
                         "it": "descrizione POI 1",
                         "en": "description POI 1",
                         "de": "descrizionen POI 1"
-
                     },
                     "coordinates": {
                         "lat": 45.8833,
                         "long": 11.0500
                     },
                     "images": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
-
-            ],
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
+                    ],
                     "videos": [
-                "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                  "https://www.youtube.com/watch?v=nCkpzqqog4k"
-
-            ],
+                        "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                        "https://www.youtube.com/watch?v=lp-EO5I60KA",
+                        "https://www.youtube.com/watch?v=nCkpzqqog4k"
+                    ],
                     "audios": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
-            ]
-                    },
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
+                    ]
+                },
                 {
                     "title": {
                         "id": "ididididpoi2",
@@ -100,61 +88,47 @@
                         "it": "titolo POI 2",
                         "en": "title POI 2",
                         "de": "titelen POI 2"
-
                     },
                     "description": {
-
                         "it": "descrizione POI 2",
                         "en": "description POI 2",
                         "de": "descrizionen POI 2"
-
                     },
                     "coordinates": {
                         "lat": 45.9733,
                         "long": 11.1500
                     },
                     "images": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
-
-            ],
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
+                    ],
                     "videos": [
-                "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                  "https://www.youtube.com/watch?v=nCkpzqqog4k"
-
-            ],
+                        "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                        "https://www.youtube.com/watch?v=lp-EO5I60KA",
+                        "https://www.youtube.com/watch?v=nCkpzqqog4k"
+                    ],
                     "audios": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
+                    ]
+                }
             ]
-                    }
-                ]
-
-
         },
         {
             "id": "idididid2",
             "app-id": "roveretoappid",
-            "categories": [
-                        "a",
-                        "b"
-                    ],
+            "categories": ["a", "b"],
             "title": {
-
                 "it": "titolo 2",
                 "en": "title 2",
                 "de": "titelen 2"
-
             },
             "description": {
-
                 "it": "descrizione 2",
                 "en": "description 2",
                 "de": "descrizionen 2"
-
             },
             "length": "7 Km",
             "time": "4 h",
@@ -163,18 +137,16 @@
                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
-
             ],
             "videos": [
                 "https://www.youtube.com/watch?v=kt0g4dWxEBo",
                 "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                  "https://www.youtube.com/watch?v=nCkpzqqog4k"
-
+                "https://www.youtube.com/watch?v=nCkpzqqog4k"
             ],
             "audios": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
             ],
             "reviews": [
                 {
@@ -192,41 +164,35 @@
                     "id": "ididididpoi3",
                     "app-id": "roveretoappid",
                     "title": {
-
                         "it": "titolo POI 3",
                         "en": "title POI 3",
                         "de": "titelen POI 3"
-
                     },
                     "description": {
-
                         "it": "descrizione POI 4",
                         "en": "description POI 4",
                         "de": "descrizionen POI 4"
-
                     },
                     "coordinates": {
                         "lat": 46.8833,
                         "long": 12.0500
                     },
                     "images": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
-
-            ],
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
+                    ],
                     "videos": [
-                "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                  "https://www.youtube.com/watch?v=nCkpzqqog4k"
-
-            ],
+                        "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                        "https://www.youtube.com/watch?v=lp-EO5I60KA",
+                        "https://www.youtube.com/watch?v=nCkpzqqog4k"
+                    ],
                     "audios": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
-            ]
-                    },
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
+                    ]
+                },
                 {
                     "title": {
                         "id": "ididididpoi4",
@@ -234,47 +200,32 @@
                         "it": "titolo POI 4",
                         "en": "title POI 4",
                         "de": "titelen POI 4"
-
                     },
                     "description": {
-
                         "it": "descrizione POI 4",
                         "en": "description POI 4",
                         "de": "descrizionen POI 4"
-
                     },
                     "coordinates": {
                         "lat": 46.9733,
                         "long": 16.1500
                     },
                     "images": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
-
-            ],
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg"
+                    ],
                     "videos": [
-                "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                  "https://www.youtube.com/watch?v=nCkpzqqog4k"
-
-            ],
+                        "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                        "https://www.youtube.com/watch?v=lp-EO5I60KA", "https://www.youtube.com/watch?v=nCkpzqqog4k"
+                    ],
                     "audios": [
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                 "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                  "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3"
+                    ]
+                }
             ]
-                    }
-                ]
-
-
         }
-
-
-
-
-
-
-
     ]
 }

@@ -9,15 +9,17 @@ angular.module('roveretoPercorsi', [
     'ngCordova',
     'leaflet-directive',
     'pascalprecht.translate',
+    'services.geo',
+    'roveretoPercorsi.filters',
+    'roveretoPercorsi.directives',
     'roveretoPercorsi.controllers.common',
     'roveretoPercorsi.controllers.categorie',
     'roveretoPercorsi.controllers.profilo',
-    'roveretoPercorsi.filters',
-    'roveretoPercorsi.directives',
+    'roveretoPercorsi.controllers.paths',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
-    'services.geo'
+    'roveretoPercorsi.services.paths'
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, Login, GeoLocate) {
@@ -107,6 +109,16 @@ angular.module('roveretoPercorsi', [
             'menuContent': {
                 templateUrl: "templates/categorie.html",
                 controller: 'CategorieCtrl'
+            }
+        }
+    })
+
+    .state('app.paths', {
+        url: "/categories/:id",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/paths.html",
+                controller: 'PathsCtrl'
             }
         }
     })
