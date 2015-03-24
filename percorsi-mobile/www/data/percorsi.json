@@ -3,6 +3,10 @@
         {
             "id": "idididid1",
             "app-id": "roveretoappid",
+            "categories": [
+                "a",
+                "b"
+            ],
             "title": {
 
                 "it": "titolo 1",
@@ -52,6 +56,7 @@
                 {
                     "id": "ididididpoi1",
                     "app-id": "roveretoappid",
+
                     "title": {
 
                         "it": "titolo POI 1",
@@ -133,6 +138,10 @@
         {
             "id": "idididid2",
             "app-id": "roveretoappid",
+            "categories": [
+                        "a",
+                        "b"
+                    ],
             "title": {
 
                 "it": "titolo 2",

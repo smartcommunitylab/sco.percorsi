@@ -1,6 +1,7 @@
 {
     "data": [
         {
+            "id": "a",
             "name": {
 
                 "it": "categoria 1",
@@ -18,6 +19,8 @@
             "image": "http://stopthatpigeon.altervista.org/wp-content/uploads/2012/07/pane-e-vino.jpg"
         },
         {
+            "id": "b",
+
             "name": {
 
                 "it": "categoria 2",
