@@ -1,15 +1,15 @@
-angular.module('roveretoPercorsi.services.paths', [])
+angular.module('roveretoPercorsi.services.listPathsService', [])
 
-.factory('pathsService', function ($http, $q) {
+.factory('listPathsService', function ($http, $q) {
     var paths = null;
     var counter = '10';
 
-    var pathsService = {};
-    pathsService.getMaxCounter = function () {
+    var listPathsService = {};
+    listPathsService.getMaxCounter = function () {
         return counter;
     }
 
-    pathsService.getPathsByCategoryId = function (categoryId, from) {
+    listPathsService.getPathsByCategoryId = function (categoryId, from) {
         var start = null;
         var deferred = $q.defer();
         /*temp*/
@@ -24,5 +24,6 @@ angular.module('roveretoPercorsi.services.paths', [])
         /*temp*/
     }
 
-    return pathsService;
+
+    return listPathsService;
 })

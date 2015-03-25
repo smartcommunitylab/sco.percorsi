@@ -1,0 +1,30 @@
+angular.module('roveretoPercorsi.services.reviews', [])
+
+.factory('reviewsService', function ($http, $q) {
+    var reviews = null;
+    var counter = '10';
+
+    var reviewsService = {};
+    reviewsService.getMaxCounter = function () {
+        return counter;
+    }
+
+    reviewsService.getreviewsList = function (from) {
+        var start = null;
+        var deferred = $q.defer();
+        /*temp*/
+        $http.get('data/reviews.json').success(function (data) {
+            reviews = data;
+            if (from == 0)
+                deferred.resolve(reviews);
+            else deferred.resolve([]);
+        }).error(function (data, status, headers, config) {
+            console.log(data + status + headers + config);
+            deferred.reject(err);
+        });
+        return deferred.promise;
+        /*temp*/
+    }
+
+    return reviewsService;
+})
