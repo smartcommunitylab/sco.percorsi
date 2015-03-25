@@ -4,6 +4,8 @@ angular.module('roveretoPercorsi.services.categories', [])
     var categories = null;
     var counter = '10';
 
+    var selectedCategory = null;
+
     var categoriesService = {};
     categoriesService.getMaxCounter = function () {
         return counter;
@@ -24,6 +26,14 @@ angular.module('roveretoPercorsi.services.categories', [])
         });
         return deferred.promise;
         /*temp*/
+    }
+
+    categoriesService.setSelectedCategory = function (category) {
+        selectedCategory = category;
+    }
+
+    categoriesService.getSelectedCategory = function () {
+        return selectedCategory;
     }
 
     return categoriesService;

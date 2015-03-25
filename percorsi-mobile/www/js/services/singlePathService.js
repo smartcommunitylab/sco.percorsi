@@ -1,17 +1,18 @@
 angular.module('roveretoPercorsi.services.singlePathService', [])
 
 .factory('singlePathService', function ($http, $q, listPathsService) {
-    var path = null;
+    var selectedPath = null;
     //var pathId = null;
 
     var singlePathService = {};
-    singlePathService.choosePath = function (pathchoosen) {
-        path = pathchoosen;
+
+    singlePathService.setSelectedPath = function (path) {
+        selectedPath = path;
     }
-    singlePathService.getPathChoosed = function () {
+
+    singlePathService.getSelectedPath = function () {
         return path;
     }
 
-
     return singlePathService;
-})
+});

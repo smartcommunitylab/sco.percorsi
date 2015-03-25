@@ -1,6 +1,7 @@
 angular.module('roveretoPercorsi.controllers.paths', [])
 
-.controller('PathsCtrl', function ($scope, $http, $stateParams, listPathsService, singlePathService) {
+.controller('PathsCtrl', function ($scope, $http, $stateParams, categoriesService, listPathsService, singlePathService) {
+    $scope.category = categoriesService.getSelectedCategory();
     $scope.paths = {};
     $scope.noMorePathsAvailable = false;
 
@@ -40,8 +41,8 @@ angular.module('roveretoPercorsi.controllers.paths', [])
         });
     }
 
-    $scope.choosePath = function (path) {
-        singlePathService.choosePath(path);
+    $scope.setSelectedPath = function (path) {
+        singlePathService.setSelectedPath(path);
     }
 
     $scope.m2km = function (m) {

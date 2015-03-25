@@ -1,4 +1,4 @@
-<ion-view id="paths" title="{{'paths_title' | translate}}">
+<ion-view id="paths" title="{{category.name | translate_remote}}">
     <ion-content has-header="true" has-footer="true">
         <div class="card" ng-if="emptylist">
             <div class="item item-text-wrap">
@@ -6,7 +6,7 @@
             </div>
         </div>
         <ion-list ng-if="!emptylist">
-            <ion-item class="card item-thumbnail-left" ng-repeat="path in paths.data" href="#/app/path" type="item-link" ng-click="choosePath(path)">
+            <ion-item class="card item-thumbnail-left" ng-repeat="path in paths.data" href="#/app/path" type="item-link" ng-click="setSelectedPath(path)">
                 <img ng-src="{{path.images[0]}}" />
                 <h2>{{path.title | translate_remote}}</h2>
                 <div class="path-numbers">

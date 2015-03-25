@@ -3,12 +3,14 @@ angular.module('roveretoPercorsi.controllers.categories', [])
 .controller('CategoriesCtrl', function ($scope, $http, categoriesService) {
     $scope.categories = {};
     $scope.noMoreCategoriesAvailable = false;
-    $scope.loadMore = function () {
 
+    $scope.loadMore = function () {
         var length = 0;
+
         if ($scope.categories.data) {
             length = $scope.categories.data.length;
         }
+
         categoriesService.getCategoriesList(length).then(function (categories) {
             //check state for array
             $scope.emptylist = false;
@@ -19,14 +21,14 @@ angular.module('roveretoPercorsi.controllers.categories', [])
                         $scope.noMoreCategoriesAvailable = true;
                     }
                 }
-                /*temp */
+                /* temp */
                 if (categories.length == 0) {
                     $scope.noMoreCategoriesAvailable = true;
-
-                } /*temp */
+                } /* temp */
             } else {
                 $scope.categories = categories;
             }
+
             if ($scope.categories.data.length == 0) {
                 $scope.emptylist = true;
             } else {
@@ -35,5 +37,9 @@ angular.module('roveretoPercorsi.controllers.categories', [])
 
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
+    }
+
+    $scope.setSelectedCategory = function (category) {
+        categoriesService.setSelectedCategory(category);
     }
 })
