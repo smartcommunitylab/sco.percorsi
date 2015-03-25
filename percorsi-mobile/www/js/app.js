@@ -16,7 +16,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.categories',
     'roveretoPercorsi.controllers.profile',
     'roveretoPercorsi.controllers.paths',
-        'roveretoPercorsi.controllers.pathdetail',
+    'roveretoPercorsi.controllers.pathdetail',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
