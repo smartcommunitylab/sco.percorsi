@@ -36,7 +36,7 @@ angular.module('roveretoPercorsi.controllers.paths', [])
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
     }
-    $scope.choosePath = function (id) {
-        singlePathService.choosePath(id);
+    $scope.choosePath = function (path) {
+        singlePathService.choosePath(path);
     }
 })
