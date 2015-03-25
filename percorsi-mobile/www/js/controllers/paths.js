@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.paths', [])
 
-.controller('PathsCtrl', function ($scope, $http, $stateParams, pathsService) {
+.controller('PathsCtrl', function ($scope, $http, $stateParams, listPathsService, singlePathService) {
     $scope.paths = {};
     $scope.noMorePathsAvailable = false;
     $scope.loadMore = function () {
@@ -9,7 +9,7 @@ angular.module('roveretoPercorsi.controllers.paths', [])
         if ($scope.paths.data) {
             length = $scope.paths.data.length;
         }
-        pathsService.getPathsByCategoryId($stateParams, length).then(function (paths) {
+        listPathsService.getPathsByCategoryId($stateParams, length).then(function (paths) {
             //check state for array
             $scope.emptylist = false;
             if ($scope.paths.data) {
@@ -35,5 +35,8 @@ angular.module('roveretoPercorsi.controllers.paths', [])
 
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
+    }
+    $scope.choosePath = function (id) {
+        singlePathService.choosePath(id);
     }
 })

@@ -1,19 +1,5 @@
 <ion-view title="{{'archive_title' | translate}}">
     <ion-content class="has-header padding">
-        <div class="card" ng-hide="!emptylist">
-            <div class="item item-text-wrap">
-                {{'archive_empty_list' | translate}}
-            </div>
-        </div>
-        <ion-list ng-hide="emptylist">
-            <ion-item ng-repeat="signal in listopen.data | filter: { status: 'open' } " href="#/app/archiviodetail/{{signal.id}}">
-                <b>{{signal.attribute.title}}</b> <span class="alignright ">{{signal.created | date:' dd-MM-yyyy'}}</span>
-
-
-                <p><i class="icon ion-ios-location " style="font-size:25px; "></i> {{signal.location.address}}</p>
-            </ion-item>
-        </ion-list>
-        <ion-infinite-scroll ng-if="!noMoreOpenItemsAvailable " on-infinite="loadMore( 'open') " distance="1% ">
-        </ion-infinite-scroll>
+        map
     </ion-content>
 </ion-view>

@@ -1,19 +1,5 @@
 <ion-view title="{{'archive_title' | translate}}">
     <ion-content class="has-header padding">
-        <div class="card" ng-hide="!emptylist">
-            <div class="item item-text-wrap">
-                {{'archive_empty_list' | translate}} </div>
-        </div>
-        <ion-list ng-hide="emptylist">
-            <ion-item ng-repeat="signal in listprocessing.data | filter: { status: 'processing' } " href="#/app/archiviodetail/{{signal.id}} " type="item-link ">
-                <b>{{signal.attribute.title}}</b> <span class="alignright ">{{signal.created | date:' dd-MM-yyyy'}}</span>
-
-
-                <p><i class="icon ion-ios-location " style="font-size:25px; "></i> {{signal.location.address}}</p>
-
-            </ion-item>
-        </ion-list>
-        <ion-infinite-scroll ng-if="!noMoreProcessingItemsAvailable " on-infinite="loadMore( 'processing') " distance="1% ">
-        </ion-infinite-scroll>
+        turist
     </ion-content>
 </ion-view>
