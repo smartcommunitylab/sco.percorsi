@@ -9,15 +9,14 @@
             <ion-item class="card item-thumbnail-left" ng-repeat="path in paths.data" href="#/app/path" type="item-link" ng-click="choosePath(path)">
                 <img ng-src="{{path.images[0]}}" />
                 <h2>{{path.title | translate_remote}}</h2>
-                <i class="icon ion-android-arrow-back"></i>
                 <div class="path-numbers">
                     <div class="path-length">
                         <i class="icon ion-location"></i>
-                        <span>{{path.length}}</span>
+                        <span>{{m2km(path.length)}} km</span>
                     </div>
                     <div class="path-time">
                         <i class="icon ion-clock"></i>
-                        <span>{{path.time}}</span>
+                        <span>{{min2time(path.time)}}</span>
                     </div>
                 </div>
             </ion-item>
