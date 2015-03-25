@@ -36,16 +36,16 @@ body {
 .bar.bar-percorsi .button {
     border-color: transparent;
     background-color: transparent;
+    color: #fff;
 }
 
-#categories .card {
-    position: relative;
+.card {
     margin-top: 10px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
-#categories .card:first-child {
-    margin-top: 0;
+.card:last-child {
+    margin-bottom: 0;
 }
 
 #categories .card .item-content {
@@ -63,4 +63,25 @@ body {
     color: #009688;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+#paths .path-numbers {
+    position: absolute;
+    bottom: -8px;
+}
+
+#paths .path-numbers div {
+    display: inline-block;
+}
+
+#paths .path-numbers div:not(:first-child) {
+    padding: 1em;
+}
+
+#paths .path-numbers i {
+    font-size: 2em;
+}
+
+#paths .path-numbers span {
+    color: #009688;
 }

@@ -1,16 +1,24 @@
-<ion-view title="{{'paths_title' | translate}}" hide-back-button="true">
-    <ion-content has-header="true" has-footer="true" padding="true">
-        <div class="card" ng-hide="!emptylist">
+<ion-view id="paths" title="{{'paths_title' | translate}}">
+    <ion-content has-header="true" has-footer="true">
+        <div class="card" ng-if="emptylist">
             <div class="item item-text-wrap">
                 {{'archive_empty_list' | translate}}
             </div>
         </div>
-        <ion-list ng-hide="emptylist">
-            <ion-item ng-repeat="path in paths.data" href="#/app/pathdetail/{{path.id}}" type="item-link">
-                <div id="container">
-                    <p id="text">
-                        {{path.images[0]}}
-                    </p>
+        <ion-list ng-if="!emptylist">
+            <ion-item class="card item-thumbnail-left" ng-repeat="path in paths.data" href="#/app/pathdetail/{{path.id}}" type="item-link">
+                <img ng-src="{{path.images[0]}}" />
+                <h2>{{path.title | translate_remote}}</h2>
+                <i class="icon ion-android-arrow-back"></i>
+                <div class="path-numbers">
+                    <div class="path-length">
+                        <i class="icon ion-location"></i>
+                        <span>{{path.length}}</span>
+                    </div>
+                    <div class="path-time">
+                        <i class="icon ion-clock"></i>
+                        <span>{{path.time}}</span>
+                    </div>
                 </div>
             </ion-item>
         </ion-list>
