@@ -53,8 +53,8 @@
                         "de": "descrizionen POI 1"
                     },
                     "coordinates": {
-                        "lat": 45.8833,
-                        "long": 11.0500
+                        "lat": 45.89777,
+                        "lng": 11.04270
                     },
                     "images": [
                         "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
@@ -86,8 +86,8 @@
                         "de": "descrizionen POI 2"
                     },
                     "coordinates": {
-                        "lat": 45.9733,
-                        "long": 11.1500
+                        "lat": 45.89545,
+                        "lng": 11.04342
                     },
                     "images": [
                         "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
@@ -156,8 +156,8 @@
                         "de": "descrizionen POI 4"
                     },
                     "coordinates": {
-                        "lat": 46.8833,
-                        "long": 12.0500
+                        "lat": 45.89777,
+                        "lng": 11.04270
                     },
                     "images": [
                         "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
@@ -189,8 +189,8 @@
                         "de": "descrizionen POI 4"
                     },
                     "coordinates": {
-                        "lat": 46.9733,
-                        "long": 16.1500
+                        "lat": 45.89545,
+                        "lng": 11.04342
                     },
                     "images": [
                         "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",

@@ -1,30 +1,36 @@
 angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
 
-.controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, leafletData, mapConversionService) {
+.controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, leafletData, $filter, mapConversionService) {
     $scope.path = singlePathService.getSelectedPath();
     var markers = [];
     for (i = 0; i < $scope.path.pois.length; i++) {
         markers.push({
             lat: $scope.path.pois[i].coordinates.lat,
-            lng: $scope.path.pois[i].coordinates.long,
-
-            //            message: '<div ng-controller="MapCtrl">' +
-            //                '<div><label><strong> <i>' + $scope.mySignals.data[i].attribute.title + '</i></strong></label></div>' +
-            //                '<div><label><i class="icon ion-location" style="font-size:25px;"></i> ' + $scope.mySignals.data[i].location.address + '</i></label></div>' +
-            //                '<div align="center" style="white-space:nowrap;" ><button class="button button-custom" ng-click="closeWin()" style="width:49%">Cancel</button>' +
-            //                '<button class="button button-custom" ng-click="detail(\'#/app/archiviodetail/' + $scope.mySignals.data[i].id + '\')" style="width:49%">Detail</button>' +
-            //                '</div></form>' +
-            //                '</div>',
-            //
-            //            icon: {
-            //                iconUrl: $scope.getIcon($scope.mySignals.data[i]),
-            //                iconSize: [50, 50]
-            //            },
-            //                        focus: true
+            lng: $scope.path.pois[i].coordinates.lng,
+            message: '<div ng-controller="MapCtrl">' +
+                '<div><label><strong> <i>' + $filter('translate_remote')($scope.path.pois[i].title) + '</i></strong></label></div>' +
+                '<div><label><i class="icon ion-location" style="font-size:25px;"></i> ' + $scope.path.pois[i].title + '</i></label></div>' +
+                '<div align="center" style="white-space:nowrap;" ><button class="button button-custom" ng-click="closeWin()" style="width:49%">Cancel</button>' +
+                '<button class="button button-custom" ng-click="detail(\'#/app/archiviodetail/' + $scope.path.pois[i].id + '\')" style="width:49%">Detail</button>' +
+                '</div></form>' +
+                '</div>',
+            icon: {
+                type: 'div',
+                iconSize: [25, 80],
+                html: '<img src="./img/marker_hole.png" height="41" width="25">' + i,
+                popupAnchor: [0, 0]
+            }
         });
     }
     $scope.pathMarkers = markers;
-
+    $scope.pathLine = {
+        p1: {
+            color: 'black',
+            weight: 8,
+            latlngs: mapConversionService.decode($scope.path.shape),
+            message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
+        }
+    };
 
     angular.extend($scope, {
         tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
@@ -35,44 +41,32 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
         },
         markers: $scope.pathMarkers,
         events: {},
-        pathLine: {
-            p1: {
-                color: 'red',
-                weight: 8,
-                latlngs: [
-                    {
-                        lat: 51.50,
-                        lng: -0.082
-                },
-                    {
-                        lat: 48.83,
-                        lng: 2.37
-                },
-                    {
-                        lat: 41.91,
-                        lng: 12.48
-                }
-                        ],
-                message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
-            },
-            p2: {
-                color: 'green',
-                weight: 8,
-                latlngs: [
-                    {
-                        lat: 48.2083537,
-                        lng: 16.3725042
-                },
-                    {
-                        lat: 48.8534,
-                        lng: 2.3485
-                }
-                        ],
-                label: {
-                    message: "<h3>Route from Vienna to Paris</h3><p>Distance: 1211km</p>"
-                }
-            }
+        pathLine: $scope.pathLine
+    });
+
+
+    leafletData.getMap().then(function (map) {
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18
+        }).addTo(map);
+        map.locate({
+            setView: false,
+            maxZoom: 8,
+            watch: false,
+            enableHighAccuracy: true
+        });
+        map.on('locationfound', onLocationFound);
+
+        function onLocationFound(e) {
+            $scope.myloc = e;
+            var radius = e.accuracy / 2;
+
+            L.marker(e.latlng).addTo(map);
+            //                        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+            L.circle(e.latlng, radius).addTo(map);
+
         }
     });
-    window.alert(mapConversionService.decode(""));
 });
