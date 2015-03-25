@@ -1,7 +1,7 @@
 angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
 
 .controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, leafletData, mapConversionService) {
-    $scope.path = singlePathService.getPathChoosed();
+    $scope.path = singlePathService.getSelectedPath();
     var markers = [];
     for (i = 0; i < $scope.path.pois.length; i++) {
         markers.push({
@@ -23,7 +23,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             //                        focus: true
         });
     }
-    $scope.pathParkers = markers;
+    $scope.pathMarkers = markers;
 
 
     angular.extend($scope, {
@@ -33,8 +33,46 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             lng: 11.041126,
             zoom: 12
         },
-        markers: $scope.pathParkers,
-        events: {}
+        markers: $scope.pathMarkers,
+        events: {},
+        pathLine: {
+            p1: {
+                color: 'red',
+                weight: 8,
+                latlngs: [
+                    {
+                        lat: 51.50,
+                        lng: -0.082
+                },
+                    {
+                        lat: 48.83,
+                        lng: 2.37
+                },
+                    {
+                        lat: 41.91,
+                        lng: 12.48
+                }
+                        ],
+                message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
+            },
+            p2: {
+                color: 'green',
+                weight: 8,
+                latlngs: [
+                    {
+                        lat: 48.2083537,
+                        lng: 16.3725042
+                },
+                    {
+                        lat: 48.8534,
+                        lng: 2.3485
+                }
+                        ],
+                label: {
+                    message: "<h3>Route from Vienna to Paris</h3><p>Distance: 1211km</p>"
+                }
+            }
+        }
     });
     window.alert(mapConversionService.decode(""));
 });

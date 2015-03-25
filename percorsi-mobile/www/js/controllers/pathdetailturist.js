@@ -4,7 +4,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.reviews = {};
     $scope.path = {};
 
-    $scope.path = singlePathService.getPathChoosed();
+    $scope.path = singlePathService.getSelectedPath();
     //$scope.review = reviewsService.getReviewsList();
 
     $scope.noMoreReviewsAvailable = false;
