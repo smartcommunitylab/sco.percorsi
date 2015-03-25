@@ -9,7 +9,7 @@ angular.module('roveretoPercorsi.services.reviews', [])
         return counter;
     }
 
-    reviewsService.getreviewsList = function (from) {
+    reviewsService.getReviewsList = function (from) {
         var start = null;
         var deferred = $q.defer();
         /*temp*/

@@ -1,5 +1,19 @@
-<ion-view title="{{'archive_title' | translate}}">
+<ion-view title="{{'pathdetailturist_title' | translate}}">
     <ion-content class="has-header padding">
-        turist
+        {{'pathdetailturist_vote' | translate}} {{path.vote }}
+        <div class="card" ng-if="emptylist">
+            <div class="item item-text-wrap">
+                {{archive_empty_list | translate}}
+            </div>
+        </div>
+        <ion-list ng-if="!emptylist">
+            <ion-item class="card" ng-repeat="review in reviews.data">
+                <div class="item item-image">
+                    {{review.user}} {{review.review}}
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="!noMoreReviewsAvailable" on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>
     </ion-content>
 </ion-view>
