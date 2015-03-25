@@ -1,5 +1,5 @@
-<ion-view title="{{'archive_title' | translate}}">
+<ion-view title="{{'pathdetailinfo_title' | translate}}">
     <ion-content class="has-header padding">
-        info poi
+        {{path.title | translate_remote}} {{path.description| translate_remote}} {{path.length }} {{path.time}} {{path.difficulty }}
     </ion-content>
 </ion-view>
