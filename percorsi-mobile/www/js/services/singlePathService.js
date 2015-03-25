@@ -11,7 +11,7 @@ angular.module('roveretoPercorsi.services.singlePathService', [])
     }
 
     singlePathService.getSelectedPath = function () {
-        return path;
+        return selectedPath;
     }
 
     return singlePathService;

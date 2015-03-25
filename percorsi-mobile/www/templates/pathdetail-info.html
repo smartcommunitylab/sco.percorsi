@@ -1,5 +1,9 @@
-<ion-view title="{{'pathdetailinfo_title' | translate}}">
+<ion-view title="{{'path.title' | translate_remote}}">
     <ion-content class="has-header padding">
-        {{path.title | translate_remote}} {{path.description| translate_remote}} {{path.length }} {{path.time}} {{path.difficulty }}
+        {{path.title | translate_remote}}
+        {{path.description| translate_remote}}
+        {{path.length}}
+        {{path.time}}
+        {{path.difficulty}}
     </ion-content>
 </ion-view>
