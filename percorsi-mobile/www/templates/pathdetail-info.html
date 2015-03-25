@@ -7,8 +7,10 @@
                     <img ng-src="{{image}}" />
                 </ion-slide>
             </ion-slide-box>
-            <button class="button button-percorsi button-fab">
-                <!--<i class="icon ion-plus"></i>-->
+            <button class="button button-percorsi button-fab" ng-click="badabum()">
+                <div class="height_fix">
+                    <span class="content"><i class="icon ion-plus"></i></span>
+                </div>
             </button>
         </div>
         <div class="padding">{{path.title | translate_remote}} {{path.description | translate_remote}} {{path.length}} {{path.time}} {{path.difficulty}}</div>
