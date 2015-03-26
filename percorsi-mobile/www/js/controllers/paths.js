@@ -44,12 +44,4 @@ angular.module('roveretoPercorsi.controllers.paths', [])
     $scope.setSelectedPath = function (path) {
         singlePathService.setSelectedPath(path);
     }
-
-    $scope.m2km = function (m) {
-        return Math.round((m / 1000) * 10) / 10;
-    }
-
-    $scope.min2time = function (min) {
-        return Math.floor(min / 60) + ':' + min % 60;
-    }
 });

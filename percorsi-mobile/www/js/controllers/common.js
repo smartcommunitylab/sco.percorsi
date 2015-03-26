@@ -1,8 +1,6 @@
 angular.module('roveretoPercorsi.controllers.common', [])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $ionicHistory, $timeout, $filter) {
-
-
     // Modal 1
     $ionicModal.fromTemplateUrl('templates/login.html', {
         id: '1', // We need to use and ID to identify the modal that is firing the event!
@@ -34,19 +32,21 @@ angular.module('roveretoPercorsi.controllers.common', [])
     };
 
     $scope.openSignal = function () {
-            segnalaService.setSignal(null);
-            window.location.assign("#/app/segnala/");
-            $ionicHistory.nextViewOptions({
-                disableAnimate: true,
-                disableBack: true
-            });
-        }
-        /* Listen for broadcasted messages */
+        segnalaService.setSignal(null);
+        window.location.assign("#/app/segnala/");
+        $ionicHistory.nextViewOptions({
+            disableAnimate: true,
+            disableBack: true
+        });
+    };
+
+    /* Listen for broadcasted messages */
     $scope.openLoginPopUp = function () {
         Toast.show($filter('translate')("toast_must_login"), "short", "bottom");
 
 
-    }
+    };
+
     $scope.$on('modal.shown', function (event, modal) {
         console.log('Modal ' + modal.id + ' is shown!');
     });
@@ -63,7 +63,16 @@ angular.module('roveretoPercorsi.controllers.common', [])
         $scope.oModal1.remove();
         $scope.oModal2.remove();
     });
-})
+
+    /* Utils */
+    $scope.m2km = function (m) {
+        return Math.round((m / 1000) * 10) / 10;
+    }
+
+    $scope.min2time = function (min) {
+        return Math.floor(min / 60) + ':' + min % 60;
+    }
+});
 
 
 function showNoPlace() {
@@ -77,6 +86,7 @@ function showNoPlace() {
                             }
             ]
     });
+
     alertPopup.then(function (res) {
         console.log('no place');
     });
@@ -90,16 +100,14 @@ function showNoConnection() {
             {
                 text: $filter('translate')("signal_send_toast_alarm"),
                 type: 'button-custom'
-                            }
-            ]
+            }
+        ]
     });
+
     alertPopup.then(function (res) {
         console.log('no place');
     });
 };
-
-
-
 
 function handleNoGeolocation(errorFlag) {
     if (errorFlag) {
@@ -116,4 +124,4 @@ function handleNoGeolocation(errorFlag) {
 
     var infowindow = new google.maps.InfoWindow(options);
     map.setCenter(options.position);
-}
+};

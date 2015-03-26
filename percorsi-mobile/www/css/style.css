@@ -121,25 +121,37 @@ body {
     font-weight: bold;
 }
 
-#paths .path-numbers {
-    position: absolute;
-    bottom: -8px;
-}
-
-#paths .path-numbers div {
+.path-numbers div {
     display: inline-block;
 }
 
-#paths .path-numbers div:not(:first-child) {
+.path-numbers div:not(:first-child) {
     padding: 1em;
 }
 
-#paths .path-numbers i {
+.path-numbers i {
     font-size: 2em;
 }
 
-#paths .path-numbers span {
+.path-numbers span {
     color: #009688;
+}
+
+.path-numbers .path-difficulty.d1 i {
+    color: green;
+}
+
+.path-numbers .path-difficulty.d2 i {
+    color: orange;
+}
+
+.path-numbers .path-difficulty.d3 i {
+    color: red;
+}
+
+#paths .path-numbers {
+    position: absolute;
+    bottom: -8px;
 }
 
 #pathdetails-info .slide-box-container {

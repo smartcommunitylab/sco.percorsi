@@ -16,7 +16,20 @@
         <div class="padding content">
             <h4>{{path.title | translate_remote}}</h4>
             <p>{{path.description | translate_remote}}</p>
-            <div>{{path.length}} {{path.time}} {{path.difficulty}}</div>
+            <div class="path-numbers">
+                <div class="path-length">
+                    <i class="icon ion-location"></i>
+                    <span>{{m2km(path.length)}} km</span>
+                </div>
+                <div class="path-time">
+                    <i class="icon ion-clock"></i>
+                    <span>{{min2time(path.time)}}</span>
+                </div>
+                <div class="path-difficulty" ng-class="{'d1': path.difficulty == 1, 'd2': path.difficulty == 2, 'd3': path.difficulty == 3}">
+                    <i class="icon ion-record"></i>
+                    <span>{{('path_difficulty_' + path.difficulty) | translate}}</span>
+                </div>
+            </div>
         </div>
     </ion-content>
 </ion-view>
