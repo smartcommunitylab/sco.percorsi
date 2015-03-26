@@ -1,23 +1,25 @@
 angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
 
-.controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, leafletData, $filter, mapConversionService) {
+.controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, leafletData, $filter, mapConversionService, singlePoiService) {
     $scope.path = singlePathService.getSelectedPath();
     var markers = [];
     for (i = 0; i < $scope.path.pois.length; i++) {
         markers.push({
             lat: $scope.path.pois[i].coordinates.lat,
             lng: $scope.path.pois[i].coordinates.lng,
-            message: '<div ng-controller="MapCtrl">' +
+            message: '<div ng-controller="PathDetailMapCtrl">' +
                 '<div><label><strong> <i>' + $filter('translate_remote')($scope.path.pois[i].title) + '</i></strong></label></div>' +
-                '<div><label><i class="icon ion-location" style="font-size:25px;"></i> ' + $scope.path.pois[i].title + '</i></label></div>' +
+                //                '<div><label><i class="icon ion-location" style="font-size:25px;"></i> ' + $scope.path.pois[i].title + '</i></label></div>' +
                 '<div align="center" style="white-space:nowrap;" ><button class="button button-custom" ng-click="closeWin()" style="width:49%">Cancel</button>' +
-                '<button class="button button-custom" ng-click="detail(\'#/app/archiviodetail/' + $scope.path.pois[i].id + '\')" style="width:49%">Detail</button>' +
+                '<button class="button button-custom" ng-click="detail(' +
+                i +
+                ')" style="width:49%">Detail</button>' +
                 '</div></form>' +
                 '</div>',
             icon: {
                 type: 'div',
                 iconSize: [25, 80],
-                html: '<img src="./img/marker_hole.png" height="41" width="25">' + i,
+                html: '<p style="position:absolute;top:5px;left:10px">' + i + ' </p><img src="./img/marker_hole.png" height="41" width="25">',
                 popupAnchor: [0, 0]
             }
         });
@@ -28,10 +30,19 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             color: 'black',
             weight: 8,
             latlngs: mapConversionService.decode($scope.path.shape),
-            message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
+            //            message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
         }
     };
+    $scope.detail = function (poiIndex) {
+        singlePoiService.setSelectedPoi($scope.path.pois[poiIndex]);
+        window.location.assign('#/app/poidetail');
+    }
 
+    $scope.closeWin = function () {
+        leafletData.getMap().then(function (map) {
+            map.closePopup();
+        });
+    }
     angular.extend($scope, {
         tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
         center: {
