@@ -9,9 +9,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             lng: $scope.path.pois[i].coordinates.lng,
             message: '<div ng-controller="PathDetailMapCtrl">' +
                 '<div><label><strong> <i>' + $filter('translate_remote')($scope.path.pois[i].title) + '</i></strong></label></div>' +
-                //                '<div><label><i class="icon ion-location" style="font-size:25px;"></i> ' + $scope.path.pois[i].title + '</i></label></div>' +
-                '<div align="center" style="white-space:nowrap;" ><button class="button button-custom" ng-click="closeWin()" style="width:49%">Cancel</button>' +
-                '<button class="button button-custom" ng-click="detail(' +
+                '<div><label>' + $filter('translate_remote')($scope.path.pois[i].description) + '</i></label></div>' +
+                '<div align="center" style="white-space:nowrap;" ><button class="button button-percorsi" ng-click="closeWin()" style="width:49%">Cancel</button>' +
+                '<button class="button button-percorsi" ng-click="detail(' +
                 i +
                 ')" style="width:49%">Detail</button>' +
                 '</div></form>' +

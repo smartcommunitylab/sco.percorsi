@@ -221,7 +221,9 @@ angular.module('roveretoPercorsi', [
         credits_app: 'Rovereto Percorsi',
         credits_project: 'Un progetto di:',
         credits_sponsored: 'Con la collaborazione di:',
-        credits_info: 'Per informazioni:'
+        credits_info: 'Per informazioni:',
+        pathdetailmap_startpath: 'AVVIA ITINERIARIO',
+
     });
 
     $translateProvider.translations('en', {
@@ -241,7 +243,9 @@ angular.module('roveretoPercorsi', [
         credits_app: 'Rovereto Paths',
         credits_project: 'A project by:',
         credits_sponsored: 'In collaboration with:',
-        credits_info: 'Further information:'
+        credits_info: 'Further information:',
+        pathdetailmap_startpath: 'START PATH'
+
     });
 
     $translateProvider.translations('de', {
@@ -261,7 +265,9 @@ angular.module('roveretoPercorsi', [
         credits_app: 'Rovereto Paths',
         credits_project: 'Ein projekt:',
         credits_sponsored: 'In Zusammenarbeit mit der:',
-        credits_info: 'Informationen:'
+        credits_info: 'Informationen:',
+        pathdetailmap_startpath: 'START REISEPLAN'
+
     });
 
     $translateProvider.preferredLanguage("en");
