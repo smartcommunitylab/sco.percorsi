@@ -18,8 +18,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
                 '</div>',
             icon: {
                 type: 'div',
-                iconSize: [25, 80],
-                html: '<p style="position:absolute;top:5px;left:10px">' + i + ' </p><img src="./img/marker_hole.png" height="41" width="25">',
+                iconSize: [32, 32],
+                html: '<p style="position:absolute;top:8px;left:12px">' + i + ' </p><img src="./img/marker_hole.png" height="32" width="32">',
                 popupAnchor: [0, 0]
             }
         });

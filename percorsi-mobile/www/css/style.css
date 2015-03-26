@@ -197,3 +197,44 @@ body {
     width: 25px;
     text-align: center;
 }
+
+.voteValues {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 90px;
+}
+
+.votePopup {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 90px;
+}
+
+.icon-vote {
+    font-size: 90px;
+    vertical-align: middle;
+}
+
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+
+ul.rating {
+    display: inline-block;
+    text-align: center;
+}
+
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rating .filled {
+    color: black;
+}
