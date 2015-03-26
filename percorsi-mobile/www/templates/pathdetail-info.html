@@ -4,7 +4,10 @@
             <ion-slide-box does-continue="true" auto-play="true">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <ion-slide ng-repeat="image in path.images">
-                    <img ng-src="{{image}}" />
+                    <div cover-img="{{image}}"></div>
+                </ion-slide>
+                <ion-slide ng-repeat="video in path.videos">
+                    <div class="video" cover-img="{{youtubeEmbed(video)}}"></div>
                 </ion-slide>
             </ion-slide-box>
             <button class="button button-percorsi button-fab" ng-click="badabum()">
@@ -18,18 +21,30 @@
             <p>{{path.description | translate_remote}}</p>
             <div class="path-numbers">
                 <div class="path-length">
-                    <i class="icon ion-location"></i>
+                    <!--<i class="icon ion-location"></i>-->
+                    <i class="icon sco-distance-h-pois"></i>
                     <span>{{m2km(path.length)}} km</span>
                 </div>
                 <div class="path-time">
-                    <i class="icon ion-clock"></i>
+                    <i class="icon ion-android-time"></i>
                     <span>{{min2time(path.time)}}</span>
                 </div>
                 <div class="path-difficulty" ng-class="{'d1': path.difficulty == 1, 'd2': path.difficulty == 2, 'd3': path.difficulty == 3}">
                     <i class="icon ion-record"></i>
                     <span>{{('path_difficulty_' + path.difficulty) | translate}}</span>
                 </div>
+                <div class="path-time">
+                    <i class="icon ion-ios-star"></i>
+                    <span>{{path.vote}}</span>
+                </div>
             </div>
+            <div class="buttons padding-vertical">
+                <button class="button button-percorsi">Ascolta traccia audio</button>
+            </div>
+        </div>
+        <div class="padding-horizontal itinerary">
+            <h5>{{'path_itinerary' | translate}}</h5>
+
         </div>
     </ion-content>
 </ion-view>

@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'sco';
+	src:url('fonts/sco.eot?e00bsc');
+	src:url('fonts/sco.eot?#iefixe00bsc') format('embedded-opentype'),
+		url('fonts/sco.woff?e00bsc') format('woff'),
+		url('fonts/sco.ttf?e00bsc') format('truetype'),
+		url('fonts/sco.svg?e00bsc#sco') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="sco-"], [class*=" sco-"] {
+	font-family: 'sco';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.sco-distance-h-pois:before {
+	content: "\e602";
+}
+
+.sco-distance-h:before {
+	content: "\e603";
+}
+
+.sco-distance-v-pois:before {
+	content: "\e604";
+}
+
+.sco-distance-h-outline:before {
+	content: "\e600";
+}
+
+.sco-distance-v-outline:before {
+	content: "\e601";
+}
+

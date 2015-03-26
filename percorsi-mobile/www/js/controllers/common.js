@@ -72,6 +72,16 @@ angular.module('roveretoPercorsi.controllers.common', [])
     $scope.min2time = function (min) {
         return Math.floor(min / 60) + ':' + min % 60;
     }
+
+    $scope.youtubeEmbed = function (url) {
+        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        if (match && match[7].length == 11) {
+            /*return 'http://img.youtube.com/vi/' + match[7] + '/0.jpg';*/
+            return 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
+            /*return 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';*/
+        }
+    }
 });
 
 

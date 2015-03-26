@@ -9,4 +9,15 @@ angular.module('roveretoPercorsi.directives', [])
             'background-size': 'cover'
         });
     };
+})
+
+.directive('coverImg', function(){
+    return function(scope, element, attrs){
+        attrs.$observe('coverImg', function(value) {
+            element.css({
+                'background-image': 'url(' + value +')',
+                'background-size' : 'cover'
+            });
+        });
+    };
 });
