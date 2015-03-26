@@ -179,11 +179,15 @@ body {
 
 #pathdetails-info .slide-box-container ion-slide div[cover-img] {
     height: 180px;
+    line-height: 180px;
     background-position: center;
+    text-align: center;
 }
 
-#pathdetails-info .slide-box-container ion-slide div[cover-img].video {
-    /*TODO*/
+#pathdetails-info .slide-box-container ion-slide div[cover-img] i {
+    color: #fff;
+    opacity: 0.5;
+    font-size: 5em;
 }
 
 #pathdetails-info .slide-box-container .button-fab {

@@ -7,7 +7,9 @@
                     <div cover-img="{{image}}"></div>
                 </ion-slide>
                 <ion-slide ng-repeat="video in path.videos">
-                    <div class="video" cover-img="{{youtubeEmbed(video)}}"></div>
+                    <div class="video" cover-img="{{youtubeEmbed(video)}}">
+                        <i class="icon ion-play"></i>
+                    </div>
                 </ion-slide>
             </ion-slide-box>
             <button class="button button-percorsi button-fab" ng-click="badabum()">
@@ -21,7 +23,6 @@
             <p>{{path.description | translate_remote}}</p>
             <div class="path-numbers">
                 <div class="path-length">
-                    <!--<i class="icon ion-location"></i>-->
                     <i class="icon sco-distance-h-pois"></i>
                     <span>{{m2km(path.length)}} km</span>
                 </div>
