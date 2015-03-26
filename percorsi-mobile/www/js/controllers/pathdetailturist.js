@@ -7,7 +7,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.path = singlePathService.getSelectedPath();
     $scope.rating = 0;
     $scope.ratings = [{
-        current: $scope.path.vote,
+        current: 3,
         max: 5
     }];
 
@@ -53,7 +53,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.showVote = function (name) {
         var confirmPopup = $ionicPopup.confirm({
             title: $filter('translate')("pathdetailturist_voteinfo"),
-            template: '<div><span ng-repeat="rating in ratings"><div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div></span></div>',
+            //            template: '<div><span ng-repeat="rating in ratings"><div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div></span></div>',
+            templateUrl: 'templates/vote-popup.html',
             scope: $scope,
             buttons: [
                 {
@@ -64,16 +65,11 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                 {
                     text: $filter('translate')("newreview_popup_ok"),
                     type: 'button-percorsi',
-                    onTap: function (res) {
-                        if (res) {
-                            segnalaService.setPosition(segnalaService.getPosition()[0], segnalaService.getPosition()[1]);
-                            segnalaService.setName(name);
-                            //                    window.history.back();
-                            window.location.assign('#/app/segnala/' + name);
-                            $ionicHistory.nextViewOptions({
-                                disableAnimate: true,
-                                disableBack: true
-                            });
+                    onTap: function (e) {
+                        if (!$scope.ratings[0].current) {
+                            e.preventDefault();
+                        } else {
+                            return $scope.ratings[0].current;
                         }
                     }
                     }
@@ -82,11 +78,14 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
     }
     $scope.showReview = function (name) {
-        $scope.review = "";
+        $scope.review = {
+            text: ""
+        };
 
         var confirmPopup = $ionicPopup.confirm({
             title: $filter('translate')("newreview_popup_title"),
-            template: '<input type="text" ng-model="review">',
+            //            template: '<input type="text" ng-model="review.text">',
+            templateUrl: 'templates/review-popup.html',
             scope: $scope,
             buttons: [
                 {
@@ -98,7 +97,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                     type: ' button-percorsi',
                     onTap: function (e) {
                         if (!$scope.review) {
-                            //don't allow the user to close unless he enters wifi password
                             e.preventDefault();
                         } else {
                             return $scope.review;

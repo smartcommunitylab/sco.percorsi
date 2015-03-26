@@ -47,6 +47,10 @@ body {
     color: #fff;
 }
 
+.button.button-percorsi.button-popup {
+    width: 40%;
+}
+
 .button.button-percorsi.button-start {
     position: relative;
     bottom: 80px;
