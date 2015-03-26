@@ -1,6 +1,25 @@
-<ion-view title="{{'pathdetailturist_title' | translate}}">
+<ion-view title="{{path.title | translate_remote}}">
     <ion-content class="has-header padding">
-        {{'pathdetailturist_vote' | translate}} {{path.vote }}
+        <div class="voteValues">
+            <i class="icon ion-android-star icon-vote"></i> {{path.vote }}
+        </div>
+
+        <div class="votePopup">
+            <button class="button  button-percorsi " ng-click="showVote()">
+                {{'pathdetailturist_vote' | translate}}
+            </button>
+            <button class="button  button-percorsi" ng-click="showReview()">
+                {{'pathdetailturist_review' | translate}}
+            </button>
+        </div>
+<!--
+<div>
+    {{'pathdetailturist_voteinfo' | translate}}
+    <span ng-repeat="rating in ratings">
+        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+        </span>
+</div>
+-->
         <div class="card" ng-if="emptylist">
             <div class="item item-text-wrap">
                 {{archive_empty_list | translate}}

@@ -221,7 +221,15 @@ angular.module('roveretoPercorsi', [
         credits_app: 'Rovereto Percorsi',
         credits_project: 'Un progetto di:',
         credits_sponsored: 'Con la collaborazione di:',
-        credits_info: 'Per informazioni:'
+        credits_info: 'Per informazioni:',
+        pathdetailmap_startpath: 'AVVIA ITINERIARIO',
+        pathdetailturist_vote: 'Vota',
+        pathdetailturist_review: 'Recensisci',
+        pathdetailturist_voteinfo: 'Vota il percorso',
+        newreview_popup_title: 'Aggiungi la tua recensione',
+        newreview_popup_cancel: 'Chiudi',
+        newreview_popup_ok: 'Conferma'
+
     });
 
     $translateProvider.translations('en', {
@@ -241,7 +249,15 @@ angular.module('roveretoPercorsi', [
         credits_app: 'Rovereto Paths',
         credits_project: 'A project by:',
         credits_sponsored: 'In collaboration with:',
-        credits_info: 'Further information:'
+        credits_info: 'Further information:',
+        pathdetailmap_startpath: 'START PATH',
+        pathdetailturist_vote: 'Vote',
+        pathdetailturist_review: 'Add a review',
+        pathdetailturist_voteinfo: 'Vote the path',
+        newreview_popup_title: 'Add your review',
+        newreview_popup_cancel: 'Close',
+        newreview_popup_ok: 'Confirm'
+
     });
 
     $translateProvider.translations('de', {
@@ -261,7 +277,15 @@ angular.module('roveretoPercorsi', [
         credits_app: 'Rovereto Paths',
         credits_project: 'Ein projekt:',
         credits_sponsored: 'In Zusammenarbeit mit der:',
-        credits_info: 'Informationen:'
+        credits_info: 'Informationen:',
+        pathdetailmap_startpath: 'START REISEPLAN',
+        pathdetailturist_vote: 'Bewerten',
+        pathdetailturist_review: 'Rezension',
+        pathdetailturist_voteinfo: 'Vote the path',
+        newreview_popup_title: 'Kommentar abgeben',
+        newreview_popup_cancel: 'Aussteigen',
+        newreview_popup_ok: 'Bestätigung'
+
     });
 
     $translateProvider.preferredLanguage("en");
