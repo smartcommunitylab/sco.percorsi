@@ -1,6 +1,6 @@
 <ion-view id="pathdetails-info" title="{{path.title | translate_remote}}">
     <ion-content class="has-header">
-        <div class="slider-container">
+        <div class="slide-box-container">
             <ion-slide-box does-continue="true" auto-play="true">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <ion-slide ng-repeat="image in path.images">
@@ -8,11 +8,15 @@
                 </ion-slide>
             </ion-slide-box>
             <button class="button button-percorsi button-fab" ng-click="badabum()">
-                <div class="height_fix">
-                    <span class="content"><i class="icon ion-plus"></i></span>
+                <div>
+                    <span><i class="icon ion-plus"></i></span>
                 </div>
             </button>
         </div>
-        <div class="padding">{{path.title | translate_remote}} {{path.description | translate_remote}} {{path.length}} {{path.time}} {{path.difficulty}}</div>
+        <div class="padding content">
+            <h4>{{path.title | translate_remote}}</h4>
+            <p>{{path.description | translate_remote}}</p>
+            <div>{{path.length}} {{path.time}} {{path.difficulty}}</div>
+        </div>
     </ion-content>
 </ion-view>
