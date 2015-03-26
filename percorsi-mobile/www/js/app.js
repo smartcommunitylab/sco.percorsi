@@ -20,11 +20,13 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.pathdetailinfo',
     'roveretoPercorsi.controllers.pathdetailmap',
     'roveretoPercorsi.controllers.pathdetailturist',
+    'roveretoPercorsi.controllers.poidetail',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
     'roveretoPercorsi.services.listPathsService',
     'roveretoPercorsi.services.singlePathService',
+    'roveretoPercorsi.services.singlePoiService',
     'roveretoPercorsi.services.reviews'
 ])
 
@@ -175,55 +177,17 @@ angular.module('roveretoPercorsi', [
         }
     })
 
-    //        .state('app.pathdetail', {
-    //            cache: false,
-    //
-    //            url: '/pathdetail/:id',
-    //            abstract: false,
-    //            views: {
-    //                'menuContent': {
-    //                    templateUrl: "templates/pathdetail.html",
-    //                    controller: 'PathDetailInfoCtrl'
-    //
-    //                }
-    //            }
-    //        })
-    //
-    //    // Each tab has its own nav history stack:
-    //
-    //    .state('app.pathdetail.info', {
-    //        cache: false,
-    //
-    //        url: '/info/:id',
-    //        views: {
-    //            'app-pathdetail-info': {
-    //                templateUrl: 'templates/pathdetail-info.html',
-    //                controller: 'PathDetailInfoCtrl'
-    //            }
-    //        }
-    //    })
-    //
-    //    .state('app.pathdetail.map', {
-    //            cache: false,
-    //
-    //            url: '/map/:id',
-    //            views: {
-    //                'app-pathdetail-map': {
-    //                    templateUrl: 'templates/pathdetail-map.html',
-    //                    controller: 'PathDetailMapCtrl'
-    //                }
-    //            }
-    //        })
-    //        .state('app.pathdetail.turist', {
-    //            cache: false,
-    //            url: '/turist/:id',
-    //            views: {
-    //                'app-pathdetail-turist': {
-    //                    templateUrl: 'templates/pathdetail-turist.html',
-    //                    controller: 'PathDetailTuristCtrl'
-    //                }
-    //            }
-    //        })
+    .state('app.poidetail', {
+        cache: false,
+        url: '/poidetail',
+        abstract: false,
+        views: {
+            'menuContent': {
+                templateUrl: "templates/poidetail.html",
+                controller: 'PoiDetailCtrl'
+            }
+        }
+    })
 
     .state('app.profile', {
         cache: false,

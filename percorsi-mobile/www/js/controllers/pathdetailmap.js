@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
 
-.controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, leafletData, $filter, mapConversionService) {
+.controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, leafletData, $filter, mapConversionService, singlePoiService) {
     $scope.path = singlePathService.getSelectedPath();
     var markers = [];
     for (i = 0; i < $scope.path.pois.length; i++) {
@@ -11,7 +11,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
                 '<div><label><strong> <i>' + $filter('translate_remote')($scope.path.pois[i].title) + '</i></strong></label></div>' +
                 //                '<div><label><i class="icon ion-location" style="font-size:25px;"></i> ' + $scope.path.pois[i].title + '</i></label></div>' +
                 '<div align="center" style="white-space:nowrap;" ><button class="button button-custom" ng-click="closeWin()" style="width:49%">Cancel</button>' +
-                '<button class="button button-custom" ng-click="detail(\'#/app/poidetail/' + $scope.path.pois[i].id + '\')" style="width:49%">Detail</button>' +
+                '<button class="button button-custom" ng-click="detail(' +
+                i +
+                ')" style="width:49%">Detail</button>' +
                 '</div></form>' +
                 '</div>',
             icon: {
@@ -31,8 +33,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             //            message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
         }
     };
-    $scope.detail = function (view) {
-        window.location.assign(view);
+    $scope.detail = function (poiIndex) {
+        singlePoiService.setSelectedPoi($scope.path.pois[poiIndex]);
+        window.location.assign('#/app/poidetail');
     }
 
     $scope.closeWin = function () {
