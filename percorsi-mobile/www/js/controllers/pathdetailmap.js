@@ -46,10 +46,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
     angular.extend($scope, {
         tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
         center: {
-            lat: 45.890931,
-            lng: 11.041126,
-            zoom: 12
-        },
+            lat: $scope.path.pois[0].coordinates.lat,
+            lng: $scope.path.pois[0].coordinates.lng,
+            zoom: 14        },
         markers: $scope.pathMarkers,
         events: {},
         pathLine: $scope.pathLine
