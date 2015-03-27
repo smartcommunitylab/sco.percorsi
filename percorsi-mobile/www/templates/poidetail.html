@@ -1,5 +1,76 @@
+<!--<ion-view title="{{'archivedetail_title' | translate}}">-->
+<!--    <ion-content class="has-header">-->
+<!-- Setting default background color to one of the two colors of our slides in order to hide the fact that vary fast sliding will momentarily show white regions -->
+<!--        <ion-slide-box style="height:100%; background:#8080c5;" on-slide-changed="slideChanged($index)" active-slide="selectedSlide" does-continue="true" show-pager="false">-->
+
+<!--        <ion-slide ng-repeat="slide in slides">-->
+<!--            <div ng-style="{background:slide.color}">-->
+<!--
+        <div class="slide-box-container">
+            <ion-slide-box does-continue="true" auto-play="true" preventDrag>
+                <ion-slide ng-repeat="image in poi.images">
+                    <div cover-img="{{image}}"></div>
+                </ion-slide>
+                <ion-slide ng-repeat="video in poi.videos">
+                    <div class="video" cover-img="{{youtubeEmbed(video)}}" ng-click="window.open('{{video}}', '_system');">
+                        <i class="icon ion-play"></i>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+            <button class="button button-percorsi button-fab" ng-click="badabum()">
+                <div>
+                    <span><i class="icon ion-plus"></i></span>
+                </div>
+            </button>
+        </div>
+-->
+<!--            </div>-->
+<!--        </ion-slide>-->
+
+<!--        </ion-slide-box>-->
+<!--
+        </ion-content>
+</ion-view>
+-->
 <ion-view title="{{'archivedetail_title' | translate}}">
-    <ion-content has-header="true" has-footer="true" padding="true">
-        {{poi.title| translate_remote}}
+
+    <ion-content class="has-header">
+        <div class="navigation-button">
+            <button class="button button-percorsi" ng-click="badabum()">
+                prev
+            </button>
+            <button class="button button-percorsi" ng-click="badabum()">
+                next
+            </button>
+        </div>
+        <div class="slide-box-container">
+            <ion-slide-box does-continue="true" auto-play="true">
+                <!--on-slide-changed="slideHasChanged($index)"-->
+                <ion-slide ng-repeat="image in poi.images">
+                    <div cover-img="{{image}}"></div>
+                </ion-slide>
+                <ion-slide ng-repeat="video in poi.videos">
+                    <div class="video" cover-img="{{youtubeEmbed(video)}}" ng-click="window.open('{{video}}', '_system');">
+                        <i class="icon ion-play"></i>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+            <button class="button button-percorsi button-fab" ng-click="badabum()">
+                <div>
+                    <span><i class="icon ion-plus"></i></span>
+                </div>
+            </button>
+        </div>
+        <div class="padding content">
+            <h3>{{poi.title | translate_remote}}</h3>
+            <p>{{poi.description | translate_remote}}</p>
+
+            <div class="buttons padding-vertical">
+                <button class="button button-percorsi">Ascolta traccia audio</button>
+            </div>
+            <div class="buttons padding-vertical">
+                <button class="button button-percorsi">Mappa</button>
+            </div>
+        </div>
     </ion-content>
 </ion-view>
