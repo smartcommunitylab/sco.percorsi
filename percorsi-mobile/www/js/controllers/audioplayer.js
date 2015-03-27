@@ -2,17 +2,17 @@ angular.module('roveretoPercorsi.controllers.audioplayer', [])
 
 .controller('AudioPlayerCtrl', function ($scope, $http, singlePathService) {
     $scope.audios = [];
+    $scope.audio = null;
+    $scope.audioTrack = 0;
+    $scope.audioIsPlaying = false;
 
     $scope.setAudios = function (audios) {
         $scope.audios = audios;
+
+        if (!!$scope.audios && $scope.audios.length > 0) {
+            $scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
+        }
     };
-
-    $scope.audioTrack = 0;
-
-    if (!!$scope.audios && $scope.audios.length > 0) {
-        $scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
-    }
-    $scope.audioIsPlaying = false;
 
     var audioPlay = function () {
         if (!!!$scope.audio) {
