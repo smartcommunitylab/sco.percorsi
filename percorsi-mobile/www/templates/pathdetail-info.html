@@ -39,7 +39,7 @@
                     <span>{{path.vote}}</span>
                 </div>
             </div>
-            <div class="audio-player">
+            <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(path.audios)" class="audio-player">
                 <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
                     <i class="icon ion-skip-backward"></i>
                 </button>

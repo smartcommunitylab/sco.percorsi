@@ -13,6 +13,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.filters',
     'roveretoPercorsi.directives',
     'roveretoPercorsi.controllers.common',
+    'roveretoPercorsi.controllers.audioplayer',
     'roveretoPercorsi.controllers.categories',
     'roveretoPercorsi.controllers.profile',
     'roveretoPercorsi.controllers.paths',
