@@ -1,9 +1,13 @@
 <ion-view title="{{path.title | translate_remote}}">
     <ion-content class="has-header padding">
         <div class="voteValues">
-            <i class="icon ion-android-star icon-vote"></i> {{path.vote }}
+            <b> {{path.vote}}</b>
         </div>
-
+        <div class="voteValues">
+            <i ng-repeat="i in getFillStar(path.vote) track by $index" class="icon ion-android-star icon-vote"></i>
+            <i ng-repeat="i in getHalfStar( path.vote) track by $index" class="icon ion-android-star-half icon-vote"></i>
+            <i ng-repeat="i in getEmptyStar(path.vote) track by $index" class="icon ion-android-star-outline icon-vote"></i>
+        </div>
         <div class="votePopup">
             <button class="button  button-percorsi button-popup" ng-click="showVote()">
                 {{'pathdetailturist_vote' | translate}}

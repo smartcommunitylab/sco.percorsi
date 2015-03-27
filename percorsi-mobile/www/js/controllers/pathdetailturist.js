@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
-.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $filter, singlePathService, reviewsService) {
+.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $filter, Toast, singlePathService, reviewsService) {
     $scope.reviews = {};
     $scope.path = {};
 
@@ -10,7 +10,18 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         current: 3,
         max: 5
     }];
-
+    $scope.getFillStar = function (num) {
+        var star = Math.floor(num);
+        return new Array(star);
+    }
+    $scope.getHalfStar = function (num) {
+        var star = Math.ceil((num % 1).toFixed(4));
+        return new Array(star);
+    }
+    $scope.getEmptyStar = function (num) {
+        var star = Math.floor(($scope.ratings[0].max) - num);
+        return new Array(star);
+    }
     $scope.getSelectedRating = function (rating) {
         console.log(rating);
     }
@@ -77,6 +88,11 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         });
 
     }
+    $scope.sendReview = function (review) {
+
+        Toast.show($filter('translate')("signal_send_toast_ok"), "short", "bottom");
+
+    }
     $scope.showReview = function (name) {
         $scope.review = {
             text: ""
@@ -99,7 +115,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                         if (!$scope.review) {
                             e.preventDefault();
                         } else {
-                            return $scope.review;
+                            //                            return $scope.review;
+                            $scope.sendReview($scope.review);
                         }
                     }
                 }
