@@ -4,10 +4,10 @@
             <ion-slide-box does-continue="true" auto-play="true">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <ion-slide ng-repeat="image in path.images">
-                    <div cover-img="{{image}}"></div>
+                    <div cover-img="{{image.url}}"></div>
                 </ion-slide>
                 <ion-slide ng-repeat="video in path.videos">
-                    <div class="video" cover-img="{{youtubeEmbed(video)}}" ng-click="window.open('{{video}}', '_system');">
+                    <div class="video" cover-img="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');">
                         <i class="icon ion-play"></i>
                     </div>
                 </ion-slide>
@@ -39,8 +39,17 @@
                     <span>{{path.vote}}</span>
                 </div>
             </div>
-            <div class="buttons padding-vertical">
-                <button class="button button-percorsi">Ascolta traccia audio</button>
+            <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(path.audios)" class="audio-player">
+                <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
+                    <i class="icon ion-skip-backward"></i>
+                </button>
+                <button class="button button-percorsi button-clear button-icon button-play" ng-click="audioToggle()">
+                    <i class="icon" ng-class="{'ion-play': !audioIsPlaying, 'ion-pause': !!audioIsPlaying}"></i>
+                </button>
+                <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()">
+                    <i class="icon ion-skip-forward"></i>
+                </button>
+                <div class="title">[{{audioTrack + 1}}/{{path.audios.length}}] {{path.audios[audioTrack].title | translate_remote}}</div>
             </div>
         </div>
         <div class="itinerary padding-horizontal padding-bottom">
