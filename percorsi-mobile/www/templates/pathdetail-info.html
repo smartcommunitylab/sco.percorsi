@@ -7,7 +7,7 @@
                     <div cover-img="{{image}}"></div>
                 </ion-slide>
                 <ion-slide ng-repeat="video in path.videos">
-                    <div class="video" cover-img="{{youtubeEmbed(video)}}">
+                    <div class="video" cover-img="{{youtubeEmbed(video)}}" ng-click="window.open('{{video}}', '_system');">
                         <i class="icon ion-play"></i>
                     </div>
                 </ion-slide>
@@ -19,7 +19,7 @@
             </button>
         </div>
         <div class="padding content">
-            <h4>{{path.title | translate_remote}}</h4>
+            <h3>{{path.title | translate_remote}}</h3>
             <p>{{path.description | translate_remote}}</p>
             <div class="path-numbers">
                 <div class="path-length">
@@ -35,7 +35,7 @@
                     <span>{{('path_difficulty_' + path.difficulty) | translate}}</span>
                 </div>
                 <div class="path-time">
-                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-android-star"></i>
                     <span>{{path.vote}}</span>
                 </div>
             </div>
@@ -43,9 +43,11 @@
                 <button class="button button-percorsi">Ascolta traccia audio</button>
             </div>
         </div>
-        <div class="padding-horizontal itinerary">
-            <h5>{{'path_itinerary' | translate}}</h5>
-
+        <div class="itinerary padding-horizontal padding-bottom">
+            <h4>{{'path_itinerary' | translate}}</h4>
+            <ul>
+                <li ng-repeat="poi in path.pois"><span class="number">{{$index + 1}}</span> {{poi.title | translate_remote}}</li>
+            </ul>
         </div>
     </ion-content>
 </ion-view>

@@ -80,8 +80,16 @@ angular.module('roveretoPercorsi.controllers.common', [])
             /*return 'http://img.youtube.com/vi/' + match[7] + '/0.jpg';*/
             return 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
             /*return 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';*/
+        } else {
+            return null;
         }
     }
+
+    $scope.window = {
+        open: function (url, target) {
+            window.open(url, target);
+        }
+    };
 });
 
 
