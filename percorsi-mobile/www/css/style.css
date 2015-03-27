@@ -47,6 +47,12 @@ body {
     color: #fff;
 }
 
+.button.button-percorsi.button-clear {
+    border: none;
+    background: none;
+    color: #009688;
+}
+
 .button.button-percorsi.button-popup {
     width: 40%;
 }
@@ -137,7 +143,7 @@ body {
 }
 
 .path-numbers div:not(:first-child) {
-    padding-left: 16px;
+    padding-left: 8px;
     /*1em;*/
 }
 
@@ -167,17 +173,17 @@ body {
     bottom: 8px;
 }
 
-#pathdetails-info .slide-box-container {
+.slide-box-container {
     position: relative;
 }
 
-#pathdetails-info .slide-box-container ion-slide {
+.slide-box-container ion-slide {
     width: 100%;
     height: 180px;
     overflow: hidden;
 }
 
-#pathdetails-info .slide-box-container ion-slide div[cover-img] {
+.slide-box-container ion-slide div[cover-img] {
     height: 180px;
     line-height: 180px;
     background-color: #000;
@@ -185,13 +191,13 @@ body {
     text-align: center;
 }
 
-#pathdetails-info .slide-box-container ion-slide div[cover-img] i {
+.slide-box-container ion-slide div[cover-img] i {
     color: #fff;
     opacity: 0.5;
     font-size: 5em;
 }
 
-#pathdetails-info .slide-box-container .button-fab {
+.slide-box-container .button-fab {
     position: absolute;
     bottom: -32px;
     right: 16px;
@@ -201,9 +207,25 @@ body {
     margin-top: 32px;
 }
 
-#pathdetails-info .content .buttons {
-    text-align: center;
+#pathdetails-info .content .audio-player {
+    position: relative;
+    margin-top: 1em;
+    border-top: 1px solid #9e9e9e;
     border-bottom: 1px solid #9e9e9e;
+}
+
+#pathdetails-info .content .audio-player .button-play {
+    width: 40px;
+}
+
+#pathdetails-info .content .audio-player .title {
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    margin-left: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #pathdetails-info .itinerary li:not(:first-child) {
