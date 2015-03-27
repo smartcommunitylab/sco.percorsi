@@ -229,7 +229,9 @@ angular.module('roveretoPercorsi', [
         pathdetailturist_voteinfo: 'Vota il percorso',
         newreview_popup_title: 'Aggiungi la tua recensione',
         newreview_popup_cancel: 'Chiudi',
-        newreview_popup_ok: 'Conferma'
+        newreview_popup_ok: 'Conferma',
+        vote_sent_toast_ok: 'Voto registrato',
+        review_sent_toast_ok: 'Recensione inviata'
 
     });
 
@@ -258,7 +260,9 @@ angular.module('roveretoPercorsi', [
         pathdetailturist_voteinfo: 'Vote the path',
         newreview_popup_title: 'Add your review',
         newreview_popup_cancel: 'Close',
-        newreview_popup_ok: 'Confirm'
+        newreview_popup_ok: 'Confirm',
+        vote_sent_toast_ok: 'Vote registered',
+        review_sent_toast_ok: 'Review sent'
 
     });
 
@@ -287,7 +291,9 @@ angular.module('roveretoPercorsi', [
         pathdetailturist_voteinfo: 'Vote the path',
         newreview_popup_title: 'Kommentar abgeben',
         newreview_popup_cancel: 'Aussteigen',
-        newreview_popup_ok: 'Bestätigung'
+        newreview_popup_ok: 'Bestätigung',
+        vote_sent_toast_ok: 'Vote registered',
+        review_sent_toast_ok: 'Review sent'
 
     });
 
