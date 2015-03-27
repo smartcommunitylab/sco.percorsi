@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.services.reviews', [])
 
-.factory('reviewsService', function ($http, $q) {
+.factory('reviewsService', function ($http, $q, Config) {
     var reviews = null;
     var counter = '10';
 
@@ -26,5 +26,47 @@ angular.module('roveretoPercorsi.services.reviews', [])
         /*temp*/
     }
 
+    reviewsService.sendVote = function (vote) {
+        /*temp*/
+        return $http({
+            method: 'POST',
+            url: Config.URL() + '/' + Config.provider() + '/services/' + Config.service() + '/user/issues',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+
+            },
+            data: vote
+        }).
+        success(function (data, status, headers, config) {
+
+        }).
+        error(function (data, status, headers, config) {
+
+
+        });
+        /*temp*/
+    }
+    reviewsService.sendReview = function (review) {
+        /*temp*/
+        return $http({
+            method: 'POST',
+            url: Config.URL() + '/' + Config.provider() + '/services/' + Config.service() + '/user/issues',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+
+            },
+            data: review
+        }).
+        success(function (data, status, headers, config) {
+
+        }).
+        error(function (data, status, headers, config) {
+
+
+        });
+        /*temp*/
+    }
     return reviewsService;
 })

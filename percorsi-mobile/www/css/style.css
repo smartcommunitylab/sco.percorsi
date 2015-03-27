@@ -47,6 +47,10 @@ body {
     color: #fff;
 }
 
+.button.button-percorsi.button-popup {
+    width: 40%;
+}
+
 .button.button-percorsi.button-start {
     position: relative;
     bottom: 80px;
@@ -234,9 +238,10 @@ body {
 }
 
 .voteValues {
+    margin: 8px;
     text-align: center;
     vertical-align: middle;
-    font-size: 90px;
+    font-size: 45px;
 }
 
 .votePopup {
@@ -246,14 +251,20 @@ body {
 }
 
 .icon-vote {
-    font-size: 90px;
+    font-size: 60px;
     vertical-align: middle;
+    color: #b2dfdb;
 }
 
 .rating {
     color: #a9a9a9;
     margin: 0;
     padding: 0;
+    font-size: 25px;
+}
+
+.vote-popup {
+    text-align: center;
 }
 
 ul.rating {

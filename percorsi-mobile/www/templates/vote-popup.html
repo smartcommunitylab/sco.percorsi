@@ -1,0 +1,6 @@
+<div>
+    <span ng-repeat="rating in ratings">
+        <div class="vote-popup" star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
+        </div>
+    </span>
+</div>

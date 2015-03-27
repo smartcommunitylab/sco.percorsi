@@ -1,18 +1,22 @@
 <ion-view title="{{path.title | translate_remote}}">
     <ion-content class="has-header padding">
         <div class="voteValues">
-            <i class="icon ion-android-star icon-vote"></i> {{path.vote }}
+            <b> {{path.vote}}</b>
         </div>
-
+        <div class="voteValues">
+            <i ng-repeat="i in getFillStar(path.vote) track by $index" class="icon ion-android-star icon-vote"></i>
+            <i ng-repeat="i in getHalfStar( path.vote) track by $index" class="icon ion-android-star-half icon-vote"></i>
+            <i ng-repeat="i in getEmptyStar(path.vote) track by $index" class="icon ion-android-star-outline icon-vote"></i>
+        </div>
         <div class="votePopup">
-            <button class="button  button-percorsi " ng-click="showVote()">
+            <button class="button  button-percorsi button-popup" ng-click="showVote()">
                 {{'pathdetailturist_vote' | translate}}
             </button>
-            <button class="button  button-percorsi" ng-click="showReview()">
+            <button class="button  button-percorsi button-popup" ng-click="showReview()">
                 {{'pathdetailturist_review' | translate}}
             </button>
         </div>
-<!--
+        <!--
 <div>
     {{'pathdetailturist_voteinfo' | translate}}
     <span ng-repeat="rating in ratings">
@@ -27,8 +31,10 @@
         </div>
         <ion-list ng-if="!emptylist">
             <ion-item class="card" ng-repeat="review in reviews.data">
-                <div class="item item-image">
-                    {{review.user}} {{review.review}}
+                <div class="item reviews">
+                    <div><b>{{review.user}}</b>
+                    </div>
+                    <div>{{review.review}}</div>
                 </div>
             </ion-item>
         </ion-list>

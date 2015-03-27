@@ -1,16 +1,27 @@
 angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
-.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $filter, singlePathService, reviewsService) {
+.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $filter, Toast, singlePathService, reviewsService) {
     $scope.reviews = {};
     $scope.path = {};
 
     $scope.path = singlePathService.getSelectedPath();
     $scope.rating = 0;
     $scope.ratings = [{
-        current: $scope.path.vote,
+        current: 3,
         max: 5
     }];
-
+    $scope.getFillStar = function (num) {
+        var star = Math.floor(num);
+        return new Array(star);
+    }
+    $scope.getHalfStar = function (num) {
+        var star = Math.ceil((num % 1).toFixed(4));
+        return new Array(star);
+    }
+    $scope.getEmptyStar = function (num) {
+        var star = Math.floor(($scope.ratings[0].max) - num);
+        return new Array(star);
+    }
     $scope.getSelectedRating = function (rating) {
         console.log(rating);
     }
@@ -50,10 +61,17 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
     }
+    $scope.sendVote = function (vote) {
+        reviewsService.sendVote(vote);
+
+        Toast.show($filter('translate')("vote_sent_toast_ok"), "short", "bottom");
+
+    }
     $scope.showVote = function (name) {
         var confirmPopup = $ionicPopup.confirm({
             title: $filter('translate')("pathdetailturist_voteinfo"),
-            template: '<div><span ng-repeat="rating in ratings"><div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div></span></div>',
+            //            template: '<div><span ng-repeat="rating in ratings"><div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div></span></div>',
+            templateUrl: 'templates/vote-popup.html',
             scope: $scope,
             buttons: [
                 {
@@ -64,16 +82,12 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                 {
                     text: $filter('translate')("newreview_popup_ok"),
                     type: 'button-percorsi',
-                    onTap: function (res) {
-                        if (res) {
-                            segnalaService.setPosition(segnalaService.getPosition()[0], segnalaService.getPosition()[1]);
-                            segnalaService.setName(name);
-                            //                    window.history.back();
-                            window.location.assign('#/app/segnala/' + name);
-                            $ionicHistory.nextViewOptions({
-                                disableAnimate: true,
-                                disableBack: true
-                            });
+                    onTap: function (e) {
+                        if (!$scope.ratings[0].current) {
+                            e.preventDefault();
+                        } else {
+                            //return $scope.ratings[0].current;
+                            $scope.sendVote($scope.ratings[0].current);
                         }
                     }
                     }
@@ -81,12 +95,21 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         });
 
     }
+    $scope.sendReview = function (review) {
+        reviewsService.sendReview(review);
+
+        Toast.show($filter('translate')("review_sent_toast_ok"), "short", "bottom");
+
+    }
     $scope.showReview = function (name) {
-        $scope.review = "";
+        $scope.review = {
+            text: ""
+        };
 
         var confirmPopup = $ionicPopup.confirm({
             title: $filter('translate')("newreview_popup_title"),
-            template: '<input type="text" ng-model="review">',
+            //            template: '<input type="text" ng-model="review.text">',
+            templateUrl: 'templates/review-popup.html',
             scope: $scope,
             buttons: [
                 {
@@ -98,10 +121,10 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                     type: ' button-percorsi',
                     onTap: function (e) {
                         if (!$scope.review) {
-                            //don't allow the user to close unless he enters wifi password
                             e.preventDefault();
                         } else {
-                            return $scope.review;
+                            //                            return $scope.review;
+                            $scope.sendReview($scope.review);
                         }
                     }
                 }
