@@ -1,0 +1,20 @@
+<div class="modal gallery-modal" ng-click="closeModal()">
+    <ion-header-bar>
+        <h1 class="title">{{path.title | translate_remote}}</h1>
+        <button class="button button-clear" ng-click="closeModal()">
+            <i class="icon ion-close"></i>
+        </button>
+    </ion-header-bar>
+    <ion-slide-box delegate-handle="gallerymodal-slide-box" show-pager="true" does-continue="true" auto-play="false" active-slide="activeSlide">
+        <ion-slide ng-repeat="image in path.images">
+            <div cover-img="{{image.url}}"></div>
+            <p>{{image.title | translate_remote}}</p>
+        </ion-slide>
+        <ion-slide ng-repeat="video in path.videos">
+            <div cover-img="{{youtubeEmbed(video.url)}}">
+                <i class="icon ion-play" ng-click="window.open('{{video.url}}', '_system');"></i>
+            </div>
+            <p>{{video.title | translate_remote}}</p>
+        </ion-slide>
+    </ion-slide-box>
+</div>

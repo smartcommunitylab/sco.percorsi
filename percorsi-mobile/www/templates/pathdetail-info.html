@@ -1,9 +1,10 @@
 <ion-view id="pathdetails-info" title="{{path.title | translate_remote}}">
     <ion-content class="has-header">
+        <!-- Thumbnails slider -->
         <div class="slide-box-container">
-            <ion-slide-box does-continue="true" auto-play="true">
+            <ion-slide-box delegate-handle="pathdetail-info-slide-box" does-continue="true" auto-play="true" active-slide="activeSlide">
                 <!--on-slide-changed="slideHasChanged($index)"-->
-                <ion-slide ng-repeat="image in path.images">
+                <ion-slide ng-repeat="image in path.images" ng-click="openModal()">
                     <div cover-img="{{image.url}}"></div>
                 </ion-slide>
                 <ion-slide ng-repeat="video in path.videos">
@@ -18,6 +19,7 @@
                 </div>
             </button>
         </div>
+        <!-- Path content -->
         <div class="padding content">
             <h3>{{path.title | translate_remote}}</h3>
             <p>{{path.description | translate_remote}}</p>
@@ -52,6 +54,7 @@
                 <div class="title">[{{audioTrack + 1}}/{{path.audios.length}}] {{path.audios[audioTrack].title | translate_remote}}</div>
             </div>
         </div>
+        <!-- Path POIs -->
         <div class="itinerary padding-horizontal padding-bottom">
             <h4>{{'path_itinerary' | translate}}</h4>
             <ul>
