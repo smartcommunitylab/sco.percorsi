@@ -16,6 +16,10 @@ body {
     width: 100%;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .button.button-fab {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -309,4 +313,13 @@ ul.rating {
 
 .rating .filled {
     color: black;
+}
+
+.navigation-button {
+    text-align: center;
+}
+
+.navigation-button>button {
+    margin: 8px;
+    width: 33%;
 }
