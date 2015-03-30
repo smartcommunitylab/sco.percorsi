@@ -250,7 +250,7 @@ body {
     margin-right: 0.5em;
 }
 
-#pathdetails-info .itinerary li span.poi-title{
+#pathdetails-info .itinerary li span.poi-title {
     text-decoration: underline;
 }
 
@@ -322,4 +322,21 @@ ul.rating {
 .navigation-button>button {
     margin: 8px;
     width: 33%;
+}
+
+.wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.close:before {
+    content: '✕';
+    color: white;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
 }

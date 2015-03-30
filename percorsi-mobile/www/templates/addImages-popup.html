@@ -1,0 +1,15 @@
+<div align="center" style="margin:5px">
+    <button class="button button-custom button-large" ng-click="addImage('Camera')">
+        <i class=" icon ion-android-camera"></i>
+    </button>
+    <button class="button button-custom button-large" ng-click="addImage('Gallery')">
+        <i class=" icon ion-images"></i>
+    </button>
+</div>
+<ion-scroll>
+
+    <div class="wrapper" ng-repeat="image in images">
+        <img data-ng-src="{{image}}" width="200px" />
+        <span class="close" ng-click="removeImage(image)"></span>
+    </div>
+</ion-scroll>

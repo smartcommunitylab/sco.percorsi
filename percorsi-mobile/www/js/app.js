@@ -232,7 +232,12 @@ angular.module('roveretoPercorsi', [
         newreview_popup_cancel: 'Chiudi',
         newreview_popup_ok: 'Conferma',
         vote_sent_toast_ok: 'Voto registrato',
-        review_sent_toast_ok: 'Recensione inviata'
+        review_sent_toast_ok: 'Recensione inviata',
+        addImage_popup_ok: 'Ok',
+        addImage_popup_cancel: 'Annulla',
+        addImage_label: 'Aggiungi immagini',
+        images_send_toast_ok: 'Nuove immagini aggiunte con successo',
+        images_send_toast_error: 'Problema nell\'invio delle immagini'
 
     });
 
@@ -263,7 +268,12 @@ angular.module('roveretoPercorsi', [
         newreview_popup_cancel: 'Close',
         newreview_popup_ok: 'Confirm',
         vote_sent_toast_ok: 'Vote registered',
-        review_sent_toast_ok: 'Review sent'
+        review_sent_toast_ok: 'Review sent',
+        addImage_popup_ok: 'Ok',
+        addImage_popup_cancel: 'Cancel',
+        addImage_label: 'Add images',
+        images_send_toast_ok: 'New images added successfuylly',
+        images_send_toast_error: 'Error adding images'
 
     });
 
@@ -294,7 +304,15 @@ angular.module('roveretoPercorsi', [
         newreview_popup_cancel: 'Aussteigen',
         newreview_popup_ok: 'Bestätigung',
         vote_sent_toast_ok: 'Vote registered',
-        review_sent_toast_ok: 'Review sent'
+        review_sent_toast_ok: 'Review sent',
+        addImage_popup_ok: 'Ok',
+        addImage_popup_cancel: 'Schließen',
+        addImage_label: 'Bilder hinzufügen',
+        images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
+        images_send_toast_error: 'Fehler beim Hinzufügen von Bildern'
+
+
+
 
     });
 
