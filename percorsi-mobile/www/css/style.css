@@ -236,7 +236,7 @@ body {
     margin-top: 0.5em;
 }
 
-#pathdetails-info .itinerary li span.number {
+#pathdetails-info .itinerary li span.poi-number {
     display: inline-block;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -248,6 +248,10 @@ body {
     font-size: 1em;
     text-align: center;
     margin-right: 0.5em;
+}
+
+#pathdetails-info .itinerary li span.poi-title{
+    text-decoration: underline;
 }
 
 .leaflet-div-icon {
