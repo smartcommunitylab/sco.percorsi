@@ -55,7 +55,7 @@
         <div class="itinerary padding-horizontal padding-bottom">
             <h4>{{'path_itinerary' | translate}}</h4>
             <ul>
-                <li ng-repeat="poi in path.pois"><span class="number">{{$index + 1}}</span> {{poi.title | translate_remote}}</li>
+                <li ng-repeat="poi in path.pois" ng-click="showPoi($index)"><span class="poi-number">{{$index + 1}}</span> <span class="poi-title">{{poi.title | translate_remote}}</span></li>
             </ul>
         </div>
     </ion-content>
