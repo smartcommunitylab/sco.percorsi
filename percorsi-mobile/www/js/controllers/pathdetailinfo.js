@@ -9,6 +9,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
     $scope.showPoi = function (poiIndex) {
         singlePoiService.setSelectedPoi($scope.path.pois[poiIndex]);
+        singlePoiService.setIndexPoi(poiIndex);
         window.location.assign('#/app/poidetail');
     };
 });
