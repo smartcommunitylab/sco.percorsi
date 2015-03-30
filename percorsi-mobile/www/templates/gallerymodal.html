@@ -13,7 +13,7 @@
             </ion-slide>
             <ion-slide ng-repeat="video in item.videos">
                 <img ng-src="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');" />
-                <i class="icon ion-play video-play" ng-click="window.open('{{video.url}}', '_system');" </i>
+                <i class="icon ion-play video-play" ng-click="window.open('{{video.url}}', '_system');"></i>
                 <p>{{video.title | translate_remote}}</p>
             </ion-slide>
         </ion-slide-box>
