@@ -7,6 +7,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     $scope.poi = singlePoiService.getSelectedPoi();
 
 
+
     var endOfThePath = function () {
         if (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1) {
             return true;

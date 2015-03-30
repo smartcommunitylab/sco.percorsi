@@ -44,17 +44,33 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             map.closePopup();
         });
     }
-    angular.extend($scope, {
-        tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
-        center: {
-            lat: $scope.path.pois[0].coordinates.lat,
-            lng: $scope.path.pois[0].coordinates.lng,
-            zoom: 14
-        },
-        markers: $scope.pathMarkers,
-        events: {},
-        pathLine: $scope.pathLine
-    });
+    if (singlePoiService.getIndexPoi() == null) {
+        angular.extend($scope, {
+            tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+            center: {
+                lat: $scope.path.pois[0].coordinates.lat,
+                lng: $scope.path.pois[0].coordinates.lng,
+                zoom: 14
+            },
+            markers: $scope.pathMarkers,
+            events: {},
+            pathLine: $scope.pathLine
+        });
+
+    } else {
+        angular.extend($scope, {
+            tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+            center: {
+                lat: $scope.path.pois[singlePoiService.getIndexPoi()].coordinates.lat,
+                lng: $scope.path.pois[singlePoiService.getIndexPoi()].coordinates.lng,
+                zoom: 19
+            },
+            markers: $scope.pathMarkers,
+            events: {},
+            pathLine: $scope.pathLine
+        });
+
+    };
 
 
     leafletData.getMap().then(function (map) {
