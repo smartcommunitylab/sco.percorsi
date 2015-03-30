@@ -1,17 +1,17 @@
 <ion-modal-view class="gallery-modal" ng-click="closeModal()">
     <ion-header-bar>
-        <h1 class="title">{{path.title | translate_remote}}</h1>
+        <h1 class="title">{{item.title | translate_remote}}</h1>
         <button class="button button-clear" ng-click="closeModal()">
             <i class="icon ion-close"></i>
         </button>
     </ion-header-bar>
     <ion-content scroll="false">
         <ion-slide-box delegate-handle="gallerymodal-slide-box" show-pager="true" does-continue="true" auto-play="false" active-slide="activeSlide">
-            <ion-slide ng-repeat="image in path.images">
+            <ion-slide ng-repeat="image in item.images">
                 <img ng-src="{{image.url}}" />
                 <p>{{image.title | translate_remote}}</p>
             </ion-slide>
-            <ion-slide ng-repeat="video in path.videos">
+            <ion-slide ng-repeat="video in item.videos">
                 <img ng-src="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');" />
                 <i class="icon ion-play video-play" ng-click="window.open('{{video.url}}', '_system');" </i>
                 <p>{{video.title | translate_remote}}</p>
