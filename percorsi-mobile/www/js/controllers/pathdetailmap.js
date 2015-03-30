@@ -35,6 +35,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
     };
     $scope.detail = function (poiIndex) {
         singlePoiService.setSelectedPoi($scope.path.pois[poiIndex]);
+        singlePoiService.setIndexPoi(poiIndex);
         window.location.assign('#/app/poidetail');
     }
 
@@ -48,7 +49,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
         center: {
             lat: $scope.path.pois[0].coordinates.lat,
             lng: $scope.path.pois[0].coordinates.lng,
-            zoom: 14        },
+            zoom: 14
+        },
         markers: $scope.pathMarkers,
         events: {},
         pathLine: $scope.pathLine
