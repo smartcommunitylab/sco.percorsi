@@ -2,7 +2,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 
 .controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicModal, $ionicLoading, Toast) {
     $scope.path = singlePathService.getSelectedPath();
-    //    $scope.poi = singlePoiService.getSelectedPoi();
     $scope.item = singlePoiService.getSelectedPoi();
 
     var endOfThePath = function () {
@@ -10,23 +9,23 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             return true;
         } else {
             return false;
-
         }
-    }
+    };
+
     var beginOfThePath = function () {
         if (singlePoiService.getIndexPoi() == 0) {
             return true;
         } else {
             return false;
-
         }
-    }
+    };
+
     $scope.lastPOI = endOfThePath();
     $scope.firstPOI = beginOfThePath();
 
     $scope.goToMap = function () {
         $state.go('app.pathdetail.map');
-    }
+    };
 
     $scope.nextPOI = function () {
         singlePoiService.setIndexPoi(singlePoiService.getIndexPoi() + 1);
@@ -38,6 +37,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             reload: true
         });
     };
+
     $scope.prevPOI = function () {
         singlePoiService.setIndexPoi(singlePoiService.getIndexPoi() - 1);
         singlePoiService.setSelectedPoi($scope.path.pois[singlePoiService.getIndexPoi()]);
@@ -48,7 +48,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             reload: true
         });
     };
-
 
     $scope.addImagePopup = function (name) {
         $scope.images = [];
@@ -63,7 +62,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
                 {
                     text: $filter('translate')("addImage_popup_cancel"),
                     type: 'button-percorsi'
-                            },
+                },
                 {
                     text: $filter('translate')("addImage_popup_ok"),
                     type: ' button-percorsi',
@@ -75,33 +74,15 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
                         }
                     }
                 }
-                                ]
+            ]
         });
+    };
 
-    }
     $scope.removeImage = function (imageName) {
         var index = $scope.images.indexOf(imageName);
         if (index > -1) {
             $scope.images.splice(index, 1);
         }
-
-    }
-    $ionicModal.fromTemplateUrl('templates/gallerymodal.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modal = modal;
-    });
-
-    $scope.openModal = function () {
-        var currentIndex = $ionicSlideBoxDelegate.$getByHandle('detail-slide-box').currentIndex();
-        $scope.modal.show().then(function () {
-            $ionicSlideBoxDelegate.$getByHandle('gallerymodal-slide-box').slide(currentIndex, 0);
-        });
-    };
-
-    $scope.closeModal = function () {
-        $scope.modal.hide();
     };
 
     $scope.submit = function () {
@@ -122,7 +103,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
                 data: {
                     image: $scope.imagesBase64[i],
                     type: 'base64'
-
                 }
             }).
             success(function (data, status, headers, config) {
@@ -151,7 +131,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
                         //toast error
                         Toast.show($filter('translate')("images_send_toast_error"), "short", "bottom");
                         $ionicLoading.hide();
-
                     });
                 }
             }).
@@ -162,9 +141,9 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
                 //toast error
                 Toast.show($filter('translate')("images_send_toast_error"), "short", "bottom");
                 $ionicLoading.hide();
-
             });
         }
+
         if ($scope.images.length == 0) {
             //if no gallery u are here
             singlePoiService.uploadImages(remoteURL).then(function (data) {
@@ -189,8 +168,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 
             });
         }
-    }
-
+    };
 
     $scope.addImage = function (wherePic) {
         var options = {};
@@ -215,18 +193,16 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
                 saveToPhotoAlbum: false
             };
         }
+
         // 3
         $cordovaCamera.getPicture(options).then(function (imageData) {
-
             //I have to add to file array imageData and visualize
             // 4
             image = "data:image/jpeg;base64," + imageData;
             $scope.images.push(image);
             $scope.imagesBase64.push(imageData);
-
         }, function (err) {
             console.log(err);
         });
     }
-
 });

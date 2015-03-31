@@ -10,8 +10,8 @@
             </button>
         </div>
         <!-- Thumbnails slider -->
-        <div class="slide-box-container">
-            <ion-slide-box delegate-handle="detail-slide-box" does-continue="true" auto-play="true">
+        <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
+            <ion-slide-box delegate-handle="details-slide-box" does-continue="true" auto-play="true">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <ion-slide ng-repeat="image in item.images" ng-click="openModal()">
                     <div cover-img="{{image.url}}"></div>
@@ -22,7 +22,7 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
-            <button class="button button-percorsi button-fab" ng-click="badabum()">
+            <button class="button button-percorsi button-fab" ng-click="addImagePopup()">
                 <div>
                     <span><i class="icon ion-plus"></i></span>
                 </div>

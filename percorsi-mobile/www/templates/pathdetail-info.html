@@ -1,8 +1,8 @@
 <ion-view id="pathdetails-info" title="{{item.title | translate_remote}}">
     <ion-content class="has-header">
         <!-- Thumbnails slider -->
-        <div class="slide-box-container">
-            <ion-slide-box delegate-handle="detail-slide-box" does-continue="true" auto-play="true" active-slide="activeSlide">
+        <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
+            <ion-slide-box delegate-handle="details-slide-box" does-continue="true" auto-play="true">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <ion-slide ng-repeat="image in item.images" ng-click="openModal()">
                     <div cover-img="{{image.url}}"></div>
