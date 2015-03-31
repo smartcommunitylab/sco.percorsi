@@ -3,33 +3,44 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 .controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $filter, Toast, singlePathService, reviewsService) {
     $scope.reviews = {};
     $scope.path = {};
-
     $scope.path = singlePathService.getSelectedPath();
+
     $scope.rating = 0;
     $scope.ratings = [{
         current: 3,
         max: 5
     }];
-    $scope.getFillStar = function (num) {
-        var star = Math.floor(num);
-        return new Array(star);
-    }
-    $scope.getHalfStar = function (num) {
-        var star = Math.ceil((num % 1).toFixed(4));
-        return new Array(star);
-    }
-    $scope.getEmptyStar = function (num) {
-        var star = Math.floor(($scope.ratings[0].max) - num);
-        return new Array(star);
-    }
+
+    $scope.getStars = function () {
+        var stars = [];
+
+        if (!!$scope.path && !!$scope.path.vote) {
+            // full stars
+            var fullStars = Math.floor($scope.path.vote);
+            for (var i = 0; i < fullStars; i++) {
+                stars.push('full');
+            }
+
+            var halfStars = Math.ceil(($scope.path.vote % 1).toFixed(4));
+            for (var i = 0; i < halfStars; i++) {
+                stars.push('half');
+            }
+
+            var emptyStars = Math.floor(($scope.ratings[0].max) - $scope.path.vote);
+            for (var i = 0; i < halfStars; i++) {
+                stars.push('empty');
+            }
+        }
+
+        return stars;
+    };
+
     $scope.getSelectedRating = function (rating) {
         console.log(rating);
     }
 
-
     $scope.noMoreReviewsAvailable = false;
     $scope.loadMore = function () {
-
         var length = 0;
         if ($scope.reviews.data) {
             length = $scope.reviews.data.length;
