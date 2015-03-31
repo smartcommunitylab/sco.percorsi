@@ -1,2 +1,3 @@
 Gray main: #9E9E9E
 Aqua main: #009688
+Aqua light: #B2DFDB

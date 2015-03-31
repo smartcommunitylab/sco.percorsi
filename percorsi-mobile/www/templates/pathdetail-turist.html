@@ -1,29 +1,23 @@
 <ion-view title="{{path.title | translate_remote}}">
     <ion-content class="has-header padding">
-        <div class="voteValues">
-            <b> {{path.vote}}</b>
+        <!-- Rating -->
+        <div class="rating-avg">
+            <span class="rating-avg-txt">{{path.vote}}</span>
+            <i ng-repeat="starType in getStars() track by $index" class="icon icon-rating" ng-class="{'ion-android-star': starType == 'full', 'ion-android-star-half': starType == 'half', 'ion-android-star-outline': starType == 'empty'}"></i>
         </div>
-        <div class="voteValues">
-            <i ng-repeat="i in getFillStar(path.vote) track by $index" class="icon ion-android-star icon-vote"></i>
-            <i ng-repeat="i in getHalfStar( path.vote) track by $index" class="icon ion-android-star-half icon-vote"></i>
-            <i ng-repeat="i in getEmptyStar(path.vote) track by $index" class="icon ion-android-star-outline icon-vote"></i>
+        <div class="row">
+            <div class="col">
+                <button class="button button-percorsi button-block" ng-click="showVote()">
+                    {{'pathdetailturist_vote' | translate}}
+                </button>
+            </div>
+            <div class="col">
+                <button class="button button-percorsi button-block" ng-click="showReview()">
+                    {{'pathdetailturist_review' | translate}}
+                </button>
+            </div>
         </div>
-        <div class="votePopup">
-            <button class="button  button-percorsi button-popup" ng-click="showVote()">
-                {{'pathdetailturist_vote' | translate}}
-            </button>
-            <button class="button  button-percorsi button-popup" ng-click="showReview()">
-                {{'pathdetailturist_review' | translate}}
-            </button>
-        </div>
-        <!--
-<div>
-    {{'pathdetailturist_voteinfo' | translate}}
-    <span ng-repeat="rating in ratings">
-        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
-        </span>
-</div>
--->
+        <!-- Reviews list -->
         <div class="card" ng-if="emptylist">
             <div class="item item-text-wrap">
                 {{archive_empty_list | translate}}
@@ -31,10 +25,9 @@
         </div>
         <ion-list ng-if="!emptylist">
             <ion-item class="card" ng-repeat="review in reviews.data">
-                <div class="item reviews">
-                    <div><b>{{review.user}}</b>
-                    </div>
-                    <div>{{review.review}}</div>
+                <div class="padding-vertical">
+                    <h2 class="title">{{review.user}}</h2>
+                    <p>{{review.review}}</p>
                 </div>
             </ion-item>
         </ion-list>
