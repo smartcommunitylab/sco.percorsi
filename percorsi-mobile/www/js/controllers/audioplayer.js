@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.audioplayer', [])
 
-.controller('AudioPlayerCtrl', function ($scope, $http, singlePathService) {
+.controller('AudioPlayerCtrl', function ($scope, $http) {
     $scope.audios = [];
     $scope.audio = null;
     $scope.audioTrack = 0;

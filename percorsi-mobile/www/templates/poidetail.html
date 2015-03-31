@@ -9,8 +9,9 @@
                 next
             </button>
         </div>
+        <!-- Thumbnails slider -->
         <div class="slide-box-container">
-            <ion-slide-box does-continue="true" auto-play="true">
+            <ion-slide-box delegate-handle="detail-slide-box" does-continue="true" auto-play="true">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <ion-slide ng-repeat="image in item.images" ng-click="openModal()">
                     <div cover-img="{{image.url}}"></div>
@@ -21,12 +22,13 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
-            <button class="button button-percorsi button-fab" ng-click="addImagePopup()">
+            <button class="button button-percorsi button-fab" ng-click="badabum()">
                 <div>
                     <span><i class="icon ion-plus"></i></span>
                 </div>
             </button>
         </div>
+        <!-- POI content -->
         <div class="padding content">
             <h3>{{item.title | translate_remote}}</h3>
             <p>{{item.description | translate_remote}}</p>

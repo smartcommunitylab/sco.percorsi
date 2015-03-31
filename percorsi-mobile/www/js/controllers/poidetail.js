@@ -5,8 +5,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     //    $scope.poi = singlePoiService.getSelectedPoi();
     $scope.item = singlePoiService.getSelectedPoi();
 
-
-
     var endOfThePath = function () {
         if (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1) {
             return true;
@@ -28,8 +26,8 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 
     $scope.goToMap = function () {
         $state.go('app.pathdetail.map');
-
     }
+
     $scope.nextPOI = function () {
         singlePoiService.setIndexPoi(singlePoiService.getIndexPoi() + 1);
         singlePoiService.setSelectedPoi($scope.path.pois[singlePoiService.getIndexPoi()]);
@@ -96,7 +94,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     });
 
     $scope.openModal = function () {
-        var currentIndex = $ionicSlideBoxDelegate.$getByHandle('pathdetail-info-slide-box').currentIndex();
+        var currentIndex = $ionicSlideBoxDelegate.$getByHandle('detail-slide-box').currentIndex();
         $scope.modal.show().then(function () {
             $ionicSlideBoxDelegate.$getByHandle('gallerymodal-slide-box').slide(currentIndex, 0);
         });
@@ -105,8 +103,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     $scope.closeModal = function () {
         $scope.modal.hide();
     };
-
-
 
     $scope.submit = function () {
         var remoteURL = [];

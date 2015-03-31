@@ -22,7 +22,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
     });
 
     $scope.openModal = function () {
-        var currentIndex = $ionicSlideBoxDelegate.$getByHandle('pathdetail-info-slide-box').currentIndex();
+        var currentIndex = $ionicSlideBoxDelegate.$getByHandle('detail-slide-box').currentIndex();
         $scope.modal.show().then(function () {
             $ionicSlideBoxDelegate.$getByHandle('gallerymodal-slide-box').slide(currentIndex, 0);
         });
