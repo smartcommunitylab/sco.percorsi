@@ -13,7 +13,7 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
-            <button class="button button-percorsi button-fab" ng-click="badabum()">
+            <button class="button button-percorsi button-fab" ng-click="addImagePopup()" ng-hide="!userIsLogged">
                 <div>
                     <span><i class="icon ion-plus"></i></span>
                 </div>
@@ -58,7 +58,8 @@
         <div class="itinerary padding-horizontal padding-bottom">
             <h4>{{'path_itinerary' | translate}}</h4>
             <ul>
-                <li ng-repeat="poi in item.pois" ng-click="showPoi($index)"><span class="poi-number">{{$index + 1}}</span> <span class="poi-title">{{poi.title | translate_remote}}</span></li>
+                <li ng-repeat="poi in item.pois" ng-click="showPoi($index)"><span class="poi-number">{{$index + 1}}</span> <span class="poi-title">{{poi.title | translate_remote}}</span>
+                </li>
             </ul>
         </div>
     </ion-content>
