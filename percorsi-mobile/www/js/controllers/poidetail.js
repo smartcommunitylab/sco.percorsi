@@ -1,8 +1,9 @@
 angular.module('roveretoPercorsi.controllers.poidetail', [])
 
-.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicLoading, Toast) {
+.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicModal, $ionicLoading, Toast) {
     $scope.path = singlePathService.getSelectedPath();
-    $scope.poi = singlePoiService.getSelectedPoi();
+    //    $scope.poi = singlePoiService.getSelectedPoi();
+    $scope.item = singlePoiService.getSelectedPoi();
 
 
 
@@ -87,6 +88,24 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         }
 
     }
+    $ionicModal.fromTemplateUrl('templates/gallerymodal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.openModal = function () {
+        var currentIndex = $ionicSlideBoxDelegate.$getByHandle('pathdetail-info-slide-box').currentIndex();
+        $scope.modal.show().then(function () {
+            $ionicSlideBoxDelegate.$getByHandle('gallerymodal-slide-box').slide(currentIndex, 0);
+        });
+    };
+
+    $scope.closeModal = function () {
+        $scope.modal.hide();
+    };
+
 
 
     $scope.submit = function () {
