@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.services.singlePathService', [])
 
-.factory('singlePathService', function ($http, $q, listPathsService) {
+.factory('singlePathService', function ($http, $q, listPathsService, Config) {
     var selectedPath = null;
     //var pathId = null;
 
@@ -13,10 +13,12 @@ angular.module('roveretoPercorsi.services.singlePathService', [])
     singlePathService.getSelectedPath = function () {
         return selectedPath;
     }
-    singlePathService.uploadImages = function (images) {
+    singlePathService.uploadImages = function (selectedPoi, images) {
 
         //      //use index of path for right POI
         //      //use poi.index for right POI
+
+        //controllo se selectedPOI e' 0 upload su path, altrimenti upload su single POI
         return $http({
             method: 'POST',
             url: Config.URL() + '/' + Config.provider() + '/services/' + Config.service() + '/user/images',

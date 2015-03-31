@@ -11,7 +11,7 @@ angular.module('roveretoPercorsi.services.login', [])
                     var deferred = $q.defer();
 
                     //Build the OAuth consent page URL
-                    var authUrl = url + '/cityreport/userlogin';
+                    var authUrl = url + '/percorsi/userlogin';
                     //Open the OAuth consent page in the InAppBrowser
                     var authWindow = window.open(authUrl, '_blank', 'location=no,toolbar=no');
                     authWindow.addEventListener('loadstart', function (e) {

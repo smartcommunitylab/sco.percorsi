@@ -240,6 +240,7 @@ angular.module('roveretoPercorsi', [
         images_send_toast_ok: 'Nuove immagini aggiunte con successo',
         images_send_toast_error: 'Problema nell\'invio delle immagini',
         toast_must_login: 'Funzione disabilitata. Devi accedere al sistema',
+        poi_add_image_popup: 'Associa a POI'
 
     });
 
@@ -277,6 +278,7 @@ angular.module('roveretoPercorsi', [
         images_send_toast_ok: 'New images added successfuylly',
         images_send_toast_error: 'Error adding images',
         toast_must_login: 'Function disabled. You must login',
+        poi_add_image_popup: 'Choose the POI'
 
     });
 
@@ -313,7 +315,7 @@ angular.module('roveretoPercorsi', [
         addImage_label: 'Bilder hinzufügen',
         images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
         images_send_toast_error: 'Fehler beim Hinzufügen von Bildern',
-        toast_must_login: 'Wird bearbeitet',
+        toast_must_login: 'Wählen Sie POI'
 
 
 

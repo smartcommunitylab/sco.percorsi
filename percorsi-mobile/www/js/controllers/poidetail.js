@@ -3,7 +3,20 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 .controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicModal, $ionicLoading, Toast) {
     $scope.path = singlePathService.getSelectedPath();
     $scope.item = singlePoiService.getSelectedPoi();
+    $scope.images =
+        //    $scope.poiChoosed = singlePoiService.getIndexPoi() + 1;
+        $scope.options = [{
+            name: "Percorso",
+            id: 0
+    }];
 
+    for (var i = 0; i < ($scope.path.pois.length); i++) {
+        $scope.options.push({
+            name: (i + 1).toString(),
+            id: i
+        });
+    }
+    $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
     var endOfThePath = function () {
         if (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1) {
             return true;
@@ -49,39 +62,33 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         });
     };
 
-    $scope.addImagePopup = function (name) {
+
+    $ionicModal.fromTemplateUrl('templates/addImages-popup.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
         $scope.images = [];
         $scope.imagesBase64 = [];
+        $scope.addimagemodal = modal
+    })
 
-        var confirmPopup = $ionicPopup.confirm({
-            title: $filter('translate')("addImage_label"),
-            //            template: '<input type="text" ng-model="review.text">',
-            templateUrl: 'templates/addImages-popup.html',
-            scope: $scope,
-            buttons: [
-                {
-                    text: $filter('translate')("addImage_popup_cancel"),
-                    type: 'button-percorsi'
-                },
-                {
-                    text: $filter('translate')("addImage_popup_ok"),
-                    type: ' button-percorsi',
-                    onTap: function (e) {
-                        if (!$scope.images) {
-                            e.preventDefault();
-                        } else {
-                            $scope.submit();
-                        }
-                    }
-                }
-            ]
-        });
+    $scope.openAddimage = function () {
+        $scope.addimagemodal.show()
+    }
+
+    $scope.closeAddimage = function () {
+        $scope.addimagemodal.hide();
     };
+
+    $scope.$on('$destroy', function () {
+        $scope.addimagemodal.remove();
+    });
 
     $scope.removeImage = function (imageName) {
         var index = $scope.images.indexOf(imageName);
         if (index > -1) {
             $scope.images.splice(index, 1);
+            $scope.imagesBase64.splice(index, 1);
         }
     };
 
@@ -112,7 +119,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
                 uploadedimages++
                 //send to ws the server
                 if (uploadedimages == $scope.images.length) {
-                    singlePoiService.uploadImages(remoteURL).then(function (data) {
+                    singlePathService.uploadImages($scope.selectedOption, remoteURL).then(function (data) {
                         //chiudi pop up bella la' e esci
                         $ionicLoading.hide();
                         console.log("upload images success. Now send data to server...." + segnalaService.getPosition());
@@ -146,7 +153,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 
         if ($scope.images.length == 0) {
             //if no gallery u are here
-            singlePoiService.uploadImages(remoteURL).then(function (data) {
+            singlePoiService.uploadImages($scope.selectedOption, remoteURL).then(function (data) {
                 //chiudi pop up bella la' e esci
                 $ionicLoading.hide();
                 console.log("upload images success. Now send data to server...." + segnalaService.getPosition());
