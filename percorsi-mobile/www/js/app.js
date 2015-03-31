@@ -191,13 +191,13 @@ angular.module('roveretoPercorsi', [
         }
     })
 
-    .state('app.profile', {
+    .state('app.favorites', {
         cache: false,
-        url: '/profile',
+        url: '/favorites',
         abstract: false,
         views: {
             'menuContent': {
-                templateUrl: "templates/profile.html",
+                templateUrl: "templates/favorites.html",
                 controller: 'ProfileCtrl'
             }
         }
@@ -208,7 +208,7 @@ angular.module('roveretoPercorsi', [
 
     $translateProvider.translations('it', {
         menu_home: 'Categorie / HOME',
-        menu_profile: 'Profilo',
+        menu_favorites: 'Preferiti',
         menu_login: 'Accedi',
         menu_logout: 'Esci',
         menu_credits: 'Credits',
@@ -238,13 +238,14 @@ angular.module('roveretoPercorsi', [
         addImage_popup_cancel: 'Annulla',
         addImage_label: 'Aggiungi immagini',
         images_send_toast_ok: 'Nuove immagini aggiunte con successo',
-        images_send_toast_error: 'Problema nell\'invio delle immagini'
+        images_send_toast_error: 'Problema nell\'invio delle immagini',
+        toast_must_login: 'Funzione disabilitata. Devi accedere al sistema',
 
     });
 
     $translateProvider.translations('en', {
         menu_home: 'Categories / HOME',
-        menu_profile: 'Profile',
+        menu_favorites: 'Bookmarks',
         menu_login: 'Login',
         menu_logout: 'Logout',
         menu_credits: 'Credits',
@@ -274,13 +275,14 @@ angular.module('roveretoPercorsi', [
         addImage_popup_cancel: 'Cancel',
         addImage_label: 'Add images',
         images_send_toast_ok: 'New images added successfuylly',
-        images_send_toast_error: 'Error adding images'
+        images_send_toast_error: 'Error adding images',
+        toast_must_login: 'Function disabled. You must login',
 
     });
 
     $translateProvider.translations('de', {
         menu_home: 'Categories / HOME',
-        menu_profile: 'Profile',
+        menu_favorites: 'Bookmarks',
         menu_login: 'Login',
         menu_logout: 'Logout',
         menu_credits: 'Credits',
@@ -310,7 +312,8 @@ angular.module('roveretoPercorsi', [
         addImage_popup_cancel: 'Schließen',
         addImage_label: 'Bilder hinzufügen',
         images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
-        images_send_toast_error: 'Fehler beim Hinzufügen von Bildern'
+        images_send_toast_error: 'Fehler beim Hinzufügen von Bildern',
+        toast_must_login: 'Wird bearbeitet',
 
 
 
