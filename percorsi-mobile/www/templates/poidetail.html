@@ -1,14 +1,15 @@
-<ion-view class="details-info" title="{{item.title | translate_remote}}">
-    <ion-content class="has-header">
-        <!-- Navigation buttons -->
-        <div class="navigation-button">
-            <button class="button button-percorsi" ng-click="prevPOI()" ng-class="{'hidden': firstPOI}">
-                <i class="icon ion-arrow-left-a"></i>
-            </button>
-            <button class="button button-percorsi" ng-click="nextPOI()" ng-class="{'hidden': lastPOI}">
-                <i class="icon ion-arrow-right-a"></i>
-            </button>
-        </div>
+<ion-view class="details-info" title="{{path.title | translate_remote}}">
+    <!-- Navigation buttons -->
+    <div class="bar bar-percorsi bar-subheader">
+        <button class="button button-percorsi button-clear" ng-click="prevPOI()" ng-class="{'hidden': firstPOI}">
+            <i class="ion-chevron-left"></i>
+        </button>
+        <h2 class="title">{{currentItemIndex}}/{{path.pois.length}}</h2>
+        <button class="button button-percorsi button-clear" ng-click="nextPOI()" ng-class="{'hidden': lastPOI}">
+            <i class="ion-chevron-right"></i>
+        </button>
+    </div>
+    <ion-content class="has-header has-subheader">
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
             <ion-slide-box delegate-handle="details-slide-box" does-continue="true" auto-play="true">
@@ -22,14 +23,14 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
-            <button class="button button-percorsi button-fab" ng-click="addImagePopup()" ng-hide="!userIsLogged">
+            <button class="button button-percorsi button-fab" ng-click="addImagePopup()" ng-if="userIsLogged">
                 <div>
                     <span><i class="icon ion-plus"></i></span>
                 </div>
             </button>
         </div>
         <!-- POI content -->
-        <div class="padding content">
+        <div class="padding content" ng-class="{'loggedin': userIsLogged}">
             <h3>{{item.title | translate_remote}}</h3>
             <p>{{item.description | translate_remote}}</p>
 

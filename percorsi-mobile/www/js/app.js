@@ -35,6 +35,9 @@ angular.module('roveretoPercorsi', [
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, Login, GeoLocate) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
+    /* TEMP */
+    $rootScope.userIsLogged = true;
+
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)

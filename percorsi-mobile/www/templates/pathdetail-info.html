@@ -13,14 +13,14 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
-            <button class="button button-percorsi button-fab" ng-click="addImagePopup()" ng-hide="!userIsLogged">
+            <button class="button button-percorsi button-fab" ng-click="addImagePopup()" ng-if="userIsLogged">
                 <div>
                     <span><i class="icon ion-plus"></i></span>
                 </div>
             </button>
         </div>
         <!-- Path content -->
-        <div class="padding content">
+        <div class="padding content" ng-class="{'loggedin': userIsLogged}">
             <h3>{{item.title | translate_remote}}</h3>
             <p>{{item.description | translate_remote}}</p>
             <div class="path-numbers">

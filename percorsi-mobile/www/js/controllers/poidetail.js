@@ -3,9 +3,10 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 .controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicModal, $ionicLoading, Toast) {
     $scope.path = singlePathService.getSelectedPath();
     $scope.item = singlePoiService.getSelectedPoi();
+    $scope.currentItemIndex = singlePoiService.getIndexPoi() + 1;
 
     var endOfThePath = function () {
-        if (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1) {
+        if (!!$scope.path && (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1)) {
             return true;
         } else {
             return false;

@@ -84,7 +84,8 @@ body {
     color: #fff;
 }
 
-.bar.bar-percorsi h1 {
+.bar.bar-percorsi h1,
+.bar.bar-percorsi h2 {
     color: white;
 }
 
@@ -297,6 +298,10 @@ ion-slide div[cover-img] i {
 }
 
 .details-info .content {
+    margin-top: 8px;
+}
+
+.details-info .content.loggedin {
     margin-top: 32px;
 }
 
@@ -320,6 +325,10 @@ ion-slide div[cover-img] i {
 
 .details-info .itinerary li span.poi-title {
     text-decoration: underline;
+}
+
+.details-info .buttons {
+    text-align: center;
 }
 
 .leaflet-div-icon {
