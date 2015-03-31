@@ -28,24 +28,26 @@
                     </div>-->
                 </ion-item>
 
-                <ion-item nav-clear menu-close item-icon-left href="#/app/profile">
-                    <i class="icon ion-android-person"></i> {{'menu_profile' | translate}}
-                    <!--<div class="menu-entry">
-                        <img src="img/ic-mysignals.png">
-                        <span>{{'menu_profile' | translate}}</span>
-                    </div>-->
+                <ion-item nav-clear menu-close item-icon-left ng-click="openLoginPopUp()" ng-hide="userIsLogged">
+
+                    <div class="menu-entry-disabled">
+                        <i class="icon ion-android-star "></i> <span>{{'menu_favorites' | translate}}</span>
+                    </div>
                 </ion-item>
 
-                <ion-item nav-clear menu-close item-icon-left ng-click="logout()" ng-if="!userIsLogged">
-                    <i class="icon ion-log-in"></i> {{'menu_login' | translate}}
-                    <!--<div class="menu-entry">
-                        <img src="img/ic-login.png">
-                        <span>{{'menu_auth' | translate}}</span>
-                    </div>-->
+                <ion-item nav-clear menu-close item-icon-left href="#/app/favorites" ng-hide="!userIsLogged">
+                    <div class="menu-entry-enabled">
+                        <i class="icon ion-android-star "></i> <span>{{'menu_favorites' | translate}}</span>
+                    </div>
                 </ion-item>
 
-                <ion-item nav-clear menu-close item-icon-left ng-click="login()" ng-if="userIsLogged">
+                <ion-item nav-clear menu-close item-icon-left ng-click="logout()" ng-hide="!userIsLogged">
                     <i class="icon ion-log-out"></i> {{'menu_logout' | translate}}
+
+                </ion-item>
+
+                <ion-item nav-clear menu-close item-icon-left ng-click="login()" ng-hide="userIsLogged">
+                    <i class="icon ion-log-in"></i> {{'menu_login' | translate}}
                     <!--<div class="menu-entry">
                         <img src="img/ic-login.png">
                         <span>{{'menu_credits' | translate}}</span>

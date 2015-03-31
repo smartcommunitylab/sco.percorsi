@@ -409,3 +409,11 @@ ul.rating {
     right: 0;
     cursor: pointer;
 }
+
+.menu-entry-enabled {
+    color: black;
+}
+
+.menu-entry-disabled {
+    color: lightgrey;
+}
