@@ -2,7 +2,7 @@
     <ion-content class="has-header">
         <!-- Thumbnails slider -->
         <div class="slide-box-container">
-            <ion-slide-box delegate-handle="pathdetail-info-slide-box" does-continue="true" auto-play="true" active-slide="activeSlide">
+            <ion-slide-box delegate-handle="detail-slide-box" does-continue="true" auto-play="true" active-slide="activeSlide">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <ion-slide ng-repeat="image in item.images" ng-click="openModal()">
                     <div cover-img="{{image.url}}"></div>
