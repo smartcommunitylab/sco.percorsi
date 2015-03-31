@@ -6,7 +6,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     $scope.images =
         //    $scope.poiChoosed = singlePoiService.getIndexPoi() + 1;
         $scope.options = [{
-            name: "Percorso",
+            name: $filter('translate')("images_send_percorso_string"),
             id: 0
     }];
 
@@ -17,8 +17,9 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         });
     }
     $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
+
     var endOfThePath = function () {
-        if (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1) {
+        if (!!$scope.path && (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1)) {
             return true;
         } else {
             return false;

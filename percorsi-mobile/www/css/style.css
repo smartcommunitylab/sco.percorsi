@@ -31,6 +31,11 @@ body {
     visibility: hidden;
 }
 
+.button {
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
 .button.button-fab {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -68,10 +73,6 @@ body {
     color: #009688;
 }
 
-.button.button-percorsi.button-popup {
-    width: 40%;
-}
-
 .button.button-percorsi.button-start {
     position: relative;
     bottom: 80px;
@@ -84,7 +85,8 @@ body {
     color: #fff;
 }
 
-.bar.bar-percorsi h1 {
+.bar.bar-percorsi h1,
+.bar.bar-percorsi h2 {
     color: white;
 }
 
@@ -298,6 +300,10 @@ ion-slide div[cover-img] i {
 }
 
 .details-info .content {
+    margin-top: 8px;
+}
+
+.details-info .content.loggedin {
     margin-top: 32px;
 }
 
@@ -323,6 +329,10 @@ ion-slide div[cover-img] i {
     text-decoration: underline;
 }
 
+.details-info .buttons {
+    text-align: center;
+}
+
 .leaflet-div-icon {
     background: transparent;
     border: none;
@@ -336,6 +346,23 @@ ion-slide div[cover-img] i {
     text-align: center;
 }
 
+.rating-avg {
+    margin: 16px 0 11px 0;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+}
+
+.rating-avg .rating-avg-txt {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.rating-avg .icon-rating {
+    color: #b2dfdb;
+    margin: 0;
+}
+
 .voteValues {
     margin: 8px;
     text-align: center;
@@ -347,12 +374,6 @@ ion-slide div[cover-img] i {
     text-align: center;
     vertical-align: middle;
     font-size: 90px;
-}
-
-.icon-vote {
-    font-size: 60px;
-    vertical-align: middle;
-    color: #b2dfdb;
 }
 
 .rating {

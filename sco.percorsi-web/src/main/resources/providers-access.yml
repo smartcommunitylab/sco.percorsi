@@ -1,0 +1,18 @@
+providers:
+  - id: ComuneRovereto
+    password: rovereto
+    categories:
+        lastChange: 1
+        categories:
+            - id: a
+              image: http://stopthatpigeon.altervista.org/wp-content/uploads/2012/07/pane-e-vino.jpg
+              name:
+                it: categoria 1
+                en: category 1
+                de: kategorien 1
+            - id: b
+              image: http://www.superedo.it/sfondi/sfondi/Architettura/Castelli/castelli009.jpg
+              name:
+                it: categoria 2
+                en: category 2
+                de: kategorien 2

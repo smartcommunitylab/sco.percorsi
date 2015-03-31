@@ -35,6 +35,9 @@ angular.module('roveretoPercorsi', [
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, Login, GeoLocate) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
+    /* TEMP */
+    $rootScope.userIsLogged = true;
+
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -240,7 +243,8 @@ angular.module('roveretoPercorsi', [
         images_send_toast_ok: 'Nuove immagini aggiunte con successo',
         images_send_toast_error: 'Problema nell\'invio delle immagini',
         toast_must_login: 'Funzione disabilitata. Devi accedere al sistema',
-        poi_add_image_popup: 'Associa a POI'
+        poi_add_image_popup: 'Associa a POI',
+        images_send_percorso_string: 'Percorso'
 
     });
 
@@ -278,7 +282,9 @@ angular.module('roveretoPercorsi', [
         images_send_toast_ok: 'New images added successfuylly',
         images_send_toast_error: 'Error adding images',
         toast_must_login: 'Function disabled. You must login',
-        poi_add_image_popup: 'Choose the POI'
+        poi_add_image_popup: 'Choose the POI',
+        images_send_percorso_string: 'Path'
+
 
     });
 
@@ -315,7 +321,9 @@ angular.module('roveretoPercorsi', [
         addImage_label: 'Bilder hinzufügen',
         images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
         images_send_toast_error: 'Fehler beim Hinzufügen von Bildern',
-        toast_must_login: 'Wählen Sie POI'
+        toast_must_login: 'Wählen Sie POI',
+        images_send_percorso_string: 'Path'
+
 
 
 
