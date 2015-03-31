@@ -83,6 +83,7 @@ public class PercorsiController {
 
 	@ExceptionHandler(Exception.class)
 	public @ResponseBody Response<Void> handleExceptions(Exception exception) {
+		exception.printStackTrace();
 		return new Response<Void>(500, exception.getMessage());
 	}
 

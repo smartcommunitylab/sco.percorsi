@@ -248,7 +248,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	protected BasicObject convertBeanToBasicObject(PercorsiBean object, Class<? extends BasicObject> cls) {
 		PercorsiObject appObj = (PercorsiObject)super.convertBeanToBasicObject(object, cls);
-		appObj.setId(appObj.getLocalId());
+		appObj.setLocalId(appObj.getLocalId());
 		return appObj;
 	}
 

@@ -102,6 +102,7 @@ public class SocialDataController {
 
 	@ExceptionHandler(Exception.class)
 	public @ResponseBody Response<Void> handleExceptions(Exception exception) {
+		exception.printStackTrace();
 		if (exception instanceof SecurityException) {
 			return new Response<Void>(403, exception.getMessage());
 		}
