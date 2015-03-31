@@ -276,22 +276,21 @@ ion-slide div[cover-img] i {
     font-size: larger;
 }
 
-#pathdetails-info .content {
+.details-info .content {
     margin-top: 32px;
 }
 
-#pathdetails-info .content .audio-player {
+.details-info .content .audio-player {
     position: relative;
     margin-top: 1em;
     border-top: 1px solid #9e9e9e;
     border-bottom: 1px solid #9e9e9e;
 }
-
-#pathdetails-info .content .audio-player .button-play {
+.details-info .content .audio-player .button-play {
     width: 40px;
 }
 
-#pathdetails-info .content .audio-player .title {
+.details-info .content .audio-player .title {
     display: inline-block;
     position: absolute;
     top: 1em;
@@ -301,11 +300,11 @@ ion-slide div[cover-img] i {
     text-overflow: ellipsis;
 }
 
-#pathdetails-info .itinerary li:not(:first-child) {
+.details-info .itinerary li:not(:first-child) {
     margin-top: 0.5em;
 }
 
-#pathdetails-info .itinerary li span.poi-number {
+.details-info .itinerary li span.poi-number {
     display: inline-block;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -319,7 +318,7 @@ ion-slide div[cover-img] i {
     margin-right: 0.5em;
 }
 
-#pathdetails-info .itinerary li span.poi-title {
+.details-info .itinerary li span.poi-title {
     text-decoration: underline;
 }
 
