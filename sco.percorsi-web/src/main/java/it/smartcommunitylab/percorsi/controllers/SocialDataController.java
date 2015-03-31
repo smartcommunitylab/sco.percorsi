@@ -23,6 +23,8 @@ import it.smartcommunitylab.percorsi.model.Response;
 import it.smartcommunitylab.percorsi.services.ContributorManager;
 import it.smartcommunitylab.percorsi.services.PercorsiManager;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -100,6 +102,11 @@ public class SocialDataController {
 		}
 	}
 
+	@RequestMapping(value = "/userdata/paths/{providerId}/{pathId}/rate")
+	public @ResponseBody Response<List<Rating>> getRatings(@PathVariable String providerId, @PathVariable String pathId) {
+		return new Response<List<Rating>>(manager.getRatings(providerId, pathId));
+	}
+	
 	@ExceptionHandler(Exception.class)
 	public @ResponseBody Response<Void> handleExceptions(Exception exception) {
 		exception.printStackTrace();

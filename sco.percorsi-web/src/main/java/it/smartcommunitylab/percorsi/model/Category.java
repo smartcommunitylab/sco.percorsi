@@ -1,8 +1,10 @@
 package it.smartcommunitylab.percorsi.model;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public class Category {
+public class Category implements Serializable {
+	private static final long serialVersionUID = 4177441048635009765L;
 
 	private String id;
 	private Map<String,String> name;

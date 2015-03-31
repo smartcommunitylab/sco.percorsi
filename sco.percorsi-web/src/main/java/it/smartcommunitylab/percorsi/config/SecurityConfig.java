@@ -66,8 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http
 		.headers()
 			.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsMode.SAMEORIGIN));
-		// TODO authenticated for user issue submission
-	        http
+	    http
         	.csrf()
         		.disable()
             .authorizeRequests()

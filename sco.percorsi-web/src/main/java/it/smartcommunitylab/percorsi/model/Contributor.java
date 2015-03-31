@@ -2,6 +2,7 @@ package it.smartcommunitylab.percorsi.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.util.StringUtils;
 
 import eu.trentorise.smartcampus.profileservice.model.BasicProfile;
 
@@ -38,7 +39,13 @@ public class Contributor {
 	public static Contributor fromUserProfile(BasicProfile basicProfile) {
 		Contributor c = new Contributor();
 		c.setUserId(basicProfile.getUserId());
-		// TODO
+		StringBuilder sb = new StringBuilder();
+		if (StringUtils.hasText(basicProfile.getName())) sb.append(basicProfile.getName());
+		if (StringUtils.hasText(basicProfile.getSurname())) {
+			if (sb.length() > 0) sb.append(' ');
+			sb.append(basicProfile.getSurname());
+		}
+		if (sb.length() > 0) c.setName(sb.toString());
 		return c;
 	}
 }
