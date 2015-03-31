@@ -1,17 +1,17 @@
-<ion-view title="{{'archivedetail_title' | translate}}">
-
+<ion-view class="details-info" title="{{item.title | translate_remote}}">
     <ion-content class="has-header">
+        <!-- Navigation buttons -->
         <div class="navigation-button">
-            <button class="button button-percorsi" ng-click="prevPOI()" ng-class="{'hidden':firstPOI}">
-                prev
+            <button class="button button-percorsi" ng-click="prevPOI()" ng-class="{'hidden': firstPOI}">
+                <i class="icon ion-arrow-left-a"></i>
             </button>
-            <button class="button button-percorsi" ng-click="nextPOI()" ng-class="{'hidden':lastPOI}">
-                next
+            <button class="button button-percorsi" ng-click="nextPOI()" ng-class="{'hidden': lastPOI}">
+                <i class="icon ion-arrow-right-a"></i>
             </button>
         </div>
         <!-- Thumbnails slider -->
-        <div class="slide-box-container">
-            <ion-slide-box delegate-handle="detail-slide-box" does-continue="true" auto-play="true">
+        <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
+            <ion-slide-box delegate-handle="details-slide-box" does-continue="true" auto-play="true">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <ion-slide ng-repeat="image in item.images" ng-click="openModal()">
                     <div cover-img="{{image.url}}"></div>
@@ -22,7 +22,11 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
+<<<<<<< HEAD
             <button class="button button-percorsi button-fab" ng-click="addImagePopup()" ng-hide="!userIsLogged">
+=======
+            <button class="button button-percorsi button-fab" ng-click="addImagePopup()">
+>>>>>>> origin/master
                 <div>
                     <span><i class="icon ion-plus"></i></span>
                 </div>
