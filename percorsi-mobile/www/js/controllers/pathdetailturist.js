@@ -27,7 +27,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
             }
 
             var emptyStars = Math.floor(($scope.ratings[0].max) - $scope.path.vote);
-            for (var i = 0; i < halfStars; i++) {
+            for (var i = 0; i < emptyStars; i++) {
                 stars.push('empty');
             }
         }
