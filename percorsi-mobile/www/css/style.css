@@ -307,8 +307,8 @@ ion-slide div[cover-img] i {
     margin-top: 32px;
 }
 
-map-balloon .details-info .itinerary li:not(:first-child) {
-    margin-top: 0.5em;
+.details-info .itinerary li {
+    padding: 5px 0;
 }
 
 .details-info .itinerary li span.poi-number {

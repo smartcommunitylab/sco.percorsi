@@ -47,8 +47,13 @@
                 </button>
                 <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote}}</div>
             </div>
-            <div class="buttons padding-vertical">
-                <button class="button button-percorsi" ng-click="goToMap()">Mappa</button>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-percorsi button-block" ng-click="goToMap()">{{'path_map' | translate}}</button>
+                </div>
+                <div class="col">
+                    <button class="button button-percorsi button-block" ng-click="bringmethere([item.coordinates.lat, item.coordinates.lng])">{{'pathdetailmap_goto' | translate}}</button>
+                </div>
             </div>
         </div>
     </ion-content>
