@@ -305,9 +305,9 @@ ion-slide div[cover-img] i {
 
 .details-info .content.loggedin {
     margin-top: 32px;
-}map-balloon
+}
 
-.details-info .itinerary li:not(:first-child) {
+map-balloon .details-info .itinerary li:not(:first-child) {
     margin-top: 0.5em;
 }
 
@@ -338,12 +338,15 @@ ion-slide div[cover-img] i {
     border: none;
 }
 
-.leaflet-marker-icon .number {
-    position: relative;
-    top: -37px;
-    font-size: 12px;
-    width: 25px;
-    text-align: center;
+.leaflet-marker-icon p {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+}
+
+.leaflet-marker-icon img {
+    width: 32px;
+    height: 32px;
 }
 
 .map-balloon {
