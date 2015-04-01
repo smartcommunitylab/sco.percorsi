@@ -228,7 +228,6 @@ angular.module('roveretoPercorsi', [
         credits_project: 'Un progetto di:',
         credits_sponsored: 'Con la collaborazione di:',
         credits_info: 'Per informazioni:',
-        pathdetailmap_startpath: 'AVVIA ITINERIARIO',
         pathdetailturist_vote: 'Vota',
         pathdetailturist_review: 'Recensisci',
         pathdetailturist_voteinfo: 'Vota il percorso',
@@ -244,8 +243,9 @@ angular.module('roveretoPercorsi', [
         images_send_toast_error: 'Problema nell\'invio delle immagini',
         toast_must_login: 'Funzione disabilitata. Devi accedere al sistema',
         poi_add_image_popup: 'Associa a POI',
-        images_send_percorso_string: 'Percorso'
-
+        images_send_percorso_string: 'Percorso',
+        close: 'Chiudi',
+        details: 'Dettagli'
     });
 
     $translateProvider.translations('en', {
@@ -283,9 +283,9 @@ angular.module('roveretoPercorsi', [
         images_send_toast_error: 'Error adding images',
         toast_must_login: 'Function disabled. You must login',
         poi_add_image_popup: 'Choose the POI',
-        images_send_percorso_string: 'Path'
-
-
+        images_send_percorso_string: 'Path',
+        close: 'Close',
+        details: 'Details'
     });
 
     $translateProvider.translations('de', {
@@ -322,12 +322,9 @@ angular.module('roveretoPercorsi', [
         images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
         images_send_toast_error: 'Fehler beim Hinzufügen von Bildern',
         toast_must_login: 'Wählen Sie POI',
-        images_send_percorso_string: 'Path'
-
-
-
-
-
+        images_send_percorso_string: 'Path',
+        close: 'Schließen',
+        details: 'Einzelheiten'
     });
 
     $translateProvider.preferredLanguage("en");

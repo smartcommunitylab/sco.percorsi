@@ -305,7 +305,7 @@ ion-slide div[cover-img] i {
 
 .details-info .content.loggedin {
     margin-top: 32px;
-}
+}map-balloon
 
 .details-info .itinerary li:not(:first-child) {
     margin-top: 0.5em;
@@ -344,6 +344,10 @@ ion-slide div[cover-img] i {
     font-size: 12px;
     width: 25px;
     text-align: center;
+}
+
+.map-balloon {
+    font-size: 14px;
 }
 
 .rating-avg {

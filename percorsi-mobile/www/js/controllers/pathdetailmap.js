@@ -7,14 +7,13 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
         markers.push({
             lat: $scope.path.pois[i].coordinates.lat,
             lng: $scope.path.pois[i].coordinates.lng,
-            message: '<div ng-controller="PathDetailMapCtrl">' +
-                '<div><label><strong> <i>' + $filter('translate_remote')($scope.path.pois[i].title) + '</i></strong></label></div>' +
-                '<div><label>' + $filter('translate_remote')($scope.path.pois[i].description) + '</i></label></div>' +
-                '<div align="center" style="white-space:nowrap;" ><button class="button button-percorsi" ng-click="closeWin()" style="width:49%">Cancel</button>' +
-                '<button class="button button-percorsi" ng-click="detail(' +
-                i +
-                ')" style="width:49%">Detail</button>' +
-                '</div></form>' +
+            message: '<div ng-controller="PathDetailMapCtrl" class="map-balloon">' +
+                '<h4>' + $filter('translate_remote')($scope.path.pois[i].title) + '</h4>' +
+                '<div class="desc">' + $filter('translate_remote')($scope.path.pois[i].description) + '</div>' +
+                '<div class="row">' +
+                '<div class="col"><button class="button button-percorsi button-block" ng-click="closeWin()">' + $filter('translate')('close') + '</button></div>' +
+                '<div class="col"><button class="button button-percorsi button-block" ng-click="detail(' + i + ')">' + $filter('translate')('details') + '</button></div>' +
+                '</div>' +
                 '</div>',
             icon: {
                 type: 'div',
@@ -24,26 +23,29 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             }
         });
     }
+
     $scope.pathMarkers = markers;
     $scope.pathLine = {
         p1: {
             color: 'black',
             weight: 8,
-            latlngs: mapConversionService.decode($scope.path.shape),
-            //            message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
+            latlngs: mapConversionService.decode($scope.path.shape)
+                // message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
         }
     };
+
     $scope.detail = function (poiIndex) {
         singlePoiService.setSelectedPoi($scope.path.pois[poiIndex]);
         singlePoiService.setIndexPoi(poiIndex);
         window.location.assign('#/app/poidetail');
-    }
+    };
 
     $scope.closeWin = function () {
         leafletData.getMap().then(function (map) {
             map.closePopup();
         });
-    }
+    };
+
     if (singlePoiService.getIndexPoi() == null) {
         angular.extend($scope, {
             tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
@@ -56,7 +58,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             events: {},
             pathLine: $scope.pathLine
         });
-
     } else {
         angular.extend($scope, {
             tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
@@ -69,32 +70,29 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             events: {},
             pathLine: $scope.pathLine
         });
-
     };
-
 
     leafletData.getMap().then(function (map) {
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18
         }).addTo(map);
+
         map.locate({
             setView: false,
             maxZoom: 8,
             watch: false,
             enableHighAccuracy: true
         });
+
         map.on('locationfound', onLocationFound);
 
         function onLocationFound(e) {
             $scope.myloc = e;
             var radius = e.accuracy / 2;
-
             L.marker(e.latlng).addTo(map);
-            //                        .bindPopup("You are within " + radius + " meters from this point").openPopup();
-
+            //.bindPopup("You are within " + radius + " meters from this point").openPopup();
             L.circle(e.latlng, radius).addTo(map);
-
-        }
+        };
     });
 });

@@ -43,6 +43,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         if ($scope.reviews.data) {
             length = $scope.reviews.data.length;
         }
+
         reviewsService.getReviewsList(length).then(function (reviews) {
             //check state for array
             $scope.emptylist = false;
@@ -53,14 +54,15 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                         $scope.noMoreReviewsAvailable = true;
                     }
                 }
-                /*temp */
+
+                /* temp */
                 if (reviews.length == 0) {
                     $scope.noMoreReviewsAvailable = true;
-
-                } /*temp */
+                } /* temp */
             } else {
                 $scope.reviews = reviews;
             }
+
             if ($scope.reviews.data.length == 0) {
                 $scope.emptylist = true;
             } else {
@@ -79,15 +81,14 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.showVote = function (name) {
         var confirmPopup = $ionicPopup.confirm({
             title: $filter('translate')("pathdetailturist_voteinfo"),
-            //            template: '<div><span ng-repeat="rating in ratings"><div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div></span></div>',
+            //template: '<div><span ng-repeat="rating in ratings"><div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div></span></div>',
             templateUrl: 'templates/vote-popup.html',
             scope: $scope,
             buttons: [
                 {
-
                     text: $filter('translate')("newreview_popup_cancel"),
                     type: ' button-percorsi'
-                            },
+                },
                 {
                     text: $filter('translate')("newreview_popup_ok"),
                     type: 'button-percorsi',
