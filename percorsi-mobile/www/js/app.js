@@ -38,6 +38,7 @@ angular.module('roveretoPercorsi', [
 
     /* TEMP */
     $rootScope.userIsLogged = true;
+    /* TEMP */
 
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

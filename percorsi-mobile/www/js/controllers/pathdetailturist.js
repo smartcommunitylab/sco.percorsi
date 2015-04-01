@@ -4,11 +4,10 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.reviews = {};
     $scope.path = singlePathService.getSelectedPath();
 
-    $scope.rating = 0;
-    $scope.ratings = [{
-        current: 3,
+    $scope.rating = {
+        current: 0,
         max: 5
-    }];
+    };
 
     $scope.getStars = function () {
         var stars = [];
@@ -24,7 +23,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                 stars.push('half');
             }
 
-            var emptyStars = Math.floor(($scope.ratings[0].max) - $scope.path.vote);
+            var emptyStars = Math.floor(($scope.rating.max) - $scope.path.vote);
             for (var i = 0; i < emptyStars; i++) {
                 stars.push('empty');
             }
@@ -93,11 +92,11 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                     text: $filter('translate')("newreview_popup_ok"),
                     type: 'button-percorsi',
                     onTap: function (e) {
-                        if (!$scope.ratings[0].current) {
+                        if (!$scope.rating.current) {
                             e.preventDefault();
                         } else {
-                            //return $scope.ratings[0].current;
-                            $scope.sendVote($scope.ratings[0].current);
+                            //return $scope.rating.current;
+                            $scope.sendVote($scope.rating.current);
                         }
                     }
                 }

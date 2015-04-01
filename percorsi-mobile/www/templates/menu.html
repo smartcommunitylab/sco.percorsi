@@ -22,10 +22,6 @@
             <ion-list>
                 <ion-item nav-clear menu-close item-icon-left href="#/app/categories">
                     <i class="icon ion-home"></i>{{'menu_home' | translate}}
-                    <!--<div class="menu-entry">
-                        <img src="img/ic-mappa.png">
-                        <span></span>
-                    </div>-->
                 </ion-item>
 
                 <ion-item nav-clear menu-close item-icon-left ng-click="openLoginPopUp()" ng-class="{'disabled': !userIsLogged}">
@@ -38,18 +34,10 @@
 
                 <ion-item nav-clear menu-close item-icon-left ng-click="login()" ng-if="!userIsLogged">
                     <i class="icon ion-log-in"></i>{{'menu_login' | translate}}
-                    <!--<div class="menu-entry">
-                        <img src="img/ic-login.png">
-                        <span>{{'menu_credits' | translate}}</span>
-                    </div>-->
                 </ion-item>
 
                 <ion-item nav-clear menu-close item-icon-left ng-click="openModal(2)">
                     <i class="icon ion-information-circled"></i>{{'menu_credits' | translate}}
-                    <!--<div class="menu-entry">
-                        <img src="img/ic-credits.png">
-                        <span>{{'menu_credits' | translate}}</span>
-                    </div>-->
                 </ion-item>
             </ion-list>
         </ion-content>

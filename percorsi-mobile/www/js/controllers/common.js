@@ -31,7 +31,13 @@ angular.module('roveretoPercorsi.controllers.common', [])
     };
 })
 
-.controller('AppCtrl', function ($scope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast) {
+.controller('AppCtrl', function ($scope, $rootScope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast) {
+    // Categories submenu
+    $scope.categoriesSubmenu = false;
+    $scope.toggleSubmenu = function () {
+        $scope.categoriesSubmenu = !$scope.categoriesSubmenu;
+    };
+
     // Modal 1
     $ionicModal.fromTemplateUrl('templates/login.html', {
         id: '1', // We need to use and ID to identify the modal that is firing the event!
