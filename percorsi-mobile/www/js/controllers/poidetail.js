@@ -3,8 +3,10 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 .controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicModal, $ionicLoading, Toast) {
     $scope.path = singlePathService.getSelectedPath();
     $scope.item = singlePoiService.getSelectedPoi();
+    $scope.currentItemIndex = singlePoiService.getIndexPoi() + 1;
+
     $scope.images =
-        //    $scope.poiChoosed = singlePoiService.getIndexPoi() + 1;
+        // $scope.poiChoosed = singlePoiService.getIndexPoi() + 1;
         $scope.options = [{
             name: $filter('translate')("images_send_percorso_string"),
             id: 0

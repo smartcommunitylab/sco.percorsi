@@ -2,7 +2,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
 .controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $filter, Toast, singlePathService, reviewsService) {
     $scope.reviews = {};
-    $scope.path = {};
     $scope.path = singlePathService.getSelectedPath();
 
     $scope.rating = 0;
@@ -15,7 +14,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         var stars = [];
 
         if (!!$scope.path && !!$scope.path.vote) {
-            // full stars
             var fullStars = Math.floor($scope.path.vote);
             for (var i = 0; i < fullStars; i++) {
                 stars.push('full');
@@ -71,13 +69,13 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
-    }
+    };
+
     $scope.sendVote = function (vote) {
         reviewsService.sendVote(vote);
-
         Toast.show($filter('translate')("vote_sent_toast_ok"), "short", "bottom");
+    };
 
-    }
     $scope.showVote = function (name) {
         var confirmPopup = $ionicPopup.confirm({
             title: $filter('translate')("pathdetailturist_voteinfo"),
@@ -101,17 +99,16 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                             $scope.sendVote($scope.ratings[0].current);
                         }
                     }
-                    }
+                }
             ]
         });
+    };
 
-    }
     $scope.sendReview = function (review) {
         reviewsService.sendReview(review);
-
         Toast.show($filter('translate')("review_sent_toast_ok"), "short", "bottom");
+    };
 
-    }
     $scope.showReview = function (name) {
         $scope.review = {
             text: ""
@@ -126,7 +123,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                 {
                     text: $filter('translate')("newreview_popup_cancel"),
                     type: 'button-percorsi'
-                            },
+                },
                 {
                     text: $filter('translate')("newreview_popup_ok"),
                     type: ' button-percorsi',
@@ -139,11 +136,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                         }
                     }
                 }
-                                ]
+            ]
         });
-
     }
-
-
-
 });
