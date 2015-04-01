@@ -4,7 +4,11 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
     $scope.path = singlePathService.getSelectedPath();
     var markers = [];
     for (i = 0; i < $scope.path.pois.length; i++) {
+        var latlng = [$scope.path.pois[i].coordinates.lat, $scope.path.pois[i].coordinates.lng]
         markers.push({
+            getMessageScope: function () {
+                return $scope;
+            },
             lat: $scope.path.pois[i].coordinates.lat,
             lng: $scope.path.pois[i].coordinates.lng,
             message: '<div ng-controller="PathDetailMapCtrl" class="map-balloon">' +
@@ -13,6 +17,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
                 '<div class="row">' +
                 '<div class="col"><button class="button button-percorsi button-block" ng-click="closeWin()">' + $filter('translate')('close') + '</button></div>' +
                 '<div class="col"><button class="button button-percorsi button-block" ng-click="detail(' + i + ')">' + $filter('translate')('details') + '</button></div>' +
+                '<div class="col"><button class="button button-percorsi button-block" ng-click="bringmethere([' + $scope.path.pois[i].coordinates.lat + ', ' + $scope.path.pois[i].coordinates.lng + '])">' + $filter('translate')('pathdetailmap_goto') + '</button></div>' +
                 '</div>' +
                 '</div>',
             icon: {
@@ -22,7 +27,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
                 popupAnchor: [0, 0]
             }
         });
-    }
+    };
 
     $scope.pathMarkers = markers;
     $scope.pathLine = {

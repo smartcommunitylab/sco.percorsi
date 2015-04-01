@@ -31,7 +31,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
     };
 })
 
-.controller('AppCtrl', function ($scope, $ionicModal, $ionicHistory, $timeout, $filter, Toast) {
+.controller('AppCtrl', function ($scope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast) {
     // Modal 1
     $ionicModal.fromTemplateUrl('templates/login.html', {
         id: '1', // We need to use and ID to identify the modal that is firing the event!
@@ -64,7 +64,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
 
     $scope.openSignal = function () {
         segnalaService.setSignal(null);
-        window.location.assign("#/app/segnala/");
+        window.location.assign('#/app/segnala/');
         $ionicHistory.nextViewOptions({
             disableAnimate: true,
             disableBack: true
@@ -73,7 +73,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
 
     /* Listen for broadcasted messages */
     $scope.openLoginPopUp = function () {
-        Toast.show($filter('translate')("toast_must_login"), "short", "bottom");
+        Toast.show($filter('translate')('toast_must_login'), 'short', 'bottom');
     };
 
     $scope.$on('modal.shown', function (event, modal) {
@@ -121,25 +121,28 @@ angular.module('roveretoPercorsi.controllers.common', [])
     };
 
     $scope.bringmethere = function (loc) {
-        if (device.platform == "Android") {
+        if (device != undefined && device.platform == "Android") {
             setTimeout(function () {
                 window.open("http://maps.google.com/maps?daddr=" + loc[0] + "," + loc[1], "_system");
             }, 10);
-        } else if (device.platform == "iOS") {
+        } else if (device != undefined && device.platform == "iOS") {
             var url = "maps:daddr=" + loc[0] + "," + loc[1];
             //successFn();
             setTimeout(function () {
                 window.location = url;
             }, 10);
         } else {
-            console.error("Unknown platform");
+            //console.error("Unknown platform");
+            setTimeout(function () {
+                window.open("http://maps.google.com/maps?daddr=" + loc[0] + "," + loc[1], "_system");
+            }, 10);
         }
         return false;
-    }
+    };
 
     $scope.openLoginPopUp = function () {
         Toast.show($filter('translate')("toast_must_login"), "short", "bottom");
-    }
+    };
 });
 
 function showNoPlace() {

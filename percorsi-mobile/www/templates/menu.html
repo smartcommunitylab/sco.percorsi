@@ -21,33 +21,23 @@
         <ion-content>
             <ion-list>
                 <ion-item nav-clear menu-close item-icon-left href="#/app/categories">
-                    <i class="icon ion-home"></i> {{'menu_home' | translate}}
+                    <i class="icon ion-home"></i>{{'menu_home' | translate}}
                     <!--<div class="menu-entry">
                         <img src="img/ic-mappa.png">
                         <span></span>
                     </div>-->
                 </ion-item>
 
-                <ion-item nav-clear menu-close item-icon-left ng-click="openLoginPopUp()" ng-hide="userIsLogged">
-
-                    <div class="menu-entry-disabled">
-                        <i class="icon ion-android-star "></i> <span>{{'menu_favorites' | translate}}</span>
-                    </div>
+                <ion-item nav-clear menu-close item-icon-left ng-click="openLoginPopUp()" ng-class="{'disabled': !userIsLogged}">
+                    <i class="icon ion-android-star "></i>{{'menu_favorites' | translate}}
                 </ion-item>
 
-                <ion-item nav-clear menu-close item-icon-left href="#/app/favorites" ng-hide="!userIsLogged">
-                    <div class="menu-entry-enabled">
-                        <i class="icon ion-android-star "></i> <span>{{'menu_favorites' | translate}}</span>
-                    </div>
+                <ion-item nav-clear menu-close item-icon-left ng-click="logout()" ng-if="userIsLogged">
+                    <i class="icon ion-log-out"></i>{{'menu_logout' | translate}}
                 </ion-item>
 
-                <ion-item nav-clear menu-close item-icon-left ng-click="logout()" ng-hide="!userIsLogged">
-                    <i class="icon ion-log-out"></i> {{'menu_logout' | translate}}
-
-                </ion-item>
-
-                <ion-item nav-clear menu-close item-icon-left ng-click="login()" ng-hide="userIsLogged">
-                    <i class="icon ion-log-in"></i> {{'menu_login' | translate}}
+                <ion-item nav-clear menu-close item-icon-left ng-click="login()" ng-if="!userIsLogged">
+                    <i class="icon ion-log-in"></i>{{'menu_login' | translate}}
                     <!--<div class="menu-entry">
                         <img src="img/ic-login.png">
                         <span>{{'menu_credits' | translate}}</span>
@@ -55,7 +45,7 @@
                 </ion-item>
 
                 <ion-item nav-clear menu-close item-icon-left ng-click="openModal(2)">
-                    <i class="icon ion-information-circled"></i> {{'menu_credits' | translate}}
+                    <i class="icon ion-information-circled"></i>{{'menu_credits' | translate}}
                     <!--<div class="menu-entry">
                         <img src="img/ic-credits.png">
                         <span>{{'menu_credits' | translate}}</span>

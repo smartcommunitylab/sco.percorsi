@@ -440,12 +440,17 @@ ul.rating {
     cursor: pointer;
 }
 
-.menu-entry-enabled {
-    color: black;
+ion-side-menu ion-item {
+    line-height: 24px;
 }
 
-.menu-entry-disabled {
-    color: lightgrey;
+ion-side-menu ion-item.disabled {
+    color: lightgray;
+}
+
+ion-side-menu ion-item .icon {
+    font-size: 24px;
+    margin-right: 16px;
 }
 
 .add-image-poi-select {

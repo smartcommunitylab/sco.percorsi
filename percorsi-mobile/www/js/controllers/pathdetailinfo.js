@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
-.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, $ionicModal,   addImageService) {
+.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, $ionicModal, addImageService) {
     $scope.item = singlePathService.getSelectedPath();
     singlePoiService.setIndexPoi(null);
 
