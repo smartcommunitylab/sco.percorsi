@@ -39,6 +39,8 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import eu.trentorise.smartcampus.presentation.common.exception.DataException;
@@ -162,9 +164,16 @@ public class PercorsiManager {
 
 	}
 
-	public List<Rating> getRatings(String appId, String pathId) {
-		List<Rating> list = ratingRepository.findByAppIdAndLocalId(appId, pathId);
-		return list;
+	public List<Rating> getRatings(String appId, String pathId, Integer start, Integer count) {
+		if (count != null && count > 0) {
+			int pageIdx = start != null && start > 0 ? (start / count) : 0;
+			int size = count != null && count > 0 ? count : 100; 
+			PageRequest pr = new PageRequest(pageIdx, size);
+			Page<Rating> page = ratingRepository.findByAppIdAndLocalId(appId, pathId, pr);
+			return page.getContent();
+		} else {
+			return ratingRepository.findByAppIdAndLocalId(appId, pathId);
+		}
 	}
 
 	public Path rate(String appId, String pathId, Contributor contributor, Integer vote, String comment) throws DataException, NotFoundException {

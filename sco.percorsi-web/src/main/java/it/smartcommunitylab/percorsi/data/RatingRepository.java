@@ -20,6 +20,8 @@ import it.smartcommunitylab.percorsi.model.Rating;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -31,6 +33,7 @@ public interface RatingRepository extends MongoRepository<Rating, String>{
 	@Query("{'appId': ?0, 'localId': ?1, 'contributor.userId':?2}")
 	Rating findByAppIdAndLocalIdAndUserId(String appId, String localId, String userId);
 
+	Page<Rating> findByAppIdAndLocalId(String appId, String localId, Pageable pageable);
 	List<Rating> findByAppIdAndLocalId(String appId, String localId);
 
 }
