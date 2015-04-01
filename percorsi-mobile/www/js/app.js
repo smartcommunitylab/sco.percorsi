@@ -29,6 +29,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.listPathsService',
     'roveretoPercorsi.services.singlePathService',
     'roveretoPercorsi.services.singlePoiService',
+    'roveretoPercorsi.services.addImageService',
     'roveretoPercorsi.services.reviews'
 ])
 
