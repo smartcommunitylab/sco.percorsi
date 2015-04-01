@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.poidetail', [])
 
-.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicModal, $ionicLoading, Toast) {
+.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicModal, $ionicLoading, Toast, addImageService) {
     $scope.path = singlePathService.getSelectedPath();
     $scope.item = singlePoiService.getSelectedPoi();
     $scope.currentItemIndex = singlePoiService.getIndexPoi() + 1;
@@ -96,89 +96,9 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     };
 
     $scope.submit = function () {
-        var remoteURL = [];
-
-        $ionicLoading.show({
-            template: 'Loading...'
-        });
-        var uploadedimages = 0;
-        for (var i = 0; i < $scope.images.length; i++) {
-            $http({
-                method: 'POST',
-                url: 'https://api.imgur.com/3/image',
-                headers: {
-                    Authorization: 'Client-ID b790f7d57013adb',
-                    Accept: 'application/json'
-                },
-                data: {
-                    image: $scope.imagesBase64[i],
-                    type: 'base64'
-                }
-            }).
-            success(function (data, status, headers, config) {
-                // this callback will be called asynchronously
-                // when the response is available
-                remoteURL.push(data.data.link);
-                uploadedimages++
-                //send to ws the server
-                if (uploadedimages == $scope.images.length) {
-                    singlePathService.uploadImages($scope.selectedOption, remoteURL).then(function (data) {
-                        //chiudi pop up bella la' e esci
-                        $ionicLoading.hide();
-                        console.log("upload images success. Now send data to server...." + segnalaService.getPosition());
-                        //torna indietro con toast successo
-
-                        $ionicHistory.nextViewOptions({
-                            disableAnimate: true,
-                            disableBack: true
-                        });
-                        Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
-                        //log
-                        Restlogging.appLog("AppProsume", "newissue");
-                    }, function (error) {
-                        console.log("problems" + data + status + headers + config);
-                        //chiudi pop up ed errore sul server smarcommunity
-                        //toast error
-                        Toast.show($filter('translate')("images_send_toast_error"), "short", "bottom");
-                        $ionicLoading.hide();
-                    });
-                }
-            }).
-            error(function (data, status, headers, config) {
-                $ionicLoading.hide();
-                console.log("problems" + "data:" + JSON.stringify(data, null, 4) + "status:" + status + "headers:" + headers + "config:" + config);
-                //chiudi pop up ed errore sul server immagini
-                //toast error
-                Toast.show($filter('translate')("images_send_toast_error"), "short", "bottom");
-                $ionicLoading.hide();
-            });
-        }
-
-        if ($scope.images.length == 0) {
-            //if no gallery u are here
-            singlePoiService.uploadImages($scope.selectedOption, remoteURL).then(function (data) {
-                //chiudi pop up bella la' e esci
-                $ionicLoading.hide();
-                console.log("upload images success. Now send data to server...." + segnalaService.getPosition());
-                //torna indietro con toast successo
-                $ionicHistory.nextViewOptions({
-                    disableAnimate: true,
-                    disableBack: true
-                });
-                Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
-                //log
-                Restlogging.appLog("AppProsume", "newissue");
-
-            }, function (error) {
-                console.log("problems" + "data:" + data + "status:" + status + "headers:" + headers + "config:" + config);
-                //chiudi pop up ed errore sul server smarcommunity
-                //toast error
-                Toast.show($filter('translate')("images_send_toast_error"), "short", "bottom");
-                $ionicLoading.hide();
-
-            });
-        }
+        addImageService.submit($scope.images, $scope.imagesBase64, $scope.selectedOption);
     };
+
 
     $scope.addImage = function (wherePic) {
         var options = {};
