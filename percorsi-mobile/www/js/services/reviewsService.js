@@ -41,7 +41,7 @@ angular.module('roveretoPercorsi.services.reviews', [])
     reviewsService.sendRate = function (pathId, vote, comment) {
         return $http({
             method: 'POST',
-            url: Config.URL() + '/' + Config.app() + '/' + Config.userdata + '/' + Config.appId() + '/' + pathId + '/' + 'rate';,
+            url: Config.URL() + '/' + Config.app() + '/' + Config.userdata + '/' + Config.appId() + '/' + pathId + '/' + 'rate',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
