@@ -16,6 +16,8 @@
 
 package it.smartcommunitylab.percorsi.controllers;
 
+import javax.servlet.http.HttpServletResponse;
+
 import it.smartcommunitylab.percorsi.model.PathData;
 import it.smartcommunitylab.percorsi.model.ProviderSettings;
 import it.smartcommunitylab.percorsi.model.Response;
@@ -25,6 +27,7 @@ import it.smartcommunitylab.percorsi.services.PercorsiManager;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
@@ -81,7 +84,8 @@ public class ConsoleController {
 	}
 
 	@ExceptionHandler(Exception.class)
-	public @ResponseBody Response<Void> handleExceptions(Exception exception) {
-		return new Response<Void>(500, exception.getMessage());
+	public @ResponseBody Response<Void> handleExceptions(Exception exception, HttpServletResponse res) {
+		res.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		return new Response<Void>(HttpStatus.INTERNAL_SERVER_ERROR.value(), exception.getMessage());
 	}
 }

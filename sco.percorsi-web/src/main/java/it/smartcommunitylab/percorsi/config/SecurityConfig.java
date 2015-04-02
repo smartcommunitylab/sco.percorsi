@@ -39,7 +39,7 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 
 @Configuration
 @EnableWebMvcSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+//@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
@@ -66,30 +66,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http
 		.headers()
 			.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsMode.SAMEORIGIN));
+		
+        http
+        .rememberMe();
+        http
+        .authorizeRequests()
+        	.antMatchers("/userdata/**")
+        		.hasAnyAuthority(ContributorUserDetails.CONTRIBUTOR)
+        	.and()
+        		.addFilterBefore(rememberMeAuthenticationFilter(), BasicAuthenticationFilter.class);
+
+		
 	    http
-        	.csrf()
-        		.disable()
-            .authorizeRequests()
-            	.antMatchers("/","/console/**","/mgmt/**")
-            		.authenticated()
-                .anyRequest()
-                	.permitAll();
-	        http
-            .formLogin()
-                .loginPage("/login")
-                	.permitAll()
-                	.and()
-                .logout()
-                	.permitAll();
+        .csrf()
+        	.disable()
+        .authorizeRequests()
+        	.antMatchers("/","/console/**","/mgmt/**")
+        		.authenticated()
+            .anyRequest()
+            	.permitAll();
+	    http
+        .formLogin()
+            .loginPage("/login")
+            	.permitAll()
+            	.and()
+            .logout()
+            	.permitAll().deleteCookies("rememberme","JSESSIONID");
 
-	        http
-	        .rememberMe();
-
-	        http
-	        .authorizeRequests()
-	        	.antMatchers("/userdata/**")
-	        		.hasAnyRole(ContributorUserDetails.CONTRIBUTOR).and()
-	        .addFilterBefore(rememberMeAuthenticationFilter(), BasicAuthenticationFilter.class);
 	 }
 
 	@Bean
