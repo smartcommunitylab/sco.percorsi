@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.poidetail', [])
 
-.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicModal, $ionicLoading, Toast, addImageService) {
+.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicModal, $ionicLoading, Toast, addImageService) {
     $scope.path = singlePathService.getSelectedPath();
     $scope.item = singlePoiService.getSelectedPoi();
     $scope.idPoiChoosen = null;
@@ -74,11 +74,15 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     }).then(function (modal) {
         $scope.images = [];
         $scope.imagesBase64 = [];
-        $scope.addimagemodal = modal
+        $scope.addimagemodal = modal;
+        $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
     })
 
     $scope.openAddimage = function () {
         $scope.addimagemodal.show()
+        $scope.images = [];
+        $scope.imagesBase64 = [];
+        $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
     }
 
     $scope.closeAddimage = function () {
@@ -101,13 +105,29 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 
     }
     $scope.submit = function () {
-        //        addImageService.submit($scope.images, $scope.imagesBase64, $scope.selectedOption);          //set $scope.idPoiChoosen
-        if ($scope.selectedOption.id != 0) {
+        if ($scope.selectedOption.id != 0 || $scope.selectedOption == 0) {
+            $scope.idPoiChoosen = null;
+
+        } else {
             $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption.id].localId;
         }
-        if (addImageService.submit($scope.images, $scope.imagesBase64, $scope.idPoiChoosen, $scope.path.localId)) {
-            $scope.addimagemodal.shide();
-        }
+        addImageService.submit($scope.images, $scope.imagesBase64, $scope.idPoiChoosen, $scope.path.localId).then(function (newpath) {
+            $scope.addimagemodal.hide();
+            //update data (it is a path), I want the right poi
+            $scope.item = newpath.data.data.pois[singlePoiService.getIndexPoi()];
+            //$ionicSlideBoxDelegate.update();
+            $ionicSlideBoxDelegate.$getByHandle('details-slide-box').update();
+        });
+
+        //
+        //        if ($scope.selectedOption.id != 0) {
+        //            $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption.id].localId;
+        //        }
+        //        if (addImageService.submit($scope.images, $scope.imagesBase64, $scope.idPoiChoosen, $scope.path.localId)) {
+        //            $scope.addimagemodal.hide();
+        //            $scope.item = newpath.data.data;
+        //            $ionicSlideBoxDelegate.update();
+        //        }
     };
 
 

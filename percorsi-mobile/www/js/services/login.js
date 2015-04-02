@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.services.login', [])
 
-.factory('Login', function ($q, $http, $rootScope) {
+.factory('Login', function ($q, $http, $rootScope, Config) {
     var UserID = null
 
     return {
@@ -11,7 +11,7 @@ angular.module('roveretoPercorsi.services.login', [])
                     var deferred = $q.defer();
 
                     //Build the OAuth consent page URL
-                    var authUrl = url + '/percorsi/userlogin';
+                    var authUrl = url + '/' + Config.app() + '/userlogin';
                     //Open the OAuth consent page in the InAppBrowser
                     var authWindow = window.open(authUrl, '_blank', 'location=no,toolbar=no');
                     authWindow.addEventListener('loadstart', function (e) {
@@ -39,7 +39,7 @@ angular.module('roveretoPercorsi.services.login', [])
                     return deferred.promise;
                 }
             };
-            authapi.authorize("https://dev.smartcommunitylab.it").then(function (data) {
+            authapi.authorize(Config.URL()).then(function (data) {
                 console.log("success:" + data.userId);
                 //prendi google id , metti in local storage e abilita menu
                 //log
@@ -54,9 +54,26 @@ angular.module('roveretoPercorsi.services.login', [])
             });
         },
         logout: function () {
-            //return UserID
-            $rootScope.userIsLogged = false;
-            localStorage.userId = "null";
+            //return UserID https://dev.smartcommunitylab.it
+            //hhtp percorsi/logout/
+            //in success metto il seguito
+            $http({
+                method: 'GET',
+                url: Config.URL() + '/' + Config.app() + '/logout',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+
+                }
+            }).
+            success(function (data, status, headers, config) {
+                $rootScope.userIsLogged = false;
+                localStorage.userId = "null";
+            }).
+            error(function (data, status, headers, config) {
+
+            });
+
         },
         getUserId: function () {
             //return UserID
