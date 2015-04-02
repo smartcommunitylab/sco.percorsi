@@ -300,10 +300,6 @@ ion-slide div[cover-img] i {
 }
 
 .details-info .content {
-    margin-top: 8px;
-}
-
-.details-info .content.loggedin {
     margin-top: 32px;
 }
 

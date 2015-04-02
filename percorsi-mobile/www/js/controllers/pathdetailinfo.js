@@ -5,10 +5,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
     $scope.idPoiChoosen = null;
     singlePoiService.setIndexPoi(null);
 
-    $scope.images =
-        $scope.options = [{
-            name: $filter('translate')("images_send_percorso_string"),
-            id: 0
+    $scope.images = $scope.options = [{
+        name: $filter('translate')('images_send_percorso_string'),
+        id: 0
     }];
 
     for (var i = 0; i < ($scope.item.pois.length); i++) {
@@ -17,6 +16,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
             id: (i + 1)
         });
     }
+
     $scope.selectedOption = $scope.options[0];
     $ionicModal.fromTemplateUrl('templates/addImages-popup.html', {
         scope: $scope,
@@ -25,14 +25,14 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         $scope.images = [];
         $scope.imagesBase64 = [];
         $scope.addimagemodal = modal
-    })
+    });
 
     $ionicModal.fromTemplateUrl('templates/login-popup.html', {
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function (modal) {
         $scope.loginmodal = modal
-    })
+    });
 
     $scope.openAddimage = function () {
         if ($scope.userIsLogged) {
@@ -43,25 +43,27 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         } else {
             $scope.loginmodal.show();
         }
-    }
+    };
 
     $scope.closeAddimage = function () {
         $scope.addimagemodal.hide();
     };
+
     $scope.closeLogin = function () {
         $scope.loginmodal.hide();
     };
+
     $scope.openLogin = function () {
         $rootScope.login().then(function () {
-            Toast.show($filter('translate')("login_done"), "short", "bottom");
+            Toast.show($filter('translate')('login_done'), 'short', 'bottom');
             $scope.loginmodal.hide();
         });
-    }
+    };
+
     $scope.$on('$destroy', function () {
         $scope.addimagemodal.remove();
         $scope.loginmodal.remove();
     });
-
 
     $scope.removeImage = function (imageName) {
         var index = $scope.images.indexOf(imageName);
@@ -70,6 +72,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
             $scope.imagesBase64.splice(index, 1);
         }
     };
+
     $scope.addImage = function (wherePic) {
         var options = {};
 
