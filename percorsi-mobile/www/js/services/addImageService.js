@@ -4,8 +4,10 @@ angular.module('roveretoPercorsi.services.addImageService', [])
 
     var addImageService = {};
 
-    addImageService.submit = function (images, imagesBase64, selectedOption) {
+    addImageService.submit = function (images, imagesBase64, idPoi, idPath) {
         var remoteURL = [];
+        var deferred = $q.defer();
+        item = {};
 
         $ionicLoading.show({
             template: 'Loading...'
@@ -31,25 +33,23 @@ angular.module('roveretoPercorsi.services.addImageService', [])
                 uploadedimages++
                 //send to ws the server
                 if (uploadedimages == images.length) {
-                    singlePathService.uploadImages(selectedOption, remoteURL).then(function (data) {
+                    singlePathService.uploadImages(idPoi, idPath, remoteURL).then(function (data) {
                         //chiudi pop up bella la' e esci
                         $ionicLoading.hide();
-                        console.log("upload images success. Now send data to server...." + segnalaService.getPosition());
-                        //torna indietro con toast successo
-
-                        //                        $ionicHistory.nextViewOptions({
-                        //                            disableAnimate: true,
-                        //                            disableBack: true
-                        //                        });
                         Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
                         //log
                         Restlogging.appLog("AppProsume", "newissue");
+                        item = data;
+                        deferred.resolve(item);
+
                     }, function (error) {
                         console.log("problems" + data + status + headers + config);
                         //chiudi pop up ed errore sul server smarcommunity
                         //toast error
                         Toast.show($filter('translate')("images_send_toast_error"), "short", "bottom");
                         $ionicLoading.hide();
+                        deferred.reject(error);
+
                     });
                 }
             }).
@@ -60,23 +60,22 @@ angular.module('roveretoPercorsi.services.addImageService', [])
                 //toast error
                 Toast.show($filter('translate')("images_send_toast_error"), "short", "bottom");
                 $ionicLoading.hide();
+                deferred.reject(error);
+
             });
         }
 
         if (images.length == 0) {
             //if no gallery u are here
-            singlePathService.uploadImages(selectedOption, remoteURL).then(function (data) {
+            singlePathService.uploadImages(idPoi, idPath, remoteURL).then(function (data) {
                 //chiudi pop up bella la' e esci
                 $ionicLoading.hide();
-                console.log("upload images success. Now send data to server...." + segnalaService.getPosition());
-                //torna indietro con toast successo
-                //                $ionicHistory.nextViewOptions({
-                //                    disableAnimate: true,
-                //                    disableBack: true
-                //                });
                 Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
                 //log
                 Restlogging.appLog("AppProsume", "newissue");
+                item = data;
+                deferred.resolve(item);
+
 
             }, function (error) {
                 console.log("problems" + "data:" + data + "status:" + status + "headers:" + headers + "config:" + config);
@@ -84,9 +83,12 @@ angular.module('roveretoPercorsi.services.addImageService', [])
                 //toast error
                 Toast.show($filter('translate')("images_send_toast_error"), "short", "bottom");
                 $ionicLoading.hide();
+                deferred.reject(error);
+
 
             });
         }
+        return deferred.promise;
     };
 
 

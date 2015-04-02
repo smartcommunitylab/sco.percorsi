@@ -4,10 +4,10 @@
     </ion-header-bar>
     <ion-content>
         <div align="center" style="margin:5px">
-            <button class="button button-custom button-large" ng-click="addImage('Camera')">
+            <button class="button button-custom button-large" ng-click="addImage('Camera')" ng-hide="images.length>0">
                 <i class=" icon ion-android-camera"></i>
             </button>
-            <button class="button button-custom button-large" ng-click="addImage('Gallery')">
+            <button class="button button-custom button-large" ng-click="addImage('Gallery')" ng-hide="images.length>0">
                 <i class=" icon ion-images"></i>
             </button>
             <div class="add-image-poi-select">
@@ -18,7 +18,7 @@
                     </div>
                     <form>
 
-                        <select ng-options="o.name for o in options" ng-model="selectedOption"></select>
+                        <select ng-options="o.name for o in options" ng-model="selectedOption" ng-change="changeItem(selectedOption.id)"></select>
                     </form>
 
                 </label>

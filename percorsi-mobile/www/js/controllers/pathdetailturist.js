@@ -95,12 +95,12 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                     onTap: function (e) {
                         if (!$scope.ratings[0].current) {
                             e.preventDefault();
-                        } else {
-                            //return $scope.ratings[0].current;
-                            $scope.sendVote($scope.ratings[0].current);
+                            } else {
+                                //return $scope.ratings[0].current;
+                                $scope.sendVote($scope.ratings[0].current);
+                            }
                         }
                     }
-                }
             ]
         });
     };

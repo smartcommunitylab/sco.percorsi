@@ -13,32 +13,51 @@ angular.module('roveretoPercorsi.services.singlePathService', [])
     singlePathService.getSelectedPath = function () {
         return selectedPath;
     }
-    singlePathService.uploadImages = function (selectedPoi, images) {
+    singlePathService.uploadImages = function (idPoi, idPath, images) {
+        var deferred = $q.defer();
+        item = {};
+        if (idPoi != null) {
+            return $http({
+                method: 'POST',
+                url: Config.URL() + '/' + Config.userdata() + '/' + Config.appId() + '/' + idPath + '/' + idPoi + '/images/url?url=' + images[0],
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
 
-        //      //use index of path for right POI
-        //      //use poi.index for right POI
-
-        //controllo se selectedPOI e' 0 upload su path, altrimenti upload su single POI
-        return $http({
-            method: 'POST',
-            url: Config.URL() + '/' + Config.provider() + '/services/' + Config.service() + '/user/images',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-
-            },
-            data: images
-        }).
-        success(function (data, status, headers, config) {
-
-        }).
-        error(function (data, status, headers, config) {
-
-
-        });
+                }
+            }).
+            success(function (data, status, headers, config) {
+                item = data.data;
+                deferred.resolve(item);
+            }).
+            error(function (data, status, headers, config) {
+                deferred.reject(data);
 
 
+            });
+        } else {
+            return $http({
+                method: 'POST',
+                url: Config.URL() + '/' + Config.userdata() + '/' + Config.appId() + '/' + idPath + '/images/url?url=' + images[0],
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
 
-    };
+                }
+            }).
+            success(function (data, status, headers, config) {
+                item = data.data;
+                deferred.resolve(item);
+            }).
+            error(function (data, status, headers, config) {
+                deferred.reject(data);
+
+            });
+
+
+
+        };
+        return deferred.promise;
+    }
     return singlePathService;
 });
