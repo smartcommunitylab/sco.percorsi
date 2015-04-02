@@ -115,7 +115,8 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             $scope.addimagemodal.hide();
             //update data (it is a path), I want the right poi
             $scope.item = newpath.data.data.pois[singlePoiService.getIndexPoi()];
-            $ionicSlideBoxDelegate.update();
+            //$ionicSlideBoxDelegate.update();
+            $ionicSlideBoxDelegate.$getByHandle('details-slide-box').update();
         });
 
         //
