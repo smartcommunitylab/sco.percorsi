@@ -2,7 +2,8 @@ angular.module('roveretoPercorsi.services.conf', [])
 
 .factory('Config', function ($q, $http, $window, $filter, $rootScope) {
 
-    var URL = 'https://dev.smartcommunitylab.it/percorsi';
+    var URL = 'https://dev.smartcommunitylab.it';
+    var app = 'percorsi'
     var userdata = 'userdata/paths';
     var appId = 'ComuneRovereto';
     var service = 'problems';
@@ -92,6 +93,9 @@ angular.module('roveretoPercorsi.services.conf', [])
         },
         URL: function () {
             return URL;
+        },
+        app: function () {
+            return app;
         },
         userdata: function () {
             return userdata;

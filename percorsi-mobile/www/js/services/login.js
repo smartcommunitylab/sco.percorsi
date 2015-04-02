@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.services.login', [])
 
-.factory('Login', function ($q, $http, $rootScope) {
+.factory('Login', function ($q, $http, $rootScope, Config) {
     var UserID = null
 
     return {
@@ -39,7 +39,7 @@ angular.module('roveretoPercorsi.services.login', [])
                     return deferred.promise;
                 }
             };
-            authapi.authorize("https://dev.smartcommunitylab.it").then(function (data) {
+            authapi.authorize(Config.URL).then(function (data) {
                 console.log("success:" + data.userId);
                 //prendi google id , metti in local storage e abilita menu
                 //log
@@ -54,7 +54,10 @@ angular.module('roveretoPercorsi.services.login', [])
             });
         },
         logout: function () {
-            //return UserID
+            //return UserID https://dev.smartcommunitylab.it
+            //hhtp percorsi/logout/
+            //in success metto il seguito
+
             $rootScope.userIsLogged = false;
             localStorage.userId = "null";
         },
