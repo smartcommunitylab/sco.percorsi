@@ -1,10 +1,6 @@
 angular.module('roveretoPercorsi.services.reviews', [])
 
 .factory('reviewsService', function ($http, $q, Config) {
-    var getBaseUrl = function (pathId) {
-        return Config.URL() + '/' + Config.app() + '/paths/' + Config.appId() + '/' + pathId + '/' + 'rate';
-    };
-
     var reviews = null;
     var counter = '10';
 
@@ -20,7 +16,7 @@ angular.module('roveretoPercorsi.services.reviews', [])
 
         $http({
             method: 'GET',
-            url: getBaseUrl(pathId),
+            url: Config.URL() + '/' + Config.app() + '/paths/' + Config.appId() + '/' + pathId + '/' + 'rate',
             params: {
                 'start': start,
                 'count': counter
@@ -45,7 +41,7 @@ angular.module('roveretoPercorsi.services.reviews', [])
     reviewsService.sendRate = function (pathId, vote, comment) {
         return $http({
             method: 'POST',
-            url: getBaseUrl(pathId),
+            url: Config.URL() + '/' + Config.app() + '/' + Config.userdata + '/' + Config.appId() + '/' + pathId + '/' + 'rate';,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
