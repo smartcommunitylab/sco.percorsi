@@ -128,7 +128,7 @@ public class PercorsiManager {
 		Path path = getPath(appId, pathId);
 		if (path != null && path.getPois() != null) {
 			for (POI poi : path.getPois()) {
-				if (poi.getId().equals(poiId)) return poi;
+				if (poi.getLocalId().equals(poiId)) return poi;
 			}
 		}
 		return null;
@@ -152,7 +152,7 @@ public class PercorsiManager {
 		}
 		if (path != null && path.getPois() != null) {
 			for (POI poi : path.getPois()) {
-				if (poi.getId().equals(poiId)) {
+				if (poi.getLocalId().equals(poiId)) {
 					if (poi.getImages() == null) poi.setImages(new ArrayList<Multimedia>());
 					poi.getImages().add(new Multimedia(url, true, contributor.getUserId()));
 					repository.storeObject(path);

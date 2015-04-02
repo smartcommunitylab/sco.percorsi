@@ -33,7 +33,7 @@ angular.module('roveretoPercorsi.services.addImageService', [])
                 uploadedimages++
                 //send to ws the server
                 if (uploadedimages == images.length) {
-                    singlePathService.uploadImages(idPoi, idPath, remoteURL).then(function (data) {
+                    addImageService.uploadImages(idPoi, idPath, remoteURL).then(function (data) {
                         //chiudi pop up bella la' e esci
                         $ionicLoading.hide();
                         Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
@@ -67,7 +67,7 @@ angular.module('roveretoPercorsi.services.addImageService', [])
 
         if (images.length == 0) {
             //if no gallery u are here
-            singlePathService.uploadImages(idPoi, idPath, remoteURL).then(function (data) {
+            addImageService.uploadImages(idPoi, idPath, remoteURL).then(function (data) {
                 //chiudi pop up bella la' e esci
                 $ionicLoading.hide();
                 Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
@@ -91,6 +91,53 @@ angular.module('roveretoPercorsi.services.addImageService', [])
         return deferred.promise;
     };
 
+
+    addImageService.uploadImages = function (idPoi, idPath, images) {
+        var deferred = $q.defer();
+        item = {};
+        if (idPoi != null) {
+            return $http({
+                method: 'POST',
+                url: Config.URL() + '/' + Config.app() + '/' + Config.userdata() + '/' + Config.appId() + '/' + idPath + '/' + idPoi + '/images/url?url=' + images[0],
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+
+                }
+            }).
+            success(function (data, status, headers, config) {
+                item = data.data;
+                deferred.resolve(item);
+            }).
+            error(function (data, status, headers, config) {
+                deferred.reject(data);
+
+
+            });
+        } else {
+            return $http({
+                method: 'POST',
+                url: Config.URL() + '/' + Config.app() + '/' + Config.userdata() + '/' + Config.appId() + '/' + idPath + '/images/url?url=' + images[0],
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+
+                }
+            }).
+            success(function (data, status, headers, config) {
+                item = data.data;
+                deferred.resolve(item);
+            }).
+            error(function (data, status, headers, config) {
+                deferred.reject(data);
+
+            });
+
+
+
+        };
+        return deferred.promise;
+    }
 
     return addImageService;
 });

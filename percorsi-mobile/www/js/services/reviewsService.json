@@ -30,7 +30,7 @@ angular.module('roveretoPercorsi.services.reviews', [])
         /*temp*/
         return $http({
             method: 'POST',
-            url: Config.URL() + '/' + Config.provider() + '/services/' + Config.service() + '/user/issues',
+            url: Config.URL() + '/' + Config.app() + '/' + Config.provider() + '/services/' + Config.service() + '/user/issues',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ angular.module('roveretoPercorsi.services.reviews', [])
         /*temp*/
         return $http({
             method: 'POST',
-            url: Config.URL() + '/' + Config.provider() + '/services/' + Config.service() + '/user/issues',
+            url: Config.URL() + '/' + Config.app() + '/' + Config.provider() + '/services/' + Config.service() + '/user/issues',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
