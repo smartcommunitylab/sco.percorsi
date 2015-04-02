@@ -25,6 +25,8 @@ import it.smartcommunitylab.percorsi.services.PercorsiManager;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -108,13 +110,15 @@ public class SocialDataController {
 	}
 
 	@ExceptionHandler(Exception.class)
-	public @ResponseBody Response<Void> handleExceptions(Exception exception) {
+	public @ResponseBody Response<Void> handleExceptions(Exception exception, HttpServletResponse res) {
 		exception.printStackTrace();
 		if (exception instanceof SecurityException) {
-			return new Response<Void>(403, exception.getMessage());
+			res.setStatus(HttpStatus.FORBIDDEN.value());
+			return new Response<Void>(HttpStatus.FORBIDDEN.value(), exception.getMessage());
 		}
 
-		return new Response<Void>(500, exception.getMessage());
+		res.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		return new Response<Void>(HttpStatus.INTERNAL_SERVER_ERROR.value(), exception.getMessage());
 	}
 
 	private String getUserId() {

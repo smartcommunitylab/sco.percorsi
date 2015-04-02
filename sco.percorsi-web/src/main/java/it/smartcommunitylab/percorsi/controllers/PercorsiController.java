@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -82,9 +83,9 @@ public class PercorsiController {
 	}
 
 	@ExceptionHandler(Exception.class)
-	public @ResponseBody Response<Void> handleExceptions(Exception exception) {
-		exception.printStackTrace();
-		return new Response<Void>(500, exception.getMessage());
+	public @ResponseBody Response<Void> handleExceptions(Exception exception, HttpServletResponse res) {
+		res.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		return new Response<Void>(HttpStatus.INTERNAL_SERVER_ERROR.value(), exception.getMessage());
 	}
 
 }
