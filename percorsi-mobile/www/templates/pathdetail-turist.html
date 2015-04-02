@@ -18,10 +18,10 @@
             </div>
         </div>
         <!-- Reviews list -->
-        <div class="card" ng-if="emptylist">
-            <div class="item item-text-wrap">
-                {{archive_empty_list | translate}}
-            </div>
+        <div ng-if="emptylist">
+            <!--<div class="item item-text-wrap">-->
+                {{'pathdetailtourist_empty_list' | translate}}
+            <!--</div>-->
         </div>
         <ion-list ng-if="!emptylist">
             <ion-item class="card" ng-repeat="review in reviews.data">

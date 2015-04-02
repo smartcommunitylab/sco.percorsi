@@ -1,7 +1,7 @@
 angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
 .controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $filter, Toast, singlePathService, reviewsService) {
-    $scope.reviews = {};
+    $scope.reviews = [];
     $scope.path = singlePathService.getSelectedPath();
 
     $scope.rating = {
@@ -39,30 +39,23 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.noMoreReviewsAvailable = false;
     $scope.loadMore = function () {
         var length = 0;
-        if ($scope.reviews.data) {
-            length = $scope.reviews.data.length;
+        if ($scope.reviews) {
+            length = $scope.reviews.length;
         }
 
-        reviewsService.getReviewsList(length).then(function (reviews) {
+        reviewsService.getRates(length).then(function (reviews) {
             //check state for array
             $scope.emptylist = false;
-            if ($scope.reviews.data) {
-                $scope.reviews.data.push.apply($scope.reviews.data, reviews.data);
-                if (reviews.data) {
-                    if (reviews.data.length < reviewsService.getMaxCounter()) {
-                        $scope.noMoreReviewsAvailable = true;
-                    }
-                }
-
-                /* temp */
-                if (reviews.length == 0) {
+            if ($scope.reviews) {
+                $scope.reviews.push.apply($scope.reviews, reviews);
+                if (reviews && reviews.length < reviewsService.getMaxCounter()) {
                     $scope.noMoreReviewsAvailable = true;
-                } /* temp */
+                }
             } else {
                 $scope.reviews = reviews;
             }
 
-            if ($scope.reviews.data.length == 0) {
+            if (!!$scope.reviews && $scope.reviews.length == 0) {
                 $scope.emptylist = true;
             } else {
                 $scope.emptylist = false;
