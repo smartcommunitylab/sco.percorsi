@@ -2,6 +2,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
 .controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, $ionicModal, addImageService) {
     $scope.item = singlePathService.getSelectedPath();
+    $scope.idPoiChoosen = null;
     singlePoiService.setIndexPoi(null);
 
     $scope.images =
@@ -13,7 +14,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
     for (var i = 0; i < ($scope.item.pois.length); i++) {
         $scope.options.push({
             name: (i + 1).toString(),
-            id: i
+            id: (i + 1)
         });
     }
     $scope.selectedOption = $scope.options[0];
@@ -80,8 +81,26 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
             console.log(err);
         });
     }
+    $scope.changeItem = function (item) {
+        $scope.selectedOption = item;
+
+    }
     $scope.submit = function () {
-        addImageService.submit($scope.images, $scope.imagesBase64, $scope.selectedOption);
+
+        //set $scope.idPoiChoosen
+        if ($scope.selectedOption.id != undefined || $scope.selectedOption == 0) {
+            $scope.idPoiChoosen = null;
+
+        } else {
+            $scope.idPoiChoosen = $scope.item.pois[$scope.selectedOption - 1].localId;
+        }
+        addImageService.submit($scope.images, $scope.imagesBase64, $scope.idPoiChoosen, $scope.item.localId).then(function (newpath) {
+            $scope.addimagemodal.hide();
+            //update data
+            $scope.item = newpath.data.data;
+        });
+
+
     };
 
     $scope.showPoi = function (poiIndex) {

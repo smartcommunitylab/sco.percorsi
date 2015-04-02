@@ -99,7 +99,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                             $scope.sendVote($scope.rating.current);
                         }
                     }
-                }
+                 }
             ]
         });
     };

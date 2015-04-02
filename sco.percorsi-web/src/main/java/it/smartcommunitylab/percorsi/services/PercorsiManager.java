@@ -167,7 +167,7 @@ public class PercorsiManager {
 	public List<Rating> getRatings(String appId, String pathId, Integer start, Integer count) {
 		if (count != null && count > 0) {
 			int pageIdx = start != null && start > 0 ? (start / count) : 0;
-			int size = count != null && count > 0 ? count : 100; 
+			int size = count != null && count > 0 ? count : 100;
 			PageRequest pr = new PageRequest(pageIdx, size);
 			Page<Rating> page = ratingRepository.findByAppIdAndLocalId(appId, pathId, pr);
 			return page.getContent();
