@@ -78,7 +78,7 @@ public class SocialDataController {
 	{
 		Contributor contributor = contributorManager.getContributor(getUserId());
 		try {
-			Path path = manager.addImageToPath(providerId, pathId, url, contributor);
+			Path path = manager.addImageToPOI(providerId, pathId, poiId, url, contributor);
 			return new Response<Path>(path);
 		} catch (NotFoundException e) {
 			e.printStackTrace();
