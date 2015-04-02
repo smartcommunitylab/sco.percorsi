@@ -18,6 +18,7 @@ package it.smartcommunitylab.percorsi.controllers;
 
 import it.smartcommunitylab.percorsi.model.Categories;
 import it.smartcommunitylab.percorsi.model.Path;
+import it.smartcommunitylab.percorsi.model.Rating;
 import it.smartcommunitylab.percorsi.model.Response;
 import it.smartcommunitylab.percorsi.services.PercorsiManager;
 
@@ -80,6 +81,12 @@ public class PercorsiController {
 			e.printStackTrace();
 			throw e;
 		}
+	}
+
+
+	@RequestMapping(value = "/paths/{providerId}/{pathId}/rate")
+	public @ResponseBody Response<List<Rating>> getRatings(@PathVariable String providerId, @PathVariable String pathId, @RequestParam(required=false) Integer start, @RequestParam(required=false) Integer count) {
+		return new Response<List<Rating>>(manager.getRatings(providerId, pathId, start, count));
 	}
 
 	@ExceptionHandler(Exception.class)
