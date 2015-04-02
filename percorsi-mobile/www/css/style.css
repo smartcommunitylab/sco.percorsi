@@ -305,10 +305,10 @@ ion-slide div[cover-img] i {
 
 .details-info .content.loggedin {
     margin-top: 32px;
-}map-balloon
+}
 
-.details-info .itinerary li:not(:first-child) {
-    margin-top: 0.5em;
+.details-info .itinerary li {
+    padding: 5px 0;
 }
 
 .details-info .itinerary li span.poi-number {
@@ -338,12 +338,15 @@ ion-slide div[cover-img] i {
     border: none;
 }
 
-.leaflet-marker-icon .number {
-    position: relative;
-    top: -37px;
-    font-size: 12px;
-    width: 25px;
-    text-align: center;
+.leaflet-marker-icon p {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+}
+
+.leaflet-marker-icon img {
+    width: 32px;
+    height: 32px;
 }
 
 .map-balloon {
@@ -437,12 +440,17 @@ ul.rating {
     cursor: pointer;
 }
 
-.menu-entry-enabled {
-    color: black;
+ion-side-menu ion-item {
+    line-height: 24px;
 }
 
-.menu-entry-disabled {
-    color: lightgrey;
+ion-side-menu ion-item.disabled {
+    color: lightgray;
+}
+
+ion-side-menu ion-item .icon {
+    font-size: 24px;
+    margin-right: 16px;
 }
 
 .add-image-poi-select {

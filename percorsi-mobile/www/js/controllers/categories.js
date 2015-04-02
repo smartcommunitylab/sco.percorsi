@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.categories', [])
 
-.controller('CategoriesCtrl', function ($scope, $http, categoriesService) {
+.controller('CategoriesCtrl', function ($scope, $rootScope, $http, categoriesService) {
     $scope.categories = {};
     $scope.noMoreCategoriesAvailable = false;
 
@@ -27,6 +27,7 @@ angular.module('roveretoPercorsi.controllers.categories', [])
                 } /* temp */
             } else {
                 $scope.categories = categories;
+                $rootScope.categories = categories;
             }
 
             if ($scope.categories.data.length == 0) {
