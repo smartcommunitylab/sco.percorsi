@@ -428,6 +428,14 @@ ul.rating {
     margin: 16px;
 }
 
+#addimages-modal .types-buttons {
+    text-align: center;
+}
+
+#addimages-modal .actions-buttons {
+    text-align: center;
+}
+
 .close:before {
     content: '✕';
     color: white;
