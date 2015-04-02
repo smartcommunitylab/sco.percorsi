@@ -80,7 +80,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 	.permitAll()
                 	.and()
                 .logout()
-                	.permitAll();
+                	.permitAll().deleteCookies("rememberme","JSESSIONID");
 
 	        http
 	        .rememberMe();
