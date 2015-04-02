@@ -101,7 +101,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
             $scope.addimagemodal.hide();
             //update data
             $scope.item = newpath.data.data;
-            $ionicSlideBoxDelegate.update();
+            $ionicSlideBoxDelegate.$getByHandle('details-slide-box').update();
         });
 
 

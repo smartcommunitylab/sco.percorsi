@@ -11,7 +11,7 @@ angular.module('roveretoPercorsi.services.login', [])
                     var deferred = $q.defer();
 
                     //Build the OAuth consent page URL
-                    var authUrl = url + '/percorsi/userlogin';
+                    var authUrl = url + '/' + Config.app() + '/userlogin';
                     //Open the OAuth consent page in the InAppBrowser
                     var authWindow = window.open(authUrl, '_blank', 'location=no,toolbar=no');
                     authWindow.addEventListener('loadstart', function (e) {
@@ -39,7 +39,7 @@ angular.module('roveretoPercorsi.services.login', [])
                     return deferred.promise;
                 }
             };
-            authapi.authorize(Config.URL).then(function (data) {
+            authapi.authorize(Config.URL()).then(function (data) {
                 console.log("success:" + data.userId);
                 //prendi google id , metti in local storage e abilita menu
                 //log
@@ -57,9 +57,23 @@ angular.module('roveretoPercorsi.services.login', [])
             //return UserID https://dev.smartcommunitylab.it
             //hhtp percorsi/logout/
             //in success metto il seguito
+            $http({
+                method: 'GET',
+                url: Config.URL() + '/' + Config.app() + '/logout',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
 
-            $rootScope.userIsLogged = false;
-            localStorage.userId = "null";
+                }
+            }).
+            success(function (data, status, headers, config) {
+                $rootScope.userIsLogged = false;
+                localStorage.userId = "null";
+            }).
+            error(function (data, status, headers, config) {
+
+            });
+
         },
         getUserId: function () {
             //return UserID
