@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
-.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, $ionicModal, $ionicSlideBoxDelegate, addImageService) {
+.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, addImageService) {
     $scope.item = singlePathService.getSelectedPath();
     $scope.idPoiChoosen = null;
     singlePoiService.setIndexPoi(null);
@@ -27,20 +27,41 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         $scope.addimagemodal = modal
     })
 
+    $ionicModal.fromTemplateUrl('templates/login-popup.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.loginmodal = modal
+    })
+
     $scope.openAddimage = function () {
-        $scope.addimagemodal.show()
-        $scope.images = [];
-        $scope.imagesBase64 = [];
-        $scope.selectedOption = $scope.options[0];
+        if ($scope.userIsLogged) {
+            $scope.addimagemodal.show()
+            $scope.images = [];
+            $scope.imagesBase64 = [];
+            $scope.selectedOption = $scope.options[0];
+        } else {
+            $scope.loginmodal.show();
+        }
     }
 
     $scope.closeAddimage = function () {
         $scope.addimagemodal.hide();
     };
-
+    $scope.closeLogin = function () {
+        $scope.loginmodal.hide();
+    };
+    $scope.openLogin = function () {
+        $rootScope.login().then(function () {
+            Toast.show($filter('translate')("login_done"), "short", "bottom");
+            $scope.loginmodal.hide();
+        });
+    }
     $scope.$on('$destroy', function () {
         $scope.addimagemodal.remove();
+        $scope.loginmodal.remove();
     });
+
 
     $scope.removeImage = function (imageName) {
         var index = $scope.images.indexOf(imageName);
@@ -88,6 +109,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         $scope.selectedOption = item;
 
     }
+
     $scope.submit = function () {
 
         //set $scope.idPoiChoosen

@@ -5,8 +5,11 @@ angular.module('roveretoPercorsi.services.login', [])
 
     return {
         login: function () {
+            var deferred = $q.defer();
+
             //log into the system and set UserID
             var authapi = {
+
                 authorize: function (url) {
                     var deferred = $q.defer();
 
@@ -40,18 +43,23 @@ angular.module('roveretoPercorsi.services.login', [])
                 }
             };
             authapi.authorize(Config.URL()).then(function (data) {
+
                 console.log("success:" + data.userId);
                 //prendi google id , metti in local storage e abilita menu
                 //log
                 Restlogging.appLog("AppCollaborate", "login");
                 $rootScope.userIsLogged = true;
                 localStorage.userId = data.userId;
+                deferred.resolve(data);
             }, function (reason) {
                 alert('Failed: ' + reason);
                 //reset data
                 $rootScope.userIsLogged = false;
                 localStorage.userId = "null";
+                deferred.reject(reason);
             });
+            return deferred.promise;
+
         },
         logout: function () {
             //return UserID https://dev.smartcommunitylab.it

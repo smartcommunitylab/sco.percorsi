@@ -1,0 +1,20 @@
+<ion-modal-view id="login-modal">
+    <ion-header-bar>
+        <h1 class="title">{{'login_label'|translate}}</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="login-label">
+            <p>
+                {{'login_message'|translate}}
+            </p>
+        </div>
+        <div class="row actions-buttons">
+            <div class="col">
+                <button class="button button-percorsi button-block" ng-click="closeLogin()">{{'login_popup_cancel' | translate}}</button>
+            </div>
+            <div class="col">
+                <button class="button button-percorsi button-block" ng-click="openLogin()">{{'login_popup_ok' | translate}}</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -33,12 +33,12 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.reviews'
 ])
 
-.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, Login, GeoLocate) {
+.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, Login, GeoLocate) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
-    /* TEMP */
-    $rootScope.userIsLogged = true;
-    /* TEMP */
+    //    /* TEMP */
+    //    $rootScope.userIsLogged = true;
+    //    /* TEMP */
 
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -65,8 +65,19 @@ angular.module('roveretoPercorsi', [
     });
 
     $rootScope.login = function () {
-        Login.login();
-    };
+        var deferred = $q.defer();
+        Login.login().then(function (data) {
+                deferred.resolve(data);
+            },
+            function (error) {
+
+                deferred.reject(error);
+
+
+            });
+        return deferred.promise;
+
+    }
 
     $rootScope.logout = function () {
         Login.logout();
@@ -249,7 +260,12 @@ angular.module('roveretoPercorsi', [
         poi_add_image_popup: 'Associa a POI',
         images_send_percorso_string: 'Percorso',
         close: 'Chiudi',
-        details: 'Dettagli'
+        details: 'Dettagli',
+        login_label: 'Login',
+        login_message: 'Per utilizzare la funzionalita\' devi prima effettuare il login',
+        login_popup_cancel: 'Non adesso',
+        login_popup_ok: 'Login',
+        login_done: 'Login effettuato con successo'
     });
 
     $translateProvider.translations('en', {
@@ -290,7 +306,12 @@ angular.module('roveretoPercorsi', [
         poi_add_image_popup: 'Choose the POI',
         images_send_percorso_string: 'Path',
         close: 'Close',
-        details: 'Details'
+        details: 'Details',
+        login_label: 'Login',
+        login_message: 'If you want to use this functionality you have to do the login',
+        login_popup_cancel: 'Not now',
+        login_popup_ok: 'Login',
+        login_done: 'Login done'
     });
 
     $translateProvider.translations('de', {
@@ -330,7 +351,12 @@ angular.module('roveretoPercorsi', [
         toast_must_login: 'Wählen Sie POI',
         images_send_percorso_string: 'Path',
         close: 'Schließen',
-        details: 'Einzelheiten'
+        details: 'Einzelheiten',
+        login_label: 'Login',
+        login_message: 'If you want to use this functionality you have to do the login',
+        login_popup_cancel: 'Not now',
+        login_popup_ok: 'Login',
+        login_done: 'Login done'
     });
 
     $translateProvider.preferredLanguage("en");
