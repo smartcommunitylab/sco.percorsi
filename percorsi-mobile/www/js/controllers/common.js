@@ -149,6 +149,24 @@ angular.module('roveretoPercorsi.controllers.common', [])
     $scope.openLoginPopUp = function () {
         Toast.show($filter('translate')("toast_must_login"), "short", "bottom");
     };
+
+    $ionicModal.fromTemplateUrl('templates/login-popup.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.loginModal = modal;
+    });
+
+    $scope.loginOpen = function () {
+        $rootScope.login().then(function () {
+            Toast.show($filter('translate')('login_done'), 'short', 'bottom');
+            $scope.loginModal.hide();
+        });
+    };
+
+    $scope.loginClose = function () {
+        $scope.loginModal.hide();
+    };
 });
 
 function showNoPlace() {

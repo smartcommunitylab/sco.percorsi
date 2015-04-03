@@ -24,14 +24,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
     }).then(function (modal) {
         $scope.images = [];
         $scope.imagesBase64 = [];
-        $scope.addimagemodal = modal
-    });
-
-    $ionicModal.fromTemplateUrl('templates/login-popup.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.loginmodal = modal
+        $scope.addimagemodal = modal;
     });
 
     $scope.openAddimage = function () {
@@ -41,23 +34,12 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
             $scope.imagesBase64 = [];
             $scope.selectedOption = $scope.options[0];
         } else {
-            $scope.loginmodal.show();
+            $scope.loginModal.show();
         }
     };
 
     $scope.closeAddimage = function () {
         $scope.addimagemodal.hide();
-    };
-
-    $scope.closeLogin = function () {
-        $scope.loginmodal.hide();
-    };
-
-    $scope.openLogin = function () {
-        $rootScope.login().then(function () {
-            Toast.show($filter('translate')('login_done'), 'short', 'bottom');
-            $scope.loginmodal.hide();
-        });
     };
 
     $scope.$on('$destroy', function () {
@@ -107,29 +89,26 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         }, function (err) {
             console.log(err);
         });
-    }
+    };
+
     $scope.changeItem = function (item) {
         $scope.selectedOption = item;
-
-    }
+    };
 
     $scope.submit = function () {
-
         //set $scope.idPoiChoosen
         if ($scope.selectedOption.id != undefined || $scope.selectedOption == 0) {
             $scope.idPoiChoosen = null;
-
         } else {
             $scope.idPoiChoosen = $scope.item.pois[$scope.selectedOption - 1].localId;
         }
+
         addImageService.submit($scope.images, $scope.imagesBase64, $scope.idPoiChoosen, $scope.item.localId).then(function (newpath) {
             $scope.addimagemodal.hide();
             //update data
             $scope.item = newpath.data.data;
             $ionicSlideBoxDelegate.$getByHandle('details-slide-box').update();
         });
-
-
     };
 
     $scope.showPoi = function (poiIndex) {

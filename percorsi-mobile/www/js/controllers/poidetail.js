@@ -107,10 +107,10 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     $scope.submit = function () {
         if ($scope.selectedOption.id != 0 || $scope.selectedOption == 0) {
             $scope.idPoiChoosen = null;
-
         } else {
             $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption.id].localId;
         }
+
         addImageService.submit($scope.images, $scope.imagesBase64, $scope.idPoiChoosen, $scope.path.localId).then(function (newpath) {
             $scope.addimagemodal.hide();
             //update data (it is a path), I want the right poi
@@ -129,7 +129,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         //            $ionicSlideBoxDelegate.update();
         //        }
     };
-
 
     $scope.addImage = function (wherePic) {
         var options = {};
