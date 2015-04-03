@@ -32,7 +32,7 @@ angular.module('roveretoPercorsi.services.reviews', [])
         }).
         error(function (data, status, headers, config) {
             console.log(data + status + headers + config);
-            deferred.reject(data + status + headers + config);
+            deferred.reject(data.errorCode + ' ' + data.errorMessage);
         });
 
         return deferred.promise;
@@ -54,11 +54,11 @@ angular.module('roveretoPercorsi.services.reviews', [])
             }
         }).
         success(function (data, status, headers, config) {
-            deferred.resolve(data);
+            deferred.resolve(data.data);
         }).
         error(function (data, status, headers, config) {
             console.log(data + status + headers + config);
-            deferred.reject(data + status + headers + config);
+            deferred.reject(data.errorCode + ' ' + data.errorMessage);
         });
 
         return deferred.promise;

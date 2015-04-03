@@ -144,7 +144,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                     {
                         text: $filter('translate')("newreview_popup_cancel"),
                         type: 'button-percorsi'
-                },
+                    },
                     {
                         text: $filter('translate')("newreview_popup_ok"),
                         type: ' button-percorsi',
@@ -152,8 +152,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                             if (!$scope.review) {
                                 e.preventDefault();
                             } else {
-                                //                            return $scope.review;
-                                $scope.sendReview($scope.review);
+                                // return $scope.review;
+                                $scope.sendReview($scope.review.text);
                             }
                         }
                     }
