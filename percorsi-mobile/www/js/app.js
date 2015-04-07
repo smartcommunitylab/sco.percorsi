@@ -31,7 +31,8 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.singlePathService',
     'roveretoPercorsi.services.singlePoiService',
     'roveretoPercorsi.services.addImageService',
-    'roveretoPercorsi.services.reviews'
+    'roveretoPercorsi.services.reviews',
+    'roveretoPercorsi.services.favoritesService'
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, Login, GeoLocate) {

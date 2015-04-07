@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.favorites', [])
 
-.controller('FavoritesCtrl', function ($scope, $http, listPathsService, singlePathService) {
+.controller('FavoritesCtrl', function ($scope, $http, listPathsService, singlePathService, favoritesService) {
     $scope.paths = {};
     $scope.noMorePathsAvailable = false;
 

@@ -1,4 +1,10 @@
 <ion-view title="{{path.title | translate_remote}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-percorsi button-clear" ng-click="toggleFavorite()">
+            <i class="icon" ng-class="{'sco-heart-outline': !isFavorite, 'ion-heart': isFavorite}"></i>
+        </button>
+    </ion-nav-buttons>
+
     <ion-content class="has-header padding">
         <!-- Rating -->
         <div class="rating-avg">
@@ -20,7 +26,7 @@
         <!-- Reviews list -->
         <div ng-if="emptylist">
             <!--<div class="item item-text-wrap">-->
-                {{'pathdetailtourist_empty_list' | translate}}
+            {{'pathdetailtourist_empty_list' | translate}}
             <!--</div>-->
         </div>
         <ion-list ng-if="!emptylist">
