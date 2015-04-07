@@ -23,6 +23,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.pathdetailmap',
     'roveretoPercorsi.controllers.pathdetailturist',
     'roveretoPercorsi.controllers.poidetail',
+    'roveretoPercorsi.controllers.favorites',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
@@ -213,8 +214,8 @@ angular.module('roveretoPercorsi', [
         abstract: false,
         views: {
             'menuContent': {
-                templateUrl: "templates/favorites.html",
-                controller: 'ProfileCtrl'
+                templateUrl: "templates/paths.html",
+                controller: 'FavoritesCtrl'
             }
         }
     });
