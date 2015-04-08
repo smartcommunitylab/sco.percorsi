@@ -32,7 +32,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.singlePoiService',
     'roveretoPercorsi.services.addImageService',
     'roveretoPercorsi.services.reviews',
-    'roveretoPercorsi.services.db'
+    'roveretoPercorsi.services.db',
     'roveretoPercorsi.services.favoritesService'
 ])
 
