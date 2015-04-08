@@ -13,3 +13,4 @@ cordova plugin add com.ionic.keyboard
 cordova plugin add nl.x-services.plugins.toast
 cordova plugin add org.apache.cordova.file
 cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
+cordova plugin add org.apache.cordova.network-information
