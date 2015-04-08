@@ -14,23 +14,14 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
         var deferred = $q.defer();
 
         DatiDB.getPathsByCategoryId(category.id).then(function (pathsFromDb) {
-                deferred.resolve(pathsFromDb);
                 from == 0 ? deferred.resolve(pathsFromDb) : deferred.resolve([]);
             },
             function (error) {
                 deferred.reject(error);
             });
-        /*temp*/
-        //        $http.get('data/paths.json').success(function (data) {
-        //            paths = data;
-        //            from == 0 ? deferred.resolve(paths) : deferred.resolve([]);
-        //        }).error(function (data, status, headers, config) {
-        //            console.log(data + status + headers + config);
-        //            deferred.reject(err);
-        //        });
+
 
         return deferred.promise;
-        /*temp*/
     };
 
     listPathsService.getFavoritesPaths = function (idsString, from) {
@@ -39,22 +30,13 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
 
 
         DatiDB.getObjectsById(idsString).then(function (pathsFromDb) {
-                deferred.resolve(pathsFromDb);
                 from == 0 ? deferred.resolve(pathsFromDb) : deferred.resolve([]);
             },
             function (error) {
                 deferred.reject(error);
             });
-//        /*temp*/
- //        $http.get('data/paths.json').success(function (data) {
- //            paths = data;
- //            from == 0 ? deferred.resolve(paths) : deferred.resolve([]);
- //        }).error(function (data, status, headers, config) {
- //            console.log(data + status + headers + config);
- //            deferred.reject(err);
- //        });
+
         return deferred.promise;
-        /*temp*/
     };
 
     return listPathsService;

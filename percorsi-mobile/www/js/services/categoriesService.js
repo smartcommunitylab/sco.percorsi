@@ -15,7 +15,7 @@ angular.module('roveretoPercorsi.services.categories', [])
         var start = null;
         var deferred = $q.defer();
         DatiDB.getCategories().then(function (categories) {
-                deferred.resolve(categories);
+                //                deferred.resolve(categories);
                 from == 0 ? deferred.resolve(categories) : deferred.resolve([]);
             },
             function (error) {
