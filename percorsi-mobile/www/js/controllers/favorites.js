@@ -1,36 +1,34 @@
 angular.module('roveretoPercorsi.controllers.favorites', [])
 
-.controller('FavoritesCtrl', function ($scope, $http, listPathsService, singlePathService, favoritesService) {
-    $scope.paths = {};
+.controller('FavoritesCtrl', function ($scope, $http, listPathsService, favoritesService, DatiDB) {
+    $scope.paths = [];
     $scope.noMorePathsAvailable = false;
 
     $scope.loadMore = function () {
         var length = 0;
 
-        if ($scope.paths.data) {
-            length = $scope.paths.data.length;
+        if ($scope.paths) {
+            length = $scope.paths.length;
         }
 
-        listPathsService.getFavoritesPaths(length).then(function (paths) {
-            //check state for array come funziona
+        listPathsService.getFavoritesPaths(favoritesService.getFavoritesString(), length).then(function (paths) {
             $scope.emptylist = false;
-            if ($scope.paths.data) {
-                $scope.paths.data.push.apply($scope.paths.data, paths.data);
-                if (paths.data) {
-                    if (paths.data.length < pathsService.getMaxCounter()) {
+            if ($scope.paths) {
+                $scope.paths.push.apply($scope.paths, paths);
+                if (paths) {
+                    if (paths.length < listPathsService.getMaxCounter()) {
                         $scope.noMorePathsAvailable = true;
                     }
                 }
 
-                /* temp */
                 if (paths.length == 0) {
                     $scope.noMorePathsAvailable = true;
-                } /* temp */
+                }
             } else {
                 $scope.paths = paths;
             }
 
-            if ($scope.paths.data.length == 0) {
+            if ($scope.paths.length == 0) {
                 $scope.emptylist = true;
             } else {
                 $scope.emptylist = false;
@@ -38,9 +36,5 @@ angular.module('roveretoPercorsi.controllers.favorites', [])
 
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
-    }
-
-    $scope.setSelectedPath = function (path) {
-        singlePathService.setSelectedPath(path);
     }
 });

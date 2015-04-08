@@ -2,36 +2,35 @@ angular.module('roveretoPercorsi.controllers.paths', [])
 
 .controller('PathsCtrl', function ($scope, $http, $stateParams, categoriesService, listPathsService, singlePathService) {
     $scope.category = categoriesService.getSelectedCategory();
-    $scope.paths = {};
+    $scope.paths = [];
     $scope.noMorePathsAvailable = false;
 
     $scope.loadMore = function () {
         var length = 0;
 
-        if ($scope.paths.data) {
-            length = $scope.paths.data.length;
+        if ($scope.paths) {
+            length = $scope.paths.length;
         }
 
         listPathsService.getPathsByCategoryId($stateParams, length).then(function (paths) {
             //check state for array come funziona
             $scope.emptylist = false;
-            if ($scope.paths.data) {
-                $scope.paths.data.push.apply($scope.paths.data, paths.data);
-                if (paths.data) {
-                    if (paths.data.length < pathsService.getMaxCounter()) {
+            if ($scope.paths) {
+                $scope.paths.push.apply($scope.paths, paths);
+                if (paths) {
+                    if (paths.length < listPathsService.getMaxCounter()) {
                         $scope.noMorePathsAvailable = true;
                     }
                 }
 
-                /* temp */
                 if (paths.length == 0) {
                     $scope.noMorePathsAvailable = true;
-                } /* temp */
+                }
             } else {
                 $scope.paths = paths;
             }
 
-            if ($scope.paths.data.length == 0) {
+            if ($scope.paths.length == 0) {
                 $scope.emptylist = true;
             } else {
                 $scope.emptylist = false;

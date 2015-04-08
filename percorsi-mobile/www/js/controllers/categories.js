@@ -1,36 +1,35 @@
 angular.module('roveretoPercorsi.controllers.categories', [])
 
-.controller('CategoriesCtrl', function ($scope, $rootScope, $http, categoriesService) {
-    $scope.categories = {};
+.controller('CategoriesCtrl', function ($scope, $rootScope, $http, categoriesService, DatiDB, Config) {
+    $scope.categories = [];
     $scope.noMoreCategoriesAvailable = false;
 
     $scope.loadMore = function () {
         var length = 0;
 
-        if ($scope.categories.data) {
-            length = $scope.categories.data.length;
+        if ($scope.categories) {
+            length = $scope.categories.length;
         }
 
         categoriesService.getCategoriesList(length).then(function (categories) {
             //check state for array
             $scope.emptylist = false;
-            if ($scope.categories.data) {
-                $scope.categories.data.push.apply($scope.categories.data, categories.data);
-                if (categories.data) {
-                    if (categories.data.length < categoriesService.getMaxCounter()) {
+            if ($scope.categories) {
+                $scope.categories.push.apply($scope.categories, categories.categories);
+                if (categories.categories) {
+                    if (categories.categories.length < categoriesService.getMaxCounter()) {
                         $scope.noMoreCategoriesAvailable = true;
                     }
                 }
-                /* temp */
-                if (categories.length == 0) {
+                if (categories.categories.length == 0) {
                     $scope.noMoreCategoriesAvailable = true;
-                } /* temp */
+                }
             } else {
                 $scope.categories = categories;
                 $rootScope.categories = categories;
             }
 
-            if ($scope.categories.data.length == 0) {
+            if ($scope.categories.length == 0) {
                 $scope.emptylist = true;
             } else {
                 $scope.emptylist = false;
@@ -43,4 +42,11 @@ angular.module('roveretoPercorsi.controllers.categories', [])
     $scope.setSelectedCategory = function (category) {
         categoriesService.setSelectedCategory(category);
     }
+
+
+
+    DatiDB.sync().then(function (data) {
+
+    });
+
 })

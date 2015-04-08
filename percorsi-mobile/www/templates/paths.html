@@ -6,7 +6,7 @@
             </div>
         </div>
         <ion-list ng-if="!emptylist">
-            <ion-item class="card item-thumbnail-left" ng-repeat="path in paths.data" href="#/app/path" type="item-link" ng-click="setSelectedPath(path)">
+            <ion-item class="card item-thumbnail-left" ng-repeat="path in paths" href="#/app/path" type="item-link" ng-click="setSelectedPath(path)">
                 <img ng-src="{{path.images[0].url}}" />
                 <h2>{{path.title | translate_remote}}</h2>
                 <div class="path-numbers">

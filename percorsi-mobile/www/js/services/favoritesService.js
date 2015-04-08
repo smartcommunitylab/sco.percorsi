@@ -3,26 +3,46 @@ angular.module('roveretoPercorsi.services.favoritesService', [])
 .factory('favoritesService', function ($q) {
     var favoritesService = {};
 
-    if (!window.localStorage['favorites']) {
-        window.localStorage['favorites'] = JSON.stringify([]);
+    // mirror with window.localStorage['favorites']
+    var favoritesMap = {};
+
+    if (!!window.localStorage.favorites) {
+        // read
+        favoritesMap = JSON.parse(window.localStorage.favorites);
+    } else {
+        // init
+        window.localStorage.favorites = JSON.stringify(favoritesMap);
     }
 
     favoritesService.getFavorites = function () {
-        return JSON.parse(window.localStorage['favorites']);
+        return favoritesMap;
+    };
+
+    favoritesService.getFavoritesString = function () {
+        var ids = Object.keys(favoritesMap);
+
+        var idsString = '';
+        for (var i = 0; i < ids.length; i++) {
+            if (i > 0) {
+                idsString += ',';
+            }
+            idsString += ids[i];
+        }
+
+        return idsString;
     };
 
     favoritesService.isFavorite = function (pathId) {
-        return favoritesService.getFavorites().indexOf(pathId) > -1;
+        return !!favoritesMap[pathId];
     };
 
     favoritesService.addFavorite = function (pathId) {
         var deferred = $q.defer();
 
         if (!favoritesService.isFavorite(pathId)) {
-            var favorites = favoritesService.getFavorites();
-            favorites.push(pathId);
-            window.localStorage['favorites'] = JSON.stringify(favorites);
-            deferred.resolve(favorites);
+            favoritesMap[pathId] = true;
+            window.localStorage.favorites = JSON.stringify(favoritesMap);
+            deferred.resolve(favoritesMap);
         } else {
             deferred.reject();
         }
@@ -34,11 +54,9 @@ angular.module('roveretoPercorsi.services.favoritesService', [])
         var deferred = $q.defer();
 
         if (favoritesService.isFavorite(pathId)) {
-            var favorites = favoritesService.getFavorites();
-            var index = favorites.indexOf(pathId);
-            favorites.splice(index, 1);
-            window.localStorage['favorites'] = JSON.stringify(favorites);
-            deferred.resolve(favorites);
+            delete favoritesMap[pathId];
+            window.localStorage.favorites = JSON.stringify(favoritesMap);
+            deferred.resolve(favoritesMap);
         } else {
             deferred.reject();
         }
