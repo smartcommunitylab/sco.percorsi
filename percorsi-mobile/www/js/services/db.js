@@ -367,7 +367,7 @@ angular.module('roveretoPercorsi.services.db', [])
                               var params = (cateId ? [types[dbname], cateId] : [types[dbname]]);
                     */
                     var sql = 'SELECT * ' +
-                        'FROM ContentObjects c WHERE type= ? AND c.categories LIKE "%\'' + cateId + '\'%" ';
+                        'FROM ContentObjects c WHERE type= ? AND c.categories LIKE "%' + cateId + '%" ';
                     var params = [types['path']];
 
                     //console.log('[DB.cate()] sql: '+sql);
@@ -423,7 +423,7 @@ angular.module('roveretoPercorsi.services.db', [])
                 dbObj.transaction(function (tx) {
                     //console.log('DatiDB.getObj(); objId: ' + objId);
                     if (objId.indexOf(',') == -1) {
-                        idCond = 'c.localid=?';
+                        idCond = 'c.localid LIKE ?';
                     } else {
                         qmarks = objId.split(',');
                         for (i = 0; i < qmarks.length; i++) qmarks[i] = '?';
@@ -432,7 +432,7 @@ angular.module('roveretoPercorsi.services.db', [])
                     var qParams = objId.split(',');
                     qParams.unshift(types['path']);
                     var dbQuery = 'SELECT * ' +
-                        ' FROM ContentObjects c WHERE c.type=?' +
+                        ' FROM ContentObjects c WHERE c.type LIKE ?' +
                         ' AND ' + idCond;
                     //console.log('dbQuery: ' + dbQuery);
                     //console.log('qParams: ' + qParams);
