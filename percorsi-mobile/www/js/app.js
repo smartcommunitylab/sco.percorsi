@@ -23,6 +23,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.pathdetailmap',
     'roveretoPercorsi.controllers.pathdetailturist',
     'roveretoPercorsi.controllers.poidetail',
+    'roveretoPercorsi.controllers.favorites',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
@@ -32,7 +33,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.addImageService',
     'roveretoPercorsi.services.reviews',
     'roveretoPercorsi.services.db'
-
+    'roveretoPercorsi.services.favoritesService'
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, Login, GeoLocate) {
@@ -215,8 +216,8 @@ angular.module('roveretoPercorsi', [
         abstract: false,
         views: {
             'menuContent': {
-                templateUrl: "templates/favorites.html",
-                controller: 'ProfileCtrl'
+                templateUrl: "templates/paths.html",
+                controller: 'FavoritesCtrl'
             }
         }
     });

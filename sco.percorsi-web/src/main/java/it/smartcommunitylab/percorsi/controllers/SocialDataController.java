@@ -23,8 +23,6 @@ import it.smartcommunitylab.percorsi.model.Response;
 import it.smartcommunitylab.percorsi.services.ContributorManager;
 import it.smartcommunitylab.percorsi.services.PercorsiManager;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,6 +99,22 @@ public class SocialDataController {
 		} catch (NotFoundException e) {
 			e.printStackTrace();
 			return new Response<Path>(HttpStatus.NOT_FOUND.value(), e.getMessage());
+		}
+	}
+
+
+	@RequestMapping(value = "/userdata/paths/{providerId}/{pathId}/rate")
+	public @ResponseBody Response<Rating> getMyRate(
+			@PathVariable String providerId,
+			@PathVariable String pathId) throws DataException
+	{
+		Contributor contributor = contributorManager.getContributor(getUserId());
+		try {
+			Rating rating = manager.getUserRating(providerId, pathId, contributor);
+			return new Response<Rating>(rating);
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+			return new Response<Rating>(HttpStatus.NOT_FOUND.value(), e.getMessage());
 		}
 	}
 

@@ -12,6 +12,7 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
     listPathsService.getPathsByCategoryId = function (categoryId, from) {
         var start = null;
         var deferred = $q.defer();
+
         /*temp*/
         $http.get('data/paths.json').success(function (data) {
             paths = data;
@@ -20,10 +21,27 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
             console.log(data + status + headers + config);
             deferred.reject(err);
         });
+
         return deferred.promise;
         /*temp*/
-    }
+    };
 
+    listPathsService.getFavoritesPaths = function (from) {
+        var start = null;
+        var deferred = $q.defer();
+
+        /*temp*/
+        $http.get('data/paths.json').success(function (data) {
+            paths = data;
+            from == 0 ? deferred.resolve(paths) : deferred.resolve([]);
+        }).error(function (data, status, headers, config) {
+            console.log(data + status + headers + config);
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+        /*temp*/
+    };
 
     return listPathsService;
-})
+});

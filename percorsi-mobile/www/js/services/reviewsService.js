@@ -32,16 +32,18 @@ angular.module('roveretoPercorsi.services.reviews', [])
         }).
         error(function (data, status, headers, config) {
             console.log(data + status + headers + config);
-            deferred.reject(err);
+            deferred.reject(data.errorCode + ' ' + data.errorMessage);
         });
 
         return deferred.promise;
     };
 
     reviewsService.sendRate = function (pathId, vote, comment) {
-        return $http({
+        var deferred = $q.defer();
+
+        $http({
             method: 'POST',
-            url: Config.URL() + '/' + Config.app() + '/' + Config.userdata + '/' + Config.appId() + '/' + pathId + '/' + 'rate',
+            url: Config.URL() + '/' + Config.app() + '/' + Config.userdata() + '/' + Config.appId() + '/' + pathId + '/' + 'rate',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -52,11 +54,14 @@ angular.module('roveretoPercorsi.services.reviews', [])
             }
         }).
         success(function (data, status, headers, config) {
-            /*TODO*/
+            deferred.resolve(data.data);
         }).
         error(function (data, status, headers, config) {
             console.log(data + status + headers + config);
+            deferred.reject(data.errorCode + ' ' + data.errorMessage);
         });
+
+        return deferred.promise;
     };
 
     return reviewsService;

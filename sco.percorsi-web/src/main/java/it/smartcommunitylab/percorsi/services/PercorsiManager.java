@@ -211,4 +211,13 @@ public class PercorsiManager {
 	public SyncData getSyncAppData(long since, String appId, Map<String, Object> include, Map<String, Object> exclude) throws DataException {
 		return repository.getSyncAppData(since, appId, include, exclude);
 	}
+
+	public Rating getUserRating(String appId, String pathId, Contributor contributor) throws NotFoundException, DataException {
+		Path path = getPath(appId, pathId);
+		if (path == null) {
+			throw new NotFoundException("Path "+ pathId +" of app "+appId+" not found.");
+		}
+		Rating rating = ratingRepository.findByAppIdAndLocalIdAndUserId(appId, pathId, contributor.getUserId());
+		return rating;
+	}
 }
