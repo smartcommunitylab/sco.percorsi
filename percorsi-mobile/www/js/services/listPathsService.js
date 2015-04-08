@@ -28,13 +28,13 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
         var start = null;
         var deferred = $q.defer();
 
-
         DatiDB.getObjectsById(idsString).then(function (pathsFromDb) {
                 from == 0 ? deferred.resolve(pathsFromDb) : deferred.resolve([]);
             },
             function (error) {
                 deferred.reject(error);
             });
+
 
         return deferred.promise;
     };
