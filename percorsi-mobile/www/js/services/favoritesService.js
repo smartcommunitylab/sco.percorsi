@@ -56,7 +56,7 @@ angular.module('roveretoPercorsi.services.favoritesService', [])
         if (favoritesService.isFavorite(pathId)) {
             delete favoritesMap[pathId];
             window.localStorage.favorites = JSON.stringify(favoritesMap);
-            deferred.resolve(favorites);
+            deferred.resolve(favoritesMap);
         } else {
             deferred.reject();
         }

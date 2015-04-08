@@ -7,8 +7,8 @@ angular.module('roveretoPercorsi.controllers.favorites', [])
     $scope.loadMore = function () {
         var length = 0;
 
-        if ($scope.paths.data) {
-            length = $scope.paths.data.length;
+        if ($scope.paths) {
+            length = $scope.paths.length;
         }
 
         listPathsService.getFavoritesPaths(favoritesService.getFavoritesString(), length).then(function (paths) {
