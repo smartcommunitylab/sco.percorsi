@@ -35,6 +35,11 @@ angular.module('roveretoPercorsi.controllers.favorites', [])
             }
 
             $scope.$broadcast('scroll.infiniteScrollComplete');
+        }, function (error) {
+            // 'not found!' aka empty list
+            $scope.noMorePathsAvailable = true;
+            $scope.emptylist = true;
+            $scope.$broadcast('scroll.infiniteScrollComplete');
         });
     }
 });
