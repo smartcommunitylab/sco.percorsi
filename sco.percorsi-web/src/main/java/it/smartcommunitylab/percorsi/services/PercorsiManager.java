@@ -194,13 +194,16 @@ public class PercorsiManager {
 		ratingRepository.save(rating);
 
 		List<Rating> list = ratingRepository.findByAppIdAndLocalId(appId, pathId);
-		int count = list.size();
 
 		double avg = 0;
+		int count = 0;
 		for (Rating r : list) {
-			avg += r.getVote();
+			if (r.getVote() != null && r.getVote() > 0) {
+				avg += r.getVote();
+				count++;
+			}
 		}
-		avg = avg / count;
+		avg = count > 0 ? avg / count : 0;
 		path.setVoteCount(count);
 		path.setVote(avg);
 
