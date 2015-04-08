@@ -38,6 +38,32 @@ angular.module('roveretoPercorsi.services.reviews', [])
         return deferred.promise;
     };
 
+    reviewsService.getUserRate = function () {
+        var deferred = $q.defer();
+
+        $http({
+            method: 'POST',
+            url: Config.URL() + '/' + Config.app() + '/' + Config.userdata() + '/' + Config.appId() + '/' + pathId + '/' + 'rate',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: {
+                'vote': vote,
+                'comment': comment
+            }
+        }).
+        success(function (data, status, headers, config) {
+            deferred.resolve(data.data);
+        }).
+        error(function (data, status, headers, config) {
+            console.log(data + status + headers + config);
+            deferred.reject(data.errorCode + ' ' + data.errorMessage);
+        });
+
+        return deferred.promise;
+    };
+
     reviewsService.sendRate = function (pathId, vote, comment) {
         var deferred = $q.defer();
 
