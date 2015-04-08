@@ -2,7 +2,9 @@ angular.module('roveretoPercorsi.services.conf', [])
 
 .factory('Config', function ($q, $http, $window, $filter, $rootScope) {
 
-    var URL = 'https://dev.smartcommunitylab.it';
+    var DEVELOPMENT = true;
+
+    var URL = 'https://' + (DEVELOPMENT ? 'dev' : 'tn') + '.smartcommunitylab.it';
     var app = 'percorsi'
     var userdata = 'userdata/paths';
     var appId = 'ComuneRovereto';
@@ -14,8 +16,12 @@ angular.module('roveretoPercorsi.services.conf', [])
         'de': 'Rovereto'
     };
 
-
-
+    var SCHEMA_VERSION = 1;
+    var contentTypes = {
+        'path': 'it.smartcommunitylab.percorsi.model.Path',
+        'categories': 'it.smartcommunitylab.percorsi.model.Categories',
+    };
+    var dbName = 'Rovereto';
     return {
 
         getVersion: function () {
@@ -35,26 +41,6 @@ angular.module('roveretoPercorsi.services.conf', [])
             if (lang != 'it' && lang != 'en' && lang != 'de') lang = 'en';
             return lang;
         },
-        getProfile: function () {
-            //console.log('getProfile()');
-            var profileLoaded = $q.defer();
-            //console.log('localStorage.cachedProfile: '+localStorage.cachedProfile);
-            if (localStorage.cachedProfile && localStorage.cachedProfile != 'undefined' && localStorage.cachedProfile != 'null') {
-                //console.log('using locally cached profile');
-                profileLoaded.resolve(parseConfig(JSON.parse(localStorage.cachedProfile)));
-            } else {
-                //console.log('getting predefined profile');
-                $http.get('data/' + LOCAL_PROFILE + '.json').success(function (data, status, headers, config) {
-                    localStorage.cachedProfile = JSON.stringify(data);
-                    $rootScope.$emit('profileUpdated');
-                    profileLoaded.resolve(parseConfig(data));
-                }).error(function (data, status, headers, config) {
-                    console.log('error getting predefined config "data/' + LOCAL_PROFILE + '.json"!');
-                    profileLoaded.reject();
-                });
-            }
-            return profileLoaded.promise;
-        },
         getLanguage: function () {
 
             navigator.globalization.getLocaleName(
@@ -67,27 +53,6 @@ angular.module('roveretoPercorsi.services.conf', [])
             );
 
         },
-        highlights: function () {
-            return this.getProfile().then(function (data) {
-                //console.log(data.highlights[0].image);
-                //data.highlights._parent={ id: 'highlights' };
-                return data.highlights;
-            });
-        },
-        navigationItems: function () {
-            return this.getProfile().then(function (data) {
-                return data.navigationItems;
-            });
-        },
-        navigationItemsGroup: function (label) {
-            return this.navigationItems().then(function (items) {
-                for (gi = 0; gi < items.length; gi++) {
-                    if (items[gi].id == label) return items[gi];
-                }
-                return null;
-            });
-        },
-
         keys: function () {
             return keys;
         },
@@ -109,14 +74,15 @@ angular.module('roveretoPercorsi.services.conf', [])
         schemaVersion: function () {
             return SCHEMA_VERSION;
         },
-        getHomeHighlightsMax: function () {
-            return HOME_HIGHLIGHTS_MAX;
+        savedImagesDirName: function () {
+            return 'Percorsi-ImagesCache';
         },
         syncUrl: function () {
             //console.log('$rootScope.TEST_CONNECTION: '+(!!$rootScope.TEST_CONNECTION));
             var SYNC_MODE = (!!$rootScope.TEST_CONNECTION ? 'syncdraft' : 'sync');
             //console.log('SYNC_MODE: '+SYNC_MODE);
-            return 'https://' + SYNC_HOST + '.smartcommunitylab.it/' + SYNC_WEBAPP + '/' + SYNC_MODE + '/' + WEBAPP_MULTI + '?since=';
+            return URL + '/' + app + '/sync/' + appId + '?since=';
+            // /sync/{appId}?since={version}
         },
         syncTimeoutSeconds: function () {
             //return 60 * 60; /* 60 times 60 seconds = EVERY HOUR */

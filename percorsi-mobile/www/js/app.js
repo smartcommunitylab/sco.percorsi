@@ -30,7 +30,9 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.singlePathService',
     'roveretoPercorsi.services.singlePoiService',
     'roveretoPercorsi.services.addImageService',
-    'roveretoPercorsi.services.reviews'
+    'roveretoPercorsi.services.reviews',
+    'roveretoPercorsi.services.db'
+
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, Login, GeoLocate) {
@@ -266,7 +268,12 @@ angular.module('roveretoPercorsi', [
         login_message: 'Per utilizzare la funzionalita\' devi prima effettuare il login',
         login_popup_cancel: 'Non adesso',
         login_popup_ok: 'Login',
-        login_done: 'Login effettuato con successo'
+        login_done: 'Login effettuato con successo',
+        'syncing': 'aggiornamento in corso...',
+        'cleaning': 'pulizia in corso...',
+        en: 'cleaning...',
+        de: 'Reinigung im Laufe...'
+
     });
 
     $translateProvider.translations('en', {
@@ -313,7 +320,9 @@ angular.module('roveretoPercorsi', [
         login_message: 'If you want to use this functionality you have to do the login',
         login_popup_cancel: 'Not now',
         login_popup_ok: 'Login',
-        login_done: 'Login done'
+        login_done: 'Login done',
+        'syncing': 'syncing....',
+        'cleaning': 'cleaning...',
     });
 
     $translateProvider.translations('de', {
@@ -359,7 +368,10 @@ angular.module('roveretoPercorsi', [
         login_message: 'If you want to use this functionality you have to do the login',
         login_popup_cancel: 'Not now',
         login_popup_ok: 'Login',
-        login_done: 'Login done'
+        login_done: 'Login done',
+        'syncing': 'Laufende Aktualisierung...',
+        'cleaning': 'Reinigung im Laufe...'
+
     });
 
     $translateProvider.preferredLanguage("en");
