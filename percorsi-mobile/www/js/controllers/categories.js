@@ -46,7 +46,7 @@ angular.module('roveretoPercorsi.controllers.categories', [])
 
 
     DatiDB.sync().then(function (data) {
-
+        console.log("DB syncronization");
     });
 
 })
