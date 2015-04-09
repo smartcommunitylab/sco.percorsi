@@ -41,5 +41,9 @@ angular.module('roveretoPercorsi.controllers.favorites', [])
             $scope.emptylist = true;
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
-    }
+    };
+
+    $scope.isFavorite = function (pathId) {
+        return favoritesService.isFavorite(pathId);
+    };
 });

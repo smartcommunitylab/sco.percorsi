@@ -19,6 +19,7 @@
                         <span>{{min2time(path.time)}}</span>
                     </div>
                 </div>
+                <i class="fav icon ion-heart" ng-if="isFavorite(path.localId)"></i>
             </ion-item>
         </ion-list>
         <ion-infinite-scroll ng-if="!noMorePathsAvailable" on-infinite="loadMore()" distance="1%">

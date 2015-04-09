@@ -194,6 +194,12 @@ body {
     bottom: 8px;
 }
 
+#paths .fav {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
 ion-slide div[cover-img] i {
     position: absolute;
     top: 50%;
