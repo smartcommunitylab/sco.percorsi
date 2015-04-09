@@ -80,6 +80,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         reviewsService.sendRate($scope.path.localId, vote, $scope.rating.review).then(function (updatedPath) {
             $scope.path = updatedPath;
             Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom');
+            singlePathService.setSelectedPath(updatedPath);
             DatiDB.reset();
         });
     };
@@ -88,6 +89,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         reviewsService.sendRate($scope.path.localId, $scope.rating.current, review).then(function (updatedPath) {
             $scope.path = updatedPath;
             Toast.show($filter('translate')('review_sent_toast_ok'), 'short', 'bottom');
+            singlePathService.setSelectedPath(updatedPath);
             DatiDB.reset();
         });
     };
