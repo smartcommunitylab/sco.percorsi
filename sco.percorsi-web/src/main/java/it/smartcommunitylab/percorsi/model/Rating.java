@@ -14,6 +14,8 @@ public class Rating {
 	private Integer vote;
 	private String comment;
 	private Contributor contributor;
+	private Long timestamp;
+	
 	/**
 	 * @return the id
 	 */
@@ -86,4 +88,12 @@ public class Rating {
 	public void setContributor(Contributor contributor) {
 		this.contributor = contributor;
 	}
+	public Long getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(Long timestamp) {
+		this.timestamp = timestamp;
+	}
+	
+	
 }
