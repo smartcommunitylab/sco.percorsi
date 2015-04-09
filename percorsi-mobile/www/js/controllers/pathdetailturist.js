@@ -125,10 +125,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     };
 
     $scope.showReview = function (name) {
-        $scope.review = {
-            text: ''
-        };
-
         if ($scope.userIsLogged) {
             var confirmPopup = $ionicPopup.confirm({
                 title: $filter('translate')('newreview_popup_title'),
@@ -147,7 +143,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                                 e.preventDefault();
                             } else {
                                 // return $scope.review;
-                                $scope.sendReview($scope.review.text);
+                                $scope.sendReview($scope.rating.review);
                             }
                         }
                     }
