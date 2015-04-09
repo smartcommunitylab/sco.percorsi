@@ -38,8 +38,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
             for (var i = 0; i < emptyStars; i++) {
                 stars.push('empty');
             }
-        } else {
-            $scope.loginModal.show();
         }
 
         return stars;
