@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.favorites', [])
 
-.controller('FavoritesCtrl', function ($scope, $http, listPathsService, favoritesService, DatiDB) {
+.controller('FavoritesCtrl', function ($scope, $http, listPathsService, singlePathService, favoritesService, DatiDB) {
     $scope.paths = [];
     $scope.noMorePathsAvailable = false;
 
@@ -46,4 +46,8 @@ angular.module('roveretoPercorsi.controllers.favorites', [])
     $scope.isFavorite = function (pathId) {
         return favoritesService.isFavorite(pathId);
     };
+
+    $scope.setSelectedPath = function (path) {
+        singlePathService.setSelectedPath(path);
+    }
 });
