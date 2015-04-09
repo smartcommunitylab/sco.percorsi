@@ -39,6 +39,13 @@ angular.module('roveretoPercorsi', [
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, Login, GeoLocate) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
+    $rootScope.getUserId = function () {
+        if ($rootScope.userIsLogged) {
+            return localStorage.userId;
+        }
+        return null;
+    };
+
     //    /* TEMP */
     //    $rootScope.userIsLogged = true;
     //    /* TEMP */
@@ -251,6 +258,8 @@ angular.module('roveretoPercorsi', [
         pathdetailturist_review: 'Recensisci',
         pathdetailturist_voteinfo: 'Vota il percorso',
         pathdetailtourist_empty_list: 'Non sono presenti recensioni',
+        pathdetailtourist_anonymous: 'Anonimo',
+        pathdetailtourist_your_review: 'La tua recensione',
         newreview_popup_title: 'Aggiungi la tua recensione',
         newreview_popup_cancel: 'Chiudi',
         newreview_popup_ok: 'Conferma',
@@ -301,6 +310,8 @@ angular.module('roveretoPercorsi', [
         pathdetailturist_review: 'Add a review',
         pathdetailturist_voteinfo: 'Vote the path',
         pathdetailtourist_empty_list: 'Sorry, no reviews',
+        pathdetailtourist_anonymous: 'Anonymous',
+        pathdetailtourist_your_review: 'Your review',
         newreview_popup_title: 'Add your review',
         newreview_popup_cancel: 'Close',
         newreview_popup_ok: 'Confirm',
@@ -322,7 +333,7 @@ angular.module('roveretoPercorsi', [
         login_popup_ok: 'Login',
         login_done: 'Login done',
         syncing: 'syncing....',
-        cleaning: 'cleaning...',
+        cleaning: 'cleaning...'
     });
 
     $translateProvider.translations('de', {
@@ -352,6 +363,8 @@ angular.module('roveretoPercorsi', [
         pathdetailturist_review: 'Rezension',
         pathdetailturist_voteinfo: 'Vote the path',
         pathdetailtourist_empty_list: 'Leere Liste',
+        pathdetailtourist_anonymous: 'Anonymous',
+        pathdetailtourist_your_review: 'Your review',
         newreview_popup_title: 'Kommentar abgeben',
         newreview_popup_cancel: 'Aussteigen',
         newreview_popup_ok: 'Bestätigung',

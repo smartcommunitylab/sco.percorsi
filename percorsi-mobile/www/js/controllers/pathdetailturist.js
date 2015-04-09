@@ -14,11 +14,15 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         // user rating
         if ($scope.userIsLogged) {
             reviewsService.getUserRate($scope.path.localId).then(function (data) {
-                $scope.rating.review = data.comment;
-                $scope.rating.current = data.vote;
+                if (!!data) {
+                    $scope.rating.review = data.comment;
+                    $scope.rating.current = data.vote;
+                }
             });
         }
     };
+
+    $scope.syncRating();
 
     $scope.getStars = function () {
         var stars = [];
@@ -48,13 +52,16 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     }
 
     $scope.noMoreReviewsAvailable = false;
-    $scope.loadMore = function () {
+
+    $scope.loadMore = function (reload) {
         var length = 0;
-        if ($scope.reviews) {
+        if (!reload && $scope.reviews) {
             length = $scope.reviews.length;
+        } else if (reload) {
+            $scope.reviews = [];
         }
 
-        reviewsService.getRates(length).then(function (reviews) {
+        reviewsService.getRates($scope.path.localId, length).then(function (reviews) {
             //check state for array
             $scope.emptylist = false;
             if ($scope.reviews) {
@@ -78,19 +85,20 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
     $scope.sendVote = function (vote) {
         reviewsService.sendRate($scope.path.localId, vote, $scope.rating.review).then(function (updatedPath) {
+            singlePathService.setSelectedPath(updatedPath);
             $scope.path = updatedPath;
             Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom');
-            singlePathService.setSelectedPath(updatedPath);
             DatiDB.reset();
         });
     };
 
     $scope.sendReview = function (review) {
         reviewsService.sendRate($scope.path.localId, $scope.rating.current, review).then(function (updatedPath) {
+            singlePathService.setSelectedPath(updatedPath);
             $scope.path = updatedPath;
             Toast.show($filter('translate')('review_sent_toast_ok'), 'short', 'bottom');
-            singlePathService.setSelectedPath(updatedPath);
             DatiDB.reset();
+            $scope.loadMore(true);
         });
     };
 
@@ -137,9 +145,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                     },
                     {
                         text: $filter('translate')('newreview_popup_ok'),
-                        type: ' button-percorsi',
+                        type: 'button-percorsi',
                         onTap: function (e) {
-                            if (!$scope.review) {
+                            if (!$scope.rating.review) {
                                 e.preventDefault();
                             } else {
                                 // return $scope.review;

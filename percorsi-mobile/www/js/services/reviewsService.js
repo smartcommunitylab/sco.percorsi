@@ -1,7 +1,6 @@
 angular.module('roveretoPercorsi.services.reviews', [])
 
 .factory('reviewsService', function ($http, $q, Config) {
-    var reviews = null;
     var counter = '10';
 
     var reviewsService = {};
@@ -10,8 +9,8 @@ angular.module('roveretoPercorsi.services.reviews', [])
         return counter;
     };
 
-    reviewsService.getRates = function (pathId, start) {
-        var start = null;
+    reviewsService.getRates = function (pathId, length) {
+        var start = length;
         var deferred = $q.defer();
 
         $http({
@@ -23,7 +22,7 @@ angular.module('roveretoPercorsi.services.reviews', [])
             }
         }).
         success(function (data) {
-            reviews = data;
+            var reviews = data.data;
             if (start == 0) {
                 deferred.resolve(reviews);
             } else {

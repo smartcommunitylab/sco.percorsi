@@ -30,10 +30,18 @@
             <!--</div>-->
         </div>
         <ion-list ng-if="!emptylist">
-            <ion-item class="card" ng-repeat="review in reviews.data">
+            <ion-item class="card" ng-if="!!rating.review">
                 <div class="padding-vertical">
-                    <h2 class="title">{{review.user}}</h2>
-                    <p>{{review.review}}</p>
+                    <h3 class="title">{{'pathdetailtourist_your_review' | translate}}</h3>
+                    <!--<p>{{rating.review}}</p>-->
+                    <div>{{rating.review}}</div>
+                </div>
+            </ion-item>
+            <ion-item class="card" ng-repeat="review in reviews" ng-if="!!review.comment && getUserId() != review.contributor.userId">
+                <div class="padding-vertical">
+                    <h3 class="title">{{!!review.contributor.name ? review.contributor.name : ('pathdetailtourist_anonymous' | translate)}}</h3>
+                    <!--<p>{{review.comment}}</p>-->
+                    <div>{{review.comment}}</div>
                 </div>
             </ion-item>
         </ion-list>
