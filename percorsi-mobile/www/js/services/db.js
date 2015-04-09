@@ -288,17 +288,6 @@ angular.module('roveretoPercorsi.services.db', [])
                                             console.log('nothing to delete for "' + contentTypeKey + '"');
                                         }
                                     });
-
-                                    var nowTime = new Date();
-                                    //console.log('[EVENTS CLEANUP] nowTime=' + nowTime);
-                                    var yesterdayTime = new Date(nowTime.getFullYear(), nowTime.getMonth(), nowTime.getDate(), 0, 0, 0, 0).getTime();
-                                    //console.log('[EVENTS CLEANUP] yesterdayTime=' + new Date(yesterdayTime));
-                                    tx.executeSql('DELETE FROM ContentObjects WHERE type = ? AND toTime < ?', [types['event'], yesterdayTime], function (tx, res) { //success callback
-                                        console.log('deleted old events');
-                                    }, function (e) { //error callback
-                                        console.log('unable to delete old events: ' + e.message);
-                                    });
-
                                 }, function (err) { //error callback
                                     console.log('cannot do deletions: ' + err.message);
                                     deletionsPromise.reject();

@@ -140,14 +140,14 @@ angular.module('roveretoPercorsi.controllers.common', [])
         } else {
             //console.error("Unknown platform");
             setTimeout(function () {
-                window.open("http://maps.google.com/maps?daddr=" + loc[0] + "," + loc[1], "_system");
+                window.open('http://maps.google.com/maps?daddr=' + loc[0] + ',' + loc[1], '_system');
             }, 10);
         }
         return false;
     };
 
     $scope.openLoginPopUp = function () {
-        Toast.show($filter('translate')("toast_must_login"), "short", "bottom");
+        Toast.show($filter('translate')('toast_must_login'), 'short', 'bottom');
     };
 
     $ionicModal.fromTemplateUrl('templates/login-popup.html', {

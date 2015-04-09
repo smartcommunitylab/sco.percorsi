@@ -44,7 +44,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
     $scope.$on('$destroy', function () {
         $scope.addimagemodal.remove();
-        $scope.loginModal.remove();
+        //$scope.loginModal.remove();
     });
 
     $scope.removeImage = function (imageName) {

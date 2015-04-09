@@ -38,19 +38,14 @@ angular.module('roveretoPercorsi.services.reviews', [])
         return deferred.promise;
     };
 
-    reviewsService.getUserRate = function () {
+    reviewsService.getUserRate = function (pathId) {
         var deferred = $q.defer();
 
         $http({
-            method: 'POST',
+            method: 'GET',
             url: Config.URL() + '/' + Config.app() + '/' + Config.userdata() + '/' + Config.appId() + '/' + pathId + '/' + 'rate',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            data: {
-                'vote': vote,
-                'comment': comment
+                'Accept': 'application/json'
             }
         }).
         success(function (data, status, headers, config) {

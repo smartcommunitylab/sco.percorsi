@@ -238,6 +238,7 @@ angular.module('roveretoPercorsi', [
         path_difficulty_2: 'Media',
         path_difficulty_3: 'Alta',
         path_itinerary: 'Itinerario',
+        archive_empty_list: 'Nessun percorso',
         categories_title: 'Rovereto Percorsi',
         credits_title: 'Credits',
         credits_app: 'Rovereto Percorsi',
@@ -270,11 +271,8 @@ angular.module('roveretoPercorsi', [
         login_popup_cancel: 'Non adesso',
         login_popup_ok: 'Login',
         login_done: 'Login effettuato con successo',
-        'syncing': 'aggiornamento in corso...',
-        'cleaning': 'pulizia in corso...',
-        en: 'cleaning...',
-        de: 'Reinigung im Laufe...'
-
+        syncing: 'aggiornamento in corso...',
+        cleaning: 'pulizia in corso...'
     });
 
     $translateProvider.translations('en', {
@@ -283,6 +281,7 @@ angular.module('roveretoPercorsi', [
         menu_login: 'Login',
         menu_logout: 'Logout',
         menu_credits: 'Credits',
+        archive_empty_list: 'No paths',
         categories_title: 'Rovereto Paths',
         path_info: 'Info',
         path_map: 'Map',
@@ -322,8 +321,8 @@ angular.module('roveretoPercorsi', [
         login_popup_cancel: 'Not now',
         login_popup_ok: 'Login',
         login_done: 'Login done',
-        'syncing': 'syncing....',
-        'cleaning': 'cleaning...',
+        syncing: 'syncing....',
+        cleaning: 'cleaning...',
     });
 
     $translateProvider.translations('de', {
@@ -333,6 +332,7 @@ angular.module('roveretoPercorsi', [
         menu_logout: 'Logout',
         menu_credits: 'Credits',
         categories_title: 'Rovereto Paths',
+        archive_empty_list: 'Nessun percorso',
         path_info: 'Info',
         path_map: 'Karte',
         path_turist: 'Turista',
@@ -340,6 +340,7 @@ angular.module('roveretoPercorsi', [
         path_difficulty_2: 'Halb',
         path_difficulty_3: 'Schwer',
         path_itinerary: 'Reiseroute',
+        favorites_emptylist: '',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
         credits_project: 'Ein projekt:',
@@ -370,9 +371,8 @@ angular.module('roveretoPercorsi', [
         login_popup_cancel: 'Not now',
         login_popup_ok: 'Login',
         login_done: 'Login done',
-        'syncing': 'Laufende Aktualisierung...',
-        'cleaning': 'Reinigung im Laufe...'
-
+        syncing: 'Laufende Aktualisierung...',
+        cleaning: 'Reinigung im Laufe...'
     });
 
     $translateProvider.preferredLanguage("en");

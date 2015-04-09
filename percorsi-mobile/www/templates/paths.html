@@ -1,9 +1,9 @@
 <ion-view id="paths" title="{{!!category.name ? (category.name | translate_remote) : ('menu_favorites' | translate)}}">
     <ion-content has-header="true" has-footer="true">
-        <div class="card" ng-if="emptylist">
-            <div class="item item-text-wrap">
-                {{'archive_empty_list' | translate}}
-            </div>
+        <div class="padding emptylist" ng-if="emptylist">
+            <!--<div class="item item-text-wrap">-->
+            {{'archive_empty_list' | translate}}
+            <!--</div>-->
         </div>
         <ion-list ng-if="!emptylist">
             <ion-item class="card item-thumbnail-left" ng-repeat="path in paths" href="#/app/path" type="item-link" ng-click="setSelectedPath(path)">

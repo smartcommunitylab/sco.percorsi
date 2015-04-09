@@ -31,6 +31,10 @@ body {
     visibility: hidden;
 }
 
+.emptylist {
+    text-align: center;
+}
+
 .button {
     text-transform: uppercase;
     font-size: 1em;

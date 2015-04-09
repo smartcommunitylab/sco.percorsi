@@ -6,12 +6,12 @@ angular.module('roveretoPercorsi.services.favoritesService', [])
     // mirror with window.localStorage['favorites']
     var favoritesMap = {};
 
-    if (!!window.localStorage.favorites) {
-        // read
-        favoritesMap = JSON.parse(window.localStorage.favorites);
-    } else {
+    if (!!!window.localStorage.favorites || Array.isArray(JSON.parse(window.localStorage.favorites))) {
         // init
         window.localStorage.favorites = JSON.stringify(favoritesMap);
+    } else {
+        // read
+        favoritesMap = JSON.parse(window.localStorage.favorites);
     }
 
     favoritesService.getFavorites = function () {
