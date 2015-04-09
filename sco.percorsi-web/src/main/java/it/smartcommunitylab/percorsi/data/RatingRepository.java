@@ -34,7 +34,7 @@ public interface RatingRepository extends MongoRepository<Rating, String>{
 	@Query("{'appId': ?0, 'localId': ?1, 'contributor.userId':?2}")
 	Rating findByAppIdAndLocalIdAndUserId(String appId, String localId, String userId);
 
-	Page<Rating> findByAppIdAndLocalId(String appId, String localId, Pageable pageable, Sort sort);
+	Page<Rating> findByAppIdAndLocalId(String appId, String localId, Pageable pageable);
 	List<Rating> findByAppIdAndLocalId(String appId, String localId, Sort sort);
 	List<Rating> findByAppIdAndLocalId(String appId, String localId);
 

@@ -170,8 +170,8 @@ public class PercorsiManager {
 		if (count != null && count > 0) {
 			int pageIdx = start != null && start > 0 ? (start / count) : 0;
 			int size = count != null && count > 0 ? count : 100;
-			PageRequest pr = new PageRequest(pageIdx, size);
-			Page<Rating> page = ratingRepository.findByAppIdAndLocalId(appId, pathId, pr, sort);
+			PageRequest pr = new PageRequest(pageIdx, size, sort);
+			Page<Rating> page = ratingRepository.findByAppIdAndLocalId(appId, pathId, pr);
 			return page.getContent();
 		} else {
 			return ratingRepository.findByAppIdAndLocalId(appId, pathId, sort);
