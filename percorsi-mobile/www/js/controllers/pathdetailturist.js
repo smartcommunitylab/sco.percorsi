@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
-.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $ionicModal, $filter, Toast, singlePathService, reviewsService) {
+.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $ionicModal, $filter, Toast, singlePathService, reviewsService, DatiDB) {
     $scope.reviews = [];
     $scope.path = singlePathService.getSelectedPath();
 
@@ -81,7 +81,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.sendVote = function (vote) {
         reviewsService.sendRate($scope.path.localId, vote, $scope.rating.review).then(function (updatedPath) {
             $scope.path = updatedPath;
-            Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom')
+            Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom');
+            DatiDB.reset();
         });
     };
 
@@ -89,6 +90,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         reviewsService.sendRate($scope.path.localId, $scope.rating.current, review).then(function (updatedPath) {
             $scope.path = updatedPath;
             Toast.show($filter('translate')('review_sent_toast_ok'), 'short', 'bottom');
+            DatiDB.reset();
         });
     };
 
