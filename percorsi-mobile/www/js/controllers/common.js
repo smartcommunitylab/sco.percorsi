@@ -108,6 +108,10 @@ angular.module('roveretoPercorsi.controllers.common', [])
         return Math.floor(min / 60) + ':' + min % 60;
     }
 
+    $scope.voteRound = function (vote) {
+        return Math.round(vote * 10) / 10;
+    }
+
     $scope.youtubeEmbed = function (url) {
         var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
         var match = url.match(regExp);

@@ -8,7 +8,7 @@
     <ion-content class="has-header padding">
         <!-- Rating -->
         <div class="rating-avg">
-            <span class="rating-avg-txt">{{path.vote}}</span>
+            <span class="rating-avg-txt">{{voteRound(path.vote)}}</span>
             <i ng-repeat="starType in getStars() track by $index" class="icon icon-rating" ng-class="{'ion-android-star': starType == 'full', 'ion-android-star-half': starType == 'half', 'ion-android-star-outline': starType == 'empty'}"></i>
         </div>
         <div class="row">
