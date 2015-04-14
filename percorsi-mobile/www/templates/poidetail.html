@@ -1,5 +1,15 @@
 <ion-view class="details-info" title="{{path.title | translate_remote}}">
     <!-- Navigation buttons -->
+    <!--
+   <ion-nav-buttons>
+    <a class="button button-icon icon ion-ios-arrow-back myback" ng-click="back()"> Back
+        </a>
+</ion-nav-buttons>
+-->
+    <ion-nav-buttons>
+        <a class="button button-icon icon myback" ng-click="$ionicGoBack($event)"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
+        </a>
+    </ion-nav-buttons>
     <div class="bar bar-percorsi bar-subheader">
         <button class="button button-percorsi button-clear" ng-click="prevPOI()" ng-class="{'hidden': firstPOI}">
             <i class="ion-chevron-left"></i>

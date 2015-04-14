@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
 
-.controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, leafletData, $filter, mapConversionService, singlePoiService) {
+.controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, $ionicHistory, leafletData, $filter, mapConversionService, singlePoiService) {
     $scope.path = singlePathService.getSelectedPath();
     var markers = [];
     for (i = 0; i < $scope.path.pois.length; i++) {
@@ -38,7 +38,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
                 // message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
         }
     };
-
+    $scope.back = function () {
+        $ionicHistory.goBack();
+    }
     $scope.detail = function (poiIndex) {
         singlePoiService.setSelectedPoi($scope.path.pois[poiIndex]);
         singlePoiService.setIndexPoi(poiIndex);

@@ -68,14 +68,14 @@ angular.module('roveretoPercorsi.controllers.common', [])
         else $scope.oModal2.hide();
     };
 
-    $scope.openSignal = function () {
-        segnalaService.setSignal(null);
-        window.location.assign('#/app/segnala/');
-        $ionicHistory.nextViewOptions({
-            disableAnimate: true,
-            disableBack: true
-        });
-    };
+//    $scope.openSignal = function () {
+//        segnalaService.setSignal(null);
+//        window.location.assign('#/app/segnala/');
+//        $ionicHistory.nextViewOptions({
+//            disableAnimate: true,
+//            disableBack: true
+//        });
+//    };
 
     /* Listen for broadcasted messages */
     $scope.openLoginPopUp = function () {

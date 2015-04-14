@@ -36,7 +36,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.favoritesService'
 ])
 
-.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, Login, GeoLocate) {
+.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, Login, GeoLocate) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
     $rootScope.getUserId = function () {
@@ -72,6 +72,7 @@ angular.module('roveretoPercorsi', [
             }, null);
         }
         Restlogging.init("http://150.241.239.65:8080");
+        $rootScope.platform = ionic.Platform;
     });
 
     $rootScope.login = function () {
@@ -127,6 +128,26 @@ angular.module('roveretoPercorsi', [
         //console.log('first geolocation: ' + position);
     }, function () {
         console.log('CANNOT LOCATE!');
+    });
+
+    $rootScope.previousState;
+    $rootScope.currentState;
+    var comeFrom = null;
+
+    $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+        $rootScope.previousState = from.name;
+        $rootScope.currentState = to.name;
+        //tmp workaraound for tabs
+        if ($rootScope.currentState == "app.favorites") {
+            comeFrom = "#app/favorites";
+        }
+        if ($rootScope.currentState == "app.paths") {
+            comeFrom = "#/app/categories/" + toParams.id;
+        }
+        if ($rootScope.previousState == "app.pathdetail.info" && $rootScope.currentState == "app.pathdetail") {
+            window.location.assign(comeFrom);
+        }
+
     });
 })
 
@@ -240,7 +261,7 @@ angular.module('roveretoPercorsi', [
         menu_credits: 'Credits',
         path_info: 'Info',
         path_map: 'Mappa',
-        path_turist: 'Turista',
+        path_turist: 'Social',
         path_difficulty_1: 'Bassa',
         path_difficulty_2: 'Media',
         path_difficulty_3: 'Alta',
@@ -294,7 +315,7 @@ angular.module('roveretoPercorsi', [
         categories_title: 'Rovereto Paths',
         path_info: 'Info',
         path_map: 'Map',
-        path_turist: 'Tourist',
+        path_turist: 'Social',
         path_difficulty_1: 'Low',
         path_difficulty_2: 'Medium',
         path_difficulty_3: 'Hard',
@@ -346,7 +367,7 @@ angular.module('roveretoPercorsi', [
         archive_empty_list: 'Nessun percorso',
         path_info: 'Info',
         path_map: 'Karte',
-        path_turist: 'Turista',
+        path_turist: 'Social',
         path_difficulty_1: 'Leicht',
         path_difficulty_2: 'Halb',
         path_difficulty_3: 'Schwer',

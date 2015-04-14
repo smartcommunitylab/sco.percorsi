@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'sco';
-	src:url('sco.eot?ygtry3');
-	src:url('sco.eot?#iefixygtry3') format('embedded-opentype'),
-		url('sco.woff?ygtry3') format('woff'),
-		url('sco.ttf?ygtry3') format('truetype'),
-		url('sco.svg?ygtry3#sco') format('svg');
+	src:url('sco.eot?-ctums8');
+	src:url('sco.eot?#iefix-ctums8') format('embedded-opentype'),
+		url('sco.woff?-ctums8') format('woff'),
+		url('sco.ttf?-ctums8') format('truetype'),
+		url('sco.svg?-ctums8#sco') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,8 +23,12 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.sco-heart-outline:before {
-	content: "\e600";
+.sco-bookmark-outline:before {
+	content: "\e601";
+}
+
+.sco-bookmark:before {
+	content: "\e603";
 }
 
 .sco-distance-h-pois:before {

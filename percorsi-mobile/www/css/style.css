@@ -198,6 +198,7 @@ body {
     position: absolute;
     top: 8px;
     right: 8px;
+    font-size: larger;
 }
 
 ion-slide div[cover-img] i {
@@ -471,4 +472,11 @@ ion-side-menu ion-item .icon {
 .add-image-poi-select {
     text-align: left;
     margin: 16px;
+}
+
+.button.button-icon.icon.myback {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    text-align: center;
 }

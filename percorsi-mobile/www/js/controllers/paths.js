@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.paths', [])
 
-.controller('PathsCtrl', function ($scope, $http, $stateParams, categoriesService, listPathsService, singlePathService, favoritesService) {
+.controller('PathsCtrl', function ($scope, $http, $stateParams, $ionicHistory, categoriesService, listPathsService, singlePathService, favoritesService) {
     $scope.category = categoriesService.getSelectedCategory();
     $scope.paths = [];
     $scope.noMorePathsAvailable = false;
@@ -39,7 +39,13 @@ angular.module('roveretoPercorsi.controllers.paths', [])
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
     }
-
+    $scope.back = function () {
+        window.location.assign('#/app/categories');
+        $ionicHistory.nextViewOptions({
+            disableAnimate: true,
+            disableBack: true
+        });
+    }
     $scope.setSelectedPath = function (path) {
         singlePathService.setSelectedPath(path);
     }

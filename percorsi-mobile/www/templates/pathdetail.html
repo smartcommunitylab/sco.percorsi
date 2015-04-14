@@ -1,4 +1,8 @@
 <ion-view title="{{path.title | translate_remote}}">
+    <ion-nav-buttons>
+        <a class="button button-icon icon myback" ng-click="$ionicGoBack($event)"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
+        </a>
+    </ion-nav-buttons>
     <ion-tabs class="tabs-percorsi tabs-top">
         <ion-tab title="{{'path_info' | translate}}" href="#/app/path/info">
             <ion-nav-view name="app-pathdetail-info"></ion-nav-view>

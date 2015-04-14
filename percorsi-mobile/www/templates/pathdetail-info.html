@@ -1,11 +1,17 @@
 <ion-view class="details-info" title="{{item.title | translate_remote}}">
+
+    <ion-nav-buttons>
+        <a class="button button-icon icon myback" ng-click="back()"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
+        </a>
+    </ion-nav-buttons>
+
     <ion-nav-buttons side="right">
         <button class="button button-percorsi button-clear" ng-click="toggleFavorite()">
-            <i class="icon" ng-class="{'sco-heart-outline': !isFavorite, 'ion-heart': isFavorite}"></i>
+            <i class="icon" ng-class="{'sco-bookmark-outline': !isFavorite, 'sco-bookmark': isFavorite}"></i>
         </button>
     </ion-nav-buttons>
 
-    <ion-content class="has-header">
+    <ion-content has-header="true">
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
             <ion-slide-box delegate-handle="details-slide-box" does-continue="true" auto-play="true">

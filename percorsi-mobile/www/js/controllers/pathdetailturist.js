@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
-.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $ionicModal, $filter, Toast, singlePathService, reviewsService, DatiDB) {
+.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $ionicModal, $filter, $ionicHistory, Toast, singlePathService, reviewsService, DatiDB) {
     $scope.reviews = [];
     $scope.path = singlePathService.getSelectedPath();
 
@@ -131,7 +131,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
             $scope.loginModal.show();
         }
     };
-
+    $scope.back = function () {
+        $ionicHistory.goBack();
+    }
     $scope.showReview = function (name) {
         if ($scope.userIsLogged) {
             var confirmPopup = $ionicPopup.confirm({

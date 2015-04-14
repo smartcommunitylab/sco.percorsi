@@ -5,7 +5,6 @@ angular.module('roveretoPercorsi.services.favoritesService', [])
 
     // mirror with window.localStorage['favorites']
     var favoritesMap = {};
-
     if (!!!window.localStorage.favorites || Array.isArray(JSON.parse(window.localStorage.favorites))) {
         // init
         window.localStorage.favorites = JSON.stringify(favoritesMap);
