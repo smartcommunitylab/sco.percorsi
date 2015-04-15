@@ -66,6 +66,7 @@ angular.module('roveretoPercorsi', [
             navigator.globalization.getPreferredLanguage(function (language) {
                 $translate.use((language.value).split("-")[0]).then(function (data) {
                     console.log("SUCCESS -> " + data);
+                    $rootScope.lang = data;
                 }, function (error) {
                     console.log("ERROR -> " + error);
                 });
@@ -274,7 +275,7 @@ angular.module('roveretoPercorsi', [
         credits_sponsored: 'Con la collaborazione di:',
         credits_info: 'Per informazioni:',
         pathdetailmap_startpath: 'INIZIA PERCORSO',
-        pathdetailmap_goto: 'Vai qui',
+        pathdetailmap_goto: 'Vai',
         pathdetailturist_vote: 'Vota',
         pathdetailturist_review: 'Recensisci',
         pathdetailturist_voteinfo: 'Vota il percorso',
@@ -326,7 +327,7 @@ angular.module('roveretoPercorsi', [
         credits_sponsored: 'In collaboration with:',
         credits_info: 'Further information:',
         pathdetailmap_startpath: 'START PATH',
-        pathdetailmap_goto: 'Go there',
+        pathdetailmap_goto: 'Go',
         pathdetailturist_vote: 'Vote',
         pathdetailturist_review: 'Add a review',
         pathdetailturist_voteinfo: 'Vote the path',

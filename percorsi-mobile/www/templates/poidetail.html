@@ -43,7 +43,7 @@
         <!-- POI content -->
         <div class="padding content">
             <h3>{{item.title | translate_remote}}</h3>
-            <p>{{item.description | translate_remote}}</p>
+            <p class="detail-description">{{item.description | translate_remote}}</p>
 
             <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
                 <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">

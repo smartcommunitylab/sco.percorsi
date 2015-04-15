@@ -1,1097 +1,1398 @@
 {
     "version": 90,
     "updated": {
-        "it.smartcommunitylab.percorsi.model.Categories": [{
-            "id": null,
-            "updateTime": 1427816619863,
-            "version": 7,
-            "user": null,
-            "appId": "ComuneRovereto",
-            "localId": "1",
-            "categories": [{
-                "id": "a",
-                "name": {
-                    "it": "categoria 1",
-                    "en": "category 1",
-                    "de": "kategorien 1"
-                },
-                "description": null,
-                "image": "http://stopthatpigeon.altervista.org/wp-content/uploads/2012/07/pane-e-vino.jpg"
-            }, {
-                "id": "b",
-                "name": {
-                    "it": "categoria 2",
-                    "en": "category 2",
-                    "de": "kategorien 2"
-                },
-                "description": null,
-                "image": "http://www.superedo.it/sfondi/sfondi/Architettura/Castelli/castelli009.jpg"
-            }],
-            "lastChange": 1
-        }],
-        "it.smartcommunitylab.percorsi.model.Path": [{
-            "id": "551ac179e4b0236e510b2c80",
-            "updateTime": 1427816825347,
-            "version": 89,
-            "user": null,
-            "appId": "ComuneRovereto",
-            "localId": "idididid1",
-            "categories": ["a", "b"],
-            "title": {
-                "it": "Alla scoperta di musei e teatri",
-                "en": "Alla scoperta di musei e teatri EN",
-                "de": "Alla scoperta di musei e teatri DE"
-            },
-            "description": {
-                "it": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "en": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. EN",
-                "de": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. DE"
-            },
-            "length": 5432,
-            "time": 116,
-            "difficulty": 2,
-            "images": [{
-                "title": {
-                    "it": "MART",
-                    "en": "MART EN",
-                    "de": "MART DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Biblioteca civica",
-                    "en": "Biblioteca civica EN",
-                    "de": "Biblioteca civica DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Palazzo Annona",
-                    "en": "Palazzo Annona EN",
-                    "de": "Palazzo Annona DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://cdn.funnyhub.com/2015/feb/bas/Grumpy-Cat/when-it-rains-it-pours.gif",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/S4mcx7d.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/KnBI9wW.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/dXsuhA1.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/JRxNefH.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/LFUNm1y.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/LHJP0W4.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/4IUO3BE.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/EnKOrJ0.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/xgQLsUO.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/QOZcm9K.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/wCmNDwm.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/QdHDQ0w.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/uwIP34f.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/or391Gh.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/oK1VVtF.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/zkPsjZN.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/0S1EHsM.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/zAtFQhp.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/gvilno7.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/zyIPdUk.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/sIGupgp.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/fPJTIJf.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/rSehpbo.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/VD7xJ31.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/n6KDfFZ.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/Gd7S9XG.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/8qJktoL.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/5bZrC40.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/xH8gwYZ.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/jrXFqJV.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/4QstikZ.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/wqe1e31.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/oBayAD5.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/XNei9jU.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/b5R8Sw8.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/4YxcLpz.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/lpqTukw.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/BMDMPbX.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/m5WVjKg.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/vX0T7Vj.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/yVvOd2B.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/uUYzGo8.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/ZhMJBqN.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/v6qzchL.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "undefined",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/fyqmdky.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/HeODsTn.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/n0S5pvL.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/qAXTcm4.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/tFHU1AZ.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/Hv9krAW.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/YDYO6cr.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/5YtFBcr.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/k37eHhw.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/hPzARAH.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/JLmceJn.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/l6dztgb.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/5Ij67bR.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/Z8doF6s.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/8r9YmKl.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/WuPjQln.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/hCgGsSl.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/pauY6H2.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/FCWjZEP.jpg",
-                "userDefined": true,
-                "userId": null
-            }, {
-                "title": null,
-                "url": "http://i.imgur.com/XR3qTS4.jpg",
-                "userDefined": true,
-                "userId": null
-            }],
-            "videos": [{
-                "title": {
-                    "it": "MART",
-                    "en": "MART EN",
-                    "de": "MART DE"
-                },
-                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "MART",
-                    "en": "MART EN",
-                    "de": "MART DE"
-                },
-                "url": "https://vimeo.com/117116735",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Biblioteca civica",
-                    "en": "Biblioteca civica EN",
-                    "de": "Biblioteca civica DE"
-                },
-                "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Palazzo Annona",
-                    "en": "Palazzo Annona EN",
-                    "de": "Palazzo Annona DE"
-                },
-                "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
-                "userDefined": false,
-                "userId": null
-            }],
-            "audios": [{
-                "title": {
-                    "it": "MART",
-                    "en": "MART EN",
-                    "de": "MART DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Biblioteca civica",
-                    "en": "Biblioteca civica EN",
-                    "de": "Biblioteca civica DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Palazzo Annona",
-                    "en": "Palazzo Annona EN",
-                    "de": "Palazzo Annona DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
-                "userDefined": false,
-                "userId": null
-            }],
-            "shape": "alcwG{wkbAnMoC@|I_FOy@fDwIaG",
-            "vote": 3.5,
-            "voteCount": 2,
-            "pois": [{
+        "it.smartcommunitylab.percorsi.model.Categories": [
+            {
                 "id": null,
-                "updateTime": -1,
-                "version": 0,
+                "updateTime": 1427816619863,
+                "version": 7,
                 "user": null,
                 "appId": "ComuneRovereto",
-                "localId": "ididididpoi1",
+                "localId": "1",
+                "categories": [
+                    {
+                        "id": "a",
+                        "name": {
+                            "it": "Scopri il territorio",
+                            "en": "Discover the land",
+                            "de": "Entdecken Sie die Umgebung"
+                        },
+                        "description": null,
+                        "image": "http://i.imgur.com/VqrwGwE.png"
+                    },
+                    {
+                        "id": "b",
+                        "name": {
+                            "it": "Percorsi del gusto",
+                            "en": "Taste Tours",
+                            "de": "Taste Tours"
+                        },
+                        "description": null,
+                        "image": "http://i.imgur.com/rksA3h9.png"
+                    }
+                ],
+                "lastChange": 1
+            }
+        ],
+        "it.smartcommunitylab.percorsi.model.Path": [
+            {
+                "id": "551ac179e4b0236e510b2c80",
+                "updateTime": 1427816825347,
+                "version": 89,
+                "user": null,
+                "appId": "ComuneRovereto",
+                "localId": "idididid1",
+                "categories": [
+                    "a",
+                    "b"
+                ],
                 "title": {
-                    "it": "Alla scoperta di musei e teatri Poi ",
-                    "en": "Alla scoperta di musei e teatri Poi EN",
-                    "de": "Alla scoperta di musei e teatri Poi DE"
+                    "it": "Alla scoperta di Rovereto",
+                    "en": "Discovering Rovereto",
+                    "de": "Entdeckung Rovereto"
+                },
+                "description": {
+                    "it": "Rovereto (Roveredo in dialetto trentino) è un comune italiano di 39.233 abitanti della provincia autonoma di Trento nel Trentino-Alto Adige. Importante centro industriale, turistico e culturale del Trentino, ha saputo esprimere la sua vocazione di Città della Pace dando voce alla Campana dei Caduti, Maria Dolens, simbolo della fraternità universale, ideata e realizzata dal sacerdote don Antonio Rossaro all'indomani delle stragi e delle devastazioni scatenate dalla Prima guerra mondiale..",
+                    "en": "Rovereto is a city and comune in Trentino in northern Italy, located in the Vallagarina valley of the Adige River. Rovereto was an ancient fortress town standing at the frontier between the bishopric of Trento – an independent state until 1797 – and the republic of Venice, and later between Austrian Tyrol and Italy.",
+                    "de": "Rovereto (mundartlich Roveredo) ist eine Stadt mit 38.905 Einwohnern (Stand 31. Dezember 2013) in Oberitalien im Trentiner Etschtal am Leno, südlich von Trient und nur wenige Kilometer nordöstlich des Gardasees gelegen."
+                },
+                "length": 5432,
+                "time": 116,
+                "difficulty": 1,
+                "images": [
+                    {
+                        "title": {
+                            "it": "MART",
+                            "en": "MART",
+                            "de": "MART"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                        "userDefined": false,
+                        "userId": null
+                    },
+                    {
+                        "title": {
+                            "it": "Biblioteca civica",
+                            "en": "City Library",
+                            "de": "Stadtbibliothek"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                        "userDefined": false,
+                        "userId": null
+                    },
+                    {
+                        "title": {
+                            "it": "Palazzo Annona",
+                            "en": "Palazzo Annona",
+                            "de": "Palazzo Annona"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
+                        "userDefined": false,
+                        "userId": null
+                    }
+                ],
+                "videos": [
+                    {
+                        "title": {
+                            "it": "MART",
+                            "en": "MART",
+                            "de": "MART"
+                        },
+                        "url": "https://www.youtube.com/watch?v=fci3B2RGZYo",
+                        "userDefined": false,
+                        "userId": null
+                    },
+                    {
+                        "title": {
+                            "it": "Teatro Zandonai",
+                            "en": "Zandonai Theather",
+                            "de": "Zandonai Theather"
+                        },
+                        "url": "https://www.youtube.com/watch?v=BmyFSPyK5DY",
+                        "userDefined": false,
+                        "userId": null
+                    }
+                ],
+                "audios": [
+                    {
+                        "title": {
+                            "it": "MART",
+                            "en": "MART",
+                            "de": "MART"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "userDefined": false,
+                        "userId": null
+                    },
+                    {
+                        "title": {
+                            "it": "Teatro Zandonai",
+                            "en": "Zandonai Theather",
+                            "de": "Zandonai Theather"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/05.mp3",
+                        "userDefined": false,
+                        "userId": null
+                    }
+                ],
+                "shape": "ktbwG}elbAQRE^JRPLHvD~BMtC_@hDCxCJzCMhBg@ZqBnCsB\\@HuAExAxBAlA@Ht@xAk@",
+                "vote": 0,
+                "voteCount": 0,
+                "pois": [
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi1",
+                        "title": {
+                            "it": "Mart ",
+                            "en": "Mart",
+                            "de": "Mart"
+                        },
+                        "description": {
+                            "it": "Prima di tuffarci nei meandri della storia e del tempo che fu, ci soffermeremo sul presente e su uno dei principali simboli che oggi rende famosa Rovereto in Italia e nel mondo per la sua fortissima vocazione culturale: il Mart. 15 dicembre 2002. Con il taglio del nastro tricolore viene finalmente inaugurato il Museo d’arte moderna e contemporanea di Trento e Rovereto. Una fiumana di persone si è riversata nella piazza con la fontana circolare posta d’innanzi a voi per salutare questo ambizioso progetto culturale e architettonico. La struttura è stata realizzata infatti dal celebre architetto svizzero Mario Botta, già ideatore del Moma di San Francisco. La particolare collocazione di raccordo con la parte settecentesca della città è stato uno dei punti forti del progetto architettonico. Fra i vari primati che il museo detiene, va ricordato come esso sia il primo museo costruito ex novo in Italia da un trentennio a questa parte. Proprio perché nato all’inizio del nuovo secolo ha una funzione diversa rispetto a quella di istituzioni di più vecchia genesi. In un contesto contemporaneo tanto complesso e frastagliato, il Mart guarda con coscienza critica al presente e al passato, ponendosi sia come luogo di conservazione e tutela del patrimonio artistico e culturale, ma anche come fucina di un’intensa attività di ricerca, documentazione e didattica, in un continuo scambio di esperienze con differenti realtà culturali dentro e fuori il territorio. Non a caso la formula sulla quale il Mart ha costruito il suo messaggio di lancio è “Non chiamatelo museo”. Ovvero considerate il Mart ruolo attivo di produzione di cultura, una vera e propria officina artistica e non solo mero luogo di esposizione statica di opere. Con numerosi progetti educativi appositamente elaborati, il Mart avvicina gli utenti all’arte fornendo loro le competenze e le capacità per decodificarne il linguaggio. Infatti accanto ai laboratori rivolti alle scuole, il museo organizza corsi di aggiornamento per insegnanti, mostre didattiche, visite guidate, incontri tematici ed eventi speciali quali workshop e concorsi. Oggi inoltre il Mart rispetta la propria vocazione di essere istituzione reticolare e diffusa sul territorio. Infatti nel suo alveo può contare anche ulteriori sedi: Palazzo Albere a Trento e il Museo Depero che, sempre a Rovereto, offre la possibilità di accostarsi alla vita e alle opere del noto artista futurista. Ma Depero può essere apprezzato anche nella sede principale del Mart. Infatti fra le oltre 9000 opere conservate nella collezione permanente, ben un terzo sono quelle realizzate dall’artista roveretano. La sua produzione è poi affiancata da quella di altri grandi esegeti del futurismo italiano come Balla, Trampolini, Marinetti e Crali, dando vita a una tra le più importanti sezioni del museo. Negli ultimi anni numerosi collezionisti hanno guardato al Mart come al luogo più favorevole per la gestione del proprio patrimonio. In questa prospettiva va ad esempio annoverato il deposito a lungo termine delle opere della collezione Giovanardi, con lavori di Massimo Campigli, Mario Sironi, Filippo De Pisis, Carlo Carrà, Giorgio Morandi. Al piano interrato trovano inoltre spazio l’Archivio del ‘900, con oltre 80.000 documenti, la Biblioteca di storia dell’arte moderna e contemporanea che vanta più di 60.000 volumi consultabili e il centro internazionale di studi sul Futurismo che come già ricordato conserva, oltre a quello di Fortunato Depero, anche gli archivi di Gino Severini e Carlo Carrà. Se non avete già visitato  la mostra temporanea che è attualmente in esposizione vi consiglio di coronare questa giornata con una visita a questo incredibile museo.",
+                            "en": "Prima di tuffarci nei meandri della storia e del tempo che fu, ci soffermeremo sul presente e su uno dei principali simboli che oggi rende famosa Rovereto in Italia e nel mondo per la sua fortissima vocazione culturale: il Mart. 15 dicembre 2002. Con il taglio del nastro tricolore viene finalmente inaugurato il Museo d’arte moderna e contemporanea di Trento e Rovereto. Una fiumana di persone si è riversata nella piazza con la fontana circolare posta d’innanzi a voi per salutare questo ambizioso progetto culturale e architettonico. La struttura è stata realizzata infatti dal celebre architetto svizzero Mario Botta, già ideatore del Moma di San Francisco. La particolare collocazione di raccordo con la parte settecentesca della città è stato uno dei punti forti del progetto architettonico. Fra i vari primati che il museo detiene, va ricordato come esso sia il primo museo costruito ex novo in Italia da un trentennio a questa parte. Proprio perché nato all’inizio del nuovo secolo ha una funzione diversa rispetto a quella di istituzioni di più vecchia genesi. In un contesto contemporaneo tanto complesso e frastagliato, il Mart guarda con coscienza critica al presente e al passato, ponendosi sia come luogo di conservazione e tutela del patrimonio artistico e culturale, ma anche come fucina di un’intensa attività di ricerca, documentazione e didattica, in un continuo scambio di esperienze con differenti realtà culturali dentro e fuori il territorio. Non a caso la formula sulla quale il Mart ha costruito il suo messaggio di lancio è “Non chiamatelo museo”. Ovvero considerate il Mart ruolo attivo di produzione di cultura, una vera e propria officina artistica e non solo mero luogo di esposizione statica di opere. Con numerosi progetti educativi appositamente elaborati, il Mart avvicina gli utenti all’arte fornendo loro le competenze e le capacità per decodificarne il linguaggio. Infatti accanto ai laboratori rivolti alle scuole, il museo organizza corsi di aggiornamento per insegnanti, mostre didattiche, visite guidate, incontri tematici ed eventi speciali quali workshop e concorsi. Oggi inoltre il Mart rispetta la propria vocazione di essere istituzione reticolare e diffusa sul territorio. Infatti nel suo alveo può contare anche ulteriori sedi: Palazzo Albere a Trento e il Museo Depero che, sempre a Rovereto, offre la possibilità di accostarsi alla vita e alle opere del noto artista futurista. Ma Depero può essere apprezzato anche nella sede principale del Mart. Infatti fra le oltre 9000 opere conservate nella collezione permanente, ben un terzo sono quelle realizzate dall’artista roveretano. La sua produzione è poi affiancata da quella di altri grandi esegeti del futurismo italiano come Balla, Trampolini, Marinetti e Crali, dando vita a una tra le più importanti sezioni del museo. Negli ultimi anni numerosi collezionisti hanno guardato al Mart come al luogo più favorevole per la gestione del proprio patrimonio. In questa prospettiva va ad esempio annoverato il deposito a lungo termine delle opere della collezione Giovanardi, con lavori di Massimo Campigli, Mario Sironi, Filippo De Pisis, Carlo Carrà, Giorgio Morandi. Al piano interrato trovano inoltre spazio l’Archivio del ‘900, con oltre 80.000 documenti, la Biblioteca di storia dell’arte moderna e contemporanea che vanta più di 60.000 volumi consultabili e il centro internazionale di studi sul Futurismo che come già ricordato conserva, oltre a quello di Fortunato Depero, anche gli archivi di Gino Severini e Carlo Carrà. Se non avete già visitato  la mostra temporanea che è attualmente in esposizione vi consiglio di coronare questa giornata con una visita a questo incredibile museo",
+                            "de": "Prima di tuffarci nei meandri della storia e del tempo che fu, ci soffermeremo sul presente e su uno dei principali simboli che oggi rende famosa Rovereto in Italia e nel mondo per la sua fortissima vocazione culturale: il Mart. 15 dicembre 2002. Con il taglio del nastro tricolore viene finalmente inaugurato il Museo d’arte moderna e contemporanea di Trento e Rovereto. Una fiumana di persone si è riversata nella piazza con la fontana circolare posta d’innanzi a voi per salutare questo ambizioso progetto culturale e architettonico. La struttura è stata realizzata infatti dal celebre architetto svizzero Mario Botta, già ideatore del Moma di San Francisco. La particolare collocazione di raccordo con la parte settecentesca della città è stato uno dei punti forti del progetto architettonico. Fra i vari primati che il museo detiene, va ricordato come esso sia il primo museo costruito ex novo in Italia da un trentennio a questa parte. Proprio perché nato all’inizio del nuovo secolo ha una funzione diversa rispetto a quella di istituzioni di più vecchia genesi. In un contesto contemporaneo tanto complesso e frastagliato, il Mart guarda con coscienza critica al presente e al passato, ponendosi sia come luogo di conservazione e tutela del patrimonio artistico e culturale, ma anche come fucina di un’intensa attività di ricerca, documentazione e didattica, in un continuo scambio di esperienze con differenti realtà culturali dentro e fuori il territorio. Non a caso la formula sulla quale il Mart ha costruito il suo messaggio di lancio è “Non chiamatelo museo”. Ovvero considerate il Mart ruolo attivo di produzione di cultura, una vera e propria officina artistica e non solo mero luogo di esposizione statica di opere. Con numerosi progetti educativi appositamente elaborati, il Mart avvicina gli utenti all’arte fornendo loro le competenze e le capacità per decodificarne il linguaggio. Infatti accanto ai laboratori rivolti alle scuole, il museo organizza corsi di aggiornamento per insegnanti, mostre didattiche, visite guidate, incontri tematici ed eventi speciali quali workshop e concorsi. Oggi inoltre il Mart rispetta la propria vocazione di essere istituzione reticolare e diffusa sul territorio. Infatti nel suo alveo può contare anche ulteriori sedi: Palazzo Albere a Trento e il Museo Depero che, sempre a Rovereto, offre la possibilità di accostarsi alla vita e alle opere del noto artista futurista. Ma Depero può essere apprezzato anche nella sede principale del Mart. Infatti fra le oltre 9000 opere conservate nella collezione permanente, ben un terzo sono quelle realizzate dall’artista roveretano. La sua produzione è poi affiancata da quella di altri grandi esegeti del futurismo italiano come Balla, Trampolini, Marinetti e Crali, dando vita a una tra le più importanti sezioni del museo. Negli ultimi anni numerosi collezionisti hanno guardato al Mart come al luogo più favorevole per la gestione del proprio patrimonio. In questa prospettiva va ad esempio annoverato il deposito a lungo termine delle opere della collezione Giovanardi, con lavori di Massimo Campigli, Mario Sironi, Filippo De Pisis, Carlo Carrà, Giorgio Morandi. Al piano interrato trovano inoltre spazio l’Archivio del ‘900, con oltre 80.000 documenti, la Biblioteca di storia dell’arte moderna e contemporanea che vanta più di 60.000 volumi consultabili e il centro internazionale di studi sul Futurismo che come già ricordato conserva, oltre a quello di Fortunato Depero, anche gli archivi di Gino Severini e Carlo Carrà. Se non avete già visitato  la mostra temporanea che è attualmente in esposizione vi consiglio di coronare questa giornata con una visita a questo incredibile museo"
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "http://www.about-trentino.com/rovereto-vallagarina/mart.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=fci3B2RGZYo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.89398,
+                            "lng": 11.04500
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi2",
+                        "title": {
+                            "it": "Biblioteca civica Tartarotti",
+                            "en": "City Library Tartarotti",
+                            "de": "Stadtbibliothek Tartarotti"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.89409,
+                            "lng": 11.04469
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi3",
+                        "title": {
+                            "it": "Teatro Zandonai",
+                            "en": "Zandonai Theatre",
+                            "de": "Zandonai Theatre"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.89326,
+                            "lng": 11.04367
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi4",
+                        "title": {
+                            "it": "Palazzo Fedrigotti",
+                            "en": "Fedrigorri Palace",
+                            "de": "Fedrigotti Palace"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.89250,
+                            "lng": 11.04380
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi5",
+                        "title": {
+                            "it": "Piazza Rosmini",
+                            "en": "Rosmini Square",
+                            "de": "Rosmini Square"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.89088,
+                            "lng": 11.04379
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi6",
+                        "title": {
+                            "it": "Piazza Battisti",
+                            "en": "Battisti Square",
+                            "de": "Battisti Square"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.89011,
+                            "lng": 11.04385
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi7",
+                        "title": {
+                            "it": "Via Rialto",
+                            "en": "Rialto Street",
+                            "de": "Rialto Street"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.88944,
+                            "lng": 11.04463
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi7",
+                        "title": {
+                            "it": "Porta e Piazza San Marco",
+                            "en": "San Marco Square",
+                            "de": "San Marco Square"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.88872,
+                            "lng": 11.04521
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi8",
+                        "title": {
+                            "it": "Vicolo San Giuseppe",
+                            "en": "Vicolo San Giuseppe",
+                            "de": "Vicolo San Giuseppe"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.88852,
+                            "lng": 11.04563
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi9",
+                        "title": {
+                            "it": "Torre Civica",
+                            "en": "Torre Civica",
+                            "de": "Torre Civica"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.88793,
+                            "lng": 11.04518
+                        }
+                    },
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi10",
+                        "title": {
+                            "it": "Museo di Depero",
+                            "en": "Museo di Depero",
+                            "de": "Museo di Depero"
+                        },
+                        "description": {
+                            "it": "Il museo d'arte moderna e contemporanea di Trento e Rovereto (Mart) è un centro museale della provincia di Trento. La sede principale è situata a Rovereto in Corso Bettini 43 e vi si trovano perlopiù opere d'arte moderna e contemporanea. La sezione di Trento del museo è ospitata, a partire dal 19 ottobre 2013 presso la Galleria civica di Trento, in Via Belenzani 44. Fa parte del Mart anche la Casa d'arte futurista Depero, che si trova a Rovereto in via Portici 38, ed ospita le opere più importanti dell'artista futurista Fortunato Depero. Presso il Mart ha sede anche l'Archivio del '900, il centro di ricerca del museo.",
+                            "en": "The Museum of Modern and Contemporary Art of Trento and Rovereto (MART) (Museo d'Arte Moderna e Contemporanea di Trento e Rovereto, in Italian) is a museum centre in the Italian province of Trento. The main site is in Rovereto, and contains mostly modern and contemporary artworks, including works from renowned Giorgio Morandi, Giorgio de Chirico, Carlo Carrà and Fortunato Depero. Fortunato Depero's house in Rovereto (known as Casa d'Arte Futurista Depero) is also part of the Museum.",
+                            "de": "Das Museo di arte moderna e contemporanea di Trento e Rovereto (MART) wurde am 20. August 2002 in Rovereto eröffnet. Es ist architektonisch bedeutsam und beherbergt neben der wichtigsten Sammlung futuristischer Kunst Italiens auch eine einschlägige Forschungsstätte."
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "Cupola",
+                                    "en": "Dome",
+                                    "de": "Dom"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Ingresso",
+                                    "en": "Entrance",
+                                    "de": "Eingang"
+                                },
+                                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/MART-Glaskuppel.jpg/800px-MART-Glaskuppel.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART",
+                                    "de": "MART"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Oskar Schlemmer ",
+                                    "en": "Oskar Schlemmer ",
+                                    "de": "Oskar Schlemmer "
+                                },
+                                "url": "https://www.youtube.com/watch?v=uUCE_2XEkJc",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.88705,
+                            "lng": 11.04513
+                        }
+                    }
+
+                ]
+            },
+            {
+                "id": "551ac179e4b0236e510b2c81",
+                "updateTime": 1427816825412,
+                "version": 9,
+                "user": null,
+                "appId": "ComuneRovereto",
+                "localId": "idididid2",
+                "categories": [
+                    "a",
+                    "b"
+                ],
+                "title": {
+                    "it": "Alla scoperta alla scoperta di Babbo Natale ",
+                    "en": "Alla scoperta alla scoperta di Babbo Natale EN",
+                    "de": "Alla scoperta alla scoperta di Babbo Natale DE"
                 },
                 "description": {
                     "it": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                     "en": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. EN",
                     "de": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. DE"
                 },
-                "images": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
+                "length": 7654,
+                "time": 238,
+                "difficulty": 2,
+                "images": [
+                    {
+                        "title": {
+                            "it": "MART",
+                            "en": "MART EN",
+                            "de": "MART DE"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                        "userDefined": false,
+                        "userId": null
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
+                    {
+                        "title": {
+                            "it": "Biblioteca civica",
+                            "en": "Biblioteca civica EN",
+                            "de": "Biblioteca civica DE"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                        "userDefined": false,
+                        "userId": null
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
+                    {
+                        "title": {
+                            "it": "Palazzo Annona",
+                            "en": "Palazzo Annona EN",
+                            "de": "Palazzo Annona DE"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
+                        "userDefined": false,
+                        "userId": null
+                    }
+                ],
+                "videos": [
+                    {
+                        "title": {
+                            "it": "MART",
+                            "en": "MART EN",
+                            "de": "MART DE"
+                        },
+                        "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                        "userDefined": false,
+                        "userId": null
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": null,
-                    "url": "http://i.imgur.com/ZYWEcG1.jpg",
-                    "userDefined": true,
-                    "userId": null
-                }, {
-                    "title": null,
-                    "url": "http://i.imgur.com/PQirSM4.jpg",
-                    "userDefined": true,
-                    "userId": null
-                }, {
-                    "title": null,
-                    "url": "http://i.imgur.com/tn3KSdx.jpg",
-                    "userDefined": true,
-                    "userId": null
-                }, {
-                    "title": null,
-                    "url": "http://i.imgur.com/sJ9hIc2.jpg",
-                    "userDefined": true,
-                    "userId": null
-                }, {
-                    "title": null,
-                    "url": "http://i.imgur.com/IPU3qDW.jpg",
-                    "userDefined": true,
-                    "userId": null
-                }, {
-                    "title": null,
-                    "url": "http://i.imgur.com/dHhb3SW.jpg",
-                    "userDefined": true,
-                    "userId": null
-                }, {
-                    "title": null,
-                    "url": "http://i.imgur.com/FJjpEOj.jpg",
-                    "userDefined": true,
-                    "userId": null
-                }, {
-                    "title": null,
-                    "url": "http://i.imgur.com/fXgtF1M.jpg",
-                    "userDefined": true,
-                    "userId": null
-                }],
-                "videos": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
+                    {
+                        "title": {
+                            "it": "MART",
+                            "en": "MART EN",
+                            "de": "MART DE"
+                        },
+                        "url": "https://vimeo.com/117116735",
+                        "userDefined": false,
+                        "userId": null
                     },
-                    "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
+                    {
+                        "title": {
+                            "it": "Biblioteca civica",
+                            "en": "Biblioteca civica EN",
+                            "de": "Biblioteca civica DE"
+                        },
+                        "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
+                        "userDefined": false,
+                        "userId": null
                     },
-                    "url": "https://vimeo.com/117116735",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
+                    {
+                        "title": {
+                            "it": "Palazzo Annona",
+                            "en": "Palazzo Annona EN",
+                            "de": "Palazzo Annona DE"
+                        },
+                        "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
+                        "userDefined": false,
+                        "userId": null
+                    }
+                ],
+                "audios": [
+                    {
+                        "title": {
+                            "it": "MART",
+                            "en": "MART EN",
+                            "de": "MART DE"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                        "userDefined": false,
+                        "userId": null
                     },
-                    "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
+                    {
+                        "title": {
+                            "it": "Biblioteca civica",
+                            "en": "Biblioteca civica EN",
+                            "de": "Biblioteca civica DE"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
+                        "userDefined": false,
+                        "userId": null
                     },
-                    "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "audios": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
+                    {
+                        "title": {
+                            "it": "Palazzo Annona",
+                            "en": "Palazzo Annona EN",
+                            "de": "Palazzo Annona DE"
+                        },
+                        "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
+                        "userDefined": false,
+                        "userId": null
+                    }
+                ],
+                "shape": "alcwG{wkbAnMoC@|I_FOy@fDwIaG",
+                "vote": 4.5,
+                "voteCount": null,
+                "pois": [
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi3",
+                        "title": {
+                            "it": "Alla scoperta di musei e teatri poi",
+                            "en": "Alla scoperta di musei e teatri poi EN",
+                            "de": "Alla scoperta di musei e teatri poi DE"
+                        },
+                        "description": {
+                            "it": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            "en": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. EN",
+                            "de": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. DE"
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Biblioteca civica",
+                                    "en": "Biblioteca civica EN",
+                                    "de": "Biblioteca civica DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Palazzo Annona",
+                                    "en": "Palazzo Annona EN",
+                                    "de": "Palazzo Annona DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "https://vimeo.com/117116735",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Biblioteca civica",
+                                    "en": "Biblioteca civica EN",
+                                    "de": "Biblioteca civica DE"
+                                },
+                                "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Palazzo Annona",
+                                    "en": "Palazzo Annona EN",
+                                    "de": "Palazzo Annona DE"
+                                },
+                                "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Biblioteca civica",
+                                    "en": "Biblioteca civica EN",
+                                    "de": "Biblioteca civica DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Palazzo Annona",
+                                    "en": "Palazzo Annona EN",
+                                    "de": "Palazzo Annona DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.89777,
+                            "lng": 11.0427
+                        }
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "coordinates": {
-                    "lat": 45.89777,
-                    "lng": 11.0427
-                }
-            }, {
-                "id": null,
-                "updateTime": -1,
-                "version": 0,
-                "user": null,
-                "appId": "ComuneRovereto",
-                "localId": "ididididpoi2",
-                "title": {
-                    "it": "Alla scoperta di babbo natale poi 2",
-                    "en": "Alla scoperta di babbo natale poi 2 EN",
-                    "de": "Alla scoperta di babbo natale poi 2 DE"
-                },
-                "description": {
-                    "it": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "en": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. EN",
-                    "de": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. DE"
-                },
-                "images": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "videos": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "https://vimeo.com/117116735",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "audios": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "coordinates": {
-                    "lat": 45.89545,
-                    "lng": 11.04342
-                }
-            }]
-        }, {
-            "id": "551ac179e4b0236e510b2c81",
-            "updateTime": 1427816825412,
-            "version": 9,
-            "user": null,
-            "appId": "ComuneRovereto",
-            "localId": "idididid2",
-            "categories": ["a", "b"],
-            "title": {
-                "it": "Alla scoperta alla scoperta di Babbo Natale ",
-                "en": "Alla scoperta alla scoperta di Babbo Natale EN",
-                "de": "Alla scoperta alla scoperta di Babbo Natale DE"
-            },
-            "description": {
-                "it": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "en": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. EN",
-                "de": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. DE"
-            },
-            "length": 7654,
-            "time": 238,
-            "difficulty": 2,
-            "images": [{
-                "title": {
-                    "it": "MART",
-                    "en": "MART EN",
-                    "de": "MART DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Biblioteca civica",
-                    "en": "Biblioteca civica EN",
-                    "de": "Biblioteca civica DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Palazzo Annona",
-                    "en": "Palazzo Annona EN",
-                    "de": "Palazzo Annona DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
-                "userDefined": false,
-                "userId": null
-            }],
-            "videos": [{
-                "title": {
-                    "it": "MART",
-                    "en": "MART EN",
-                    "de": "MART DE"
-                },
-                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "MART",
-                    "en": "MART EN",
-                    "de": "MART DE"
-                },
-                "url": "https://vimeo.com/117116735",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Biblioteca civica",
-                    "en": "Biblioteca civica EN",
-                    "de": "Biblioteca civica DE"
-                },
-                "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Palazzo Annona",
-                    "en": "Palazzo Annona EN",
-                    "de": "Palazzo Annona DE"
-                },
-                "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
-                "userDefined": false,
-                "userId": null
-            }],
-            "audios": [{
-                "title": {
-                    "it": "MART",
-                    "en": "MART EN",
-                    "de": "MART DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Biblioteca civica",
-                    "en": "Biblioteca civica EN",
-                    "de": "Biblioteca civica DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
-                "userDefined": false,
-                "userId": null
-            }, {
-                "title": {
-                    "it": "Palazzo Annona",
-                    "en": "Palazzo Annona EN",
-                    "de": "Palazzo Annona DE"
-                },
-                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
-                "userDefined": false,
-                "userId": null
-            }],
-            "shape": "alcwG{wkbAnMoC@|I_FOy@fDwIaG",
-            "vote": 4.5,
-            "voteCount": null,
-            "pois": [{
-                "id": null,
-                "updateTime": -1,
-                "version": 0,
-                "user": null,
-                "appId": "ComuneRovereto",
-                "localId": "ididididpoi3",
-                "title": {
-                    "it": "Alla scoperta di musei e teatri poi",
-                    "en": "Alla scoperta di musei e teatri poi EN",
-                    "de": "Alla scoperta di musei e teatri poi DE"
-                },
-                "description": {
-                    "it": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "en": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. EN",
-                    "de": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. DE"
-                },
-                "images": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "videos": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "https://vimeo.com/117116735",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "audios": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "coordinates": {
-                    "lat": 45.89777,
-                    "lng": 11.0427
-                }
-            }, {
-                "id": null,
-                "updateTime": -1,
-                "version": 0,
-                "user": null,
-                "appId": "ComuneRovereto",
-                "localId": "ididididpoi4",
-                "title": {
-                    "it": "Alla scoperta di babbo natale poi ",
-                    "en": "Alla scoperta di babbo natale poi EN",
-                    "de": "Alla scoperta di babbo natale poi DE"
-                },
-                "description": {
-                    "it": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "en": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. EN",
-                    "de": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. DE"
-                },
-                "images": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "videos": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "https://vimeo.com/117116735",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "audios": [{
-                    "title": {
-                        "it": "MART",
-                        "en": "MART EN",
-                        "de": "MART DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Biblioteca civica",
-                        "en": "Biblioteca civica EN",
-                        "de": "Biblioteca civica DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }, {
-                    "title": {
-                        "it": "Palazzo Annona",
-                        "en": "Palazzo Annona EN",
-                        "de": "Palazzo Annona DE"
-                    },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
-                    "userDefined": false,
-                    "userId": null
-                }],
-                "coordinates": {
-                    "lat": 45.89545,
-                    "lng": 11.04342
-                }
-            }]
-        }]
+                    {
+                        "id": null,
+                        "updateTime": -1,
+                        "version": 0,
+                        "user": null,
+                        "appId": "ComuneRovereto",
+                        "localId": "ididididpoi4",
+                        "title": {
+                            "it": "Alla scoperta di babbo natale poi ",
+                            "en": "Alla scoperta di babbo natale poi EN",
+                            "de": "Alla scoperta di babbo natale poi DE"
+                        },
+                        "description": {
+                            "it": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            "en": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. EN",
+                            "de": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. DE"
+                        },
+                        "images": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/01-mart.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Biblioteca civica",
+                                    "en": "Biblioteca civica EN",
+                                    "de": "Biblioteca civica DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/02-biblioteca-civica.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Palazzo Annona",
+                                    "en": "Palazzo Annona EN",
+                                    "de": "Palazzo Annona DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "videos": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "https://www.youtube.com/watch?v=kt0g4dWxEBo",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "https://vimeo.com/117116735",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Biblioteca civica",
+                                    "en": "Biblioteca civica EN",
+                                    "de": "Biblioteca civica DE"
+                                },
+                                "url": "https://www.youtube.com/watch?v=lp-EO5I60KA",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Palazzo Annona",
+                                    "en": "Palazzo Annona EN",
+                                    "de": "Palazzo Annona DE"
+                                },
+                                "url": "https://www.youtube.com/watch?v=nCkpzqqog4k",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "audios": [
+                            {
+                                "title": {
+                                    "it": "MART",
+                                    "en": "MART EN",
+                                    "de": "MART DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/01.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Biblioteca civica",
+                                    "en": "Biblioteca civica EN",
+                                    "de": "Biblioteca civica DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            },
+                            {
+                                "title": {
+                                    "it": "Palazzo Annona",
+                                    "en": "Palazzo Annona EN",
+                                    "de": "Palazzo Annona DE"
+                                },
+                                "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
+                                "userDefined": false,
+                                "userId": null
+                            }
+                        ],
+                        "coordinates": {
+                            "lat": 45.89545,
+                            "lng": 11.04342
+                        }
+                    }
+                ]
+            }
+        ]
     },
     "deleted": {},
     "exclude": null,

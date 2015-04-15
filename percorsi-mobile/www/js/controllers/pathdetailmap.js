@@ -3,8 +3,10 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
 .controller('PathDetailMapCtrl', function ($scope, singlePathService, $ionicPlatform, $ionicHistory, leafletData, $filter, mapConversionService, singlePoiService) {
     $scope.path = singlePathService.getSelectedPath();
     var markers = [];
+    var boundArray = [];
     for (i = 0; i < $scope.path.pois.length; i++) {
-        var latlng = [$scope.path.pois[i].coordinates.lat, $scope.path.pois[i].coordinates.lng]
+        var latlng = [$scope.path.pois[i].coordinates.lat, $scope.path.pois[i].coordinates.lng];
+        boundArray.push(latlng);
         markers.push({
             getMessageScope: function () {
                 return $scope;
@@ -13,7 +15,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             lng: $scope.path.pois[i].coordinates.lng,
             message: '<div ng-controller="PathDetailMapCtrl" class="map-balloon">' +
                 '<h4>' + $filter('translate_remote')($scope.path.pois[i].title) + '</h4>' +
-                '<div class="desc">' + $filter('translate_remote')($scope.path.pois[i].description) + '</div>' +
+                '<div class="desc">' + $filter('translate_remote')($scope.path.pois[i].description).substring(0, 200) + '...' + '</div>' +
                 '<div class="row">' +
                 '<div class="col"><button class="button button-percorsi button-block" ng-click="closeWin()">' + $filter('translate')('close') + '</button></div>' +
                 '<div class="col"><button class="button button-percorsi button-block" ng-click="detail(' + i + ')">' + $filter('translate')('details') + '</button></div>' +
@@ -84,14 +86,16 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18
         }).addTo(map);
-
         map.locate({
             setView: false,
             maxZoom: 8,
             watch: false,
             enableHighAccuracy: true
         });
-
+        var bounds = new L.LatLngBounds(boundArray);
+        map.fitBounds(bounds, {
+            padding: [20, 20]
+        });
         map.on('locationfound', onLocationFound);
 
         function onLocationFound(e) {
@@ -102,4 +106,12 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             L.circle(e.latlng, radius).addTo(map);
         };
     });
+    //    leafletData.getMap().then(function (map) {
+    //        if (boundArray.length > 0) {
+    //            var bounds = new L.LatLngBounds(boundArray);
+    //            map.fitBounds(bounds, {
+    //                padding: [0, 230]
+    //            });
+    //        }
+    //    });
 });
