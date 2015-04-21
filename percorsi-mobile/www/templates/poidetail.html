@@ -22,9 +22,9 @@
     <ion-content class="has-header has-subheader">
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
-            <ion-slide-box delegate-handle="details-slide-box" does-continue="true" auto-play="true">
+            <ion-slide-box delegate-handle="poi-details-slide-box" does-continue="true" auto-play="true">
                 <!--on-slide-changed="slideHasChanged($index)"-->
-                <ion-slide ng-repeat="image in item.images" ng-click="openModal()">
+                <ion-slide ng-repeat="image in item.images" ng-click="openModal(poi-details-slide-box)">
                     <div cover-img="{{image.url}}"></div>
                 </ion-slide>
                 <ion-slide ng-repeat="video in item.videos">

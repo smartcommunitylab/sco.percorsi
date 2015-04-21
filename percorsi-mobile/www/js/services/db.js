@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.services.db', [])
 
-.factory('DatiDB', function ($q, $http, $rootScope, $filter, $timeout, $window, Config, Profiling, GeoLocate, $ionicLoading) {
+.factory('DatiDB', function ($q, $http, $rootScope, $filter, $timeout, $window, Config, Profiling, GeoLocate, $ionicLoading, $ionicSlideBoxDelegate) {
     var SCHEMA_VERSION = Config.schemaVersion();
     var types = Config.contentTypesList();
 
@@ -127,8 +127,11 @@ angular.module('roveretoPercorsi.services.db', [])
             }
             return this.sync().then(function () {
                 console.log('DB reset completed.');
+                $ionicSlideBoxDelegate.update();
             }, function () {
                 console.log('DB not resetted.');
+                $ionicSlideBoxDelegate.update();
+
             });
         },
         fullreset: function (cb) {

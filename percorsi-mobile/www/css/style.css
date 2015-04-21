@@ -31,14 +31,14 @@ body {
 @media screen and (orientation: portrait) {
     .angular-leaflet-map {
         width: 100%;
-        height: 480px;
+        height: 440px;
     }
 }
 
 @media screen and (orientation: landscape) {
     .angular-leaflet-map {
         width: 100%;
-        height: 240px;
+        height: 220px;
     }
 }
 
@@ -235,6 +235,11 @@ ion-slide div[cover-img] i {
     width: 100%;
     height: 180px;
     overflow: hidden;
+}
+
+.vote-star {
+    padding: 8px;
+    font-size: larger;
 }
 
 .slide-box-container ion-slide div[cover-img] {

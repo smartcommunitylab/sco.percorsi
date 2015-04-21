@@ -105,18 +105,31 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 
     }
     $scope.submit = function () {
-        if ($scope.selectedOption.id != 0 || $scope.selectedOption == 0) {
+        console.log("entering submit");
+        if ($scope.selectedOption == 0) {
             $scope.idPoiChoosen = null;
         } else {
-            $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption.id].localId;
+            if ($scope.selectedOption.id) {
+                $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption.id].localId;
+            } else {
+                $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption].localId;
+                console.log("$scope.path.pois[$scope.selectedOption]" + $scope.path.pois[$scope.selectedOption]);
+                console.log("$scope.path.pois[$scope.selectedOption-1]" + $scope.path.pois[$scope.selectedOption - 1]);
+
+            }
         }
 
         addImageService.submit($scope.images, $scope.imagesBase64, $scope.idPoiChoosen, $scope.path.localId).then(function (newpath) {
             $scope.addimagemodal.hide();
             //update data (it is a path), I want the right poi
-            $scope.item = newpath.data.data.pois[singlePoiService.getIndexPoi()];
+            $scope.path = newpath.data.data;
+            singlePathService.setSelectedPath($scope.path);
+            singlePoiService.setSelectedPoi(newpath.data.data.pois[singlePoiService.getIndexPoi()]);
+            if ($scope.selectedOption.id == $scope.currentItemIndex - 1) {
+                $scope.item = newpath.data.data.pois[singlePoiService.getIndexPoi()];
+            }
             //$ionicSlideBoxDelegate.update();
-            $ionicSlideBoxDelegate.$getByHandle('details-slide-box').update();
+            $ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').update();
             DatiDB.reset();
         });
 

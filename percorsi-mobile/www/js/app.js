@@ -255,7 +255,7 @@ angular.module('roveretoPercorsi', [
     $urlRouterProvider.otherwise('/app/categories');
 
     $translateProvider.translations('it', {
-        menu_home: 'Categorie / HOME',
+        menu_home: 'Home',
         menu_favorites: 'Preferiti',
         menu_login: 'Accedi',
         menu_logout: 'Esci',
