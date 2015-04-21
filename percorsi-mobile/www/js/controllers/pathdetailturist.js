@@ -3,10 +3,11 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 .controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $ionicModal, $filter, $ionicHistory, Toast, singlePathService, reviewsService, DatiDB) {
     $scope.reviews = [];
     $scope.path = singlePathService.getSelectedPath();
-
     $scope.rating = {
+        myreview: '',
         review: '',
         current: 0,
+        myvote: 0,
         max: 5
     };
 
@@ -16,7 +17,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
             reviewsService.getUserRate($scope.path.localId).then(function (data) {
                 if (!!data) {
                     $scope.rating.review = data.comment;
+                    $scope.rating.myreview = data.comment;
                     $scope.rating.current = data.vote;
+                    $scope.rating.myvote = data.vote;
                 }
             });
         }
@@ -87,6 +90,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         reviewsService.sendRate($scope.path.localId, vote, $scope.rating.review).then(function (updatedPath) {
             singlePathService.setSelectedPath(updatedPath);
             $scope.path = updatedPath;
+            $scope.rating.current = $scope.path.vote;
             Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom');
             DatiDB.reset();
         });
@@ -96,6 +100,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         reviewsService.sendRate($scope.path.localId, $scope.rating.current, review).then(function (updatedPath) {
             singlePathService.setSelectedPath(updatedPath);
             $scope.path = updatedPath;
+            $scope.rating.review = $scope.rating.myreview;
             Toast.show($filter('translate')('review_sent_toast_ok'), 'short', 'bottom');
             DatiDB.reset();
             $scope.loadMore(true);
@@ -103,6 +108,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     };
 
     $scope.showVote = function (name) {
+        $scope.rating.myvote = $scope.rating.current;
         if ($scope.userIsLogged) {
             var confirmPopup = $ionicPopup.confirm({
                 title: $filter('translate')('pathdetailturist_voteinfo'),
@@ -117,11 +123,11 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                         text: $filter('translate')('newreview_popup_ok'),
                         type: 'button-percorsi',
                         onTap: function (e) {
-                            if (!$scope.rating.current) {
+                            if (!$scope.rating.myvote) {
                                 e.preventDefault();
                             } else {
                                 //return $scope.rating.current;
-                                $scope.sendVote($scope.rating.current);
+                                $scope.sendVote($scope.rating.myvote);
                             }
                         }
                     }
@@ -135,6 +141,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         $ionicHistory.goBack();
     }
     $scope.showReview = function (name) {
+        $scope.rating.myreview = $scope.rating.review;
         if ($scope.userIsLogged) {
             var confirmPopup = $ionicPopup.confirm({
                 title: $filter('translate')('newreview_popup_title'),
@@ -149,11 +156,11 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                         text: $filter('translate')('newreview_popup_ok'),
                         type: 'button-percorsi',
                         onTap: function (e) {
-                            if (!$scope.rating.review) {
+                            if (!$scope.rating.myreview) {
                                 e.preventDefault();
                             } else {
                                 // return $scope.review;
-                                $scope.sendReview($scope.rating.review);
+                                $scope.sendReview($scope.rating.myreview);
                             }
                         }
                     }
