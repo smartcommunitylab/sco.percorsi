@@ -79,10 +79,14 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     })
 
     $scope.openAddimage = function () {
-        $scope.addimagemodal.show()
-        $scope.images = [];
-        $scope.imagesBase64 = [];
-        $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
+        if ($scope.userIsLogged) {
+            $scope.addimagemodal.show()
+            $scope.images = [];
+            $scope.imagesBase64 = [];
+            $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
+        } else {
+            $scope.loginModal.show();
+        }
     }
 
     $scope.closeAddimage = function () {
