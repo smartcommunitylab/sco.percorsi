@@ -158,6 +158,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                         onTap: function (e) {
                             if (!$scope.rating.myreview) {
                                 e.preventDefault();
+                                Toast.show($filter('translate')('review_empty_error'), 'short', 'bottom');
+
                             } else {
                                 // return $scope.review;
                                 $scope.sendReview($scope.rating.myreview);

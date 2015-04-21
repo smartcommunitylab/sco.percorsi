@@ -303,7 +303,8 @@ angular.module('roveretoPercorsi', [
         login_popup_ok: 'Login',
         login_done: 'Login effettuato con successo',
         syncing: 'aggiornamento in corso...',
-        cleaning: 'pulizia in corso...'
+        cleaning: 'pulizia in corso...',
+        review_empty_error: 'Inserire uuna recensione'
     });
 
     $translateProvider.translations('en', {
@@ -355,7 +356,9 @@ angular.module('roveretoPercorsi', [
         login_popup_ok: 'Login',
         login_done: 'Login done',
         syncing: 'syncing....',
-        cleaning: 'cleaning...'
+        cleaning: 'cleaning...',
+        review_empty_error: 'Please insert a review'
+
     });
 
     $translateProvider.translations('de', {
@@ -407,7 +410,9 @@ angular.module('roveretoPercorsi', [
         login_popup_ok: 'Login',
         login_done: 'Login done',
         syncing: 'Laufende Aktualisierung...',
-        cleaning: 'Reinigung im Laufe...'
+        cleaning: 'Reinigung im Laufe...',
+        review_empty_error: 'Please insert a review'
+
     });
 
     $translateProvider.preferredLanguage("en");
