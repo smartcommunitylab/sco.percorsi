@@ -63,7 +63,7 @@
                 <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()">
                     <i class="icon ion-skip-forward"></i>
                 </button>
-                <div class="title">[{{audioTrack + 1}}/{{item.audios.length}}] {{item.audios[audioTrack].title | translate_remote}}</div>
+                <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
             </div>
         </div>
         <!-- Path POIs -->

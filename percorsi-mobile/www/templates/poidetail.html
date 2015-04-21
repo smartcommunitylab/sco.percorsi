@@ -42,7 +42,7 @@
         </div>
         <!-- POI content -->
         <div class="padding content">
-            <h3>{{item.title | translate_remote}}</h3>
+            <h3>{{item.title | translate_remote}}</h3> {{audios[audioTrack].title.length}}
             <p class="detail-description">{{item.description | translate_remote}}</p>
 
             <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
@@ -55,7 +55,7 @@
                 <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()">
                     <i class="icon ion-skip-forward"></i>
                 </button>
-                <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote}}</div>
+                <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
             </div>
             <div class="row">
                 <div class="col">
