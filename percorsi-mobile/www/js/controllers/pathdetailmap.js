@@ -4,6 +4,16 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
     $scope.path = singlePathService.getSelectedPath();
     var markers = [];
     var boundArray = [];
+    var mymap = document.getElementById('map-container');
+    if (mymap != null) {
+        resizeElementHeight(mymap);
+    }
+    window.onresize = function () {
+        if (mymap != null) {
+            resizeElementHeight(mymap);
+        }
+    }
+
     for (i = 0; i < $scope.path.pois.length; i++) {
         var latlng = [$scope.path.pois[i].coordinates.lat, $scope.path.pois[i].coordinates.lng];
         boundArray.push(latlng);
@@ -112,6 +122,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             //.bindPopup("You are within " + radius + " meters from this point").openPopup();
             L.circle(e.latlng, radius).addTo(map);
         };
+
     });
     //    leafletData.getMap().then(function (map) {
     //        if (boundArray.length > 0) {
@@ -121,4 +132,20 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
     //            });
     //        }
     //    });
+
+
+
+    function resizeElementHeight(element) {
+        var height = 0;
+        var body = window.document.body;
+        if (window.innerHeight) {
+            height = window.innerHeight;
+        } else if (body.parentElement.clientHeight) {
+            height = body.parentElement.clientHeight;
+        } else if (body && body.clientHeight) {
+            height = body.clientHeight;
+        }
+        console.log('height' + height);
+        element.style.height = ((height - element.offsetTop) + "px");
+    }
 });
