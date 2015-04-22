@@ -12,7 +12,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
     for (var i = 0; i < ($scope.item.pois.length); i++) {
         $scope.options.push({
-            name: (i + 1).toString(),
+            name: $filter('translate_remote')($scope.item.pois[i].title),
             id: (i + 1)
         });
     }

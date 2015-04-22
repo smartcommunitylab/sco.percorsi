@@ -16,7 +16,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 
     for (var i = 0; i < ($scope.path.pois.length); i++) {
         $scope.options.push({
-            name: (i + 1).toString(),
+            name: $filter('translate_remote')($scope.path.pois[i].title),
             id: i
         });
     }
