@@ -1,8 +1,12 @@
 <ion-view class="details-info" title="{{item.title | translate_remote}}">
 
     <ion-nav-buttons>
+        <!--
         <a class="button button-icon icon myback" ng-click="back()"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
         </a>
+-->
+        <button ng-click="back()" class="row button button-icon" ng-class="backButtonStyle">
+        </button>
     </ion-nav-buttons>
 
     <ion-nav-buttons side="right">

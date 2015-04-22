@@ -36,7 +36,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.favoritesService'
 ])
 
-.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, Login, GeoLocate) {
+.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
     $rootScope.getUserId = function () {
@@ -74,6 +74,7 @@ angular.module('roveretoPercorsi', [
         }
         Restlogging.init("http://150.241.239.65:8080");
         $rootScope.platform = ionic.Platform;
+        $rootScope.backButtonStyle = $ionicConfig.backButton.icon();
     });
 
     $rootScope.login = function () {

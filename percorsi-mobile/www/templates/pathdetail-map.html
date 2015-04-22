@@ -6,8 +6,13 @@
     </ion-nav-buttons>
 -->
     <ion-nav-buttons>
+        <!--
         <a class="button button-icon icon myback" ng-click="back()"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
         </a>
+-->
+
+        <button ng-click="back()" class="row button button-icon" ng-class="backButtonStyle">
+        </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
         <button class="button button-percorsi button-clear" ng-click="toggleFavorite()">
