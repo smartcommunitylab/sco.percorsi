@@ -73,10 +73,18 @@
         <!-- Path POIs -->
         <div class="itinerary padding-horizontal padding-bottom">
             <h4>{{'path_itinerary' | translate}}</h4>
+            <!--
             <ul>
                 <li ng-repeat="poi in item.pois" ng-click="showPoi($index)"><span class="poi-number">{{$index + 1}}</span> <span class="poi-title">{{poi.title | translate_remote}}</span>
                 </li>
             </ul>
-        </div>
+-->
+            <div class="list">
+
+                <a class="item item-avatar" ng-repeat="poi in item.pois" ng-click="showPoi($index)">
+                    <img src="{{poi.images[0].url}}">
+                    <span class="poi-number">{{$index + 1}} . {{poi.title | translate_remote}}</span> <span class="poi-title"></span>
+                </a>
+            </div>
     </ion-content>
 </ion-view>
