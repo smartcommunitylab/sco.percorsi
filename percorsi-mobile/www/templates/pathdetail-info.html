@@ -80,8 +80,14 @@
 -->
             <div class="list">
 
+                <!--
                 <a class="item item-avatar" ng-repeat="poi in item.pois" ng-click="showPoi($index)">
-                    <img ng-src="{{poi.images[0].url}}"><span class="poi-number">{{$index + 1}} . {{poi.title | translate_remote}}</span> <span class="poi-title"></span>
+                    <img ng-src="{{poi.images[0].url}}"><span class="poi-number">{{$index + 1}} . {{poi.title | translate_remote}}</span><span class="poi-title"></span>
+-->
+                <ion-item class="item item-avatar" ng-repeat="poi in item.pois" ng-click="showPoi($index)" class="item-thumbnail-left">
+                    <img ng-src="{{poi.images[0].url}}">
+                    <div class="poi-list">{{$index + 1}} . {{poi.title | translate_remote}}</div>
+                </ion-item>
                 </a>
             </div>
     </ion-content>

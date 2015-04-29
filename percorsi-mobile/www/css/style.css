@@ -512,3 +512,7 @@ ion-side-menu ion-item .icon {
     margin-left: auto;
     margin-right: auto;
 }
+
+.poi-list {
+    margin-top: 10px
+}
