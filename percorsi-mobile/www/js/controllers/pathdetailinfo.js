@@ -3,6 +3,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 .controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, $ionicHistory, $rootScope, categoriesService, DatiDB, addImageService) {
     $scope.item = singlePathService.getSelectedPath();
     $scope.idPoiChoosen = null;
+
     singlePoiService.setIndexPoi(null);
 
     $scope.images = $scope.options = [{
@@ -121,4 +122,5 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         singlePoiService.setIndexPoi(poiIndex);
         window.location.assign('#/app/poidetail');
     };
+
 });

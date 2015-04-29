@@ -19,8 +19,7 @@
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
             <ion-slide-box delegate-handle="path-details-slide-box" does-continue="true" auto-play="true">
-                <!--on-slide-changed="slideHasChanged($index)"-->
-                <ion-slide ng-repeat="image in item.images" ng-click="openModal('path-details-slide-box')">
+                <ion-slide ng-repeat="image in item.images track by $index" ng-click="openModal('path-details-slide-box')">
                     <div cover-img="{{image.url}}"></div>
                 </ion-slide>
                 <ion-slide ng-repeat="video in item.videos">
@@ -82,8 +81,7 @@
             <div class="list">
 
                 <a class="item item-avatar" ng-repeat="poi in item.pois" ng-click="showPoi($index)">
-                    <img src="{{poi.images[0].url}}">
-                    <span class="poi-number">{{$index + 1}} . {{poi.title | translate_remote}}</span> <span class="poi-title"></span>
+                    <img ng-src="{{poi.images[0].url}}"><span class="poi-number">{{$index + 1}} . {{poi.title | translate_remote}}</span> <span class="poi-title"></span>
                 </a>
             </div>
     </ion-content>

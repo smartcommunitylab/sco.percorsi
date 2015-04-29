@@ -1,10 +1,11 @@
 angular.module('roveretoPercorsi.controllers.pathdetail', [])
 
 .controller('PathDetailCtrl', function ($scope, singlePathService, favoritesService) {
-    var pathId = singlePathService.getSelectedPath().localId;
+    if (singlePathService.getSelectedPath() != null) {
+        var pathId = singlePathService.getSelectedPath().localId;
 
-    $scope.isFavorite = favoritesService.isFavorite(pathId);
-
+        $scope.isFavorite = favoritesService.isFavorite(pathId);
+    }
     $scope.toggleFavorite = function () {
         if (favoritesService.isFavorite(pathId)) {
             favoritesService.removeFavorite(pathId).then(function (favorites) {
