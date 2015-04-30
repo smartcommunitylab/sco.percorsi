@@ -277,6 +277,7 @@ angular.module('roveretoPercorsi', [
         credits_info: 'Per informazioni:',
         pathdetailmap_startpath: 'INIZIA PERCORSO',
         pathdetailmap_goto: 'Vai',
+        pathdetailinfo_vote: 'Voto',
         pathdetailturist_vote: 'Vota',
         pathdetailturist_review: 'Recensisci',
         pathdetailturist_voteinfo: 'Vota il percorso',
@@ -305,7 +306,11 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login effettuato con successo',
         syncing: 'aggiornamento in corso...',
         cleaning: 'pulizia in corso...',
-        review_empty_error: 'Inserire uuna recensione'
+        review_empty_error: 'Inserire uuna recensione',
+        path_tracks_title: 'TRACCE AUDIO',
+        path_more_information: 'Più informazioni',
+        path_less_information: 'Meno informazioni'
+
     });
 
     $translateProvider.translations('en', {
@@ -330,6 +335,7 @@ angular.module('roveretoPercorsi', [
         credits_info: 'Further information:',
         pathdetailmap_startpath: 'START PATH',
         pathdetailmap_goto: 'Go',
+        pathdetailinfo_vote: 'Rate',
         pathdetailturist_vote: 'Vote',
         pathdetailturist_review: 'Add a review',
         pathdetailturist_voteinfo: 'Vote the path',
@@ -358,7 +364,10 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login done',
         syncing: 'syncing....',
         cleaning: 'cleaning...',
-        review_empty_error: 'Please insert a review'
+        review_empty_error: 'Please insert a review',
+        path_tracks_title: 'AUDIO TRACKS',
+        path_more_information: 'More informations',
+        path_less_information: 'Less informations'
 
     });
 
@@ -385,6 +394,7 @@ angular.module('roveretoPercorsi', [
         credits_info: 'Informationen:',
         pathdetailmap_startpath: 'START REISEPLAN',
         pathdetailmap_goto: 'Gehen',
+        pathdetailinfo_vote: 'Rate',
         pathdetailturist_vote: 'Bewerten',
         pathdetailturist_review: 'Rezension',
         pathdetailturist_voteinfo: 'Vote the path',
@@ -412,7 +422,10 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login done',
         syncing: 'Laufende Aktualisierung...',
         cleaning: 'Reinigung im Laufe...',
-        review_empty_error: 'Please insert a review'
+        review_empty_error: 'Please insert a review',
+        path_tracks_title: 'TRACCE AUDIO',
+        path_more_information: 'More informations',
+        path_less_information: 'Less informations'
 
     });
 

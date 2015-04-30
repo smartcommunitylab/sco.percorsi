@@ -36,26 +36,8 @@
         </div>
         <!-- Path content -->
         <div class="padding content">
-            <h3>{{item.title | translate_remote}}</h3>
-            <p class="detail-description">{{item.description | translate_remote}}</p>
-            <div class="path-numbers">
-                <div class="path-length">
-                    <i class="icon sco-distance-h-pois"></i>
-                    <span>{{m2km(item.length)}} km</span>
-                </div>
-                <div class="path-time">
-                    <i class="icon ion-android-time"></i>
-                    <span>{{min2time(item.time)}}</span>
-                </div>
-                <div class="path-difficulty" ng-class="{'d1': item.difficulty == 1, 'd2': item.difficulty == 2, 'd3': item.difficulty == 3}">
-                    <i class="icon ion-record"></i>
-                    <span>{{('path_difficulty_' + item.difficulty) | translate}}</span>
-                </div>
-                <div class="path-time">
-                    <i class="icon ion-android-star"></i>
-                    <span>{{voteRound(item.vote)}}</span>
-                </div>
-            </div>
+            {{'path_tracks_title' | translate}}
+
             <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
                 <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
                     <i class="icon ion-skip-backward"></i>
@@ -68,22 +50,75 @@
                 </button>
                 <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
             </div>
+
+            <div class="path-numbers border">
+                <div class="path-length-detail" ng-hide="item.length == null">
+                    <div class="icons-details">
+                        <i class="icon sco-distance-h-pois"></i>
+                    </div>
+                    <span>{{m2km(item.length)}} km</span>
+                </div>
+                <div class="path-time-detail" ng-hide="item.time == null">
+                    <div class="icons-details">
+                        <i class="icon ion-android-time"></i>
+                    </div>
+                    <span>{{min2time(item.time)}}</span>
+                </div>
+                <div class="path-difficulty-detail" ng-class="{'d1': item.difficulty == 1, 'd2': item.difficulty == 2, 'd3': item.difficulty == 3}" ng-hide="item.difficulty == null">
+                    <div class="icons-details">
+                        <i class="icon ion-record"></i>
+                    </div>
+                    <span>{{('path_difficulty_' + item.difficulty) | translate}}</span>
+                </div>
+
+            </div>
+
+
+            <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}" ng-hide="noExtraListValues() || hideExpandListButton()">
+                {{'path_more_information' | translate}}
+            </ion-item>
+            <div class="path-numbers border item-accordion" ng-show="isGroupShown(group)">
+                <div class="path-list-detail" ng-hide="item.cost == null">
+                    <div class="icons-details">
+                        <i class="icon ion-social-euro"></i>
+                    </div>
+                    <span>{{item.cost}}</span>
+                </div>
+                <div class="path-list-detail" ng-hide="item.parking == null">
+                    <div class="icons-details">
+                        <i class="icon sco-parking"></i>
+                    </div>
+                    <span>{{item.parking}}</span>
+                </div>
+                <div class="path-list-detail" ng-hide="item.transport == null">
+                    <div class="icons-details">
+                        <i class="icon ion-android-bus"></i>
+                    </div>
+                    <span>{{item.transport}}</span>
+                </div>
+                <div class="path-list-detail" ng-hide="item.accessibility == null">
+                    <div class="icons-details">
+                        <i class="icon sco-accessibility"></i>
+
+                    </div>
+                    <span>{{item.accessibility}}</span>
+                </div>
+            </div>
+            <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}" ng-hide="hideCloseListButton()">
+                {{'path_less_information' | translate}}
+            </ion-item>
+            <div class="separator"></div>
+            <h3>{{item.title | translate_remote}} <span>{{'pathdetailinfo_vote' | translate}} {{voteRound(item.vote)}}</span></h3>
+            <p class="detail-description">{{item.description | translate_remote}}</p>
+
+
         </div>
         <!-- Path POIs -->
         <div class="itinerary padding-horizontal padding-bottom">
             <h4>{{'path_itinerary' | translate}}</h4>
-            <!--
-            <ul>
-                <li ng-repeat="poi in item.pois" ng-click="showPoi($index)"><span class="poi-number">{{$index + 1}}</span> <span class="poi-title">{{poi.title | translate_remote}}</span>
-                </li>
-            </ul>
--->
             <div class="list">
 
-                <!--
-                <a class="item item-avatar" ng-repeat="poi in item.pois" ng-click="showPoi($index)">
-                    <img ng-src="{{poi.images[0].url}}"><span class="poi-number">{{$index + 1}} . {{poi.title | translate_remote}}</span><span class="poi-title"></span>
--->
+
                 <ion-item class="item item-avatar" ng-repeat="poi in item.pois" ng-click="showPoi($index)" class="item-thumbnail-left">
                     <img ng-src="{{poi.images[0].url}}">
                     <div class="poi-list">{{$index + 1}} . {{poi.title | translate_remote}}</div>

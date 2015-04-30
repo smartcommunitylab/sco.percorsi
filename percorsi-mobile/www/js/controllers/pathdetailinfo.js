@@ -3,6 +3,51 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 .controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, $ionicHistory, $rootScope, categoriesService, DatiDB, addImageService) {
     $scope.item = singlePathService.getSelectedPath();
     $scope.idPoiChoosen = null;
+    $scope.expandedList = false;
+    $scope.expandedText = false;
+
+    $scope.group = {
+
+    };
+
+    //    $scope.item.cost = "iksiad";
+    /*
+     * if given group is the selected group, deselect it
+     * else, select the given group
+     */
+    $scope.noExtraListValues = function () {
+        if ($scope.item.cost == null && $scope.item.parking == null && $scope.item.transport == null && $scope.item.accessibility == null) {
+            return true
+        }
+        return false;
+    }
+    $scope.hideExpandListButton = function () {
+        if (!$scope.expandedList) {
+            return false;
+        }
+        return true;
+    }
+
+    $scope.hideCloseListButton = function () {
+        if ($scope.expandedList) {
+            return false;
+        }
+        return true;
+    }
+    $scope.toggleGroup = function (group) {
+        if ($scope.isGroupShown(group)) {
+            $scope.shownGroup = null;
+            $scope.expandedList = false;
+
+        } else {
+            $scope.shownGroup = group;
+            $scope.expandedList = true;
+
+        }
+    };
+    $scope.isGroupShown = function (group) {
+        return $scope.shownGroup === group;
+    };
 
     singlePoiService.setIndexPoi(null);
 
