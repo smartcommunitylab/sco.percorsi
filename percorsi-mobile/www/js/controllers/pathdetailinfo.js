@@ -4,13 +4,15 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
     $scope.item = singlePathService.getSelectedPath();
     $scope.idPoiChoosen = null;
     $scope.expandedList = false;
-    $scope.expandedText = false;
-
+    $scope.expandedDescritpion = false;
     $scope.group = {
 
     };
 
-    //    $scope.item.cost = "iksiad";
+//    $scope.item.cost = "iksiad";
+//    $scope.item.parking = "iksiad";
+//    $scope.item.transport = "iksiad";
+//    $scope.item.accessibility = "iksiad";
     /*
      * if given group is the selected group, deselect it
      * else, select the given group
@@ -34,10 +36,10 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         }
         return true;
     }
-    $scope.toggleGroup = function (group) {
-        if ($scope.isGroupShown(group)) {
-            $scope.shownGroup = null;
+    $scope.toggleGroupList = function (group) {
+        if ($scope.isGroupListShown(group)) {
             $scope.expandedList = false;
+            $scope.shownGroup = null;
 
         } else {
             $scope.shownGroup = group;
@@ -45,10 +47,34 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
         }
     };
-    $scope.isGroupShown = function (group) {
+    $scope.isGroupListShown = function (group) {
         return $scope.shownGroup === group;
     };
 
+
+    $scope.toggleDescription = function () {
+        if ($scope.isDescriptionShown()) {
+            $scope.expandedDescritpion = false;
+        } else {
+            $scope.expandedDescritpion = true;
+
+        }
+    };
+    $scope.isDescriptionShown = function () {
+        return $scope.expandedDescritpion;
+    };
+    $scope.hideExpandDescriptionButton = function () {
+        if (!$scope.isDescriptionShown()) {
+            return false;
+        }
+        return true;
+    };
+    $scope.hideCloseDescriptionButton = function () {
+        if ($scope.isDescriptionShown()) {
+            return false;
+        }
+        return true;
+    };
     singlePoiService.setIndexPoi(null);
 
     $scope.images = $scope.options = [{

@@ -28,16 +28,17 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
-            <button class="button button-percorsi button-fab" ng-click="openAddimage()">
-                <div>
-                    <span><i class="icon ion-plus"></i></span>
-                </div>
-            </button>
+<button class="button button-percorsi button-fab" ng-click="openAddimage()">
+    <div>
+        <span><i class="icon ion-plus"></i></span>
+    </div>
+</button>
         </div>
         <!-- Path content -->
         <div class="padding content">
-            {{'path_tracks_title' | translate}}
-
+            <div class="audio-title">
+                {{'path_tracks_title' | translate}}
+            </div>
             <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
                 <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
                     <i class="icon ion-skip-backward"></i>
@@ -50,6 +51,7 @@
                 </button>
                 <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
             </div>
+            <div class="separator"></div>
 
             <div class="path-numbers border">
                 <div class="path-length-detail" ng-hide="item.length == null">
@@ -68,16 +70,18 @@
                     <div class="icons-details">
                         <i class="icon ion-record"></i>
                     </div>
-                    <span>{{('path_difficulty_' + item.difficulty) | translate}}</span>
+                    <span>{{'path_difficulty' | translate}} {{('path_difficulty_' + item.difficulty) | translate}}</span>
                 </div>
 
             </div>
 
 
-            <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}" ng-hide="noExtraListValues() || hideExpandListButton()">
-                {{'path_more_information' | translate}}
+            <ion-item class="item-stable" ng-click="toggleGroupList(group)" ng-class="{active: isGroupListShown(group)}" ng-hide="noExtraListValues() || hideExpandListButton()">
+                <div class="text-button">
+                    {{'path_more_information' | translate}}
+                </div>
             </ion-item>
-            <div class="path-numbers border item-accordion" ng-show="isGroupShown(group)">
+            <div class="path-numbers border item-accordion" ng-show="isGroupListShown(group)">
                 <div class="path-list-detail" ng-hide="item.cost == null">
                     <div class="icons-details">
                         <i class="icon ion-social-euro"></i>
@@ -104,18 +108,38 @@
                     <span>{{item.accessibility}}</span>
                 </div>
             </div>
-            <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}" ng-hide="hideCloseListButton()">
-                {{'path_less_information' | translate}}
+            <ion-item class="item-stable text-button" ng-click="toggleGroupList(group)" ng-class="{active: isGroupListShown(group)}" ng-hide="hideCloseListButton()">
+                <div class="text-button">
+
+                    {{'path_less_information' | translate}}
+                </div>
             </ion-item>
             <div class="separator"></div>
-            <h3>{{item.title | translate_remote}} <span>{{'pathdetailinfo_vote' | translate}} {{voteRound(item.vote)}}</span></h3>
-            <p class="detail-description">{{item.description | translate_remote}}</p>
+            <h3>{{item.title | translate_remote}}</h3>
+            <div class="section" ng-class="{'expanded':isDescriptionShown()}">
+                <p class="description-info">{{item.description | translate_remote}}
+                </p>
+                <div class="fadeout"></div>
+            </div>
+            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()">
+                <div class="text-button">
 
+                    {{'path_more_information' | translate}}
+                </div>
+            </ion-item>
+            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideCloseDescriptionButton()">
+                <div class="text-button">
+
+                    {{'path_less_information' | translate}}
+                </div>
+            </ion-item>
+            <div class="separator"></div>
 
         </div>
         <!-- Path POIs -->
         <div class="itinerary padding-horizontal padding-bottom">
-            <h4>{{'path_itinerary' | translate}}</h4>
+            <h4>{{'path_itinerary' | translate }}</h4>
+
             <div class="list">
 
 
