@@ -285,7 +285,7 @@ ion-slide div[cover-img] i {
     font-size: larger;
 }
 
-.slide-box-container ion-slide div[cover-img] {
+.cover-img {
     height: 180px;
     background-color: #000;
     background-position: center;
@@ -372,6 +372,7 @@ ion-slide div[cover-img] i {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    width: 60%;
 }
 
 .details-info .content {
@@ -633,4 +634,23 @@ ion-side-menu ion-item .icon {
 
 .audio-title {
     padding-left: 6px;
+}
+
+.image-gallery {
+    width: 100px;
+    height: 100px;
+}
+
+.gallery-row {
+    height: 256px;
+}
+
+.crop {
+    overflow: hidden;
+}
+
+.crop img {
+    width: 400px;
+    height: 300px;
+    margin: -75px 0 0 -100px;
 }

@@ -18,6 +18,7 @@
     <ion-content has-header="true">
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
+            <!--
             <ion-slide-box delegate-handle="path-details-slide-box" does-continue="true" auto-play="true">
                 <ion-slide ng-repeat="image in item.images track by $index" ng-click="openModal('path-details-slide-box')">
                     <div cover-img="{{image.url}}"></div>
@@ -28,11 +29,20 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
+-->
+            <div cover-img="{{item.images[0].url}}" class="cover-img"></div>
+
+            <!--            <img ng-src="{{item.images[0].url}}" alt="Description" />-->
+            <button id="button-start" class="button button-full button-percorsi button-start" ng-click="openGallery()">
+                <i class="icon ion-images"></i>
+            </button>
+            <!--
 <button class="button button-percorsi button-fab" ng-click="openAddimage()">
     <div>
         <span><i class="icon ion-plus"></i></span>
     </div>
 </button>
+-->
         </div>
         <!-- Path content -->
         <div class="padding content">

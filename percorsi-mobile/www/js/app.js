@@ -24,6 +24,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.pathdetailturist',
     'roveretoPercorsi.controllers.poidetail',
     'roveretoPercorsi.controllers.favorites',
+    'roveretoPercorsi.controllers.gallery',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
@@ -31,6 +32,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.singlePathService',
     'roveretoPercorsi.services.singlePoiService',
     'roveretoPercorsi.services.addImageService',
+    'roveretoPercorsi.services.galleryService',
     'roveretoPercorsi.services.reviews',
     'roveretoPercorsi.services.db',
     'roveretoPercorsi.services.favoritesService'
@@ -241,16 +243,27 @@ angular.module('roveretoPercorsi', [
     })
 
     .state('app.favorites', {
-        cache: false,
-        url: '/favorites',
-        abstract: false,
-        views: {
-            'menuContent': {
-                templateUrl: "templates/paths.html",
-                controller: 'FavoritesCtrl'
+            cache: false,
+            url: '/favorites',
+            abstract: false,
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/paths.html",
+                    controller: 'FavoritesCtrl'
+                }
             }
-        }
-    });
+        })
+        .state('app.gallery', {
+            cache: false,
+            url: '/gallery',
+            abstract: false,
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/gallery.html",
+                    controller: 'GalleryCtrl'
+                }
+            }
+        });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/categories');
