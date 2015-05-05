@@ -742,24 +742,6 @@
                         "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/images/03-palazzo-annona.jpg",
                         "userDefined": false,
                         "userId": null
-                    },
-                    {
-                        "title": null,
-                        "url": "http://i.imgur.com/yv5k85f.jpg",
-                        "userDefined": true,
-                        "userId": null
-                    },
-                    {
-                        "title": null,
-                        "url": "http://i.imgur.com/xzYdCkL.jpg",
-                        "userDefined": true,
-                        "userId": null
-                    },
-                    {
-                        "title": null,
-                        "url": "http://i.imgur.com/dC9CtJB.jpg",
-                        "userDefined": true,
-                        "userId": null
                     }
                 ],
                 "videos": [
@@ -846,12 +828,6 @@
                                 },
                                 "url": "http://www.about-trentino.com/rovereto-vallagarina/mart.jpg",
                                 "userDefined": false,
-                                "userId": null
-                            },
-                            {
-                                "title": null,
-                                "url": "http://i.imgur.com/zQXsixp.jpg",
-                                "userDefined": true,
                                 "userId": null
                             }
                         ],
