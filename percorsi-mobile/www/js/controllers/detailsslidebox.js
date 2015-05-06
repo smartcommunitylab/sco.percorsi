@@ -8,10 +8,10 @@ angular.module('roveretoPercorsi.controllers.detailsslidebox', [])
         $scope.modal = modal;
     });
 
-    $scope.openModal = function (handleName) {
-        var currentIndex = $ionicSlideBoxDelegate.$getByHandle(handleName).currentIndex();
+    $scope.openModal = function (index) {
+        //var currentIndex = $ionicSlideBoxDelegate.$getByHandle(handleName).currentIndex();
         $scope.modal.show().then(function () {
-            $ionicSlideBoxDelegate.$getByHandle('gallerymodal-slide-box').slide(currentIndex, 0);
+            $ionicSlideBoxDelegate.$getByHandle('gallerymodal-slide-box').slide(index, 0);
         });
     };
 

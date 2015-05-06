@@ -21,7 +21,6 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
-            $scope.images = [];
             $scope.imagesBase64 = [];
             $scope.addimagemodal = modal;
         });

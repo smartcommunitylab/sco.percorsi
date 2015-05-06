@@ -1,4 +1,4 @@
-<ion-view id="paths" title="{{!!category.name ? (category.name | translate_remote) : ('menu_favorites' | translate)}}">
+<ion-view id="paths" title="{{!!category.name ? (category.name | translate_remote) : ('menu_favorites' | translate)}}" ng-init="loadImages()">
     <ion-nav-buttons>
         <!--
     <a class="button button-icon icon myback" ng-click="back()"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
@@ -14,7 +14,7 @@
             </div>
         </button>
     </ion-nav-buttons>
-    <ion-content has-header="true" has-footer="true" ng-init="loadImages()">
+    <ion-content has-header="true" has-footer="true" ng-controller="DetailsSlideBoxCtrl">
         <!--
 <div class="row responsive-md" ng-init="loadImages()">
     <div class="col col-25" ng-repeat="image in images">
@@ -36,10 +36,10 @@
 -->
         <div class="row gallery-row" ng-repeat="image in images" ng-if="$index % 2 === 0">
             <div class="col col-50 crop" ng-if="$index < images.length">
-                <img ng-src="{{images[$index].url}}" width="100%" ng-click="openModal('path-details-slide-box')" />
+                <img ng-src="{{images[$index].url}}" width="100%" ng-click="openModal($index)" />
             </div>
             <div class="col col-50 crop" ng-if="$index + 1 < images.length">
-                <img ng-src="{{images[$index + 1].url}}" width="100%" ng-click="openModal('path-details-slide-box')" />
+                <img ng-src="{{images[$index + 1].url}}" width="100%" ng-click="openModal($index+1)" />
             </div>
         </div>
     </ion-content>
