@@ -93,7 +93,6 @@ body {
 }
 
 .button.button-percorsi.button-start {
-    position: absolute;
     bottom: 0px;
     z-index: 99;
 }
@@ -297,6 +296,11 @@ ion-slide div[cover-img] i {
     position: absolute;
     bottom: -32px;
     right: 16px;
+}
+
+.button.button-full {
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .gallery-modal {
@@ -636,6 +640,9 @@ ion-side-menu ion-item .icon {
     padding-left: 6px;
 }
 
+.centered {
+    vertical-align: middle;
+}
 /*
 .image-gallery {
     width: 100px;
@@ -646,7 +653,6 @@ ion-side-menu ion-item .icon {
     height: 180px;
 }
 */
-
 /*
 .crop {
     overflow: hidden;

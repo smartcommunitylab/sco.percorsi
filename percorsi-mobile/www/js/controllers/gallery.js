@@ -1,16 +1,29 @@
 angular.module('roveretoPercorsi.controllers.gallery', [])
 
-.controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService) {
+.controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService, $cordovaCamera, $filter, addImageService) {
         $scope.item = singlePathService.getSelectedPath();
-        $scope.images = [];
+        //$scope.images = [];
         $scope.loadImages = function () {
-            $scope.images = galleryService.getGallery();        }
+            $scope.images = galleryService.getGallery();
+        }
+        $scope.images = $scope.options = [{
+            name: $filter('translate')('images_send_percorso_string'),
+            id: 0
+    }];
 
+        for (var i = 0; i < ($scope.item.pois.length); i++) {
+            $scope.options.push({
+                name: $filter('translate_remote')($scope.item.pois[i].title),
+                id: (i + 1)
+            });
+        }
+
+        $scope.selectedOption = $scope.options[0];
         $scope.openAddimage = function () {
             if ($scope.userIsLogged) {
                 $scope.addimagemodal.show()
-                $scope.images = [];
-                $scope.imagesBase64 = [];
+                $scope.image = [];
+                $scope.imageBase64 = [];
                 $scope.selectedOption = $scope.options[0];
             } else {
                 $scope.loginModal.show();
@@ -20,7 +33,7 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
-            $scope.imagesBase64 = [];
+            $scope.imageBase64 = [];
             $scope.addimagemodal = modal;
         });
         $scope.closeAddimage = function () {
@@ -35,8 +48,8 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
         $scope.removeImage = function (imageName) {
             var index = $scope.images.indexOf(imageName);
             if (index > -1) {
-                $scope.images.splice(index, 1);
-                $scope.imagesBase64.splice(index, 1);
+                $scope.image.splice(index, 1);
+                $scope.imageBase64.splice(index, 1);
             }
         };
 
@@ -69,8 +82,8 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
                 //I have to add to file array imageData and visualize
                 // 4
                 image = "data:image/jpeg;base64," + imageData;
-                $scope.images.push(image);
-                $scope.imagesBase64.push(imageData);
+                $scope.image.push(image);
+                $scope.imageBase64.push(imageData);
             }, function (err) {
                 console.log(err);
             });
@@ -88,7 +101,7 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
                 $scope.idPoiChoosen = $scope.item.pois[$scope.selectedOption - 1].localId;
             }
 
-            addImageService.submit($scope.images, $scope.imagesBase64, $scope.idPoiChoosen, $scope.item.localId).then(function (newpath) {
+            addImageService.submit($scope.image, $scope.imageBase64, $scope.idPoiChoosen, $scope.item.localId).then(function (newpath) {
                 $scope.addimagemodal.hide();
                 //update data
                 $scope.item = newpath.data.data;

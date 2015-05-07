@@ -27,18 +27,20 @@
             </div>
         </div>
         -->
-        <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-            <div class="col col-25" ng-if="$index < images.length">
+        <div class="row" ng-repeat="image in images" ng-if="$index % 2 === 0">
+            <div class="col col-50 col-center" ng-if="$index < images.length">
                 <img ng-src="{{images[$index]}}" width="100%" ng-click="openModal($index)" />
             </div>
-            <div class="col col-25" ng-if="$index + 1 < images.length">
+            <div class="col col-50 col-center" ng-if="$index + 1 < images.length">
                 <img ng-src="{{images[$index + 1]}}" width="100%" ng-click="openModal($index+1)" />
             </div>
-            <div class="col col-25" ng-if="$index + 2 < images.length">
-                <img ng-src="{{images[$index + 2]}}" width="100%" ng-click="openModal($index+2)" />
-            </div>
-            <div class="col col-25" ng-if="$index + 3 < images.length">
-                <img ng-src="{{images[$index + 3]}}" width="100%" ng-click="openModal($index+3)" />
-            </div>
+<!--
+<div class="col col-25 col-center" ng-if="$index + 2 < images.length">
+    <img ng-src="{{images[$index + 2]}}" width="100%" ng-click="openModal($index+2)" />
+</div>
+<div class="col col-25 col-center" ng-if="$index + 3 < images.length">
+    <img ng-src="{{images[$index + 3]}}" width="100%" ng-click="openModal($index+3)" />
+</div>
+-->
         </div>
     </ion-content>

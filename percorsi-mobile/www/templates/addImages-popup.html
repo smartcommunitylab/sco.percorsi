@@ -4,10 +4,10 @@
     </ion-header-bar>
     <ion-content>
         <div class="types-buttons">
-            <button class="button button-light button-large" ng-click="addImage('Camera')" ng-if="images.length == 0">
+            <button class="button button-light button-large" ng-click="addImage('Camera')" ng-if="image.length == 0">
                 <i class=" icon ion-android-camera"></i>
             </button>
-            <button class="button button-light button-large" ng-click="addImage('Gallery')" ng-if="images.length == 0">
+            <button class="button button-light button-large" ng-click="addImage('Gallery')" ng-if="image.length == 0">
                 <i class=" icon ion-images"></i>
             </button>
         </div>
@@ -22,9 +22,9 @@
             </div>
         </div>
 
-        <div class="wrapper" ng-repeat="image in images">
-            <img data-ng-src="{{image}}" width="200px" />
-            <span class="close" ng-click="removeImage(image)"></span>
+        <div class="wrapper" ng-repeat="img in image">
+            <img data-ng-src="{{img}}" width="200px" />
+            <span class="close" ng-click="removeImage(img)"></span>
         </div>
 
         <div class="row actions-buttons">

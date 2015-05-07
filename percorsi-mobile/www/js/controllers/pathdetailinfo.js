@@ -97,6 +97,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         for (var i = 0; i < $scope.item.images.length; i++) {
             gallery.push($scope.item.images[i].url);
         }
+        for (var i = 0; i < $scope.item.videos.length; i++) {
+            gallery.push($scope.youtubeEmbed($scope.item.videos[i].url));
+        }
         galleryService.setGallery(gallery);
         window.location.assign("#/app/gallery");
 
