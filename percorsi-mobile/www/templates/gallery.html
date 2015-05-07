@@ -1,4 +1,4 @@
-<ion-view id="paths" title="{{!!category.name ? (category.name | translate_remote) : ('menu_favorites' | translate)}}" ng-init="loadImages()">
+<ion-view id="paths" title="{{('gallery_title' | translate)}}" ng-init="loadImages()">
     <ion-nav-buttons>
         <!--
     <a class="button button-icon icon myback" ng-click="back()"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
@@ -16,30 +16,29 @@
     </ion-nav-buttons>
     <ion-content has-header="true" has-footer="true" ng-controller="DetailsSlideBoxCtrl">
         <!--
-<div class="row responsive-md" ng-init="loadImages()">
-    <div class="col col-25" ng-repeat="image in images">
-        <img ng-src="{{image.src}}" width="100%" />
-    </div>
-</div>
--->
-        <!--
-        <div ng-repeat="image in images">
-            <div ng-if="$index%2==0" class="row">
-                <div class="col">
-                    <img class="image-gallery" id={{$index}} ng-src={{images[$index].url}}/>
-                    <img class="image-gallery" id={{$index+1}} ng-src={{images[$index+1].url}}/>
-
-
+        <div class="row gallery-row" ng-repeat="image in images" ng-if="$index % 2 === 0">
+            <div class="col col-50 crop" ng-if="$index < images.length">
+                <div class="center-cropped" style="background-image: url('{{images[$index]}}');" ng-click="openModal($index)">
+                </div>
+            </div>
+            <div class="col col-50 crop" ng-if="$index + 1 < images.length">
+                <div class="center-cropped" style="background-image: url('{{images[$index+1]}}');" ng-click="openModal($index+1)">
                 </div>
             </div>
         </div>
--->
-        <div class="row gallery-row" ng-repeat="image in images" ng-if="$index % 2 === 0">
-            <div class="col col-50 crop" ng-if="$index < images.length">
-                <img ng-src="{{images[$index].url}}" width="100%" ng-click="openModal($index)" />
+        -->
+        <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
+            <div class="col col-25" ng-if="$index < images.length">
+                <img ng-src="{{images[$index]}}" width="100%" ng-click="openModal($index)" />
             </div>
-            <div class="col col-50 crop" ng-if="$index + 1 < images.length">
-                <img ng-src="{{images[$index + 1].url}}" width="100%" ng-click="openModal($index+1)" />
+            <div class="col col-25" ng-if="$index + 1 < images.length">
+                <img ng-src="{{images[$index + 1]}}" width="100%" ng-click="openModal($index+1)" />
+            </div>
+            <div class="col col-25" ng-if="$index + 2 < images.length">
+                <img ng-src="{{images[$index + 2]}}" width="100%" ng-click="openModal($index+2)" />
+            </div>
+            <div class="col col-25" ng-if="$index + 3 < images.length">
+                <img ng-src="{{images[$index + 3]}}" width="100%" ng-click="openModal($index+3)" />
             </div>
         </div>
     </ion-content>

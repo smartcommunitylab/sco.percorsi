@@ -4,8 +4,7 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
         $scope.item = singlePathService.getSelectedPath();
         $scope.images = [];
         $scope.loadImages = function () {
-            $scope.images = galleryService.getGallery();
-        }
+            $scope.images = galleryService.getGallery();        }
 
         $scope.openAddimage = function () {
             if ($scope.userIsLogged) {

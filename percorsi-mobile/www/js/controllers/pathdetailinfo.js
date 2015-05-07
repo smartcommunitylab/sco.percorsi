@@ -93,8 +93,13 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
 
     $scope.openGallery = function () {
+        var gallery = [];
+        for (var i = 0; i < $scope.item.images.length; i++) {
+            gallery.push($scope.item.images[i].url);
+        }
+        galleryService.setGallery(gallery);
         window.location.assign("#/app/gallery");
-        galleryService.setGallery($scope.item.images);
+
 
     }
 

@@ -636,15 +636,18 @@ ion-side-menu ion-item .icon {
     padding-left: 6px;
 }
 
+/*
 .image-gallery {
     width: 100px;
     height: 100px;
 }
 
 .gallery-row {
-    height: 256px;
+    height: 180px;
 }
+*/
 
+/*
 .crop {
     overflow: hidden;
 }
@@ -654,3 +657,10 @@ ion-side-menu ion-item .icon {
     height: 300px;
     margin: -75px 0 0 -100px;
 }
+
+.center-cropped {
+    width: 256px;
+    height: 256px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}*/

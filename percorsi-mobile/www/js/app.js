@@ -323,8 +323,8 @@ angular.module('roveretoPercorsi', [
         review_empty_error: 'Inserire uuna recensione',
         path_tracks_title: 'TRACCE AUDIO',
         path_more_information: 'Più informazioni',
-        path_less_information: 'Meno informazioni'
-
+        path_less_information: 'Meno informazioni',
+        gallery_title: 'Immagini'
     });
 
     $translateProvider.translations('en', {
@@ -382,7 +382,9 @@ angular.module('roveretoPercorsi', [
         review_empty_error: 'Please insert a review',
         path_tracks_title: 'AUDIO TRACKS',
         path_more_information: 'More informations',
-        path_less_information: 'Less informations'
+        path_less_information: 'Less informations',
+        gallery_title: 'Images'
+
 
     });
 
@@ -441,7 +443,8 @@ angular.module('roveretoPercorsi', [
         review_empty_error: 'Please insert a review',
         path_tracks_title: 'TRACCE AUDIO',
         path_more_information: 'More informations',
-        path_less_information: 'Less informations'
+        path_less_information: 'Less informations',
+        gallery_title: 'Images'
 
     });
 
