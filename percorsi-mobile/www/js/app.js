@@ -33,7 +33,8 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.addImageService',
     'roveretoPercorsi.services.reviews',
     'roveretoPercorsi.services.db',
-    'roveretoPercorsi.services.favoritesService'
+    'roveretoPercorsi.services.favoritesService',
+    'roveretoPercorsi.controllers.pathdetailsocialgallery'
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate) {
@@ -98,7 +99,7 @@ angular.module('roveretoPercorsi', [
 
     // for BlackBerry 10, WP8, iOS
     setTimeout(function () {
-        $cordovaSplashscreen.hide();
+        //$cordovaSplashscreen.hide();
         //navigator.splashscreen.hide();
     }, 3000);
 
@@ -228,6 +229,17 @@ angular.module('roveretoPercorsi', [
         }
     })
 
+    .state('app.socialgallery', {
+        cache: false,
+        url: '/socialgallery',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/pathdetail-socialgallery.html',
+                controller: 'PathDetailSocialGalleryCtrl'
+            }
+        }
+    })
+
     .state('app.poidetail', {
         cache: false,
         url: '/poidetail',
@@ -305,7 +317,8 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login effettuato con successo',
         syncing: 'aggiornamento in corso...',
         cleaning: 'pulizia in corso...',
-        review_empty_error: 'Inserire uuna recensione'
+        review_empty_error: 'Inserire una recensione',
+        social_gallery: 'Immagini dagli utenti'
     });
 
     $translateProvider.translations('en', {
@@ -358,8 +371,8 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login done',
         syncing: 'syncing....',
         cleaning: 'cleaning...',
-        review_empty_error: 'Please insert a review'
-
+        review_empty_error: 'Please insert a review',
+        social_gallery: 'Images from users'
     });
 
     $translateProvider.translations('de', {
@@ -412,8 +425,8 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login done',
         syncing: 'Laufende Aktualisierung...',
         cleaning: 'Reinigung im Laufe...',
-        review_empty_error: 'Please insert a review'
-
+        review_empty_error: 'Please insert a review', // Not in German
+        social_gallery: 'Images from users' // Same here...
     });
 
     $translateProvider.preferredLanguage("en");
