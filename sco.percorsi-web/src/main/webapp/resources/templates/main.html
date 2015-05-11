@@ -22,8 +22,19 @@
 	              <div class="panel panel-default">
 	                <div class="row">
 		              <div class="col-md-12">
-		                <form class="col-md-12" action="upload" method="post" enctype="multipart/form-data" ng-upload="uploadComplete(content)">
-                          <h4>Model upload</h4>
+		                <form class="col-md-12" action="uploadxml" method="post" enctype="multipart/form-data" ng-upload="uploadComplete(content)">
+    					  <div class="row">
+    					    <div class="col-md-8">
+                              <h4>Model upload</h4>
+    					    </div>
+							<div class="col-md-4">
+								<button ng-click="exportPaths()" type="button" class="form-group btn btn-info pull-right">Export paths</button>
+							</div>
+						  </div>
+						  <div class="form-group">
+                            <label for="file">Categories</label>
+                            <input id="file" name="categories" type="file" />
+                          </div>
 		                  <div class="form-group">
 		                    <label for="file">Paths</label>
 		                    <input id="file" name="paths" type="file" />

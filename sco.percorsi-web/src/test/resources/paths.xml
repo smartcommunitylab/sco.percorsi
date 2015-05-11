@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathData xmlns="http://xml.percorsi.smartcommunitylab.it" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.percorsi.smartcommunitylab.it ../../../XSD/datamodel.xsd ">
+  <path pathId="">
+    <title lang="">title</title>
+    <description lang="">description</description>
+    <category>category1</category>
+    <category>category2</category>
+    <image>
+      <url>http://tempuri.org</url>
+    </image>
+    <video>
+      <url>http://tempuri.org</url>
+    </video>
+    <externalURL>http://tempuri.org</externalURL>
+    <attributes>
+      <attribute name="DURATION">240</attribute>
+      <attribute name="LENGTH">5</attribute>
+      <attribute name="DIFFICULTY">1</attribute>
+    </attributes>
+    <shape>shape</shape>
+    <poi poiId="1">
+      <title lang="">title-poi1</title>
+      <description lang="">description</description>
+      <image>
+        <url>http://tempuri.org</url>
+      </image>
+      <video>
+        <url>http://tempuri.org</url>
+      </video>
+      <audio>
+        <url>http://tempuri.org</url>
+      </audio>
+      <coordinates latitude="0.0" longitude="0.0"/>
+    </poi>
+    <poi poiId="2">
+      <title lang="">title-poi2</title>
+      <description lang="">description</description>
+      <image>
+        <url>http://tempuri.org</url>
+      </image>
+      <video>
+        <url>http://tempuri.org</url>
+      </video>
+      <audio>
+        <url>http://tempuri.org</url>
+      </audio>
+      <coordinates latitude="0.0" longitude="0.0"/>
+    </poi>
+    </path>
+</PathData>

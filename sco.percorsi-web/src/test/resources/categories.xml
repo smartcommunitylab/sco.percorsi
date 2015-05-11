@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Categories lastChange="2001-12-31T12:00:00" xmlns:tns="http://xml.percorsi.smartcommunitylab.it" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.percorsi.smartcommunitylab.it ../../../XSD/datamodel.xsd ">
+  <tns:category categoryId="c1">
+    <tns:name lang="it">Nome1</tns:name>
+    <tns:name lang="en">Name1</tns:name>
+    <tns:description lang="it">Descrizione1</tns:description>
+    <tns:description lang="en">Description1</tns:description>
+    <tns:image>http://tempuri.org</tns:image>
+  </tns:category>
+  <tns:category categoryId="c2">
+    <tns:name lang="it">Nome2</tns:name>
+    <tns:name lang="en">Name2</tns:name>
+    <tns:description lang="it">Descrizione2</tns:description>
+    <tns:description lang="en">Description2</tns:description>
+    <tns:image>http://tempuri.org</tns:image>
+  </tns:category>
+</tns:Categories>

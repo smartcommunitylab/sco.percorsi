@@ -162,6 +162,33 @@
 	</dependencies>
 	<build>
 		<plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>SayService</id>
+                        <configuration>
+                            <schemaDirectory>XSD</schemaDirectory>
+                            <bindingDirectory>XSD</bindingDirectory>
+                            <outputDirectory>src/main/generated-sources</outputDirectory>
+                            <clearOutputDir>false</clearOutputDir>
+                            <arguments>-Xvalue-constructor</arguments>
+                        </configuration>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jvnet.jaxb2_commons</groupId>
+                        <artifactId>jaxb2-value-constructor</artifactId>
+                        <version>3.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>

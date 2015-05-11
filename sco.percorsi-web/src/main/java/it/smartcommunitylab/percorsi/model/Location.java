@@ -4,6 +4,17 @@ public class Location {
 
 	private double lat;
 	private double lng;
+	
+	public Location() {
+		super();
+	}
+
+	public Location(double lat, double lng) {
+		super();
+		this.lat = lat;
+		this.lng = lng;
+	}
+
 	/**
 	 * @return the lat
 	 */

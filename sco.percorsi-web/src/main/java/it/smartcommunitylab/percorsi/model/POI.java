@@ -16,7 +16,27 @@ public class POI extends PercorsiObject {
 	private List<Multimedia> videos;
 	private List<Multimedia> audios;
 
+	private String externalUrl;
+	
 	private Location coordinates;
+
+	public POI() {
+		super();
+	}
+
+	public POI(String localId, Map<String, String> title, Map<String, String> description,
+			List<Multimedia> images, List<Multimedia> videos,
+			List<Multimedia> audios, String externalUrl, Location coordinates) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.images = images;
+		this.videos = videos;
+		this.audios = audios;
+		this.externalUrl = externalUrl;
+		this.coordinates = coordinates;
+		setLocalId(localId);
+	}
 
 	public Map<String, String> getTitle() {
 		return title;
@@ -88,10 +108,21 @@ public class POI extends PercorsiObject {
 		if (title == null) { if (other.title != null) return false; }
 		else if (!title.equals(other.title)) return false;
 
+		if (externalUrl == null) { if (other.externalUrl != null) return false; }
+		else if (!externalUrl.equals(other.externalUrl)) return false;
+
 		if (!MultimediaUtils.multimediaEquals(getVideos(), other.getVideos())) return false;
 		if (!MultimediaUtils.multimediaEquals(getImages(), other.getImages())) return false;
 
 		return true;
 	}
 
+	public String getExternalUrl() {
+		return externalUrl;
+	}
+
+	public void setExternalUrl(String externalUrl) {
+		this.externalUrl = externalUrl;
+	}
+	
 }

@@ -71,7 +71,7 @@ public class PercorsiManager {
 			if (ps.getCategories() != null) {
 				ps.getCategories().setLocalId("1");
 				Categories categories = repository.getObjectById("1",Categories.class,ps.getId());
-				if (categories == null || !categories.getLastChange().equals(ps.getCategories().getLastChange())) {
+				if (categories == null || categories.getLastChange() < ps.getCategories().getLastChange()) {
 					repository.storeObject(ps.getCategories(), ps.getId());
 				}
 			}
@@ -112,6 +112,17 @@ public class PercorsiManager {
 		}
 	}
 
+	public void storeCategories(String appId, Categories data) throws DataException {
+		if (data.getCategories() != null) {
+			data.setLocalId("1");
+			data.setAppId(appId);
+			Categories categories = repository.getObjectById("1",Categories.class,appId);
+			if (categories == null || categories.getLastChange() < data.getLastChange()) {
+				repository.storeObject(data, appId);
+			}
+		}
+	}
+	
 	public Categories getCategories(String appId) throws DataException {
 		Categories categories = repository.getObjectById("1",Categories.class, appId);
 		return categories;
@@ -226,4 +237,5 @@ public class PercorsiManager {
 		Rating rating = ratingRepository.findByAppIdAndLocalIdAndUserId(appId, pathId, contributor.getUserId());
 		return rating;
 	}
+
 }

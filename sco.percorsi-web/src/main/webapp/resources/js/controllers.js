@@ -15,10 +15,16 @@ var consoleControllers = angular.module('consoleControllers', [])
         	var txt = [];
         	if (content.errorMessage) {
         		txt.push(content.errorMessage);
+        	} else {
+        		txt.push("General server error");
         	}
         	$scope.successText = '';
     		$scope.errorTexts = txt;
     	}
     };
 
+    $scope.exportPaths = function() {
+    	window.open('export','_blank');
+    };
+    
   }]);
