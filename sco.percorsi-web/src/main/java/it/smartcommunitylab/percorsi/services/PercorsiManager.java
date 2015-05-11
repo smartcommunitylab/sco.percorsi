@@ -43,6 +43,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import eu.trentorise.smartcampus.presentation.common.exception.DataException;
 import eu.trentorise.smartcampus.presentation.common.exception.NotFoundException;
@@ -65,6 +66,9 @@ public class PercorsiManager {
 	@Autowired
 	private ProviderSetup providerSetup;
 
+	@Autowired
+	private ModerationManager moderationManager;
+	
 	@PostConstruct
 	private void init() throws DataException {
 		for (ProviderSettings ps : providerSetup.getProviders()) {
@@ -154,6 +158,7 @@ public class PercorsiManager {
 		if (path.getImages() == null) path.setImages(new ArrayList<Multimedia>());
 		path.getImages().add(new Multimedia(url, true, contributor.getUserId()));
 		repository.storeObject(path);
+		moderationManager.addModObjects(appId, pathId, Path.class.getName(), url, contributor);
 		return getPath(appId, pathId);
 	}
 	public Path addImageToPOI(String appId, String pathId, String poiId, String url, Contributor contributor) throws DataException, NotFoundException {
@@ -168,6 +173,7 @@ public class PercorsiManager {
 					if (poi.getImages() == null) poi.setImages(new ArrayList<Multimedia>());
 					poi.getImages().add(new Multimedia(url, true, contributor.getUserId()));
 					repository.storeObject(path);
+					moderationManager.addModObjects(appId, pathId, Path.class.getName(), url, contributor);
 					return getPath(appId, pathId);
 				}
 			}
@@ -207,6 +213,10 @@ public class PercorsiManager {
 		rating.setTimestamp(System.currentTimeMillis());
 		ratingRepository.save(rating);
 
+		if (StringUtils.hasText(comment)) {
+			moderationManager.addModObjects(appId, pathId, Rating.class.getName(), comment, contributor);
+		}
+		
 		List<Rating> list = ratingRepository.findByAppIdAndLocalId(appId, pathId);
 
 		double avg = 0;

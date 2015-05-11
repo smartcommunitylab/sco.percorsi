@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PathData xmlns="http://xml.percorsi.smartcommunitylab.it" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.percorsi.smartcommunitylab.it ../../../XSD/datamodel.xsd ">
-  <path pathId="">
+  <path pathId="path1">
     <title lang="">title</title>
     <description lang="">description</description>
     <category>category1</category>
