@@ -22,7 +22,7 @@
 	              <div class="panel panel-default">
 	                <div class="row">
 		              <div class="col-md-12">
-		                <form class="col-md-12" action="uploadxml" method="post" enctype="multipart/form-data" ng-upload="uploadComplete(content)">
+		                <form class="col-md-12" action="console/uploadxml" method="post" enctype="multipart/form-data" ng-upload="uploadComplete(content)">
     					  <div class="row">
     					    <div class="col-md-8">
                               <h4>Model upload</h4>
@@ -47,6 +47,44 @@
 	              </div>
                 </div>
               </div>
+              <div class="row" ng-if="profile.moderation">
+                <div class="col-md-8">               
+	                <h2>Moderation</h2>
+	                <ul class="nav nav-tabs">
+					  <li role="presentation" ng-class="{'active':modView=='it.smartcommunitylab.percorsi.model.Path'}"><a ng-click="modView='it.smartcommunitylab.percorsi.model.Path'">User Images</a></li>
+	                  <li role="presentation" ng-class="{'active':modView=='it.smartcommunitylab.percorsi.model.Rating'}"><a ng-click="modView='it.smartcommunitylab.percorsi.model.Rating'">Comments</a></li>
+					</ul>
+					<div ng-if="modView=='it.smartcommunitylab.percorsi.model.Path'">
+					   <div>&nbsp;</div>
+					   <table class="table table-hover">
+					       <tr ng-repeat="img in moderated['it.smartcommunitylab.percorsi.model.Path']">
+					          <td><strong>{{img.contributor.name}}</strong><br/><img width="200px" ng-src="{{img.value}}" class="img-responsive img-rounded" ></td>
+					          <td style="text-align: right;">
+					           <button type="button" ng-click="accept(img,'it.smartcommunitylab.percorsi.model.Path')" class="btn btn-primary">
+                                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </button>
+                               <button type="button" ng-click="reject(img, 'it.smartcommunitylab.percorsi.model.Path')" class="btn btn-danger">
+                                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+					       </tr>  
+		               </table> 
+	                </div>
+	                <div ng-if="modView=='it.smartcommunitylab.percorsi.model.Rating'">
+                       <div>&nbsp;</div>
+                       <table class="table table-hover">
+                           <tr ng-repeat="c in moderated['it.smartcommunitylab.percorsi.model.Rating']">
+                              <td><strong>{{c.contributor.name}}</strong><br/>{{c.value}}</td>
+                              <td style="text-align: right;">
+                               <button type="button" ng-click="accept(c,'it.smartcommunitylab.percorsi.model.Rating')" class="btn btn-primary">
+                                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </button>
+                               <button type="button" ng-click="reject(c, 'it.smartcommunitylab.percorsi.model.Rating')" class="btn btn-danger">
+                                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+                           </tr>  
+                       </table> 
+	                </div>
+                </div>
 			</div>
 		</div>
 	</div>

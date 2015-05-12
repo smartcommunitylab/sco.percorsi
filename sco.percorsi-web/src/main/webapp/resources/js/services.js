@@ -23,6 +23,24 @@ angular.module('DataService', [])
           });
           return deferred.promise;
        },
+       getModerated : function(type) {
+           var deferred = $q.defer();
+           $http.get('console/moderated/'+type).success(function(data) {
+             deferred.resolve(data);
+           }).error(function(e) {
+             deferred.reject(e);
+           });
+           return deferred.promise;
+       },
+       decide : function(type, localId, value, contributor, action) {
+           var deferred = $q.defer();
+           $http.post('console/moderated/'+type+'/'+localId+'/'+contributor+'/'+action+'?value='+encodeURIComponent(value)).success(function(data) {
+             deferred.resolve(data);
+           }).error(function(e) {
+             deferred.reject(e);
+           });
+           return deferred.promise;
+       },
 	   logout : logout
     };
   }

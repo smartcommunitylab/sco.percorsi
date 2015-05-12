@@ -17,13 +17,18 @@
 package it.smartcommunitylab.percorsi.controllers;
 
 import it.smartcommunitylab.percorsi.model.Categories;
+import it.smartcommunitylab.percorsi.model.ModObj;
 import it.smartcommunitylab.percorsi.model.PathData;
 import it.smartcommunitylab.percorsi.model.ProviderSettings;
+import it.smartcommunitylab.percorsi.model.Rating;
 import it.smartcommunitylab.percorsi.model.Response;
 import it.smartcommunitylab.percorsi.security.CustomAuthenticationProvider.AppDetails;
 import it.smartcommunitylab.percorsi.security.ProviderSetup;
+import it.smartcommunitylab.percorsi.services.ModerationManager;
 import it.smartcommunitylab.percorsi.services.PercorsiManager;
 import it.smartcommunitylab.percorsi.utils.XMLUtils;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXB;
@@ -35,8 +40,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -54,7 +61,9 @@ public class ConsoleController {
 	private PercorsiManager manager;
 	@Autowired
 	private ProviderSetup setup;
-
+	@Autowired
+	private ModerationManager moderationManager;
+	
 	@RequestMapping("/")
 	public String home() {
 		return "index";
@@ -70,7 +79,7 @@ public class ConsoleController {
 		return setup.findProviderById(getAppId());
 	}
 
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	@RequestMapping(value = "/console/upload", method = RequestMethod.POST)
 	public @ResponseBody ProviderSettings upload(MultipartHttpServletRequest req) throws Exception {
 		MultiValueMap<String, MultipartFile> multiFileMap = req.getMultiFileMap();
 		MultipartFile file = multiFileMap.getFirst("paths");
@@ -82,7 +91,7 @@ public class ConsoleController {
 		return setup.findProviderById(appId);
 	}
 
-	@RequestMapping(value = "/uploadxml", method = RequestMethod.POST)
+	@RequestMapping(value = "/console/uploadxml", method = RequestMethod.POST)
 	public @ResponseBody ProviderSettings uploadXML(MultipartHttpServletRequest req) throws Exception {
 		MultiValueMap<String, MultipartFile> multiFileMap = req.getMultiFileMap();
 		MultipartFile file = multiFileMap.getFirst("paths");
@@ -102,10 +111,28 @@ public class ConsoleController {
 		return setup.findProviderById(appId);
 	}
 
-	@RequestMapping(value = "/export", method = RequestMethod.GET) 
+	@RequestMapping(value = "/console/export", method = RequestMethod.GET) 
 	@ResponseBody 
 	it.smartcommunitylab.percorsi.xml.PathData exportPaths() throws DataException {
 		return XMLUtils.toXML(new PathData(manager.getPaths(getAppId(), null)));
+	}
+	
+	@RequestMapping(value = "/console/moderated/{type:.*}")
+	public @ResponseBody List<ModObj> getRatings(@PathVariable String type) {
+		return moderationManager.getModObjects(getAppId(), type);
+	}
+	@RequestMapping(value = "/console/moderated/{type}/{localId}/{contributorId}/accept", method=RequestMethod.POST)
+	public @ResponseBody List<ModObj> accept(@PathVariable String type, @PathVariable String localId, @PathVariable String contributorId, @RequestParam String value) {
+		moderationManager.acceptModObject(getAppId(), localId, type, contributorId, value);
+		return moderationManager.getModObjects(getAppId(), type);
+	}
+	@RequestMapping(value = "/console/moderated/{type}/{localId}/{contributorId}/reject", method=RequestMethod.POST)
+	public @ResponseBody List<ModObj> reject(@PathVariable String type, @PathVariable String localId, @PathVariable String contributorId, @RequestParam String value) throws DataException {
+		if (Rating.class.getName().equals(type))
+			moderationManager.rejectComment(getAppId(), localId, contributorId, value);
+		else 
+			moderationManager.rejectUserImage(getAppId(), localId, contributorId, value);
+		return moderationManager.getModObjects(getAppId(), type);
 	}
 	
 	private String getAppId() {

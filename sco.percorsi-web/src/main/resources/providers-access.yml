@@ -1,6 +1,8 @@
 providers:
   - id: ComuneRovereto
     password: rovereto
+    moderation: true
+    moderator: test@test.test
     categories:
         lastChange: 1
         categories:
