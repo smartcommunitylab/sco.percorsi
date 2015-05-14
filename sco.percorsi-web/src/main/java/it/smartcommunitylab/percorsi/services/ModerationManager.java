@@ -84,7 +84,7 @@ public class ModerationManager {
 	public void rejectUserImage(String appId, String localId, String contributorId, String value) throws DataException {
 		if (!moderated(appId)) return;
 
-		List<ModObj> objs = repository.findByContributor(appId, localId, Rating.class.getName(), contributorId, value);
+		List<ModObj> objs = repository.findByContributor(appId, localId, Path.class.getName(), contributorId, value);
 		if (objs != null && ! objs.isEmpty()) {
 			for (ModObj obj : objs) {
 				obj.setStatus(-1);
