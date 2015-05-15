@@ -18,19 +18,24 @@
     <ion-content has-header="true">
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
-            <!--
+
             <ion-slide-box delegate-handle="path-details-slide-box" does-continue="true" auto-play="true">
-                <ion-slide ng-repeat="image in item.images track by $index" ng-click="openModal('path-details-slide-box')">
+                <!--
+                <ion-slide ng-click="openModal('path-details-slide-box')">
+                    <div cover-img="{{item.images[0].url}}"></div>
+                </ion-slide>
+-->
+                <ion-slide ng-repeat="image in getOfficialItems(item.images) track by $index" ng-click="openModal('path-details-slide-box',-1)">
                     <div cover-img="{{image.url}}"></div>
                 </ion-slide>
-                <ion-slide ng-repeat="video in item.videos">
+                <ion-slide ng-repeat="video in getOfficialItems(item.videos)">
                     <div class="video" cover-img="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');">
                         <i class="icon ion-play"></i>
                     </div>
                 </ion-slide>
             </ion-slide-box>
--->
-            <div cover-img="{{item.images[0].url}}" class="cover-img"></div>
+
+            <!--            <div cover-img="{{item.images[0].url}}" class="cover-img"></div>-->
 
             <!--            <img ng-src="{{item.images[0].url}}" alt="Description" />-->
 
@@ -41,9 +46,16 @@
     </div>
 </button>
 -->
-            <button id="button-start" class="button button-full button-percorsi button-start" ng-click="openGallery()">
-                <i class="icon ion-images"></i>
+            <button class="button button-percorsi button-fab" ng-click="openGallery()">
+                <div>
+                    <span><i class="icon ion-images"></i></span>
+                </div>
             </button>
+            <!--
+<button id="button-start" class="button button-full button-percorsi button-start" ng-click="openGallery()">
+    <i class="icon ion-images"></i>
+</button>
+-->
         </div>
 
         <!-- Path content -->

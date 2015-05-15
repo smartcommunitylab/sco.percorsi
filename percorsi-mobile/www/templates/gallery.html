@@ -14,27 +14,40 @@
             </div>
         </button>
     </ion-nav-buttons>
-    <ion-content has-header="true" has-footer="true" ng-controller="DetailsSlideBoxCtrl">
-        <!--
-        <div class="row gallery-row" ng-repeat="image in images" ng-if="$index % 2 === 0">
-            <div class="col col-50 crop" ng-if="$index < images.length">
-                <div class="center-cropped" style="background-image: url('{{images[$index]}}');" ng-click="openModal($index)">
-                </div>
-            </div>
-            <div class="col col-50 crop" ng-if="$index + 1 < images.length">
-                <div class="center-cropped" style="background-image: url('{{images[$index+1]}}');" ng-click="openModal($index+1)">
-                </div>
-            </div>
+    <ion-content has-header="true" has-footer="true" ng-controller="GallerySlideBoxCtrl">
+        <div class="padding emptylist" ng-if="emptylist">
+            <!--<div class="item item-text-wrap">-->
+            {{'empty_gallery' | translate}}
+            <!--</div>-->
         </div>
-        -->
-        <div class="row" ng-repeat="image in images" ng-if="$index % 2 === 0">
+        <div class="row" ng-repeat="image in images" ng-if="$index % 2 === 0" ng-if="!emptylist">
             <div class="col col-50 col-center" ng-if="$index < images.length">
-                <img ng-src="{{images[$index]}}" width="100%" ng-click="openModal($index)" />
+                <div class="gallery-tile" ng-click="getImageAction($index)">
+                    <img ng-src="{{getURLSource(images[$index])}}" width="100%" />
+                    <i class="icon ion-play play-overlay" ng-if="isAVideo(images[$index])"></i>
+
+                    <div class="button button-percorsi circle-type">
+                        <span>
+                            <i class="icon sco-public type-overlay" ng-if="images[$index].userDefined"></i>
+                            <i class="icon sco-flag type-overlay" ng-if="!images[$index].userDefined"></i>
+                        </span>
+                    </div>
+                </div>
+
             </div>
             <div class="col col-50 col-center" ng-if="$index + 1 < images.length">
-                <img ng-src="{{images[$index + 1]}}" width="100%" ng-click="openModal($index+1)" />
+                <div class="gallery-tile" ng-click="getImageAction($index+1)">
+                    <img ng-src="{{getURLSource(images[$index + 1])}}" width="100%" />
+                    <i class="icon ion-play play-overlay" ng-if="isAVideo(images[$index + 1])"></i>
+                    <div class="button button-percorsi circle-type">
+                        <span>
+                            <i class="icon sco-public type-overlay" ng-if="images[$index+1].userDefined"></i>
+                            <i class="icon sco-flag type-overlay" ng-if="!images[$index+1].userDefined"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
-<!--
+            <!--
 <div class="col col-25 col-center" ng-if="$index + 2 < images.length">
     <img ng-src="{{images[$index + 2]}}" width="100%" ng-click="openModal($index+2)" />
 </div>

@@ -51,7 +51,14 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         return $scope.shownGroup === group;
     };
 
+    $scope.openGallery = function () {
+        var gallery = galleryService.createGallery($scope.item);
+        galleryService.setGallery(gallery);
+        galleryService.galleryof = "path";
+        window.location.assign("#/app/gallery");
 
+
+    }
     $scope.toggleDescription = function () {
         if ($scope.isDescriptionShown()) {
             $scope.expandedDescritpion = false;
@@ -60,6 +67,17 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
         }
     };
+    $scope.getOfficialItems = function (arrayItems) {
+        var arrayLength = arrayItems.length;
+        var returnItems = [];
+        for (var i = 0; i < arrayLength; i++) {
+            if (!arrayItems[i].userDefined) {
+                returnItems.push(arrayItems[i]);
+            }
+        }
+        return returnItems;
+    }
+
     $scope.isDescriptionShown = function () {
         return $scope.expandedDescritpion;
     };
@@ -92,19 +110,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
     $scope.selectedOption = $scope.options[0];
 
 
-    $scope.openGallery = function () {
-        var gallery = [];
-        for (var i = 0; i < $scope.item.images.length; i++) {
-            gallery.push($scope.item.images[i].url);
-        }
-        for (var i = 0; i < $scope.item.videos.length; i++) {
-            gallery.push($scope.youtubeEmbed($scope.item.videos[i].url));
-        }
-        galleryService.setGallery(gallery);
-        window.location.assign("#/app/gallery");
-
-
-    }
 
     $scope.back = function () {
         window.location.assign("#/app/path");

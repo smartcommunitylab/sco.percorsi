@@ -1,7 +1,7 @@
-angular.module('roveretoPercorsi.controllers.detailsslidebox', [])
+angular.module('roveretoPercorsi.controllers.galleryslidebox', [])
 
-.controller('DetailsSlideBoxCtrl', function ($scope, $http, $ionicSlideBoxDelegate, $ionicModal, galleryService) {
-    $ionicModal.fromTemplateUrl('templates/detailmodal.html', {
+.controller('GallerySlideBoxCtrl', function ($scope, $http, $ionicSlideBoxDelegate, $ionicModal, galleryService) {
+    $ionicModal.fromTemplateUrl('templates/gallerymodal.html', {
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function (modal) {

@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.poidetail', [])
 
-.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService) {
+.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService) {
     $scope.path = singlePathService.getSelectedPath();
     $scope.item = singlePoiService.getSelectedPoi();
     $scope.idPoiChoosen = null;
@@ -108,6 +108,45 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         $scope.selectedOption = item;
 
     }
+    $scope.getOfficialItems = function (arrayItems) {
+        var arrayLength = 0;
+        if (arrayItems) {
+            arrayLength = arrayItems.length;
+        }
+        var returnItems = [];
+        for (var i = 0; i < arrayLength; i++) {
+            if (!arrayItems[i].userDefined) {
+                returnItems.push(arrayItems[i]);
+            }
+        }
+        return returnItems;
+    }
+
+    $scope.openGallery = function () {
+        //        var gallery = [];
+        //        if ($scope.item.images) {
+        //            for (var i = 0; i < $scope.item.images.length; i++) {
+        //                gallery.push({
+        //                    url: $scope.item.images[i].url,
+        //                    type: "image"
+        //                });
+        //            }
+        //        }
+        //        if ($scope.item.videos) {
+        //            for (var i = 0; i < $scope.item.videos.length; i++) {
+        //                gallery.push({
+        //                    url: $scope.item.videos[i].url,
+        //                    type: "video"
+        //                });
+        //            }
+        //        }
+        var gallery = galleryService.createGallery($scope.item);
+        galleryService.setGallery(gallery);
+        galleryService.galleryof = "poi";
+        window.location.assign("#/app/gallery");
+
+
+    }
     $scope.submit = function () {
         console.log("entering submit");
         if ($scope.selectedOption == 0) {
@@ -133,7 +172,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
                 $scope.item = newpath.data.data.pois[singlePoiService.getIndexPoi()];
             }
             //$ionicSlideBoxDelegate.update();
-            $ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').update();
+            $ionicSlideBoxDelegate.update();
             DatiDB.reset();
         });
 

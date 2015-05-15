@@ -24,7 +24,7 @@
 
         <div class="wrapper" ng-repeat="img in image">
             <img data-ng-src="{{img}}" width="200px" />
-            <span class="close" ng-click="removeImage(img)"></span>
+            <span class="close" ng-click="removeImage($index)"></span>
         </div>
 
         <div class="row actions-buttons">

@@ -14,6 +14,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.directives',
     'roveretoPercorsi.controllers.common',
     'roveretoPercorsi.controllers.detailsslidebox',
+    'roveretoPercorsi.controllers.galleryslidebox',
     'roveretoPercorsi.controllers.audioplayer',
     'roveretoPercorsi.controllers.categories',
     'roveretoPercorsi.controllers.profile',
@@ -175,6 +176,7 @@ angular.module('roveretoPercorsi', [
     })
 
     .state('app.paths', {
+        cache: false,
         url: "/categories/:id",
         views: {
             'menuContent': {
@@ -306,6 +308,7 @@ angular.module('roveretoPercorsi', [
         addImage_popup_ok: 'Ok',
         addImage_popup_cancel: 'Annulla',
         addImage_label: 'Aggiungi immagini',
+        addImage_isEmpty: 'Inserire un\'immagine valida',
         images_send_toast_ok: 'Nuove immagini aggiunte con successo',
         images_send_toast_error: 'Problema nell\'invio delle immagini',
         toast_must_login: 'Funzione disabilitata. Devi accedere al sistema',
@@ -324,7 +327,8 @@ angular.module('roveretoPercorsi', [
         path_tracks_title: 'TRACCE AUDIO',
         path_more_information: 'Più informazioni',
         path_less_information: 'Meno informazioni',
-        gallery_title: 'Immagini'
+        gallery_title: 'Immagini',
+        empty_gallery: 'Nessuna immagine presente'
     });
 
     $translateProvider.translations('en', {
@@ -365,6 +369,7 @@ angular.module('roveretoPercorsi', [
         addImage_popup_ok: 'Ok',
         addImage_popup_cancel: 'Cancel',
         addImage_label: 'Add images',
+        addImage_isEmpty: 'Plese, inset an image',
         images_send_toast_ok: 'New images added successfuylly',
         images_send_toast_error: 'Error adding images',
         toast_must_login: 'Function disabled. You must login',
@@ -383,7 +388,8 @@ angular.module('roveretoPercorsi', [
         path_tracks_title: 'AUDIO TRACKS',
         path_more_information: 'More informations',
         path_less_information: 'Less informations',
-        gallery_title: 'Images'
+        gallery_title: 'Images',
+        empty_gallery: 'No images'
 
 
     });
@@ -427,6 +433,7 @@ angular.module('roveretoPercorsi', [
         addImage_popup_ok: 'OK',
         addImage_popup_cancel: 'Schließen',
         addImage_label: 'Bilder hinzufügen',
+        addImage_isEmpty: 'Inserire un\'immagine',
         images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
         images_send_toast_error: 'Fehler beim Hinzufügen von Bildern',
         toast_must_login: 'Add POI',
@@ -444,7 +451,8 @@ angular.module('roveretoPercorsi', [
         path_tracks_title: 'TRACCE AUDIO',
         path_more_information: 'More informations',
         path_less_information: 'Less informations',
-        gallery_title: 'Images'
+        gallery_title: 'Images',
+        empty_gallery: 'No images'
 
     });
 

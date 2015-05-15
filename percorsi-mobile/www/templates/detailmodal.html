@@ -11,8 +11,8 @@
                 <ion-content>
                     <img ng-src="{{image.url}}" />
                     <!--
-                    <p>{{image.title | translate_remote}} <i class="icon sco-flag"></i>
-                    </p>
+<p>{{image.title | translate_remote}} <i class="icon sco-flag"></i>
+</p>
 -->
                     <p class="titlegallery">{{image.title | translate_remote}}</p>
                     <p class="typegallery"><i class="icon sco-flag"></i>
@@ -24,26 +24,15 @@
                     <img ng-src="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');" />
                     <i class="icon ion-play video-play" ng-click="window.open('{{video.url}}', '_system');"></i>
                     <!--
-                    <p>{{video.title | translate_remote}} <i class="icon sco-flag"></i>
-                    </p>
+<p>{{video.title | translate_remote}} <i class="icon sco-flag"></i>
+</p>
 -->
                     <p class="titlegallery">{{video.title | translate_remote}}</p>
                     <p class="typegallery"><i class="icon sco-flag"></i>
                     </p>
                 </ion-content>
             </ion-slide>
-            <ion-slide ng-repeat="image in item.images" ng-if="image.userDefined">
-                <ion-content>
-                    <img ng-src="{{image.url}}" />
-                    <!--
-                    <p>{{image.title | translate_remote}} <i class="icon sco-public"></i>
-                    </p>
--->
-                    <p class="titlegallery">{{image.title | translate_remote}} </p>
-                    <p class="typegallery"><i class="icon sco-public"></i>
-                    </p>
-                </ion-content>
-            </ion-slide>
+
         </ion-slide-box>
     </ion-content>
 </ion-modal-view>

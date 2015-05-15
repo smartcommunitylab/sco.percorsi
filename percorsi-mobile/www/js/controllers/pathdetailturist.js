@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
-.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $ionicModal, $filter, $ionicHistory, Toast, singlePathService, reviewsService, DatiDB) {
+.controller('PathDetailTuristCtrl', function ($scope, $http, $ionicPopup, $ionicModal, $filter, $ionicHistory, Toast, singlePathService, galleryService, reviewsService, DatiDB) {
     $scope.reviews = [];
     $scope.path = singlePathService.getSelectedPath();
     $scope.rating = {
@@ -106,6 +106,19 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
             $scope.loadMore(true);
         });
     };
+//    $scope.openGallery = function () {
+//        var gallery = [];
+//        for (var i = 0; i < $scope.path.images.length; i++) {
+//            if ($scope.path.images[i].userDefined) {
+//                gallery.push($scope.path.images[i].url);
+//            }
+//        }
+//
+//        galleryService.setGallery(gallery);
+//        window.location.assign("#/app/gallery");
+//
+//
+//    }
 
     $scope.showVote = function (name) {
         $scope.rating.myvote = $scope.rating.current;
