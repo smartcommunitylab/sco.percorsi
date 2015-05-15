@@ -15,7 +15,15 @@ import it.smartcommunitylab.percorsi.security.ProviderSetup;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.mail.internet.MimeMessage;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -24,6 +32,8 @@ import eu.trentorise.smartcampus.presentation.common.exception.DataException;
 @Component
 public class ModerationManager {
 
+	private static final Logger logger = LoggerFactory.getLogger(ModerationManager.class);
+	
 	@Autowired
 	private ModeratorRepository repository;
 	@Autowired
@@ -32,6 +42,11 @@ public class ModerationManager {
 	private RatingRepository ratingRepository;
 	@Autowired
 	private ProviderSetup setup;
+	@Autowired
+	JavaMailSender mailSender;
+	@Autowired
+	private Environment env;
+	
 	
 	public List<ModObj> getModObjects(String appId, String type) {
 		return repository.findByFields(appId, type, 0);
@@ -49,7 +64,12 @@ public class ModerationManager {
 		obj.setContributor(contributor);
 		repository.save(obj);
 		
-		notifyModerator(appId, localId, type, value, contributor);
+		try {
+			notifyModerator(appId, localId, type, value, contributor);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("Error sending moderation notification: "+e.getMessage());
+		}
 	}
 
 	public void acceptModObject(String appId, String localId, String type, String contributorId, String value) {
@@ -118,10 +138,23 @@ public class ModerationManager {
 		return providerSettings != null && providerSettings.isModeration();
 	}
 
-	private void notifyModerator(String appId, String localId, String type, String value, Contributor contributor) {
+	private void notifyModerator(String appId, String localId, String type, String value, Contributor contributor) throws Exception {
 		ProviderSettings providerSettings = setup.findProviderById(appId);
 		if (providerSettings != null && StringUtils.hasText(providerSettings.getModerator())) {
-			// TODO
+			final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
+			final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8"); 
+			message.setSubject(env.getProperty("mailSubject"));
+			message.setFrom(env.getProperty("mailFrom"));
+			message.setTo(providerSettings.getModerator());
+
+			// Create the HTML body using Thymeleaf
+			final String htmlContent = "<html><body>"
+					+ "<p>New user "+(type.equals(Rating.class.getName()) ? "comment " : "image")+ ": "+value+"</p>"
+					+ "<p><a href=\""+env.getProperty("moderationConsole")+"\">Moderate</a></p>";
+			message.setText(htmlContent, true);
+			// Send mail
+			this.mailSender.send(mimeMessage);
+			
 		}
 	}
 
