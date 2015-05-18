@@ -86,7 +86,7 @@
                        <table class="table table-default">
                            <tr ng-repeat="m in moderated['it.smartcommunitylab.percorsi.model.Rating']" ng-class="{'read':m.status != 0}">
                               <td><strong>{{m.contributor.name}}</strong><br/>{{m.value}}</td>
-                              <td>{{m.timestamp}}</td>
+                              <td>{{m.timestamp | date : 'dd/MM/yyyy HH:mm'}}</td>
                               <td style="text-align: right;">
                                <button ng-if="m.status != 1" type="button" ng-click="accept(m,'it.smartcommunitylab.percorsi.model.Rating')" class="btn">
                                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
