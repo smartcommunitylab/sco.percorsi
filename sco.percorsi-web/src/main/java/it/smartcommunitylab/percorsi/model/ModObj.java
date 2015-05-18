@@ -13,6 +13,8 @@ public class ModObj {
 	private String value;
 	private Contributor contributor;
 	
+	private long timestamp;
+	
 	private int status;
 	
 	public String getLocalId() {
@@ -51,6 +53,10 @@ public class ModObj {
 	public void setContributor(Contributor contributor) {
 		this.contributor = contributor;
 	}
-
-	
+	public long getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 }

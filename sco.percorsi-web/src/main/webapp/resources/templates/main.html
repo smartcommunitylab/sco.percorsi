@@ -56,33 +56,57 @@
 					</ul>
 					<div ng-if="modView=='it.smartcommunitylab.percorsi.model.Path'">
 					   <div>&nbsp;</div>
-					   <table class="table table-hover">
-					       <tr ng-repeat="img in moderated['it.smartcommunitylab.percorsi.model.Path']">
-					          <td><strong>{{img.contributor.name}}</strong><br/><img width="200px" ng-src="{{img.value}}" class="img-responsive img-rounded" ></td>
+					   <table class="table table-default">
+					       <tr ng-repeat="m in moderated['it.smartcommunitylab.percorsi.model.Path']" ng-class="{'read':m.status != 0}">
+					          <td><strong>{{m.contributor.name}}</strong><br/><img width="200px" ng-src="{{m.value}}" class="img-responsive img-rounded" ></td>
+                              <td>{{m.timestamp | date : 'dd/MM/yyyy HH:mm'}}</td>
 					          <td style="text-align: right;">
-					           <button type="button" ng-click="accept(img,'it.smartcommunitylab.percorsi.model.Path')" class="btn btn-primary">
-                                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					           <button ng-if="m.status != 1" type="button" ng-click="accept(m,'it.smartcommunitylab.percorsi.model.Path')" class="btn">
+                                   <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
                                 </button>
-                               <button type="button" ng-click="reject(img, 'it.smartcommunitylab.percorsi.model.Path')" class="btn btn-danger">
-                                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                               <button ng-if="m.status != -1" type="button" ng-click="reject(m,'it.smartcommunitylab.percorsi.model.Path')" class="btn">
+                                   <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </button>
+                               <button ng-if="m.status != 0" type="button" ng-click="remove(m, 'it.smartcommunitylab.percorsi.model.Path')" class="btn btn-danger">
+                                   <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                                 </button>
 					       </tr>  
-		               </table> 
+		               </table>
+		               <nav style="text-align: center;">
+						  <ul class="pagination">
+						    <li ng-class="{'disabled':paging['it.smartcommunitylab.percorsi.model.Path'].page == 0}"><a aria-label="Previous" href="" ng-click="prev('it.smartcommunitylab.percorsi.model.Path')"><span aria-hidden="true">&laquo;</span></a></li>
+						    <li><a href="" >{{paging['it.smartcommunitylab.percorsi.model.Path'].page+1}}</a></li>
+						    <li ng-class="{'disabled':moderated['it.smartcommunitylab.percorsi.model.Path'].length < paging['it.smartcommunitylab.percorsi.model.Path'].size}"><a href=""  ng-click="next('it.smartcommunitylab.percorsi.model.Path')" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+						    </li>
+						  </ul>
+						</nav> 
 	                </div>
 	                <div ng-if="modView=='it.smartcommunitylab.percorsi.model.Rating'">
                        <div>&nbsp;</div>
-                       <table class="table table-hover">
-                           <tr ng-repeat="c in moderated['it.smartcommunitylab.percorsi.model.Rating']">
-                              <td><strong>{{c.contributor.name}}</strong><br/>{{c.value}}</td>
+                       <table class="table table-default">
+                           <tr ng-repeat="m in moderated['it.smartcommunitylab.percorsi.model.Rating']" ng-class="{'read':m.status != 0}">
+                              <td><strong>{{m.contributor.name}}</strong><br/>{{m.value}}</td>
+                              <td>{{m.timestamp}}</td>
                               <td style="text-align: right;">
-                               <button type="button" ng-click="accept(c,'it.smartcommunitylab.percorsi.model.Rating')" class="btn btn-primary">
-                                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                               <button ng-if="m.status != 1" type="button" ng-click="accept(m,'it.smartcommunitylab.percorsi.model.Rating')" class="btn">
+                                   <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
                                 </button>
-                               <button type="button" ng-click="reject(c, 'it.smartcommunitylab.percorsi.model.Rating')" class="btn btn-danger">
-                                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                               <button ng-if="m.status != -1" type="button" ng-click="reject(m,'it.smartcommunitylab.percorsi.model.Rating')" class="btn">
+                                   <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </button>
+                               <button ng-if="m.status != 0" type="button" ng-click="remove(m, 'it.smartcommunitylab.percorsi.model.Rating')" class="btn btn-danger">
+                                   <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                                 </button>
                            </tr>  
                        </table> 
+                       <nav style="text-align: center;">
+                          <ul class="pagination">
+                            <li ng-class="{'disabled':paging['it.smartcommunitylab.percorsi.model.Rating'].page == 0}"><a aria-label="Previous" href="" ng-click="prev('it.smartcommunitylab.percorsi.model.Rating')"><span aria-hidden="true">&laquo;</span></a></li>
+                            <li><a href="" >{{paging['it.smartcommunitylab.percorsi.model.Rating'].page+1}}</a></li>
+                            <li ng-class="{'disabled':moderated['it.smartcommunitylab.percorsi.model.Rating'].length < paging['it.smartcommunitylab.percorsi.model.Rating'].size}"><a href=""  ng-click="next('it.smartcommunitylab.percorsi.model.Rating')" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                            </li>
+                          </ul>
+                        </nav> 
 	                </div>
                 </div>
 			</div>

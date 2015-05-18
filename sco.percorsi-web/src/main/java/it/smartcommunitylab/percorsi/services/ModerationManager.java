@@ -20,8 +20,9 @@ import javax.mail.internet.MimeMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
@@ -42,16 +43,28 @@ public class ModerationManager {
 	private RatingRepository ratingRepository;
 	@Autowired
 	private ProviderSetup setup;
-	@Autowired
+	@Autowired(required=false)
 	JavaMailSender mailSender;
 	@Autowired
 	private Environment env;
-	
 	
 	public List<ModObj> getModObjects(String appId, String type) {
 		return repository.findByFields(appId, type, 0);
 	}
 	
+	public List<ModObj> getModObjects(String appId, String type, int start, int count) {
+		return repository.findByFields(appId, type, new PageRequest(start, count, Direction.DESC, "timestamp")).getContent();
+	}
+
+	public void removeModObject(String appId, String localId, String type, String contributorId, String value) {
+		if (!moderated(appId)) return;
+
+		List<ModObj> objs = repository.findByContributor(appId, localId, type, contributorId, value);
+		if (objs != null && ! objs.isEmpty()) {
+			repository.delete(objs);
+		}
+	}
+
 	public void addModObjects(String appId, String localId, String type, String value, Contributor contributor) {
 		if (!moderated(appId)) return;
 		
@@ -62,6 +75,7 @@ public class ModerationManager {
 		obj.setStatus(0);
 		obj.setValue(value);
 		obj.setContributor(contributor);
+		obj.setTimestamp(System.currentTimeMillis());
 		repository.save(obj);
 		
 		try {
@@ -139,6 +153,8 @@ public class ModerationManager {
 	}
 
 	private void notifyModerator(String appId, String localId, String type, String value, Contributor contributor) throws Exception {
+		if (mailSender == null) return;
+		
 		ProviderSettings providerSettings = setup.findProviderById(appId);
 		if (providerSettings != null && StringUtils.hasText(providerSettings.getModerator())) {
 			final MimeMessage mimeMessage = this.mailSender.createMimeMessage();

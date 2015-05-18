@@ -1,0 +1,20 @@
+providers:
+  - id: test
+    password: test
+    moderation: true
+    moderator: test@test.test
+    categories:
+        lastChange: 1
+        categories:
+            - id: a
+              image: http://i.imgur.com/VqrwGwE.png
+              name:
+                it: Scopri il territorio
+                en: Discover the land
+                de: Entdecken Sie die Umgebung
+            - id: b
+              image: http://i.imgur.com/rksA3h9.png
+              name:
+                it: Percorsi del gusto
+                en: Taste Tours
+                de: Taste Tours

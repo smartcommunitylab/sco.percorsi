@@ -4,6 +4,7 @@ var consoleControllers = angular.module('consoleControllers', [])
   function ($scope, $rootScope, $location, DataService) {
 	$scope.modView = 'it.smartcommunitylab.percorsi.model.Path';
 	$scope.moderated = {};
+	$scope.paging = {'it.smartcommunitylab.percorsi.model.Path':{page:0, size: 5}, 'it.smartcommunitylab.percorsi.model.Rating':{page:0, size: 5}};
 	
     DataService.getProfile().then(function(p){
     	$scope.profile = p;
@@ -30,26 +31,46 @@ var consoleControllers = angular.module('consoleControllers', [])
     	window.open('console/export','_blank');
     };
     
-    $scope.loadData = function() {
-        DataService.getModerated('it.smartcommunitylab.percorsi.model.Path').then(function(data) {
-        	$scope.moderated['it.smartcommunitylab.percorsi.model.Path'] = data;
-        });
-        DataService.getModerated('it.smartcommunitylab.percorsi.model.Rating').then(function(data) {
-        	$scope.moderated['it.smartcommunitylab.percorsi.model.Rating'] = data;
-        });
+    $scope.next = function(type) {
+    	if ($scope.moderated[type].length < $scope.paging[type].size) return;
+    	
+    	$scope.paging[type].page++;
+    	$scope.loadData(type);
+    }
+    $scope.prev = function(type) {
+    	if ($scope.paging[type].page == 0) return;
+    	$scope.paging[type].page--;
+    	$scope.loadData(type);
+    }
+    
+    $scope.loadData = function(type) {
+    	if (!type || type == 'it.smartcommunitylab.percorsi.model.Path')
+	        DataService.getModerated('it.smartcommunitylab.percorsi.model.Path', $scope.paging['it.smartcommunitylab.percorsi.model.Path']).then(function(data) {
+	        	$scope.moderated['it.smartcommunitylab.percorsi.model.Path'] = data;
+	        });
+    	if (!type || type == 'it.smartcommunitylab.percorsi.model.Rating')
+	        DataService.getModerated('it.smartcommunitylab.percorsi.model.Rating', $scope.paging['it.smartcommunitylab.percorsi.model.Rating']).then(function(data) {
+	        	$scope.moderated['it.smartcommunitylab.percorsi.model.Rating'] = data;
+	        });
     };
     $scope.loadData();
     
     $scope.accept = function(obj, type) {
     	DataService.decide(type,obj.localId, obj.value, obj.contributor.userId, 'accept')
     	.then(function(data) {
-    		$scope.moderated[type] = data;
+    		$scope.loadData(type);
+    	});
+    };
+    $scope.remove = function(obj, type) {
+    	DataService.remove(type,obj.localId, obj.value, obj.contributor.userId)
+    	.then(function(data) {
+    		$scope.loadData(type);
     	});
     };
     $scope.reject = function(obj, type) {
     	DataService.decide(type,obj.localId, obj.value, obj.contributor.userId, 'reject')
     	.then(function(data) {
-    		$scope.moderated[type] = data;
+    		$scope.loadData(type);
     	});
     };
     

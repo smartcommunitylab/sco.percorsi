@@ -118,21 +118,25 @@ public class ConsoleController {
 	}
 	
 	@RequestMapping(value = "/console/moderated/{type:.*}")
-	public @ResponseBody List<ModObj> getRatings(@PathVariable String type) {
-		return moderationManager.getModObjects(getAppId(), type);
+	public @ResponseBody List<ModObj> getModerated(@PathVariable String type, @RequestParam Integer start, @RequestParam Integer count) {
+		return moderationManager.getModObjects(getAppId(), type, start != null ? start : 0, count != null ? count : 100);
 	}
+
 	@RequestMapping(value = "/console/moderated/{type}/{localId}/{contributorId}/accept", method=RequestMethod.POST)
-	public @ResponseBody List<ModObj> accept(@PathVariable String type, @PathVariable String localId, @PathVariable String contributorId, @RequestParam String value) {
+	public @ResponseBody void accept(@PathVariable String type, @PathVariable String localId, @PathVariable String contributorId, @RequestParam String value) {
 		moderationManager.acceptModObject(getAppId(), localId, type, contributorId, value);
-		return moderationManager.getModObjects(getAppId(), type);
+	}
+
+	@RequestMapping(value = "/console/moderated/{type}/{localId}/{contributorId}", method=RequestMethod.DELETE)
+	public @ResponseBody void remove(@PathVariable String type, @PathVariable String localId, @PathVariable String contributorId, @RequestParam String value) {
+		moderationManager.removeModObject(getAppId(), localId, type, contributorId, value);
 	}
 	@RequestMapping(value = "/console/moderated/{type}/{localId}/{contributorId}/reject", method=RequestMethod.POST)
-	public @ResponseBody List<ModObj> reject(@PathVariable String type, @PathVariable String localId, @PathVariable String contributorId, @RequestParam String value) throws DataException {
+	public @ResponseBody void reject(@PathVariable String type, @PathVariable String localId, @PathVariable String contributorId, @RequestParam String value) throws DataException {
 		if (Rating.class.getName().equals(type))
 			moderationManager.rejectComment(getAppId(), localId, contributorId, value);
 		else 
 			moderationManager.rejectUserImage(getAppId(), localId, contributorId, value);
-		return moderationManager.getModObjects(getAppId(), type);
 	}
 	
 	private String getAppId() {
