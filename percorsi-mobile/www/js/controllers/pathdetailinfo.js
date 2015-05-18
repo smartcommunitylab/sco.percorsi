@@ -1,22 +1,25 @@
 angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
-.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, $ionicHistory, $rootScope, categoriesService, DatiDB, addImageService, galleryService) {
+.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, $ionicHistory, $rootScope, categoriesService, DatiDB, addImageService, galleryService, FilterVariable) {
     $scope.item = singlePathService.getSelectedPath();
+    var gallery = galleryService.createGallery($scope.item);
     $scope.idPoiChoosen = null;
     $scope.expandedList = false;
     $scope.expandedDescritpion = false;
     $scope.group = {
 
     };
-
+    $scope.images = [];
     $scope.item.cost = "iksiad";
     $scope.item.parking = "iksiad";
     $scope.item.transport = "iksiad";
     $scope.item.accessibility = "iksiad";
+
     /*
      * if given group is the selected group, deselect it
      * else, select the given group
      */
+
     $scope.noExtraListValues = function () {
         if ($scope.item.cost == null && $scope.item.parking == null && $scope.item.transport == null && $scope.item.accessibility == null) {
             return true
@@ -52,7 +55,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
     };
 
     $scope.openGallery = function () {
-        var gallery = galleryService.createGallery($scope.item);
         galleryService.setGallery(gallery);
         galleryService.galleryof = "path";
         window.location.assign("#/app/gallery");
@@ -67,6 +69,17 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
         }
     };
+
+    $scope.getAllItems = function (item) {
+        $scope.images = galleryService.getItems(item);
+    }
+
+    //$scope.images = $scope.getAllItems();
+
+    $scope.isAPicture = function (item) {
+        return galleryService.isAPicture(item);
+    }
+
     $scope.getOfficialItems = function (arrayItems) {
         var arrayLength = arrayItems.length;
         var returnItems = [];

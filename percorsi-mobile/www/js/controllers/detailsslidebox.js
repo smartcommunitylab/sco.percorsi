@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.detailsslidebox', [])
 
-.controller('DetailsSlideBoxCtrl', function ($scope, $http, $ionicSlideBoxDelegate, $ionicModal, galleryService) {
+.controller('DetailsSlideBoxCtrl', function ($scope, $http, $ionicSlideBoxDelegate, $ionicModal, galleryService, FilterVariable) {
     $ionicModal.fromTemplateUrl('templates/detailmodal.html', {
         scope: $scope,
         animation: 'slide-in-up'
@@ -19,6 +19,34 @@ angular.module('roveretoPercorsi.controllers.detailsslidebox', [])
             $scope.openModal('poi-details-slide-box', index);
         }
     }
+
+    $scope.checkOptionsGallery = function (type, index) {
+        //se notuser check if <limit
+        if (type == 'notuserdefined') {
+            if (index <= FilterVariable.getFilterMaxNumberSlide()) {
+                return true
+            }
+            return false;
+        }
+
+        //if videos check if image+index<limit
+        if (type == 'videos') {
+            if (galleryService.getNumberOfnotuserdefined() + index < FilterVariable.getFilterMaxNumberSlide()) {
+                return true
+            }
+            return false;
+        }
+
+        //if user check if image+videos+index<limit
+        if (type == 'userdefined') {
+            if (galleryService.getNumberOfvideos() + index < FilterVariable.getFilterMaxNumberSlide()) {
+                return true
+            }
+            return false;
+        }
+
+        return true;
+    };
     $scope.openModal = function (handleName, index) {
         var currentIndex = 0;
         if (index == -1) {

@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.gallery', [])
 
-.controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService, singlePoiService, $cordovaCamera, $filter, Toast, addImageService, DatiDB) {
+.controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService, singlePoiService, $cordovaCamera, $filter, Toast, FilterVariable, addImageService, DatiDB) {
         $scope.item = null;
         $scope.path = singlePathService.getSelectedPath();
         if (galleryService.galleryof == "path") {
@@ -29,7 +29,9 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
             });
         }
 
-
+        $scope.isAddImageButtonVisible = function () {
+            return FilterVariable.getFilterAddImageButton();
+        }
         $scope.getURLSource = function (item) {
             if (item.type == "video") {
                 return $scope.youtubeEmbed(item.url);

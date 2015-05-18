@@ -14,7 +14,7 @@
         <ion-tab title="{{'path_map' | translate}}" href="#/app/path/map">
             <ion-nav-view name="app-pathdetail-map"></ion-nav-view>
         </ion-tab>
-        <ion-tab title="{{'path_turist' | translate}}" href="#/app/path/turist">
+        <ion-tab title="{{'path_turist' | translate}}" href="#/app/path/turist" ng-if="isSocialTabVisible()">
             <ion-nav-view name="app-pathdetail-turist"></ion-nav-view>
         </ion-tab>
     </ion-tabs>

@@ -19,43 +19,22 @@
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
 
-            <ion-slide-box delegate-handle="path-details-slide-box" does-continue="true" auto-play="true">
-                <!--
-                <ion-slide ng-click="openModal('path-details-slide-box')">
-                    <div cover-img="{{item.images[0].url}}"></div>
-                </ion-slide>
--->
-                <ion-slide ng-repeat="image in getOfficialItems(item.images) track by $index" ng-click="openModal('path-details-slide-box',-1)">
-                    <div cover-img="{{image.url}}"></div>
-                </ion-slide>
-                <ion-slide ng-repeat="video in getOfficialItems(item.videos)">
-                    <div class="video" cover-img="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');">
-                        <i class="icon ion-play"></i>
-                    </div>
-                </ion-slide>
-            </ion-slide-box>
+<ion-slide-box delegate-handle="path-details-slide-box" does-continue="true" auto-play="true" ng-init="getAllItems(item)">
+    <ion-slide ng-repeat="image in images track by $index">
+        <div cover-img="{{image.url}}" ng-click="openModal('path-details-slide-box',-1)" ng-if="isAPicture(image)"></div>
+        <div class="video" cover-img="{{youtubeEmbed(image.url)}}" ng-click="window.open('{{image.url}}', '_system');" ng-if="!isAPicture(image)">
+            <i class="icon ion-play"></i>
+        </div>
+    </ion-slide>
 
-            <!--            <div cover-img="{{item.images[0].url}}" class="cover-img"></div>-->
+</ion-slide-box>
 
-            <!--            <img ng-src="{{item.images[0].url}}" alt="Description" />-->
-
-            <!--
-<button class="button button-percorsi button-fab" ng-click="openAddimage()">
-    <div>
-        <span><i class="icon ion-plus"></i></span>
-    </div>
-</button>
--->
             <button class="button button-percorsi button-fab" ng-click="openGallery()">
                 <div>
                     <span><i class="icon ion-images"></i></span>
                 </div>
             </button>
-            <!--
-<button id="button-start" class="button button-full button-percorsi button-start" ng-click="openGallery()">
-    <i class="icon ion-images"></i>
-</button>
--->
+
         </div>
 
         <!-- Path content -->

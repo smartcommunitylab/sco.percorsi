@@ -1,10 +1,12 @@
 angular.module('roveretoPercorsi.controllers.poidetail', [])
 
-.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService) {
+.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService, FilterVariable) {
     $scope.path = singlePathService.getSelectedPath();
     $scope.item = singlePoiService.getSelectedPoi();
-    $scope.idPoiChoosen = null;
+    var gallery = galleryService.createGallery($scope.item);
 
+    $scope.idPoiChoosen = null;
+    $scope.imagesSlide = [];
     $scope.currentItemIndex = singlePoiService.getIndexPoi() + 1;
 
     $scope.images =
@@ -121,7 +123,15 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         }
         return returnItems;
     }
+    $scope.getAllItems = function (item) {
+        $scope.imagesSlide = galleryService.getItems(item);
 
+    }
+
+    $scope.isAPicture = function (item) {
+        return galleryService.isAPicture(item);
+
+    }
     $scope.openGallery = function () {
         //        var gallery = [];
         //        if ($scope.item.images) {
@@ -140,7 +150,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         //                });
         //            }
         //        }
-        var gallery = galleryService.createGallery($scope.item);
         galleryService.setGallery(gallery);
         galleryService.galleryof = "poi";
         window.location.assign("#/app/gallery");

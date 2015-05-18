@@ -26,7 +26,7 @@
     <ion-content class="has-header has-subheader">
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
-            <ion-slide-box delegate-handle="poi-details-slide-box" does-continue="true" auto-play="true">
+            <ion-slide-box delegate-handle="poi-details-slide-box" does-continue="true" auto-play="true" ng-init="getAllItems(item)">
                 <!--on-slide-changed="slideHasChanged($index)"-->
                 <!--
                 <ion-slide ng-repeat="image in item.images" ng-click="openModal(poi-details-slide-box)">
@@ -39,11 +39,19 @@
                 </ion-slide>
 -->
 
+                <!--
                 <ion-slide ng-repeat="image in getOfficialItems(item.images) track by $index" ng-click="openModal('poi-details-slide-box',-1)">
                     <div cover-img="{{image.url}}"></div>
                 </ion-slide>
                 <ion-slide ng-repeat="video in getOfficialItems(item.videos)">
                     <div class="video" cover-img="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');">
+                        <i class="icon ion-play"></i>
+                    </div>
+                </ion-slide>
+-->
+                <ion-slide ng-repeat="image in imagesSlide track by $index">
+                    <div cover-img="{{image.url}}" ng-click="openModal('poi-details-slide-box',-1)" ng-if="isAPicture(image)"></div>
+                    <div class="video" cover-img="{{youtubeEmbed(image.url)}}" ng-click="window.open('{{image.url}}', '_system');" ng-if="!isAPicture(image)">
                         <i class="icon ion-play"></i>
                     </div>
                 </ion-slide>

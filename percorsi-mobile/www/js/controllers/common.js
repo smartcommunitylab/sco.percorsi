@@ -31,6 +31,27 @@ angular.module('roveretoPercorsi.controllers.common', [])
     };
 })
 
+.factory('FilterVariable', function ($rootScope) {
+    filterSocialTab = true
+    filterSocialSlide = true;
+    filterAddImageButton = false;
+    filterMaxNumberSlide = 6;
+    return {
+        getFilterSocialTab: function () {
+            return filterSocialTab;
+        },
+        getFilterSocialSlide: function () {
+            return filterSocialSlide;
+        },
+        getFilterAddImageButton: function () {
+            return filterAddImageButton;
+        },
+        getFilterMaxNumberSlide: function () {
+            return filterMaxNumberSlide;
+        },
+    };
+})
+
 .controller('AppCtrl', function ($scope, $rootScope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast) {
     // Categories submenu
     $scope.categoriesSubmenu = false;
@@ -113,14 +134,16 @@ angular.module('roveretoPercorsi.controllers.common', [])
     }
 
     $scope.youtubeEmbed = function (url) {
-        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-        var match = url.match(regExp);
-        if (match && match[7].length == 11) {
-            /*return 'http://img.youtube.com/vi/' + match[7] + '/0.jpg';*/
-            return 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
-            /*return 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';*/
-        } else {
-            return null;
+        if (url) {
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            if (match && match[7].length == 11) {
+                /*return 'http://img.youtube.com/vi/' + match[7] + '/0.jpg';*/
+                return 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
+                /*return 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';*/
+            } else {
+                return null;
+            }
         }
     }
 
