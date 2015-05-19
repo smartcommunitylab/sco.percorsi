@@ -74,8 +74,6 @@
         <!-- POI content -->
         <div class="padding content">
             <h3>{{item.title | translate_remote}}</h3> {{audios[audioTrack].title.length}}
-            <p class="detail-description">{{item.description | translate_remote}}</p>
-
             <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
                 <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
                     <i class="icon ion-skip-backward"></i>
@@ -88,6 +86,26 @@
                 </button>
                 <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
             </div>
+            <!--            <p class="detail-description">{{item.description | translate_remote}}</p>-->
+            <div class="section" ng-class="{'expanded':isDescriptionShown()}">
+                <p class="description-info">{{item.description | translate_remote}}
+                </p>
+                <div class="fadeout"></div>
+            </div>
+            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()">
+                <div class="text-button">
+
+                    {{'path_more_information' | translate}}
+                </div>
+            </ion-item>
+            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideCloseDescriptionButton()">
+                <div class="text-button">
+
+                    {{'path_less_information' | translate}}
+                </div>
+            </ion-item>
+            <div class="separator"></div>
+
             <div class="row">
                 <div class="col">
                     <button class="button button-percorsi button-block" ng-click="goToMap()">{{'path_map' | translate}}</button>

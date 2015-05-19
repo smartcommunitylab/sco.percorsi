@@ -34,7 +34,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
 .factory('FilterVariable', function ($rootScope) {
     filterSocialTab = true
     filterSocialSlide = true;
-    filterAddImageButton = false;
+    filterAddImageButton = true;
     filterMaxNumberSlide = 6;
     return {
         getFilterSocialTab: function () {

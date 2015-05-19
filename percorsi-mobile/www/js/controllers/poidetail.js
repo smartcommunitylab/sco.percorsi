@@ -6,6 +6,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     var gallery = galleryService.createGallery($scope.item);
 
     $scope.idPoiChoosen = null;
+    $scope.expandedDescritpion = false;
     $scope.imagesSlide = [];
     $scope.currentItemIndex = singlePoiService.getIndexPoi() + 1;
 
@@ -39,7 +40,29 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             return false;
         }
     };
+    $scope.toggleDescription = function () {
+        if ($scope.isDescriptionShown()) {
+            $scope.expandedDescritpion = false;
+        } else {
+            $scope.expandedDescritpion = true;
 
+        }
+    };
+    $scope.isDescriptionShown = function () {
+        return $scope.expandedDescritpion;
+    };
+    $scope.hideExpandDescriptionButton = function () {
+        if (!$scope.isDescriptionShown()) {
+            return false;
+        }
+        return true;
+    };
+    $scope.hideCloseDescriptionButton = function () {
+        if ($scope.isDescriptionShown()) {
+            return false;
+        }
+        return true;
+    };
     $scope.lastPOI = endOfThePath();
     $scope.firstPOI = beginOfThePath();
 

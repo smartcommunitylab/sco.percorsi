@@ -2,6 +2,7 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
 
 .controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService, singlePoiService, $cordovaCamera, $filter, Toast, FilterVariable, addImageService, DatiDB) {
         $scope.item = null;
+        $scope.selectedOption = null;
         $scope.path = singlePathService.getSelectedPath();
         if (galleryService.galleryof == "path") {
             $scope.item = $scope.path;
@@ -28,7 +29,13 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
                 id: (i + 1)
             });
         }
+        if (galleryService.galleryof == "path") {
+            $scope.selectedOption = $scope.options[0];
 
+        } else {
+            $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
+
+        }
         $scope.isAddImageButtonVisible = function () {
             return FilterVariable.getFilterAddImageButton();
         }
@@ -67,7 +74,13 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
                 $scope.addimagemodal.show()
                 $scope.image = [];
                 $scope.imageBase64 = [];
-                $scope.selectedOption = $scope.options[0];
+                if (galleryService.galleryof == "path") {
+                    $scope.selectedOption = $scope.options[0];
+
+                } else {
+                    $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
+
+                }
             } else {
                 $scope.loginModal.show();
             }
@@ -140,41 +153,19 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
             //set $scope.idPoiChoosen
             //if no image return
             if ($scope.image.length > 0) {
-                if ($scope.selectedOption.id != undefined || $scope.selectedOption == 0) {
+                if ($scope.selectedOption.id == 0 || $scope.selectedOption == 0) {
                     $scope.idPoiChoosen = null;
                 } else {
-                    $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption - 1].localId;
+                    if ($scope.selectedOption.id) {
+                        $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption.id - 1].localId;
+                    } else {
+                        $scope.idPoiChoosen = $scope.path.pois[$scope.selectedOption - 1].localId;
+                    }
                 }
 
                 addImageService.submit($scope.image, $scope.imageBase64, $scope.idPoiChoosen, $scope.path.localId).then(function (newpath) {
                     $scope.addimagemodal.hide();
-                    //update data
-                    //$scope.item = newpath.data.data;
-                    //set new gallery
-                    //                    var gallery = [];
-                    //                    if (galleryService.galleryof == "path") {
-                    //                        $scope.item = newpath.data.data;
-                    //                    } else {
-                    //                        $scope.item = newpath.data.data.pois[singlePoiService.getIndexPoi()];
-                    //                    }
-                    //                    if ($scope.item.images) {
-                    //
-                    //                        for (var i = 0; i < $scope.item.images.length; i++) {
-                    //                            gallery.push({
-                    //                                url: $scope.item.images[i].url,
-                    //                                type: "image"
-                    //                            });
-                    //                        }
-                    //                    }
-                    //                    if ($scope.item.videos) {
-                    //
-                    //                        for (var i = 0; i < $scope.item.videos.length; i++) {
-                    //                            gallery.push({
-                    //                                url: $scope.item.videos[i].url,
-                    //                                type: "video"
-                    //                            });
-                    //                        }
-                    //                    }
+
                     if (galleryService.galleryof == "path") {
                         $scope.item = newpath.data.data;
                     } else {
