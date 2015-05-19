@@ -753,3 +753,7 @@ ion-side-menu ion-item .icon {
     font-size: large;
     padding-right: 8px;
 }
+
+.credit {
+    padding-top: 10px;
+}
