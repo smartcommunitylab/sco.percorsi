@@ -307,7 +307,7 @@ angular.module('roveretoPercorsi', [
         review_sent_toast_ok: 'Recensione inviata',
         addImage_popup_ok: 'Ok',
         addImage_popup_cancel: 'Annulla',
-        addImage_label: 'Aggiungi immagini',
+        addImage_label: 'Aggiungi un\'immagine',
         addImage_isEmpty: 'Inserire un\'immagine valida',
         images_send_toast_ok: 'Nuove immagini aggiunte con successo',
         images_send_toast_error: 'Problema nell\'invio delle immagini',
@@ -328,7 +328,11 @@ angular.module('roveretoPercorsi', [
         path_more_information: 'Più informazioni',
         path_less_information: 'Meno informazioni',
         gallery_title: 'Immagini',
-        empty_gallery: 'Nessuna immagine presente'
+        empty_gallery: 'Nessuna immagine presente',
+        modal_istitutional: 'Foto istituzionale',
+        modal_public: 'Foto utenti',
+        preview_label: 'Anteprima'
+
     });
 
     $translateProvider.translations('en', {
@@ -368,7 +372,7 @@ angular.module('roveretoPercorsi', [
         review_sent_toast_ok: 'Review sent',
         addImage_popup_ok: 'Ok',
         addImage_popup_cancel: 'Cancel',
-        addImage_label: 'Add images',
+        addImage_label: 'Add an image',
         addImage_isEmpty: 'Plese, inset an image',
         images_send_toast_ok: 'New images added successfuylly',
         images_send_toast_error: 'Error adding images',
@@ -389,7 +393,11 @@ angular.module('roveretoPercorsi', [
         path_more_information: 'More informations',
         path_less_information: 'Less informations',
         gallery_title: 'Images',
-        empty_gallery: 'No images'
+        empty_gallery: 'No images',
+        modal_istitutional: 'Foto istituzionale',
+        modal_public: 'Foto utenti',
+        preview_label: 'Anteprima'
+
 
 
     });
@@ -432,7 +440,7 @@ angular.module('roveretoPercorsi', [
         review_sent_toast_ok: 'Review sent',
         addImage_popup_ok: 'OK',
         addImage_popup_cancel: 'Schließen',
-        addImage_label: 'Bilder hinzufügen',
+        addImage_label: 'Add an image',
         addImage_isEmpty: 'Inserire un\'immagine',
         images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
         images_send_toast_error: 'Fehler beim Hinzufügen von Bildern',
@@ -452,8 +460,10 @@ angular.module('roveretoPercorsi', [
         path_more_information: 'More informations',
         path_less_information: 'Less informations',
         gallery_title: 'Images',
-        empty_gallery: 'No images'
-
+        empty_gallery: 'No images',
+        modal_istitutional: 'Foto istituzionale',
+        modal_public: 'Foto utenti',
+        preview_label: 'Anteprima'
     });
 
     $translateProvider.preferredLanguage("en");

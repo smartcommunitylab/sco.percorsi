@@ -33,6 +33,10 @@ body {
         width: 100%;
         height: 100%;
     }
+    .row.actions-buttons {
+        position: absolute;
+        bottom: 0px;
+    }
 }
 
 @media screen and (orientation: landscape) {
@@ -40,6 +44,14 @@ body {
         width: 100%;
         height: 100%;
     }
+    .row.actions-buttons {
+        position: relative;
+        bottom: 0px;
+    }
+}
+
+.added-image {
+    align-content: center;
 }
 
 .hidden {
@@ -84,6 +96,10 @@ body {
     border-color: #009688;
     background-color: #009688;
     color: #fff;
+}
+
+.button.button-percorsi.add-image {
+    margin: 15px;
 }
 
 .button.button-percorsi.button-clear {
@@ -396,6 +412,16 @@ ion-slide div[cover-img] i {
     font-size: larger;
 }
 
+.gallery-modal ion-slide p:last-child {
+    position: absolute;
+    bottom: 32px;
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+    color: #fff;
+    font-size: larger;
+}
+
 .audio-player {
     position: relative;
     margin-top: 1em;
@@ -540,9 +566,19 @@ ul.rating {
 
 .wrapper {
     position: relative;
-    display: inline-block;
+    display: table;
     align-content: center;
-    margin: 16px;
+    margin: 0 auto;
+}
+
+.wrapper img {
+    display: block;
+}
+
+.image-added {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
 #addimages-modal .types-buttons {
@@ -552,6 +588,10 @@ ul.rating {
 
 #addimages-modal .actions-buttons {
     text-align: center;
+}
+
+#addimages-modal .scroll {
+    height: 100%;
 }
 
 .close:before {
@@ -731,9 +771,17 @@ ion-side-menu ion-item .icon {
     background-color: #c1c1c1;
 }
 
-.type-overlay.sco-flag:before {
+.type-overlay.sco-institutional:before {
     font-size: 12px !important;
     line-height: 17px !important;
+}
+
+.sco-institutional {
+    padding-right: 16px;
+}
+
+.sco-public {
+    padding-right: 16px;
 }
 
 .type-overlay.sco-public:before {
@@ -742,17 +790,22 @@ ion-side-menu ion-item .icon {
 }
 
 .titlegallery {
-    float: left;
-    text-align: left;
+    float: center;
+    text-align: center;
 }
 
 .typegallery {
-    float: right;
-    text-align: right;
+    float: center;
+    text-align: center;
     font-size: large;
     padding-right: 8px;
 }
 
 .credit {
     padding-top: 10px;
+}
+
+.title.add-image-title {
+    text-align: center;
+    margin: 15px;
 }

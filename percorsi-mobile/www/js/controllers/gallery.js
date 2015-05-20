@@ -25,7 +25,7 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
 
         for (var i = 0; i < ($scope.path.pois.length); i++) {
             $scope.options.push({
-                name: $filter('translate_remote')($scope.path.pois[i].title),
+                name: (i + 1) + '. ' + $filter('translate_remote')($scope.path.pois[i].title),
                 id: (i + 1)
             });
         }
