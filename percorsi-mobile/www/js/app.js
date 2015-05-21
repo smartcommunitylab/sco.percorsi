@@ -331,7 +331,8 @@ angular.module('roveretoPercorsi', [
         empty_gallery: 'Nessuna immagine presente',
         modal_istitutional: 'Foto istituzionale',
         modal_public: 'Foto utenti',
-        preview_label: 'Anteprima'
+        preview_label: 'Anteprima',
+        audio_starting: 'Avvio traccia audio'
 
     });
 
@@ -396,7 +397,9 @@ angular.module('roveretoPercorsi', [
         empty_gallery: 'No images',
         modal_istitutional: 'Foto istituzionale',
         modal_public: 'Foto utenti',
-        preview_label: 'Anteprima'
+        preview_label: 'Anteprima',
+        audio_starting: 'Avvio traccia audio'
+
 
 
 
@@ -463,7 +466,9 @@ angular.module('roveretoPercorsi', [
         empty_gallery: 'No images',
         modal_istitutional: 'Foto istituzionale',
         modal_public: 'Foto utenti',
-        preview_label: 'Anteprima'
+        preview_label: 'Anteprima',
+        audio_starting: 'Avvio traccia audio'
+
     });
 
     $translateProvider.preferredLanguage("en");

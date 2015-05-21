@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.audioplayer', [])
 
-.controller('AudioPlayerCtrl', function ($scope, $http) {
+.controller('AudioPlayerCtrl', function ($scope, $http, $cordovaMedia, $ionicLoading, $filter) {
     $scope.audios = [];
     $scope.audio = null;
     $scope.audioTrack = 0;
@@ -10,13 +10,31 @@ angular.module('roveretoPercorsi.controllers.audioplayer', [])
         $scope.audios = audios;
 
         if (!!$scope.audios && $scope.audios.length > 0) {
-            $scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
+            //$scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
+            $scope.audio = new Media($scope.audios[$scope.audioTrack].url, null, null, mediaStatusCallback);
         }
     };
 
+    //     $scope.play = function(src) {
+    //        var media = new Media(src, null, null, mediaStatusCallback);
+    //        $cordovaMedia.play(media);
+    //    }
+    //
+    var mediaStatusCallback = function (status) {
+        if (status == 1) {
+            $ionicLoading.show({
+                template: $filter('translate')('audio_starting')
+            });
+        } else {
+            $ionicLoading.hide();
+        }
+    }
+
     var audioPlay = function () {
         if (!!!$scope.audio) {
-            $scope.audio = new Audio($scope.audios[$scope.audioTrack]);
+            // $scope.audio = new Audio($scope.audios[$scope.audioTrack]);
+            $scope.audio = new Media($scope.audios[$scope.audioTrack].url, null, null, mediaStatusCallback);
+
         }
         $scope.audio.play();
         $scope.audioIsPlaying = true;
@@ -36,10 +54,12 @@ angular.module('roveretoPercorsi.controllers.audioplayer', [])
 
         if ($scope.audioIsPlaying) {
             audioPause();
-            $scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
+            //$scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
+            $scope.audio = new Media($scope.audios[$scope.audioTrack].url, null, null, mediaStatusCallback);
             audioPlay();
         } else {
-            $scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
+            //$scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
+            $scope.audio = new Media($scope.audios[$scope.audioTrack].url, null, null, mediaStatusCallback);
         }
     };
 
