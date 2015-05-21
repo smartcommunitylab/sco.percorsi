@@ -44,7 +44,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
     $scope.pathMarkers = markers;
     $scope.pathLine = {
         p1: {
-            color: 'black',
+            color: '#009688',
             weight: 8,
             latlngs: mapConversionService.decode($scope.path.shape)
                 // message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",

@@ -146,9 +146,10 @@
             <div class="list">
 
 
-                <ion-item class="item item-avatar" ng-repeat="poi in item.pois" ng-click="showPoi($index)" class="item-thumbnail-left">
-                    <img ng-src="{{poi.images[0].url}}">
-                    <div class="poi-list">{{$index + 1}} . {{poi.title | translate_remote}}</div>
+                <ion-item class="item poi-list-item-container" ng-repeat="poi in item.pois" ng-click="showPoi($index)" class="item-thumbnail-left">
+                    <div style="background-image: url({{poi.images[0].url}})" class="poi-list-item-bg"></div>
+<!--                    <img ng-src="{{poi.images[0].url}}">-->
+                    <div class="poi-list-item">{{$index + 1}} . {{poi.title | translate_remote}}</div>
                 </ion-item>
                 </a>
             </div>
