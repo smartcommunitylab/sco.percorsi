@@ -11,6 +11,34 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         max: 5
     };
 
+    var getStars = function (vote) {
+        var stars = [];
+
+        if (!!$scope.path) {
+            var fullStars = Math.floor(vote);
+            for (var i = 0; i < fullStars; i++) {
+                stars.push('full');
+            }
+
+            var halfStars = Math.ceil((vote % 1).toFixed(4));
+            for (var i = 0; i < halfStars; i++) {
+                stars.push('half');
+            }
+
+            var emptyStars = Math.floor(($scope.rating.max) - vote);
+            for (var i = 0; i < emptyStars; i++) {
+                stars.push('empty');
+            }
+        }
+
+        return stars;
+    };
+    $scope.mystars = getStars(0);
+
+    $scope.myRating = function() {
+        return getStars($scope.rating.myvote);
+    };
+
     $scope.syncRating = function () {
         // user rating
         if ($scope.userIsLogged) {
@@ -20,6 +48,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                     $scope.rating.myreview = data.comment;
                     $scope.rating.current = data.vote;
                     $scope.rating.myvote = data.vote;
+                    $scope.mystars = getStars(data.vote);
                 }
             });
         }
@@ -28,27 +57,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.syncRating();
 
     $scope.getStars = function () {
-        var stars = [];
-
-        if (!!$scope.path && !!$scope.path.vote) {
-            var fullStars = Math.floor($scope.path.vote);
-            for (var i = 0; i < fullStars; i++) {
-                stars.push('full');
-            }
-
-            var halfStars = Math.ceil(($scope.path.vote % 1).toFixed(4));
-            for (var i = 0; i < halfStars; i++) {
-                stars.push('half');
-            }
-
-            var emptyStars = Math.floor(($scope.rating.max) - $scope.path.vote);
-            for (var i = 0; i < emptyStars; i++) {
-                stars.push('empty');
-            }
-        }
-
-        return stars;
+        return getStars($scope.path.vote);
     };
+
 
     $scope.getSelectedRating = function (rating) {
         console.log(rating);
@@ -86,26 +97,28 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         });
     };
 
-    $scope.sendVote = function (vote) {
-        reviewsService.sendRate($scope.path.localId, vote, $scope.rating.review).then(function (updatedPath) {
+    $scope.sendVote = function (vote, review) {
+        reviewsService.sendRate($scope.path.localId, vote, review).then(function (updatedPath) {
             singlePathService.setSelectedPath(updatedPath);
             $scope.path = updatedPath;
-            $scope.rating.current = $scope.path.vote;
+            $scope.rating.current = vote;
+            $scope.rating.review = review;
+            $scope.mystars = getStars(vote);
             Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom');
             DatiDB.reset();
         });
     };
 
-    $scope.sendReview = function (review) {
-        reviewsService.sendRate($scope.path.localId, $scope.rating.current, review).then(function (updatedPath) {
-            singlePathService.setSelectedPath(updatedPath);
-            $scope.path = updatedPath;
-            $scope.rating.review = $scope.rating.myreview;
-            Toast.show($filter('translate')('review_sent_toast_ok'), 'short', 'bottom');
-            DatiDB.reset();
-            $scope.loadMore(true);
-        });
-    };
+//    $scope.sendReview = function (review) {
+//        reviewsService.sendRate($scope.path.localId, $scope.rating.current, review).then(function (updatedPath) {
+//            singlePathService.setSelectedPath(updatedPath);
+//            $scope.path = updatedPath;
+//            $scope.rating.review = $scope.rating.myreview;
+//            Toast.show($filter('translate')('review_sent_toast_ok'), 'short', 'bottom');
+//            DatiDB.reset();
+//            $scope.loadMore(true);
+//        });
+//    };
 //    $scope.openGallery = function () {
 //        var gallery = [];
 //        for (var i = 0; i < $scope.path.images.length; i++) {
@@ -120,32 +133,52 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 //
 //    }
 
+    $ionicModal.fromTemplateUrl('templates/review-modal.html', {
+        scope: $scope,
+        focusFirstInput :true,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.reviewModal = modal;
+    });
+
+    $scope.reviewClose = function() {
+        $scope.reviewModal.hide();
+    }
+    $scope.reviewOk = function() {
+        if (!$scope.rating.myvote) {
+            e.preventDefault();
+        } else {
+            $scope.sendVote($scope.rating.myvote, $scope.rating.myreview);
+            $scope.reviewModal.hide();
+        }
+    }
     $scope.showVote = function (name) {
         $scope.rating.myvote = $scope.rating.current;
-        if ($scope.userIsLogged) {
-            var confirmPopup = $ionicPopup.confirm({
-                title: $filter('translate')('pathdetailturist_voteinfo'),
-                templateUrl: 'templates/vote-popup.html',
-                scope: $scope,
-                buttons: [
-                    {
-                        text: $filter('translate')('newreview_popup_cancel'),
-                        type: ' button-percorsi'
-                    },
-                    {
-                        text: $filter('translate')('newreview_popup_ok'),
-                        type: 'button-percorsi',
-                        onTap: function (e) {
-                            if (!$scope.rating.myvote) {
-                                e.preventDefault();
-                            } else {
-                                //return $scope.rating.current;
-                                $scope.sendVote($scope.rating.myvote);
-                            }
-                        }
-                    }
-                ]
-            });
+        if ($scope.userIsLogged) {//$scope.userIsLogged
+            $scope.reviewModal.show();
+//            var confirmPopup = $ionicPopup.confirm({
+//                title: $filter('translate')('pathdetailturist_voteinfo'),
+//                templateUrl: 'templates/vote-popup.html',
+//                scope: $scope,
+//                buttons: [
+//                    {
+//                        text: $filter('translate')('newreview_popup_cancel'),
+//                        type: ' button-percorsi'
+//                    },
+//                    {
+//                        text: $filter('translate')('newreview_popup_ok'),
+//                        type: 'button-percorsi',
+//                        onTap: function (e) {
+//                            if (!$scope.rating.myvote) {
+//                                e.preventDefault();
+//                            } else {
+//                                //return $scope.rating.current;
+//                                $scope.sendVote($scope.rating.myvote);
+//                            }
+//                        }
+//                    }
+//                ]
+//            });
         } else {
             $scope.loginModal.show();
         }
@@ -153,36 +186,36 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.back = function () {
         $ionicHistory.goBack();
     }
-    $scope.showReview = function (name) {
-        $scope.rating.myreview = $scope.rating.review;
-        if ($scope.userIsLogged) {
-            var confirmPopup = $ionicPopup.confirm({
-                title: $filter('translate')('newreview_popup_title'),
-                templateUrl: 'templates/review-popup.html',
-                scope: $scope,
-                buttons: [
-                    {
-                        text: $filter('translate')('newreview_popup_cancel'),
-                        type: 'button-percorsi'
-                    },
-                    {
-                        text: $filter('translate')('newreview_popup_ok'),
-                        type: 'button-percorsi',
-                        onTap: function (e) {
-                            if (!$scope.rating.myreview) {
-                                e.preventDefault();
-                                Toast.show($filter('translate')('review_empty_error'), 'short', 'bottom');
-
-                            } else {
-                                // return $scope.review;
-                                $scope.sendReview($scope.rating.myreview);
-                            }
-                        }
-                    }
-                ]
-            });
-        } else {
-            $scope.loginModal.show();
-        }
-    }
+//    $scope.showReview = function (name) {
+//        $scope.rating.myreview = $scope.rating.review;
+//        if ($scope.userIsLogged) {
+//            var confirmPopup = $ionicPopup.confirm({
+//                title: $filter('translate')('newreview_popup_title'),
+//                templateUrl: 'templates/review-popup.html',
+//                scope: $scope,
+//                buttons: [
+//                    {
+//                        text: $filter('translate')('newreview_popup_cancel'),
+//                        type: 'button-percorsi'
+//                    },
+//                    {
+//                        text: $filter('translate')('newreview_popup_ok'),
+//                        type: 'button-percorsi',
+//                        onTap: function (e) {
+//                            if (!$scope.rating.myreview) {
+//                                e.preventDefault();
+//                                Toast.show($filter('translate')('review_empty_error'), 'short', 'bottom');
+//
+//                            } else {
+//                                // return $scope.review;
+//                                $scope.sendReview($scope.rating.myreview);
+//                            }
+//                        }
+//                    }
+//                ]
+//            });
+//        } else {
+//            $scope.loginModal.show();
+//        }
+//    }
 });

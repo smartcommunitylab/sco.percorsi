@@ -1,0 +1,27 @@
+<ion-modal-view id="review-modal"  style="height:100%">
+    <ion-header-bar align-title="center">
+        <!--        <h1 class="title add-image-title">{{'addImage_label'|translate}}</h1>-->
+    </ion-header-bar>
+    <ion-content>
+        <div class="title vote-title">{{'pathdetailturist_voteinfo'|translate}}</div>
+
+        <div class="vote-popup" star-rating rating-value="rating.myvote" max="rating.max" on-rating-selected="getSelectedRating(rating)" get-rating="myRating()">
+        </div>
+
+        <div class="title vote-title">{{'pathdetailturist_review_label'|translate}}</div>
+
+        <div class="row">
+        <label class="item item-input col">
+          <textarea ng-model="rating.myreview" placeholder="{{'pathdetailturist_review_hint'|translate}}"/>
+        </label>
+        </div>
+        <div class="row actions-buttons">
+            <div class="col">
+                <button class="button button-percorsi button-block" ng-click="reviewClose()">{{'addImage_popup_cancel' | translate}}</button>
+            </div>
+            <div class="col">
+                <button class="button button-percorsi button-block" ng-click="reviewOk()">{{'addImage_popup_ok' | translate}}</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

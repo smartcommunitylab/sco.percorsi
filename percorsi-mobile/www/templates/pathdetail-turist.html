@@ -25,18 +25,32 @@
             <span class="rating-avg-txt">{{'avg_rating'| translate}}</span>
             <i ng-repeat="starType in getStars() track by $index" class="icon icon-rating" ng-class="{'ion-android-star': starType == 'full', 'ion-android-star-half': starType == 'half', 'ion-android-star-outline': starType == 'empty'}"></i>
         </div>
-        <div class="row pull-right">
+        <div class="row">
             <div class="col-25 col-offset-75 social-numbers"><span>{{path.voteCount}}</span><i class="icon sco-public"></i></div>
         </div>
         <div class="separator"></div>
-        <div class="row" ng-if="!myvote && !myreview">
+        <div class="row" ng-if="!rating.current && !rating.review">
             <div class="col">
                 <button class="button button-percorsi button-block" ng-click="showVote()">
                     {{'pathdetailturist_voteinfo' | translate}}
                 </button>
             </div>
         </div>
+        <div ng-if="rating.current || rating.review">
+            <div class="row">
+                <span class="social-label">{{'pathdetailtourist_your_review'| translate}}</span>
+            </div>
+            <ion-item class="card myreview" ng-click="showVote()">
+                <div class="padding-vertical">
+            <i ng-repeat="starType in mystars track by $index" class="icon icon-rating" ng-class="{'ion-android-star': starType == 'full', 'ion-android-star-half': starType == 'half', 'ion-android-star-outline': starType == 'empty'}"></i>
+                    <div>{{rating.review}}</div>
+                </div>
+            </ion-item>
+        </div>
 
+        <div class="row">
+            <span class="social-label">{{'pathdetailturist_votes'| translate}}</span>
+        </div>
         <!-- Reviews list -->
         <div class="emptylist" ng-if="emptylist">
             <!--<div class="item item-text-wrap">-->
@@ -44,13 +58,6 @@
             <!--</div>-->
         </div>
         <ion-list ng-if="!emptylist">
-            <ion-item class="card" ng-if="!!rating.review">
-                <div class="padding-vertical">
-                    <h3 class="title">{{'pathdetailtourist_your_review' | translate}}</h3>
-                    <!--<p>{{rating.review}}</p>-->
-                    <div>{{rating.review}}</div>
-                </div>
-            </ion-item>
             <ion-item class="card" ng-repeat="review in reviews" ng-if="!!review.comment && getUserId() != review.contributor.userId">
                 <div class="padding-vertical">
                     <h3 class="title">{{!!review.contributor.name ? review.contributor.name : ('pathdetailtourist_anonymous' | translate)}}</h3>

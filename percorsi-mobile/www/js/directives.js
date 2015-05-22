@@ -26,23 +26,19 @@ angular.module('roveretoPercorsi.directives', [])
     return {
         restrict: 'A',
         template: '<ul class="rating">' +
-            '<li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">' +
-            '<i class="icon ion-android-star vote-star"></i>' +
+            '<li ng-repeat="starType in stars track by $index" ng-click="toggle($index)">' +
+            '<i class="icon vote-star" ng-class="{\'ion-android-star\': starType == \'full\', \'ion-android-star-half\': starType == \'half\', \'ion-android-star-outline\': starType == \'empty\'}"></i>' +
             '</li>' +
             '</ul>',
         scope: {
             ratingValue: '=',
             max: '=',
-            onRatingSelected: '&'
+            onRatingSelected: '&',
+            getRating: '&'
         },
         link: function (scope, elem, attrs) {
             var updateStars = function () {
-                scope.stars = [];
-                for (var i = 0; i < scope.max; i++) {
-                    scope.stars.push({
-                        filled: i < scope.ratingValue
-                    });
-                }
+                scope.stars = scope.getRating();
             };
 
             scope.toggle = function (index) {
