@@ -1,4 +1,4 @@
-<ion-modal-view id="review-modal"  style="height:100%">
+<ion-modal-view id="review-modal" style="height:100%">
     <ion-header-bar align-title="center">
         <!--        <h1 class="title add-image-title">{{'addImage_label'|translate}}</h1>-->
     </ion-header-bar>
@@ -11,10 +11,13 @@
         <div class="title vote-title">{{'pathdetailturist_review_label'|translate}}</div>
 
         <div class="row">
-        <label class="item item-input col">
-          <textarea ng-model="rating.myreview" placeholder="{{'pathdetailturist_review_hint'|translate}}"/>
-        </label>
+            <label class="item item-input col">
+                <textarea ng-model="rating.myreview" placeholder="{{'pathdetailturist_review_hint'|translate}}" />
+            </label>
         </div>
+
+    </ion-content>
+    <div class="bar bar-footer">
         <div class="row actions-buttons">
             <div class="col">
                 <button class="button button-percorsi button-block" ng-click="reviewClose()">{{'addImage_popup_cancel' | translate}}</button>
@@ -23,5 +26,5 @@
                 <button class="button button-percorsi button-block" ng-click="reviewOk()">{{'addImage_popup_ok' | translate}}</button>
             </div>
         </div>
-    </ion-content>
+    </div>
 </ion-modal-view>

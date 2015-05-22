@@ -10,10 +10,10 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
     };
     $scope.images = [];
-    $scope.item.cost = "iksiad";
-    $scope.item.parking = "iksiad";
-    $scope.item.transport = "iksiad";
-    $scope.item.accessibility = "iksiad";
+//    $scope.item.cost = "iksiad";
+ //    $scope.item.parking = "iksiad";
+ //    $scope.item.transport = "iksiad";
+ //    $scope.item.accessibility = "iksiad";
 
     /*
      * if given group is the selected group, deselect it
