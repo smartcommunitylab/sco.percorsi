@@ -331,8 +331,8 @@ angular.module('roveretoPercorsi', [
         empty_gallery: 'Nessuna immagine presente',
         modal_istitutional: 'Foto istituzionale',
         modal_public: 'Foto utenti',
-        preview_label: 'Anteprima'
-
+        preview_label: 'Anteprima',
+        avg_rating: 'VOTO MEDIO'
     });
 
     $translateProvider.translations('en', {
@@ -394,11 +394,10 @@ angular.module('roveretoPercorsi', [
         path_less_information: 'Less informations',
         gallery_title: 'Images',
         empty_gallery: 'No images',
-        modal_istitutional: 'Foto istituzionale',
-        modal_public: 'Foto utenti',
-        preview_label: 'Anteprima'
-
-
+        modal_istitutional: 'Official photos',
+        modal_public: 'User photos',
+        preview_label: 'Preview',
+        avg_rating: 'RATING'
 
     });
 
@@ -463,7 +462,8 @@ angular.module('roveretoPercorsi', [
         empty_gallery: 'No images',
         modal_istitutional: 'Foto istituzionale',
         modal_public: 'Foto utenti',
-        preview_label: 'Anteprima'
+        preview_label: 'Anteprima',
+        avg_rating: 'VOTO MEDIO'
     });
 
     $translateProvider.preferredLanguage("en");

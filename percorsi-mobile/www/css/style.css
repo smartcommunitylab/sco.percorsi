@@ -497,19 +497,21 @@ ion-slide div[cover-img] i {
 }
 
 .rating-avg {
-    margin: 16px 0 11px 0;
+    margin-top: 16px;
     text-align: center;
     font-size: 40px;
     line-height: 40px;
 }
 
 .rating-avg .rating-avg-txt {
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 16px;
+    line-height: 40px;
+    vertical-align: middle;
+/*    font-weight: bold;*/
 }
 
 .rating-avg .icon-rating {
-    color: #b2dfdb;
+/*    color: #b2dfdb;*/
     margin: 0;
 }
 
