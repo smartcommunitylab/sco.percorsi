@@ -333,6 +333,7 @@ angular.module('roveretoPercorsi', [
         modal_public: 'Foto utenti',
         preview_label: 'Anteprima',
         avg_rating: 'VOTO MEDIO'
+        audio_starting: 'Avvio traccia audio'
     });
 
     $translateProvider.translations('en', {
@@ -398,7 +399,7 @@ angular.module('roveretoPercorsi', [
         modal_public: 'User photos',
         preview_label: 'Preview',
         avg_rating: 'RATING'
-
+        audio_starting: 'Start audiotrack'
     });
 
     $translateProvider.translations('de', {
@@ -464,6 +465,7 @@ angular.module('roveretoPercorsi', [
         modal_public: 'Foto utenti',
         preview_label: 'Anteprima',
         avg_rating: 'VOTO MEDIO'
+        audio_starting: 'Avvio traccia audio'
     });
 
     $translateProvider.preferredLanguage("en");

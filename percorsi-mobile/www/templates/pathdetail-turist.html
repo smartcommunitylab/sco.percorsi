@@ -22,8 +22,11 @@
     <ion-content class="has-header padding">
         <!-- Rating -->
         <div class="rating-avg">
-            <span class="rating-avg-txt">{{voteRound(path.vote)}}</span>
+            <span class="rating-avg-txt">{{'avg_rating'| translate}}</span>
             <i ng-repeat="starType in getStars() track by $index" class="icon icon-rating" ng-class="{'ion-android-star': starType == 'full', 'ion-android-star-half': starType == 'half', 'ion-android-star-outline': starType == 'empty'}"></i>
+        </div>
+        <div class="row pull-right">
+            <div class="col-25 col-offset-75"><span>{{path.voteCount}}</span><i class="icon" class="sco-users"></i></div>
         </div>
         <div class="row">
             <div class="col">
