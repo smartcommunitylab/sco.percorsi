@@ -18,23 +18,23 @@
         <ion-content class="leftmenu">
             <ion-list>
                 <ion-item nav-clear menu-close item-icon-left href="#/app/categories">
-                    <i class="icon ion-home"></i>{{'menu_home' | translate}}
+                    <i class="icon voice-menu ion-home"></i>{{'menu_home' | translate}}
                 </ion-item>
 
                 <ion-item nav-clear menu-close item-icon-left href="#/app/favorites">
-                    <i class="icon sco-bookmark"></i>{{'menu_favorites' | translate}}
+                    <i class="icon voice-menu  sco-bookmark"></i>{{'menu_favorites' | translate}}
                 </ion-item>
 
                 <ion-item nav-clear menu-close item-icon-left ng-click="logout()" ng-if="userIsLogged">
-                    <i class="icon ion-log-out"></i>{{'menu_logout' | translate}}
+                    <i class="icon voice-menu  sco-log-out"></i>{{'menu_logout' | translate}}
                 </ion-item>
 
                 <ion-item nav-clear menu-close item-icon-left ng-click="login()" ng-if="!userIsLogged">
-                    <i class="icon ion-log-in"></i>{{'menu_login' | translate}}
+                    <i class="icon voice-menu  sco-log-out"></i>{{'menu_login' | translate}}
                 </ion-item>
 
                 <ion-item nav-clear menu-close item-icon-left ng-click="openModal(2)">
-                    <i class="icon ion-information-circled"></i>{{'menu_credits' | translate}}
+                    <i class="icon voice-menu  ion-information-circled"></i>{{'menu_credits' | translate}}
                 </ion-item>
             </ion-list>
         </ion-content>
