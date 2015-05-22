@@ -23,21 +23,25 @@
         <div class="row" ng-repeat="image in images" ng-if="$index % 2 === 0" ng-if="!emptylist">
             <div class="col col-50 col-center" ng-if="$index < images.length">
                 <div class="gallery-tile" ng-click="getImageAction($index)">
-                    <img ng-src="{{getURLSource(images[$index])}}" width="100%" />
-                    <i class="icon ion-play play-overlay" ng-if="isAVideo(images[$index])"></i>
-
+                    <!--                    <img ng-src="{{getURLSource(images[$index])}}" width="100%" />-->
                     <div class="button button-percorsi circle-type">
                         <span>
                             <i class="icon sco-public type-overlay" ng-if="images[$index].userDefined"></i>
                             <i class="icon sco-institutional type-overlay" ng-if="!images[$index].userDefined"></i>
                         </span>
                     </div>
+                    <div cover-img="{{getURLSource(images[$index])}}" class="gallery-square"></div>
+                    <i class="icon ion-play play-overlay" ng-if="isAVideo(images[$index])"></i>
+
+
                 </div>
 
             </div>
             <div class="col col-50 col-center" ng-if="$index + 1 < images.length">
                 <div class="gallery-tile" ng-click="getImageAction($index+1)">
-                    <img ng-src="{{getURLSource(images[$index + 1])}}" width="100%" />
+                    <!--                    <img ng-src="{{getURLSource(images[$index + 1])}}" width="100%" />-->
+                    <div cover-img="{{getURLSource(images[$index +1])}}" class="gallery-square"></div>
+
                     <i class="icon ion-play play-overlay" ng-if="isAVideo(images[$index + 1])"></i>
                     <div class="button button-percorsi circle-type">
                         <span>
