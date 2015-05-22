@@ -26,27 +26,17 @@
             <i ng-repeat="starType in getStars() track by $index" class="icon icon-rating" ng-class="{'ion-android-star': starType == 'full', 'ion-android-star-half': starType == 'half', 'ion-android-star-outline': starType == 'empty'}"></i>
         </div>
         <div class="row pull-right">
-            <div class="col-25 col-offset-75"><span>{{path.voteCount}}</span><i class="icon" class="sco-users"></i></div>
+            <div class="col-25 col-offset-75 social-numbers"><span>{{path.voteCount}}</span><i class="icon sco-public"></i></div>
         </div>
-        <div class="row">
+        <div class="separator"></div>
+        <div class="row" ng-if="!myvote && !myreview">
             <div class="col">
                 <button class="button button-percorsi button-block" ng-click="showVote()">
-                    {{'pathdetailturist_vote' | translate}}
+                    {{'pathdetailturist_voteinfo' | translate}}
                 </button>
             </div>
-            <div class="col">
-                <button class="button button-percorsi button-block" ng-click="showReview()">
-                    {{'pathdetailturist_review' | translate}}
-                </button>
-            </div>
-<!--
-<div class="col">
-    <button class="button button-percorsi button-block" ng-click="openGallery()">
-        {{'pathdetailturist_review' | translate}}
-    </button>
-</div>
--->
         </div>
+
         <!-- Reviews list -->
         <div class="emptylist" ng-if="emptylist">
             <!--<div class="item item-text-wrap">-->

@@ -296,7 +296,7 @@ angular.module('roveretoPercorsi', [
         pathdetailinfo_vote: 'Voto',
         pathdetailturist_vote: 'Vota',
         pathdetailturist_review: 'Recensisci',
-        pathdetailturist_voteinfo: 'Vota il percorso',
+        pathdetailturist_voteinfo: 'Valuta il percorso',
         pathdetailtourist_empty_list: 'Non sono presenti recensioni',
         pathdetailtourist_anonymous: 'Anonimo',
         pathdetailtourist_your_review: 'La tua recensione',
@@ -332,7 +332,7 @@ angular.module('roveretoPercorsi', [
         modal_istitutional: 'Foto istituzionale',
         modal_public: 'Foto utenti',
         preview_label: 'Anteprima',
-        avg_rating: 'VOTO MEDIO'
+        avg_rating: 'VOTO MEDIO',
         audio_starting: 'Avvio traccia audio'
     });
 
@@ -360,9 +360,9 @@ angular.module('roveretoPercorsi', [
         pathdetailmap_startpath: 'START PATH',
         pathdetailmap_goto: 'Go',
         pathdetailinfo_vote: 'Rate',
-        pathdetailturist_vote: 'Vote',
+        pathdetailturist_vote: 'Valuta',
         pathdetailturist_review: 'Add a review',
-        pathdetailturist_voteinfo: 'Vote the path',
+        pathdetailturist_voteinfo: 'Rate the path',
         pathdetailtourist_empty_list: 'Sorry, no reviews',
         pathdetailtourist_anonymous: 'Anonymous',
         pathdetailtourist_your_review: 'Your review',
@@ -398,7 +398,7 @@ angular.module('roveretoPercorsi', [
         modal_istitutional: 'Official photos',
         modal_public: 'User photos',
         preview_label: 'Preview',
-        avg_rating: 'RATING'
+        avg_rating: 'RATING',
         audio_starting: 'Start audiotrack'
     });
 
@@ -464,7 +464,7 @@ angular.module('roveretoPercorsi', [
         modal_istitutional: 'Foto istituzionale',
         modal_public: 'Foto utenti',
         preview_label: 'Anteprima',
-        avg_rating: 'VOTO MEDIO'
+        avg_rating: 'VOTO MEDIO',
         audio_starting: 'Avvio traccia audio'
     });
 
