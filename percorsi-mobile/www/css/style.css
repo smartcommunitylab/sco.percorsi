@@ -491,9 +491,21 @@ ion-slide div[cover-img] i {
     height: 32px;
 }
 
+.leaflet-popup-content-wrapper {
+    width: 200px;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+    width: 150px;
+}
+
+.leaflet-popup-tip-container {
+    width: 150px;
+}
+
 .map-balloon {
     font-size: 14px;
-    text-align: justify;
+    text-align: left;
 }
 
 .rating-avg {

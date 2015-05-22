@@ -24,12 +24,12 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             lat: $scope.path.pois[i].coordinates.lat,
             lng: $scope.path.pois[i].coordinates.lng,
             message: '<div ng-controller="PathDetailMapCtrl" class="map-balloon">' +
-                '<h4>' + $filter('translate_remote')($scope.path.pois[i].title) + '</h4>' +
-                '<div class="desc">' + $filter('translate_remote')($scope.path.pois[i].description).substring(0, 200) + '...' + '</div>' +
+                '<h4>' + (i + 1) + '. ' + $filter('translate_remote')($scope.path.pois[i].title) + '</h4>' +
+                //                '<div class="desc">' + $filter('translate_remote')($scope.path.pois[i].description).substring(0, 100) + '...' + '</div>' +
                 '<div class="row">' +
                 //                '<div class="col"><button class="button button-percorsi button-block" ng-click="closeWin()">' + $filter('translate')('close') + '</button></div>' +
-                '<div class="col"><button class="button button-percorsi button-block" ng-click="detail(' + i + ')">' + $filter('translate')('details') + '</button></div>' +
-                '<div class="col"><button class="button button-percorsi button-block" ng-click="bringmethere([' + $scope.path.pois[i].coordinates.lat + ', ' + $scope.path.pois[i].coordinates.lng + '])">' + $filter('translate')('pathdetailmap_goto') + '</button></div>' +
+                '<div class="col"><button class="button button-percorsi button-block" ng-click="detail(' + i + ')">' + '<i class="icon ion-information-circled"></i>' + '</button></div>' +
+                '<div class="col"><button class="button button-percorsi button-block" ng-click="bringmethere([' + $scope.path.pois[i].coordinates.lat + ', ' + $scope.path.pois[i].coordinates.lng + '])">' + '<i class="icon ion-information-circled"></i>' + '</button></div>' +
                 '</div>' +
                 '</div>',
             icon: {
