@@ -336,11 +336,12 @@ angular.module('roveretoPercorsi', [
         modal_public: 'Foto utenti',
         preview_label: 'Anteprima',
         avg_rating: 'VOTO MEDIO',
-        audio_starting: 'Avvio traccia audio'
+        audio_starting: 'Avvio traccia audio',
+        credits_licenses_button: 'VEDI LICENZE'
     });
 
     $translateProvider.translations('en', {
-        menu_home: 'Categories / HOME',
+        menu_home: 'Home',
         menu_favorites: 'Bookmarks',
         menu_login: 'Login',
         menu_logout: 'Logout',
@@ -405,11 +406,13 @@ angular.module('roveretoPercorsi', [
         modal_public: 'User photos',
         preview_label: 'Preview',
         avg_rating: 'RATING',
-        audio_starting: 'Start audiotrack'
+        audio_starting: 'Start audiotrack',
+        credits_licenses_button: 'VEDI LICENZE'
+
     });
 
     $translateProvider.translations('de', {
-        menu_home: 'Categories / HOME',
+        menu_home: 'Home',
         menu_favorites: 'Bookmarks',
         menu_login: 'Login',
         menu_logout: 'Logout',
@@ -474,7 +477,9 @@ angular.module('roveretoPercorsi', [
         modal_public: 'Foto utenti',
         preview_label: 'Anteprima',
         avg_rating: 'VOTO MEDIO',
-        audio_starting: 'Avvio traccia audio'
+        audio_starting: 'Avvio traccia audio',
+        credits_licenses_button: 'VEDI LICENZE'
+
     });
 
     $translateProvider.preferredLanguage("en");

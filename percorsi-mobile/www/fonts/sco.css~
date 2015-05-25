@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'sco';
-	src:url('fonts/sco.eot?3ior0l');
-	src:url('fonts/sco.eot?#iefix3ior0l') format('embedded-opentype'),
-		url('fonts/sco.woff?3ior0l') format('woff'),
-		url('fonts/sco.ttf?3ior0l') format('truetype'),
-		url('fonts/sco.svg?3ior0l#sco') format('svg');
+	src:url('fonts/sco.eot?-pu9cds');
+	src:url('fonts/sco.eot?#iefix-pu9cds') format('embedded-opentype'),
+		url('fonts/sco.woff?-pu9cds') format('woff'),
+		url('fonts/sco.ttf?-pu9cds') format('truetype'),
+		url('fonts/sco.svg?-pu9cds#sco') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,6 +23,12 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.sco-credits:before {
+	content: "\e60c";
+}
+.sco-home:before {
+	content: "\e613";
+}
 .sco-difficulty-high .path1:before {
 	content: "\e600";
 	color: rgb(255, 61, 0);
@@ -73,6 +79,9 @@
 }
 .sco-parking:before {
 	content: "\e60e";
+}
+.sco-price:before {
+	content: "\e60f";
 }
 .sco-transport:before {
 	content: "\e610";

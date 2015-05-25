@@ -52,9 +52,10 @@ angular.module('roveretoPercorsi.controllers.common', [])
     };
 })
 
-.controller('AppCtrl', function ($scope, $rootScope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast) {
+.controller('AppCtrl', function ($scope, $rootScope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast, Config) {
     // Categories submenu
     $scope.categoriesSubmenu = false;
+    $scope.version = Config.getVersion();
     $scope.toggleSubmenu = function () {
         $scope.categoriesSubmenu = !$scope.categoriesSubmenu;
     };

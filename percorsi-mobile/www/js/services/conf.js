@@ -9,7 +9,8 @@ angular.module('roveretoPercorsi.services.conf', [])
     var userdata = 'userdata/paths';
     var appId = 'ComuneRovereto';
     var service = 'problems';
-
+    var APP_VERSION = '1.0.0RC1';
+    var APP_BUILD = '';
     var cityName = {
         'it': 'Rovereto',
         'en': 'Rovereto',
