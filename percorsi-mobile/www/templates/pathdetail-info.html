@@ -19,15 +19,15 @@
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
 
-<ion-slide-box delegate-handle="path-details-slide-box" does-continue="true" auto-play="true" ng-init="getAllItems(item)">
-    <ion-slide ng-repeat="image in images track by $index">
-        <div cover-img="{{image.url}}" ng-click="openModal('path-details-slide-box',-1)" ng-if="isAPicture(image)"></div>
-        <div class="video" cover-img="{{youtubeEmbed(image.url)}}" ng-click="window.open('{{image.url}}', '_system');" ng-if="!isAPicture(image)">
-            <i class="icon ion-play"></i>
-        </div>
-    </ion-slide>
+            <ion-slide-box delegate-handle="path-details-slide-box" does-continue="true" auto-play="true" ng-init="getAllItems(item)">
+                <ion-slide ng-repeat="image in images track by $index">
+                    <div cover-img="{{image.url}}" ng-click="openModal('path-details-slide-box',-1)" ng-if="isAPicture(image)"></div>
+                    <div class="video" cover-img="{{youtubeEmbed(image.url)}}" ng-click="window.open('{{image.url}}', '_system');" ng-if="!isAPicture(image)">
+                        <i class="icon ion-play"></i>
+                    </div>
+                </ion-slide>
 
-</ion-slide-box>
+            </ion-slide-box>
 
             <button class="button button-percorsi button-fab" ng-click="openGallery()">
                 <div>
@@ -148,7 +148,7 @@
 
                 <ion-item class="item poi-list-item-container" ng-repeat="poi in item.pois" ng-click="showPoi($index)" class="item-thumbnail-left">
                     <div style="background-image: url({{poi.images[0].url}})" class="poi-list-item-bg"></div>
-<!--                    <img ng-src="{{poi.images[0].url}}">-->
+                    <!--                    <img ng-src="{{poi.images[0].url}}">-->
                     <div class="poi-list-item">{{$index + 1}} . {{poi.title | translate_remote}}</div>
                 </ion-item>
                 </a>
