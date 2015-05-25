@@ -999,3 +999,8 @@ ion-side-menu ion-item .icon {
 .close-credits {
     padding: 8px;
 }
+
+.login-title {
+    text-align: center;
+    margin: 8px;
+}
