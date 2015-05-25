@@ -995,3 +995,7 @@ ion-side-menu ion-item .icon {
 .credits_version {
     text-align: center;
 }
+
+.close-credits {
+    padding: 8px;
+}
