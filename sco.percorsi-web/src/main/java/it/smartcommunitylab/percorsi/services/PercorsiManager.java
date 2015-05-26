@@ -89,6 +89,7 @@ public class PercorsiManager {
 			Path old = repository.getObjectById(p.getLocalId(), Path.class, appId);
 			if (old == null || !old.coreDataEquals(p)) {
 				if (old != null) {
+					p.setId(old.getId());
 					p.setVote(old.getVote());
 					p.setVoteCount(old.getVoteCount());
 					p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
