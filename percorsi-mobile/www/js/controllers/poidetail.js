@@ -40,6 +40,11 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             return false;
         }
     };
+
+    $scope.translateDescription = function(descr) {
+        return $filter('translate_remote')(descr);
+    }
+
     $scope.toggleDescription = function () {
         if ($scope.isDescriptionShown()) {
             $scope.expandedDescritpion = false;

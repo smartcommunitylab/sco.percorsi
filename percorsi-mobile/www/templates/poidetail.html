@@ -93,9 +93,7 @@
             <h3>{{item.title | translate_remote}}</h3> {{audios[audioTrack].title.length}}
 
             <div class="section" ng-class="{'expanded':isDescriptionShown()}">
-
-                <p class="description-info">{{item.description | translate_remote}}
-                </p>
+                <p class="description-info" ng-bind-html="translateDescription(item.description)"></p>
                 <div class="fadeout"></div>
             </div>
             <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()">

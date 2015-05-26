@@ -61,6 +61,10 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
 
     }
+    $scope.translateDescription = function(descr) {
+        return $filter('translate_remote')(descr);
+    }
+
     $scope.toggleDescription = function () {
         if ($scope.isDescriptionShown()) {
             $scope.expandedDescritpion = false;
