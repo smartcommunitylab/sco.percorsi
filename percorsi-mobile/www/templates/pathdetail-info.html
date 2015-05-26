@@ -39,24 +39,28 @@
 
         <!-- Path content -->
         <div class="padding content">
-            <div class="audio-title">
-                {{'path_tracks_title' | translate}}
+            <div ng-if="item.audios.length >0">
+                <div class="audio-title">
+                    {{'path_tracks_title' | translate}}
+                </div>
+                <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
+                    <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
+                        <i class="icon ion-skip-backward"></i>
+                    </button>
+                    <button class="button button-percorsi button-clear button-icon button-play" ng-click="audioToggle()">
+                        <i class="icon" ng-class="{'ion-play': !audioIsPlaying, 'ion-pause': !!audioIsPlaying}"></i>
+                    </button>
+                    <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()">
+                        <i class="icon ion-skip-forward"></i>
+                    </button>
+                    <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
+                </div>
+                <div class="separator"></div>
             </div>
-            <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
-                <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
-                    <i class="icon ion-skip-backward"></i>
-                </button>
-                <button class="button button-percorsi button-clear button-icon button-play" ng-click="audioToggle()">
-                    <i class="icon" ng-class="{'ion-play': !audioIsPlaying, 'ion-pause': !!audioIsPlaying}"></i>
-                </button>
-                <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()">
-                    <i class="icon ion-skip-forward"></i>
-                </button>
-                <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
-            </div>
-            <div class="separator"></div>
-
             <div class="path-numbers border">
+                <div class="info-title">
+                    {{'path_informations' | translate}}
+                </div>
                 <div class="path-length-detail" ng-hide="item.length == null">
                     <div class="icons-details">
                         <i class="icon sco-distance-h-pois"></i>

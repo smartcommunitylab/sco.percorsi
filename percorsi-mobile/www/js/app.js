@@ -283,7 +283,7 @@ angular.module('roveretoPercorsi', [
         path_difficulty_1: 'Bassa',
         path_difficulty_2: 'Media',
         path_difficulty_3: 'Alta',
-        path_itinerary: 'Itinerario',
+        path_itinerary: 'ITINERIARIO',
         archive_empty_list: 'Nessun percorso',
         categories_title: 'Rovereto Percorsi',
         credits_title: 'Credits',
@@ -337,7 +337,8 @@ angular.module('roveretoPercorsi', [
         preview_label: 'Anteprima',
         avg_rating: 'VOTO MEDIO',
         audio_starting: 'Avvio traccia audio',
-        credits_licenses_button: 'VEDI LICENZE'
+        credits_licenses_button: 'VEDI LICENZE',
+        path_informations: 'INFORMAZIONI'
     });
 
     $translateProvider.translations('en', {
@@ -355,7 +356,7 @@ angular.module('roveretoPercorsi', [
         path_difficulty_1: 'Low',
         path_difficulty_2: 'Medium',
         path_difficulty_3: 'Hard',
-        path_itinerary: 'Itinerary',
+        path_itinerary: 'ITINERIARIO',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
         credits_project: 'A project by:',
@@ -407,7 +408,9 @@ angular.module('roveretoPercorsi', [
         preview_label: 'Preview',
         avg_rating: 'RATING',
         audio_starting: 'Start audiotrack',
-        credits_licenses_button: 'VEDI LICENZE'
+        credits_licenses_button: 'VEDI LICENZE',
+        path_informations: 'INFORMAZIONI'
+
 
     });
 
@@ -426,7 +429,7 @@ angular.module('roveretoPercorsi', [
         path_difficulty_1: 'Leicht',
         path_difficulty_2: 'Halb',
         path_difficulty_3: 'Schwer',
-        path_itinerary: 'Reiseroute',
+        path_itinerary: 'ITINERIARIO',
         favorites_emptylist: '',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
@@ -478,7 +481,9 @@ angular.module('roveretoPercorsi', [
         preview_label: 'Anteprima',
         avg_rating: 'VOTO MEDIO',
         audio_starting: 'Avvio traccia audio',
-        credits_licenses_button: 'VEDI LICENZE'
+        credits_licenses_button: 'VEDI LICENZE',
+        path_informations: 'INFORMAZIONI'
+
 
     });
 

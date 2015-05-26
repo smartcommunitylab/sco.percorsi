@@ -258,6 +258,11 @@ body {
     padding-right: 48px;
 }
 
+.path-length-detail {
+    width: 100%;
+    padding: 8px;
+}
+
 .path-time-detail {
     width: 100%;
     padding: 8px;
@@ -755,6 +760,10 @@ ion-side-menu ion-item .icon {
 }
 
 .audio-title {
+    padding-left: 6px;
+}
+
+.info-title {
     padding-left: 6px;
 }
 
