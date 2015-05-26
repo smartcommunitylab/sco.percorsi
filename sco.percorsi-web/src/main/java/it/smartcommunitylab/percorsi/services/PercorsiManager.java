@@ -91,6 +91,9 @@ public class PercorsiManager {
 		for (Path p : list) {
 			p.setAppId(appId);
 			Path old = repository.getObjectById(p.getLocalId(), Path.class, appId);
+			if (old != null) {
+				oldIds.remove(old.getLocalId());
+			}
 			if (old == null || !old.coreDataEquals(p)) {
 				if (old != null) {
 					p.setId(old.getId());
@@ -98,7 +101,6 @@ public class PercorsiManager {
 					p.setVoteCount(old.getVoteCount());
 					p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
 					p.setVideos(MultimediaUtils.mergeProviderMultimedia(p.getVideos(), old.getVideos()));
-					oldIds.remove(old.getLocalId());
 				}
 				if (p.getPois() != null) {
 					Map<String, POI> oldPois = new HashMap<String, POI>();
