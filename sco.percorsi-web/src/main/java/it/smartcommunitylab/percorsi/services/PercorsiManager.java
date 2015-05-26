@@ -84,6 +84,10 @@ public class PercorsiManager {
 
 	public void storePaths(String appId, List<Path> list) throws DataException {
 		logger.info("Storing paths for app {}", appId);
+		Map<String, Path> oldIds = new HashMap<String, Path>();
+		List<Path> oldPaths = getPaths(appId, null);
+		if (oldPaths != null) for (Path p : oldPaths) oldIds.put(p.getLocalId(), p);
+		
 		for (Path p : list) {
 			p.setAppId(appId);
 			Path old = repository.getObjectById(p.getLocalId(), Path.class, appId);
@@ -94,6 +98,7 @@ public class PercorsiManager {
 					p.setVoteCount(old.getVoteCount());
 					p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
 					p.setVideos(MultimediaUtils.mergeProviderMultimedia(p.getVideos(), old.getVideos()));
+					oldIds.remove(old.getLocalId());
 				}
 				if (p.getPois() != null) {
 					Map<String, POI> oldPois = new HashMap<String, POI>();
@@ -114,6 +119,9 @@ public class PercorsiManager {
 				}
 				repository.storeObject(p);
 			}
+		}
+		for (String oldId : oldIds.keySet()) {
+			repository.deleteObject(oldIds.get(oldId), appId);
 		}
 	}
 
