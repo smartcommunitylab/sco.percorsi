@@ -175,9 +175,9 @@ public class XMLUtils {
 		Integer length = null, time = null, difficulty = null;
 		if (attrs != null) 
 			for (CustomAttribute attr : attrs) {
-				if (ATTR_LENGTH.equals(attr.getName())) try {length = Integer.parseInt(attr.getValue()); } catch(Exception e) {};
-				if (ATTR_DURATION.equals(attr.getName())) try {time = Integer.parseInt(attr.getValue()); } catch(Exception e) {};
-				if (ATTR_DIFFICULTY.equals(attr.getName())) try {difficulty = Integer.parseInt(attr.getValue()); } catch(Exception e) {};
+				if (ATTR_LENGTH.equalsIgnoreCase(attr.getName())) try {length = Integer.parseInt(attr.getValue()); } catch(Exception e) {};
+				if (ATTR_DURATION.equalsIgnoreCase(attr.getName())) try {time = Integer.parseInt(attr.getValue()); } catch(Exception e) {};
+				if (ATTR_DIFFICULTY.equalsIgnoreCase(attr.getName())) try {difficulty = Integer.parseInt(attr.getValue()); } catch(Exception e) {};
 			}	
 		
 		return new it.smartcommunitylab.percorsi.model.Path(
