@@ -26,9 +26,9 @@ providers:
         lastChange: 1
         categories:
             - id: a
-              image: http://i.imgur.com/VqrwGwE.png
+              image: http://i.imgur.com/xKeRhLn.jpg
               name:
-                it: Tesori Nascosti
-                en: Hidden Treasures
-                de: Geheime Shaetze
+                it: Tesori Nascosti del Garda Trentino
+                en: Hidden Treasures of Garda Trentino
+                de: Geheime Shätze des Garda Trentino
                 
