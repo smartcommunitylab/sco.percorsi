@@ -28,17 +28,21 @@ import it.smartcommunitylab.percorsi.services.ModerationManager;
 import it.smartcommunitylab.percorsi.services.PercorsiManager;
 import it.smartcommunitylab.percorsi.utils.XMLUtils;
 
+import java.nio.charset.Charset;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXB;
 
+import org.apache.commons.io.FileUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StreamUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -96,7 +100,7 @@ public class ConsoleController {
 		MultiValueMap<String, MultipartFile> multiFileMap = req.getMultiFileMap();
 		MultipartFile file = multiFileMap.getFirst("paths");
 		MultipartFile catFile = multiFileMap.getFirst("categories");
-		if (file == null || catFile == null) throw new IllegalArgumentException("File not found");
+		if (file == null && catFile == null) throw new IllegalArgumentException("File not found");
 		String appId = getAppId();
 		if (file != null && !file.isEmpty()) {
 			it.smartcommunitylab.percorsi.xml.PathData xmlData = JAXB.unmarshal(file.getInputStream(), it.smartcommunitylab.percorsi.xml.PathData.class);
@@ -104,7 +108,7 @@ public class ConsoleController {
 			manager.storePaths(appId, data.getData());
 		}
 		if (catFile != null && !catFile.isEmpty()) {
-			it.smartcommunitylab.percorsi.xml.Categories xmlData = JAXB.unmarshal(file.getInputStream(), it.smartcommunitylab.percorsi.xml.Categories.class);
+			it.smartcommunitylab.percorsi.xml.Categories xmlData = JAXB.unmarshal(catFile.getInputStream(), it.smartcommunitylab.percorsi.xml.Categories.class);
 			Categories data = XMLUtils.toDomain(xmlData);
 			manager.storeCategories(appId, data);
 		}
