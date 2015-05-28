@@ -114,6 +114,8 @@ public class POI extends PercorsiObject {
 		if (!MultimediaUtils.multimediaEquals(getVideos(), other.getVideos())) return false;
 		if (!MultimediaUtils.multimediaEquals(getImages(), other.getImages())) return false;
 
+		if (!coordinates.equals(other.coordinates)) return false;
+		
 		return true;
 	}
 
