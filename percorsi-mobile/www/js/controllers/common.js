@@ -71,7 +71,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
     });
 
     // Modal 2
-    $ionicModal.fromTemplateUrl('templates/credits.html', {
+    $ionicModal.fromTemplateUrl('templates/'+Config.credits, {
         id: '2', // We need to use and ID to identify the modal that is firing the event!
         scope: $scope,
         backdropClickToClose: false,

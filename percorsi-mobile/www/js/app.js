@@ -39,7 +39,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.favoritesService'
 ])
 
-.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate) {
+.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate, Config) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
     $rootScope.getUserId = function () {
@@ -112,6 +112,8 @@ angular.module('roveretoPercorsi', [
             return this * Math.PI / 180;
         }
     }
+
+    $rootScope.appName = Config.cityName;
 
     document.addEventListener("pause", function () {
         console.log('app paused');
