@@ -2,29 +2,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 
 .controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService, FilterVariable) {
     $scope.path = singlePathService.getSelectedPath();
-    $scope.item = singlePoiService.getSelectedPoi();
-    var gallery = galleryService.createGallery($scope.item);
-
-    $scope.idPoiChoosen = null;
-    $scope.expandedDescritpion = false;
-    $scope.imagesSlide = [];
-    $scope.currentItemIndex = singlePoiService.getIndexPoi() + 1;
-
-    $scope.images =
-        // $scope.poiChoosed = singlePoiService.getIndexPoi() + 1;
-        $scope.options = [{
-            name: $filter('translate')("images_send_percorso_string"),
-            id: 0
-    }];
-
-    for (var i = 0; i < ($scope.path.pois.length); i++) {
-        $scope.options.push({
-            name: $filter('translate_remote')($scope.path.pois[i].title),
-            id: i
-        });
-    }
-    $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
-
+    var gallery = null;
     var endOfThePath = function () {
         if (!!$scope.path && (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1)) {
             return true;
@@ -40,8 +18,45 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             return false;
         }
     };
+    $scope.getAllItems = function (item) {
+        $scope.imagesSlide = galleryService.getItems(item);
 
-    $scope.translateDescription = function(descr) {
+    }
+
+    var initVariables = function () {
+        $scope.item = singlePoiService.getSelectedPoi();
+        gallery = galleryService.createGallery($scope.item);
+        $scope.idPoiChoosen = null;
+        $scope.expandedDescritpion = false;
+        $scope.imagesSlide = [];
+        $scope.currentItemIndex = singlePoiService.getIndexPoi() + 1;
+
+        $scope.images =
+            // $scope.poiChoosed = singlePoiService.getIndexPoi() + 1;
+            $scope.options = [{
+                name: $filter('translate')("images_send_percorso_string"),
+                id: 0
+    }];
+
+        for (var i = 0; i < ($scope.path.pois.length); i++) {
+            $scope.options.push({
+                name: $filter('translate_remote')($scope.path.pois[i].title),
+                id: i
+            });
+        }
+        $scope.selectedOption = $scope.options[singlePoiService.getIndexPoi() + 1];
+
+        $scope.lastPOI = endOfThePath();
+        $scope.firstPOI = beginOfThePath();
+        $ionicSlideBoxDelegate.update();
+        $scope.getAllItems($scope.item);
+    }
+
+    initVariables();
+
+
+
+    $scope.translateDescription = function (descr) {
         return $filter('translate_remote')(descr);
     }
 
@@ -68,8 +83,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         }
         return true;
     };
-    $scope.lastPOI = endOfThePath();
-    $scope.firstPOI = beginOfThePath();
+
 
     $scope.goToMap = function () {
         $state.go('app.pathdetail.map');
@@ -81,9 +95,10 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         //check last poi
         $scope.lastPOI = endOfThePath();
 
-        $state.go($state.current, {}, {
-            reload: true
-        });
+        //        $state.go($state.current, {}, {
+        //            reload: true
+        //        });
+        initVariables();
     };
 
     $scope.prevPOI = function () {
@@ -92,9 +107,11 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         //check first poi
         $scope.firstPOI = beginOfThePath();
 
-        $state.go($state.current, {}, {
-            reload: true
-        });
+        //        $state.go($state.current, {}, {
+        //            reload: true
+        //        });
+        initVariables();
+
     };
 
 
@@ -150,10 +167,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             }
         }
         return returnItems;
-    }
-    $scope.getAllItems = function (item) {
-        $scope.imagesSlide = galleryService.getItems(item);
-
     }
 
     $scope.isAPicture = function (item) {
