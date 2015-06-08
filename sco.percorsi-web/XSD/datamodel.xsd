@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://xml.percorsi.smartcommunitylab.it"
+           xmlns:tns="http://xml.percorsi.smartcommunitylab.it"
+           elementFormDefault="qualified">
+
+    <xs:element name="PathData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="path" minOccurs="1" maxOccurs="unbounded" type="tns:Path"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="i18nText">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="lang" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="CustomAttribute">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Category">
+        <xs:sequence>
+            <xs:element name="name" type="tns:i18nText" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="description" type="tns:i18nText" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="image" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="categoryId" use="required"/>
+    </xs:complexType>
+    
+    <xs:element name="Categories">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="category" type="tns:Category" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="lastChange" type="xs:dateTime" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="Multimedia">
+        <xs:sequence>
+            <xs:element name="title" type="tns:i18nText" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="url" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="userDefined" type="xs:boolean" use="optional" default="false"/>    
+        <xs:attribute name="userId" type="xs:string" use="optional"/>    
+    </xs:complexType>
+    
+    <xs:complexType name="Location">
+        <xs:attribute name="latitude" type="xs:double" use="required"/>    
+        <xs:attribute name="longitude" type="xs:double" use="required"/>    
+    </xs:complexType>
+    
+    <xs:complexType name="POI">
+        <xs:sequence>
+            <xs:element name="title" type="tns:i18nText" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="description" type="tns:i18nText" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="image" type="tns:Multimedia" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="video" type="tns:Multimedia" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="audio" type="tns:Multimedia" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="externalURL" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="coordinates" type="tns:Location" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="poiId" type="xs:string" use="required"/>    
+    </xs:complexType>
+    
+    <xs:complexType name="Path">
+        <xs:sequence>
+            <xs:element name="title" type="tns:i18nText" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="description" type="tns:i18nText" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="category" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="image" type="tns:Multimedia" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="video" type="tns:Multimedia" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="audio" type="tns:Multimedia" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="externalURL" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="attributes" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="attribute" type="tns:CustomAttribute" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="shape" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="poi" type="tns:POI" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="pathId" type="xs:string" use="required"/>    
+    </xs:complexType>
+    
+</xs:schema>

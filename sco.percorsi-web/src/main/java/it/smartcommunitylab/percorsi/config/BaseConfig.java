@@ -15,16 +15,22 @@
  ******************************************************************************/
 package it.smartcommunitylab.percorsi.config;
 
+import java.io.IOException;
 import java.net.UnknownHostException;
+import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -45,6 +51,8 @@ public class BaseConfig extends WebMvcConfigurerAdapter {
 
 	@Autowired
 	private Environment env;
+	@Value("classpath:/javamail.properties")
+	private Resource mailProps;
 
 	@Bean(name = "mongoTemplate")
 	public MongoTemplate getMongoTemplate() throws UnknownHostException, MongoException {
@@ -81,6 +89,21 @@ public class BaseConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public MultipartResolver multipartResolver() {
 		return new CommonsMultipartResolver();
+	}
+
+	@Bean
+	public JavaMailSender getMailSender() throws IOException {
+		JavaMailSenderImpl sender = new JavaMailSenderImpl();
+		sender.setHost(env.getProperty("mailHost"));
+		sender.setPort(Integer.parseInt(env.getProperty("mailPort")));
+		sender.setUsername(env.getProperty("mailUsername"));
+		sender.setPassword(env.getProperty("mailPassword"));
+		sender.setProtocol("smtp");
+		
+		Properties props = new Properties();
+		props.load(mailProps.getInputStream());
+		sender.setJavaMailProperties(props);
+		return sender;
 	}
 
 }

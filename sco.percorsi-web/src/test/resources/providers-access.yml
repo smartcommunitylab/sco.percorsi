@@ -1,6 +1,6 @@
 providers:
-  - id: ComuneRovereto
-    password: rovereto
+  - id: test
+    password: test
     moderation: true
     moderator: test@test.test
     categories:
@@ -18,17 +18,3 @@ providers:
                 it: Percorsi del gusto
                 en: Taste Tours
                 de: Taste Tours
-  - id: Ingarda
-    password: ingarda
-    moderation: true
-    moderator: test@test.test
-    categories:
-        lastChange: 1
-        categories:
-            - id: a
-              image: http://i.imgur.com/xKeRhLn.jpg
-              name:
-                it: Tesori Nascosti del Garda Trentino
-                en: Hidden Treasures of Garda Trentino
-                de: Geheime Shätze des Garda Trentino
-                

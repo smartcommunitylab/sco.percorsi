@@ -1,0 +1,25 @@
+{
+    "categories": [
+        {
+            "id": "a",
+            "name": {
+                "it": "Scopri il territorio",
+                "en": "Discover the land",
+                "de": "Entdecken Sie die Umgebung"
+            },
+            "description": null,
+            "image": "http://i.imgur.com/VqrwGwE.png"
+        },
+        {
+            "id": "b",
+            "name": {
+                "it": "Percorsi del gusto",
+                "en": "Taste Tours",
+                "de": "Taste Tours"
+            },
+            "description": null,
+            "image": "http://i.imgur.com/rksA3h9.png"
+        }
+    ],
+    "lastChange": 1
+}
