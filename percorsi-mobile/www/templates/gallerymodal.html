@@ -7,17 +7,32 @@
     </ion-header-bar>
     <ion-content scroll="false">
         <ion-slide-box delegate-handle="gallerymodal-slide-box" show-pager="false" does-continue="false" auto-play="true" active-slide="activeSlide">
-            <ion-slide ng-repeat="image in item.images">
+            <ion-slide ng-repeat="image in item.images" ng-if="!image.userDefined">
                 <ion-content>
                     <img ng-src="{{image.url}}" />
-                    <p>{{image.title | translate_remote}}</p>
+
+                    <p class="titlegallery">{{image.title | translate_remote}}</p>
+                    <p class="typegallery"><i class="icon sco-institutional"></i>{{'modal_istitutional' | translate}}
+                    </p>
                 </ion-content>
             </ion-slide>
             <ion-slide ng-repeat="video in item.videos">
                 <ion-content>
                     <img ng-src="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');" />
                     <i class="icon ion-play video-play" ng-click="window.open('{{video.url}}', '_system');"></i>
-                    <p>{{video.title | translate_remote}}</p>
+
+                    <p class="titlegallery">{{video.title | translate_remote}}</p>
+                    <p class="typegallery"><i class="icon sco-institutional"></i>{{'modal_istitutional' | translate}}
+                    </p>
+                </ion-content>
+            </ion-slide>
+            <ion-slide ng-repeat="image in item.images" ng-if="image.userDefined">
+                <ion-content>
+                    <img ng-src="{{image.url}}" />
+
+                    <p class="titlegallery">{{image.title | translate_remote}} </p>
+                    <p class="typegallery"><i class="icon sco-public"></i>{{'modal_public' | translate}}
+                    </p>
                 </ion-content>
             </ion-slide>
         </ion-slide-box>

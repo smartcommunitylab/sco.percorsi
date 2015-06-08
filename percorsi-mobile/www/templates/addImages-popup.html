@@ -1,15 +1,25 @@
 <ion-modal-view id="addimages-modal">
-    <ion-header-bar>
-        <h1 class="title">{{'addImage_label'|translate}}</h1>
+    <ion-header-bar align-title="center">
+        <!--        <h1 class="title add-image-title">{{'addImage_label'|translate}}</h1>-->
     </ion-header-bar>
     <ion-content>
+        <div class="title add-image-title" ng-if="image.length == 0">{{'addImage_label'|translate}}</div>
+
         <div class="types-buttons">
-            <button class="button button-light button-large" ng-click="addImage('Camera')" ng-if="images.length == 0">
+            <button class="button button-percorsi add-image button-large" ng-click="addImage('Camera')" ng-if="image.length == 0">
                 <i class=" icon ion-android-camera"></i>
             </button>
-            <button class="button button-light button-large" ng-click="addImage('Gallery')" ng-if="images.length == 0">
+            <button class="button button-percorsi add-image button-large" ng-click="addImage('Gallery')" ng-if="image.length == 0">
                 <i class=" icon ion-images"></i>
             </button>
+        </div>
+
+        <div class="title add-image-title" ng-if="image.length != 0">{{'preview_label'|translate}}</div>
+
+        <div class="wrapper " ng-repeat="img in image">
+            <img data-ng-src="{{img}}" width="200px">
+            </img>
+            <span class="close" ng-click="removeImage($index)"></span>
         </div>
         <div>
             <div class="add-image-poi-select">
@@ -21,12 +31,6 @@
                 </label>
             </div>
         </div>
-
-        <div class="wrapper" ng-repeat="image in images">
-            <img data-ng-src="{{image}}" width="200px" />
-            <span class="close" ng-click="removeImage(image)"></span>
-        </div>
-
         <div class="row actions-buttons">
             <div class="col">
                 <button class="button button-percorsi button-block" ng-click="closeAddimage()">{{'addImage_popup_cancel' | translate}}</button>

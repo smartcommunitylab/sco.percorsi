@@ -1,7 +1,7 @@
 #!/bin/sh
-DATA_WEBAPP_MULTI="ComuneRovereto"
+DATA_WEBAPP="Ingarda"
 
-grep "var DEVELOPMENT=true;" ../js/services/conf.js &>/dev/null
+grep "var DEVELOPMENT = true;" ../js/services/conf.js &>/dev/null
 #if [ $? == 0 ]; then
 #  DATA_HOST_NAME="dev"
 #else
@@ -10,4 +10,4 @@ grep "var DEVELOPMENT=true;" ../js/services/conf.js &>/dev/null
 DATA_HOST_NAME="dev"
 echo "host: $DATA_HOST_NAME"
 
-curl -H "Content-Type: application/json" -d '{"updated":{}}' "https://$DATA_HOST_NAME.smartcommunitylab.it/percorsi/sync/$DATA_WEBAPP_MULTI?since=0" -o data.json
+curl -H "Content-Type: application/json" -d '{"updated":{}}' "https://$DATA_HOST_NAME.smartcommunitylab.it/percorsi/sync/$DATA_WEBAPP?since=0" -o data.json

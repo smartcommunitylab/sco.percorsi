@@ -31,9 +31,31 @@ angular.module('roveretoPercorsi.controllers.common', [])
     };
 })
 
-.controller('AppCtrl', function ($scope, $rootScope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast) {
+.factory('FilterVariable', function ($rootScope) {
+    filterSocialTab = true
+    filterSocialSlide = true;
+    filterAddImageButton = true;
+    filterMaxNumberSlide = 6;
+    return {
+        getFilterSocialTab: function () {
+            return filterSocialTab;
+        },
+        getFilterSocialSlide: function () {
+            return filterSocialSlide;
+        },
+        getFilterAddImageButton: function () {
+            return filterAddImageButton;
+        },
+        getFilterMaxNumberSlide: function () {
+            return filterMaxNumberSlide;
+        },
+    };
+})
+
+.controller('AppCtrl', function ($scope, $rootScope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast, Config) {
     // Categories submenu
     $scope.categoriesSubmenu = false;
+    $scope.version = Config.getVersion();
     $scope.toggleSubmenu = function () {
         $scope.categoriesSubmenu = !$scope.categoriesSubmenu;
     };
@@ -49,7 +71,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
     });
 
     // Modal 2
-    $ionicModal.fromTemplateUrl('templates/credits.html', {
+    $ionicModal.fromTemplateUrl('templates/'+Config.credits, {
         id: '2', // We need to use and ID to identify the modal that is firing the event!
         scope: $scope,
         backdropClickToClose: false,
@@ -68,14 +90,14 @@ angular.module('roveretoPercorsi.controllers.common', [])
         else $scope.oModal2.hide();
     };
 
-//    $scope.openSignal = function () {
-//        segnalaService.setSignal(null);
-//        window.location.assign('#/app/segnala/');
-//        $ionicHistory.nextViewOptions({
-//            disableAnimate: true,
-//            disableBack: true
-//        });
-//    };
+    //    $scope.openSignal = function () {
+    //        segnalaService.setSignal(null);
+    //        window.location.assign('#/app/segnala/');
+    //        $ionicHistory.nextViewOptions({
+    //            disableAnimate: true,
+    //            disableBack: true
+    //        });
+    //    };
 
     /* Listen for broadcasted messages */
     $scope.openLoginPopUp = function () {
@@ -113,14 +135,16 @@ angular.module('roveretoPercorsi.controllers.common', [])
     }
 
     $scope.youtubeEmbed = function (url) {
-        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-        var match = url.match(regExp);
-        if (match && match[7].length == 11) {
-            /*return 'http://img.youtube.com/vi/' + match[7] + '/0.jpg';*/
-            return 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
-            /*return 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';*/
-        } else {
-            return null;
+        if (url) {
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            if (match && match[7].length == 11) {
+                /*return 'http://img.youtube.com/vi/' + match[7] + '/0.jpg';*/
+                return 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
+                /*return 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';*/
+            } else {
+                return null;
+            }
         }
     }
 

@@ -14,8 +14,25 @@
     "gulp-util": "^2.2.14",
     "shelljs": "^0.3.0"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "org.apache.cordova.console",
+    "org.apache.cordova.device",
+    "org.apache.cordova.statusbar",
+    "org.apache.cordova.splashscreen",
+    "org.apache.cordova.inappbrowser",
+    "org.apache.cordova.camera",
+    "org.apache.cordova.geolocation",
+    "org.apache.cordova.globalization",
+    "com.ionic.keyboard",
+    "nl.x-services.plugins.toast",
+    "org.apache.cordova.file",
+    "https://github.com/brodysoft/Cordova-SQLitePlugin.git",
+    "org.apache.cordova.network-information",
+    "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
+    "org.apache.cordova.media"
+  ],
   "cordovaPlatforms": [
-    "android"
+    "android",
+    "ios"
   ]
 }

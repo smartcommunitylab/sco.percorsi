@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetail', [])
 
-.controller('PathDetailCtrl', function ($scope, singlePathService, favoritesService) {
+.controller('PathDetailCtrl', function ($scope, singlePathService, favoritesService, FilterVariable) {
     if (singlePathService.getSelectedPath() != null) {
         var pathId = singlePathService.getSelectedPath().localId;
 
@@ -17,4 +17,7 @@ angular.module('roveretoPercorsi.controllers.pathdetail', [])
             });
         }
     };
+    $scope.isSocialTabVisible = function () {
+        return FilterVariable.getFilterSocialTab();
+    }
 });

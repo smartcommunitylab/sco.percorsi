@@ -26,8 +26,9 @@
     <ion-content class="has-header has-subheader">
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
-            <ion-slide-box delegate-handle="poi-details-slide-box" does-continue="true" auto-play="true">
+            <ion-slide-box delegate-handle="poi-details-slide-box" does-continue="true" auto-play="true" ng-init="getAllItems(item)">
                 <!--on-slide-changed="slideHasChanged($index)"-->
+                <!--
                 <ion-slide ng-repeat="image in item.images" ng-click="openModal(poi-details-slide-box)">
                     <div cover-img="{{image.url}}"></div>
                 </ion-slide>
@@ -36,31 +37,81 @@
                         <i class="icon ion-play"></i>
                     </div>
                 </ion-slide>
+-->
+
+                <!--
+                <ion-slide ng-repeat="image in getOfficialItems(item.images) track by $index" ng-click="openModal('poi-details-slide-box',-1)">
+                    <div cover-img="{{image.url}}"></div>
+                </ion-slide>
+                <ion-slide ng-repeat="video in getOfficialItems(item.videos)">
+                    <div class="video" cover-img="{{youtubeEmbed(video.url)}}" ng-click="window.open('{{video.url}}', '_system');">
+                        <i class="icon ion-play"></i>
+                    </div>
+                </ion-slide>
+-->
+                <ion-slide ng-repeat="image in imagesSlide track by $index">
+                    <div cover-img="{{image.url}}" ng-click="openModal('poi-details-slide-box',-1)" ng-if="isAPicture(image)"></div>
+                    <div class="video" cover-img="{{youtubeEmbed(image.url)}}" ng-click="window.open('{{image.url}}', '_system');" ng-if="!isAPicture(image)">
+                        <i class="icon ion-play"></i>
+                    </div>
+                </ion-slide>
             </ion-slide-box>
 
+            <!--
             <button class="button button-percorsi button-fab" ng-click="openAddimage()">
                 <div>
                     <span><i class="icon ion-plus"></i></span>
                 </div>
             </button>
+-->
+
+            <button class="button button-percorsi button-fab" ng-click="openGallery()">
+                <div>
+                    <span><i class="icon ion-images"></i></span>
+                </div>
+            </button>
         </div>
         <!-- POI content -->
         <div class="padding content">
-            <h3>{{item.title | translate_remote}}</h3> {{audios[audioTrack].title.length}}
-            <p class="detail-description">{{item.description | translate_remote}}</p>
-
-            <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
-                <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
-                    <i class="icon ion-skip-backward"></i>
-                </button>
-                <button class="button button-percorsi button-clear button-icon button-play" ng-click="audioToggle()">
-                    <i class="icon" ng-class="{'ion-play': !audioIsPlaying, 'ion-pause': !!audioIsPlaying}"></i>
-                </button>
-                <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()">
-                    <i class="icon ion-skip-forward"></i>
-                </button>
-                <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
+            <div ng-if="item.audios.length >0">
+                <div class="audio-title">
+                    {{'path_tracks_title' | translate}}
+                </div>
+                <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
+                    <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
+                        <i class="icon ion-skip-backward"></i>
+                    </button>
+                    <button class="button button-percorsi button-clear button-icon button-play" ng-click="audioToggle()">
+                        <i class="icon" ng-class="{'ion-play': !audioIsPlaying, 'ion-pause': !!audioIsPlaying}"></i>
+                    </button>
+                    <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()">
+                        <i class="icon ion-skip-forward"></i>
+                    </button>
+                    <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
+                </div>
+                <!--            <p class="detail-description">{{item.description | translate_remote}}</p>-->
+                <div class="separator"></div>
             </div>
+            <h3>{{item.title | translate_remote}}</h3> {{audios[audioTrack].title.length}}
+
+            <div class="section" ng-class="{'expanded':isDescriptionShown()}">
+                <p class="description-info" ng-bind-html="translateDescription(item.description)"></p>
+                <div class="fadeout"></div>
+            </div>
+            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()">
+                <div class="text-button">
+
+                    {{'path_more_information' | translate}}
+                </div>
+            </ion-item>
+            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideCloseDescriptionButton()">
+                <div class="text-button">
+
+                    {{'path_less_information' | translate}}
+                </div>
+            </ion-item>
+            <div class="separator"></div>
+
             <div class="row">
                 <div class="col">
                     <button class="button button-percorsi button-block" ng-click="goToMap()">{{'path_map' | translate}}</button>

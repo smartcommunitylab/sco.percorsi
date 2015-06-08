@@ -1,0 +1,56 @@
+<ion-view id="paths" title="{{('gallery_title' | translate)}}" ng-init="loadImages()">
+    <ion-nav-buttons>
+        <!--
+    <a class="button button-icon icon myback" ng-click="back()"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
+    </a>
+-->
+        <button ng-click="$ionicGoBack($event)" class="row button button-icon" ng-class="backButtonStyle">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button ng-click="openAddimage()" class="row button button-icon" ng-if="isAddImageButtonVisible()">
+            <div>
+                <span><i class="icon ion-plus"></i></span>
+            </div>
+        </button>
+    </ion-nav-buttons>
+    <ion-content has-header="true" has-footer="true" ng-controller="GallerySlideBoxCtrl">
+        <div class="padding emptylist" ng-if="emptylist">
+            <!--<div class="item item-text-wrap">-->
+            {{'empty_gallery' | translate}}
+            <!--</div>-->
+        </div>
+        <div class="row" ng-repeat="image in images" ng-if="$index % 2 === 0" ng-if="!emptylist">
+            <div class="col col-50 col-center" ng-if="$index < images.length">
+                <div class="gallery-tile" ng-click="getImageAction($index)">
+                    <!--                    <img ng-src="{{getURLSource(images[$index])}}" width="100%" />-->
+                    <div class="button button-percorsi circle-type">
+                        <span>
+                            <i class="icon sco-public type-overlay" ng-if="images[$index].userDefined"></i>
+                            <i class="icon sco-institutional type-overlay" ng-if="!images[$index].userDefined"></i>
+                        </span>
+                    </div>
+                    <div cover-img="{{getURLSource(images[$index])}}" class="gallery-square"></div>
+                    <i class="icon ion-play play-overlay" ng-if="isAVideo(images[$index])"></i>
+
+
+                </div>
+
+            </div>
+            <div class="col col-50 col-center" ng-if="$index + 1 < images.length">
+                <div class="gallery-tile" ng-click="getImageAction($index+1)">
+                    <!--                    <img ng-src="{{getURLSource(images[$index + 1])}}" width="100%" />-->
+                    <div cover-img="{{getURLSource(images[$index +1])}}" class="gallery-square"></div>
+
+                    <i class="icon ion-play play-overlay" ng-if="isAVideo(images[$index + 1])"></i>
+                    <div class="button button-percorsi circle-type">
+                        <span>
+                            <i class="icon sco-public type-overlay" ng-if="images[$index+1].userDefined"></i>
+                            <i class="icon sco-institutional type-overlay" ng-if="!images[$index+1].userDefined"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>

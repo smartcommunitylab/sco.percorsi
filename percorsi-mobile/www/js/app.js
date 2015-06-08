@@ -14,6 +14,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.directives',
     'roveretoPercorsi.controllers.common',
     'roveretoPercorsi.controllers.detailsslidebox',
+    'roveretoPercorsi.controllers.galleryslidebox',
     'roveretoPercorsi.controllers.audioplayer',
     'roveretoPercorsi.controllers.categories',
     'roveretoPercorsi.controllers.profile',
@@ -24,6 +25,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.pathdetailturist',
     'roveretoPercorsi.controllers.poidetail',
     'roveretoPercorsi.controllers.favorites',
+    'roveretoPercorsi.controllers.gallery',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
@@ -31,12 +33,13 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.singlePathService',
     'roveretoPercorsi.services.singlePoiService',
     'roveretoPercorsi.services.addImageService',
+    'roveretoPercorsi.services.galleryService',
     'roveretoPercorsi.services.reviews',
     'roveretoPercorsi.services.db',
     'roveretoPercorsi.services.favoritesService'
 ])
 
-.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate) {
+.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate, Config) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
     $rootScope.getUserId = function () {
@@ -110,6 +113,8 @@ angular.module('roveretoPercorsi', [
         }
     }
 
+    $rootScope.appName = Config.cityName;
+
     document.addEventListener("pause", function () {
         console.log('app paused');
         if (typeof $rootScope.locationWatchID != 'undefined') {
@@ -173,6 +178,7 @@ angular.module('roveretoPercorsi', [
     })
 
     .state('app.paths', {
+        cache: false,
         url: "/categories/:id",
         views: {
             'menuContent': {
@@ -241,16 +247,27 @@ angular.module('roveretoPercorsi', [
     })
 
     .state('app.favorites', {
-        cache: false,
-        url: '/favorites',
-        abstract: false,
-        views: {
-            'menuContent': {
-                templateUrl: "templates/paths.html",
-                controller: 'FavoritesCtrl'
+            cache: false,
+            url: '/favorites',
+            abstract: false,
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/paths.html",
+                    controller: 'FavoritesCtrl'
+                }
             }
-        }
-    });
+        })
+        .state('app.gallery', {
+            cache: false,
+            url: '/gallery',
+            abstract: false,
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/gallery.html",
+                    controller: 'GalleryCtrl'
+                }
+            }
+        });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/categories');
@@ -264,10 +281,11 @@ angular.module('roveretoPercorsi', [
         path_info: 'Info',
         path_map: 'Mappa',
         path_turist: 'Social',
+        path_difficulty: 'Difficoltà',
         path_difficulty_1: 'Bassa',
         path_difficulty_2: 'Media',
         path_difficulty_3: 'Alta',
-        path_itinerary: 'Itinerario',
+        path_itinerary: 'ITINERIARIO',
         archive_empty_list: 'Nessun percorso',
         categories_title: 'Rovereto Percorsi',
         credits_title: 'Credits',
@@ -277,20 +295,25 @@ angular.module('roveretoPercorsi', [
         credits_info: 'Per informazioni:',
         pathdetailmap_startpath: 'INIZIA PERCORSO',
         pathdetailmap_goto: 'Vai',
+        pathdetailinfo_vote: 'Voto',
         pathdetailturist_vote: 'Vota',
+        pathdetailturist_votes: 'Recensioni',
         pathdetailturist_review: 'Recensisci',
-        pathdetailturist_voteinfo: 'Vota il percorso',
+        pathdetailturist_review_label: 'Recensione',
+        pathdetailturist_review_hint: 'Inserisci una tua recensione',
+        pathdetailturist_voteinfo: 'Valuta il percorso',
         pathdetailtourist_empty_list: 'Non sono presenti recensioni',
         pathdetailtourist_anonymous: 'Anonimo',
-        pathdetailtourist_your_review: 'La tua recensione',
-        newreview_popup_title: 'Aggiungi la tua recensione',
+        pathdetailtourist_your_review: 'La tua valutazione',
+        newreview_popup_title: 'Aggiungi la tua valutazione',
         newreview_popup_cancel: 'Chiudi',
         newreview_popup_ok: 'Conferma',
         vote_sent_toast_ok: 'Voto registrato',
         review_sent_toast_ok: 'Recensione inviata',
         addImage_popup_ok: 'Ok',
         addImage_popup_cancel: 'Annulla',
-        addImage_label: 'Aggiungi immagini',
+        addImage_label: 'Aggiungi un\'immagine',
+        addImage_isEmpty: 'Inserire un\'immagine valida',
         images_send_toast_ok: 'Nuove immagini aggiunte con successo',
         images_send_toast_error: 'Problema nell\'invio delle immagini',
         toast_must_login: 'Funzione disabilitata. Devi accedere al sistema',
@@ -305,11 +328,23 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login effettuato con successo',
         syncing: 'aggiornamento in corso...',
         cleaning: 'pulizia in corso...',
-        review_empty_error: 'Inserire uuna recensione'
+        review_empty_error: 'Inserire uuna recensione',
+        path_tracks_title: 'TRACCE AUDIO',
+        path_more_information: 'Più informazioni',
+        path_less_information: 'Meno informazioni',
+        gallery_title: 'Immagini',
+        empty_gallery: 'Nessuna immagine presente',
+        modal_istitutional: 'Foto istituzionale',
+        modal_public: 'Foto utenti',
+        preview_label: 'Anteprima',
+        avg_rating: 'VOTO MEDIO',
+        audio_starting: 'Avvio traccia audio',
+        credits_licenses_button: 'VEDI LICENZE',
+        path_informations: 'INFORMAZIONI'
     });
 
     $translateProvider.translations('en', {
-        menu_home: 'Categories / HOME',
+        menu_home: 'Home',
         menu_favorites: 'Bookmarks',
         menu_login: 'Login',
         menu_logout: 'Logout',
@@ -319,10 +354,11 @@ angular.module('roveretoPercorsi', [
         path_info: 'Info',
         path_map: 'Map',
         path_turist: 'Social',
+        path_difficulty: 'Difficulty',
         path_difficulty_1: 'Low',
         path_difficulty_2: 'Medium',
         path_difficulty_3: 'Hard',
-        path_itinerary: 'Itinerary',
+        path_itinerary: 'ITINERIARIO',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
         credits_project: 'A project by:',
@@ -330,9 +366,13 @@ angular.module('roveretoPercorsi', [
         credits_info: 'Further information:',
         pathdetailmap_startpath: 'START PATH',
         pathdetailmap_goto: 'Go',
-        pathdetailturist_vote: 'Vote',
+        pathdetailinfo_vote: 'Rate',
+        pathdetailturist_vote: 'Valuta',
+        pathdetailturist_votes: 'Reviews',
+        pathdetailturist_review_label: 'Review',
+        pathdetailturist_review_hint: 'Insert a review',
         pathdetailturist_review: 'Add a review',
-        pathdetailturist_voteinfo: 'Vote the path',
+        pathdetailturist_voteinfo: 'Rate the path',
         pathdetailtourist_empty_list: 'Sorry, no reviews',
         pathdetailtourist_anonymous: 'Anonymous',
         pathdetailtourist_your_review: 'Your review',
@@ -343,7 +383,8 @@ angular.module('roveretoPercorsi', [
         review_sent_toast_ok: 'Review sent',
         addImage_popup_ok: 'Ok',
         addImage_popup_cancel: 'Cancel',
-        addImage_label: 'Add images',
+        addImage_label: 'Add an image',
+        addImage_isEmpty: 'Plese, inset an image',
         images_send_toast_ok: 'New images added successfuylly',
         images_send_toast_error: 'Error adding images',
         toast_must_login: 'Function disabled. You must login',
@@ -358,12 +399,25 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login done',
         syncing: 'syncing....',
         cleaning: 'cleaning...',
-        review_empty_error: 'Please insert a review'
+        review_empty_error: 'Please insert a review',
+        path_tracks_title: 'AUDIO TRACKS',
+        path_more_information: 'More informations',
+        path_less_information: 'Less informations',
+        gallery_title: 'Images',
+        empty_gallery: 'No images',
+        modal_istitutional: 'Official photos',
+        modal_public: 'User photos',
+        preview_label: 'Preview',
+        avg_rating: 'RATING',
+        audio_starting: 'Start audiotrack',
+        credits_licenses_button: 'VEDI LICENZE',
+        path_informations: 'INFORMAZIONI'
+
 
     });
 
     $translateProvider.translations('de', {
-        menu_home: 'Categories / HOME',
+        menu_home: 'Home',
         menu_favorites: 'Bookmarks',
         menu_login: 'Login',
         menu_logout: 'Logout',
@@ -373,10 +427,11 @@ angular.module('roveretoPercorsi', [
         path_info: 'Info',
         path_map: 'Karte',
         path_turist: 'Social',
+        path_difficulty: 'Difficulty',
         path_difficulty_1: 'Leicht',
         path_difficulty_2: 'Halb',
         path_difficulty_3: 'Schwer',
-        path_itinerary: 'Reiseroute',
+        path_itinerary: 'ITINERIARIO',
         favorites_emptylist: '',
         credits_title: 'Credits',
         credits_app: 'Rovereto Paths',
@@ -385,7 +440,11 @@ angular.module('roveretoPercorsi', [
         credits_info: 'Informationen:',
         pathdetailmap_startpath: 'START REISEPLAN',
         pathdetailmap_goto: 'Gehen',
+        pathdetailinfo_vote: 'Rate',
         pathdetailturist_vote: 'Bewerten',
+        pathdetailturist_votes: 'Rezensionen',
+        pathdetailturist_review_label: 'Rezension',
+        pathdetailturist_review_hint: 'Inserisci una tua recensione',
         pathdetailturist_review: 'Rezension',
         pathdetailturist_voteinfo: 'Vote the path',
         pathdetailtourist_empty_list: 'Leere Liste',
@@ -398,7 +457,8 @@ angular.module('roveretoPercorsi', [
         review_sent_toast_ok: 'Review sent',
         addImage_popup_ok: 'OK',
         addImage_popup_cancel: 'Schließen',
-        addImage_label: 'Bilder hinzufügen',
+        addImage_label: 'Add an image',
+        addImage_isEmpty: 'Inserire un\'immagine',
         images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
         images_send_toast_error: 'Fehler beim Hinzufügen von Bildern',
         toast_must_login: 'Add POI',
@@ -412,7 +472,20 @@ angular.module('roveretoPercorsi', [
         login_done: 'Login done',
         syncing: 'Laufende Aktualisierung...',
         cleaning: 'Reinigung im Laufe...',
-        review_empty_error: 'Please insert a review'
+        review_empty_error: 'Please insert a review',
+        path_tracks_title: 'TRACCE AUDIO',
+        path_more_information: 'More informations',
+        path_less_information: 'Less informations',
+        gallery_title: 'Images',
+        empty_gallery: 'No images',
+        modal_istitutional: 'Foto istituzionale',
+        modal_public: 'Foto utenti',
+        preview_label: 'Anteprima',
+        avg_rating: 'VOTO MEDIO',
+        audio_starting: 'Avvio traccia audio',
+        credits_licenses_button: 'VEDI LICENZE',
+        path_informations: 'INFORMAZIONI'
+
 
     });
 
