@@ -732,7 +732,7 @@ ion-side-menu ion-item .icon {
 .expanded .description-info {
     transition: 0.50s;
     text-align: justify;
-    max-height: 50em;
+    max-height: 500em;
     text-overflow: clip;
     overflow: auto;
     white-space: normal;
