@@ -39,6 +39,7 @@ angular.module('roveretoPercorsi.controllers.paths', [])
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
     }
+
     $scope.back = function () {
         window.location.assign('#/app/categories');
         $ionicHistory.nextViewOptions({
