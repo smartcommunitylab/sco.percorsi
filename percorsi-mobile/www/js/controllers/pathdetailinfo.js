@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
-.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, $ionicHistory, $rootScope, categoriesService, DatiDB, addImageService, galleryService, FilterVariable) {
+.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, $ionicScrollDelegate, $ionicHistory, $rootScope, categoriesService, DatiDB, addImageService, galleryService, FilterVariable) {
     $scope.item = singlePathService.getSelectedPath();
     var gallery = galleryService.createGallery($scope.item);
     $scope.idPoiChoosen = null;
@@ -10,10 +10,10 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
     };
     $scope.images = [];
-//    $scope.item.cost = "iksiad";
- //    $scope.item.parking = "iksiad";
- //    $scope.item.transport = "iksiad";
- //    $scope.item.accessibility = "iksiad";
+    //    $scope.item.cost = "iksiad";
+    //    $scope.item.parking = "iksiad";
+    //    $scope.item.transport = "iksiad";
+    //    $scope.item.accessibility = "iksiad";
 
     /*
      * if given group is the selected group, deselect it
@@ -61,13 +61,16 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
 
     }
-    $scope.translateDescription = function(descr) {
+    $scope.translateDescription = function (descr) {
         return $filter('translate_remote')(descr);
     }
-
+    $scope.scrollTop = function () {
+        $ionicScrollDelegate.scrollTop(true);
+    };
     $scope.toggleDescription = function () {
         if ($scope.isDescriptionShown()) {
             $scope.expandedDescritpion = false;
+            $scope.scrollTop();
         } else {
             $scope.expandedDescritpion = true;
 
