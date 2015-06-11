@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.poidetail', [])
 
-.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService, FilterVariable) {
+.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicScrollDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService, FilterVariable) {
     $scope.path = singlePathService.getSelectedPath();
     var gallery = null;
     var endOfThePath = function () {
@@ -55,6 +55,9 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     initVariables();
 
 
+    $scope.scrollTop = function() {
+        $ionicScrollDelegate.scrollTop();
+    };
 
     $scope.translateDescription = function (descr) {
         return $filter('translate_remote')(descr);
@@ -63,6 +66,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     $scope.toggleDescription = function () {
         if ($scope.isDescriptionShown()) {
             $scope.expandedDescritpion = false;
+            $scope.scrollTop();
         } else {
             $scope.expandedDescritpion = true;
 
