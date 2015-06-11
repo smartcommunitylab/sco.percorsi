@@ -94,6 +94,13 @@ angular.module('roveretoPercorsi', [
         return deferred.promise;
 
     }
+    $rootScope.openFavorites = function () {
+        window.location.assign('#/app/favorites');
+        $ionicHistory.nextViewOptions({
+            disableAnimate: true,
+            disableBack: true
+        });
+    };
 
     $rootScope.logout = function () {
         Login.logout();
@@ -139,20 +146,20 @@ angular.module('roveretoPercorsi', [
 
     $rootScope.previousState;
     $rootScope.currentState;
-    var comeFrom = null;
+    $rootScope.comeFrom = null;
 
     $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
         $rootScope.previousState = from.name;
         $rootScope.currentState = to.name;
         //tmp workaraound for tabs
         if ($rootScope.currentState == "app.favorites") {
-            comeFrom = "#app/favorites";
+            $rootScope.comeFrom = "#app/favorites";
         }
         if ($rootScope.currentState == "app.paths") {
-            comeFrom = "#/app/categories/" + toParams.id;
+            $rootScope.comeFrom = "#/app/categories/" + toParams.id;
         }
         if ($rootScope.previousState == "app.pathdetail.info" && $rootScope.currentState == "app.pathdetail") {
-            window.location.assign(comeFrom);
+            window.location.assign($rootScope.comeFrom);
         }
 
     });
