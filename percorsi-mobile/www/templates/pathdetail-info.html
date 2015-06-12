@@ -83,7 +83,7 @@
             </div>
 
 
-            <ion-item class="item-stable" ng-click="toggleGroupList(group)" ng-class="{active: isGroupListShown(group)}" ng-hide="noExtraListValues() || hideExpandListButton()">
+            <ion-item class="item-stable" ng-click="toggleGroupList(group)" ng-class="{active: isGroupListShown(group)}" ng-hide="noExtraListValues() || hideExpandListButton()||(translateDescription(item.description).length<200)">
                 <div class="text-button">
                     {{'path_more_information' | translate}}
                 </div>
@@ -115,7 +115,7 @@
                     <span>{{item.accessibility}}</span>
                 </div>
             </div>
-            <ion-item class="item-stable text-button" ng-click="toggleGroupList(group)" ng-class="{active: isGroupListShown(group)}" ng-hide="hideCloseListButton()">
+            <ion-item class="item-stable text-button" ng-click="toggleGroupList(group)" ng-class="{active: isGroupListShown(group)}" ng-hide="hideCloseListButton()||(translateDescription(item.description).length<200)">
                 <div class="text-button">
 
                     {{'path_less_information' | translate}}
@@ -123,17 +123,17 @@
             </ion-item>
             <div class="separator"></div>
             <h3>{{item.title | translate_remote}}</h3>
-            <div class="section" ng-class="{'expanded':isDescriptionShown()}">
+            <div class="section" ng-class="{'expanded':(isDescriptionShown())||(translateDescription(item.description).length<200)}">
                 <p class="description-info" ng-bind-html="translateDescription(item.description)"></p>
                 <div class="fadeout"></div>
             </div>
-            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()">
+            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()||(translateDescription(item.description).length<200)">
                 <div class="text-button">
 
                     {{'path_more_information' | translate}}
                 </div>
             </ion-item>
-            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideCloseDescriptionButton()">
+            <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideCloseDescriptionButton()||(translateDescription(item.description).length<200)">
                 <div class="text-button">
 
                     {{'path_less_information' | translate}}
