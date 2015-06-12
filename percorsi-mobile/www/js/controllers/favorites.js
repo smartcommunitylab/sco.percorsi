@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.favorites', [])
 
-.controller('FavoritesCtrl', function ($scope, $http, $ionicHistory, $window, categoriesService, listPathsService, singlePathService, favoritesService, DatiDB) {
+.controller('FavoritesCtrl', function ($scope, $http, $ionicHistory, $window, $ionicSideMenuDelegate, categoriesService, listPathsService, singlePathService, favoritesService, DatiDB) {
     $scope.paths = [];
     $scope.noMorePathsAvailable = false;
     categoriesService.setSelectedCategory(null);
@@ -42,6 +42,10 @@ angular.module('roveretoPercorsi.controllers.favorites', [])
             $scope.emptylist = true;
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
+    };
+
+    $scope.toggleLeftSideMenu = function () {
+        $ionicSideMenuDelegate.toggleLeft();
     };
     $scope.back = function () {
         window.location.assign('#/app/favorites/');
