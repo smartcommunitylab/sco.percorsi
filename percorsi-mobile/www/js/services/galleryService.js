@@ -70,52 +70,52 @@ angular.module('roveretoPercorsi.services.galleryService', [])
     galleryService.getItems = function (item) {
 
         //oggetto con url e type
-        var images = [];
-        var socialPresent = FilterVariable.getFilterSocialSlide()
-        var maxItems = FilterVariable.getFilterMaxNumberSlide();
-        ///prendi tutte le immaginiufficiali
-        if (item.images) {
-            for (var i = 0; i < item.images.length; i++) {
-                if (!item.images[i].userDefined) {
-                    if (images.length < maxItems) {
-                        images.push({
-                            url: item.images[i].url,
-                            type: "picture"
-                        });
-                    }
-                }
+var images = [];
+var socialPresent = FilterVariable.getFilterSocialSlide()
+var maxItems = FilterVariable.getFilterMaxNumberSlide();
+///prendi tutte le immaginiufficiali
+if (item.images) {
+    for (var i = 0; i < item.images.length; i++) {
+        if (!item.images[i].userDefined) {
+            if (images.length < maxItems) {
+                images.push({
+                    url: item.images[i].url,
+                    type: "picture"
+                });
             }
         }
-        //prendi tutti i video ufficiali
-        if (item.videos) {
-            for (var i = 0; i < item.videos.length; i++) {
+    }
+}
+//prendi tutti i video ufficiali
+if (item.videos) {
+    for (var i = 0; i < item.videos.length; i++) {
+        if (images.length < maxItems) {
+
+            images.push({
+                url: item.videos[i].url,
+                type: "video"
+            });
+        }
+    }
+}
+//prendi tutte le immagini non ufficiali
+if (socialPresent) {
+    if (item.images) {
+        for (var i = 0; i < item.images.length; i++) {
+            if (item.images[i].userDefined) {
                 if (images.length < maxItems) {
 
                     images.push({
-                        url: item.videos[i].url,
-                        type: "video"
+                        url: item.images[i].url,
+                        type: "picture"
                     });
                 }
             }
         }
-        //prendi tutte le immagini non ufficiali
-        if (socialPresent) {
-            if (item.images) {
-                for (var i = 0; i < item.images.length; i++) {
-                    if (item.images[i].userDefined) {
-                        if (images.length < maxItems) {
-
-                            images.push({
-                                url: item.images[i].url,
-                                type: "picture"
-                            });
-                        }
-                    }
-                }
-            }
-        }
-        //return images;
-        return images;
+    }
+}
+//return images;
+return images;
     }
     galleryService.isAPicture = function (item) {
         if (item.type == "picture") {

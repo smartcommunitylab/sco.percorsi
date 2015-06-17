@@ -75,7 +75,7 @@ angular.module('roveretoPercorsi', [
                 });
             }, null);
         }
-        Restlogging.init("http://150.241.239.65:8080");
+        //Restlogging.init("http://150.241.239.65:8080");
         $rootScope.platform = ionic.Platform;
         $rootScope.backButtonStyle = $ionicConfig.backButton.icon();
     });

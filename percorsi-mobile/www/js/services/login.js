@@ -47,7 +47,7 @@ angular.module('roveretoPercorsi.services.login', [])
                 console.log("success:" + data.userId);
                 //prendi google id , metti in local storage e abilita menu
                 //log
-                Restlogging.appLog("AppCollaborate", "login");
+                // Restlogging.appLog("AppCollaborate", "login");
                 $rootScope.userIsLogged = true;
                 localStorage.userId = data.userId;
                 deferred.resolve(data);
