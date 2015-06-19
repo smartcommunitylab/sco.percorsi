@@ -20,6 +20,8 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     };
     $scope.getAllItems = function (item) {
         $scope.imagesSlide = galleryService.getItems(item);
+        $ionicSlideBoxDelegate.update();
+
     }
 
     var initVariables = function () {
@@ -29,7 +31,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         gallery = galleryService.createGallery($scope.item);
         $scope.idPoiChoosen = null;
         $scope.expandedDescritpion = false;
-        $scope.imagesSlide = [];
+        $scope.imagesSlide = null;
         $scope.currentItemIndex = singlePoiService.getIndexPoi() + 1;
 
         $scope.images =
@@ -50,9 +52,12 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         $scope.lastPOI = endOfThePath();
         $scope.firstPOI = beginOfThePath();
         $scope.getAllItems($scope.item);
-        $ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').update();
-        $ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').next();
-        //$ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').slide(0, 0);
+        //$ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').slide(0);
+
+        $ionicSlideBoxDelegate.update();
+        $ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').slidesCount();
+        $ionicHistory.clearCache()
+            //        $ionicScrollDelegate.resize();
     }
 
     initVariables();
@@ -101,10 +106,11 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         singlePoiService.setSelectedPoi($scope.path.pois[singlePoiService.getIndexPoi()]);
         //check last poi
         $scope.lastPOI = endOfThePath();
-$state.go($state.current, {}, {
-    reload: true
-});
-       // initVariables();
+        $state.go($state.current, {}, {
+            reload: true
+        });
+        //initVariables();
+
     };
 
     $scope.prevPOI = function () {
@@ -113,9 +119,9 @@ $state.go($state.current, {}, {
         //check first poi
         $scope.firstPOI = beginOfThePath();
 
-                $state.go($state.current, {}, {
-                    reload: true
-                });
+        $state.go($state.current, {}, {
+            reload: true
+        });
         //initVariables();
 
     };
