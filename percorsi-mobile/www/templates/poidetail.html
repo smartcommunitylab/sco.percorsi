@@ -26,7 +26,7 @@
     <ion-content class="has-header has-subheader">
         <!-- Thumbnails slider -->
         <div ng-controller="DetailsSlideBoxCtrl" class="slide-box-container">
-            <ion-slide-box delegate-handle="poi-details-slide-box" does-continue="true" auto-play="true" show-pager="true">
+            <ion-slide-box delegate-handle="poi-details-slide-box" does-continue="true" auto-play="true">
                 <ion-slide ng-repeat="image in imagesSlide track by $index">
                     <div cover-img="{{image.url}}" ng-click="openModal('poi-details-slide-box',-1)" ng-if="isAPicture(image)"></div>
                     <div class="video" cover-img="{{youtubeEmbed(image.url)}}" ng-click="window.open('{{image.url}}', '_system');" ng-if="!isAPicture(image)">
