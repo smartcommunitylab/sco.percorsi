@@ -1,0 +1,21 @@
+{
+    "questionnaire": {
+
+        "instructions1": "Please populate this file with the in-app questions that you want (i.e. survery title and questions 1 to 8)",
+        "instructions2": "Basically, all that is needed is translation to the appropriate language",
+        "instructions3": "Don't forget the colon character at the end of questions 1 to 5",
+        "instructions4": "Also, enter the city and the app name as well",
+        "city": "Rovereto",
+        "app": "roveretoPercorsi",
+        "IESServerRatingURL": "https://iescities.com:443/IESCities/api/log/rating/trackedresponse/",
+        "surveytitle": "Quanto ti piace questa app?",
+        "question1": "Design:",
+        "question2": "Performance:",
+        "question3": "Facilità d'uso:",
+        "question4": "Utilità:",
+        "question5": "Contenuti:",
+        "question6": "Consiglieresti questa app?",
+        "question7": "Ulteriori commenti? Es. Perchè hai risposto si o no alla risposta precedente",
+        "question8": "Opzionale. Se risponderai ad ulteriori domande parteciperai ad una estrazione a premi. Informazioni e domande verranno inviate via email. Qual è il tuo indirizzo email?"
+    }
+}

@@ -31,9 +31,7 @@ if (inNode) {
     var jq = jQuery;
 }
 
-// Set to true to use the new POST mechanism on the event logging
-var usePOST = true;
-
+//Global to store initial timestamps for calculating durations
 var lasttime;
 
 // Set up a global conection structure
@@ -41,20 +39,44 @@ var Restlogging = {
 
     // Defaults
     connection: {
-        server: "http://150.241.239.65:8080",
+        server: "https://iescities.com:8443",
         basedir: "/IESCities/api/log/app",
-        appname: "roveretoPercorsi",
+        appname: "DefaultAppName",
         sessionid: 0
     },
 
-    init: function (server) {
+    genRandomID: function () {
 
         var MAXSESSIONID = 100000000;
+        return (Math.floor(Math.random() * MAXSESSIONID));
+    },
 
-        // Set up with a fresh (random) sessionid
-        var sess = Math.floor(Math.random() * MAXSESSIONID);
 
-        //Grab the app name from the top level document
+    init: function (server) {
+
+        var sess = 0;
+
+
+        //Generate and store a persistent device ID that is anonymous
+        if (typeof (Storage) !== "undefined") {
+            if (localStorage.deviceID) {
+                sess = localStorage.deviceID;
+                console.log("Re-using device ID: " + sess);
+            } else {
+                // Create a random ID
+                // --negative to differentiate sessionID and device IDs
+                sess = -1 * this.genRandomID();
+                localStorage.deviceID = sess;
+                console.log("Creating device ID: " + sess);
+            }
+        } else { //Device does not support local storage
+
+            console.log("Sorry, your device does not support local storage for Device ID");
+            // For now use a random session ID
+            sess = genRandomID();
+        }
+
+        //Try to grab the app name from the top level document
         //Assume that it lives in the app div in the first h1 block
         try {
             var apptxt = document.getElementsByClassName('app');
@@ -62,12 +84,12 @@ var Restlogging = {
             var appname = header[0].innerHTML;
         } catch (err) {
             //Do something if this is not found...
-            appname = "roveretoPercorsi";
+            appname = "UndefinedApplicationName";
         }
-        appname = "roveretoPercorsi";
 
         console.log("Initialising app '" + appname + " (session id " + sess + "') connecting to server " + server);
 
+        // Store the values in the main object
         this.connection.appname = appname;
         this.connection.server = server;
         this.connection.sessionid = sess;
@@ -131,7 +153,7 @@ var Restlogging = {
                 crossDomain: true,
                 data: postdata,
                 cache: false,
-                async: false,
+                async: true,
                 //xhrFields: {
                 //  withCredentials: true
                 //},
@@ -149,81 +171,11 @@ var Restlogging = {
             });
         }
     },
-
-    // Get request to the url, checking the returned results against expected
-    // We use GET since it is easier to test
-    getURL: function (url, expected) {
-
-        if (inNode) {
-
-            // Use the request library to get the call working in Node
-            request({
-                uri: url
-            }, function (error, response, body) {
-
-                if (error && response.statusCode !== 200) {
-                    console.log('Error logging')
-                } else {
-                    //console.log("This is the body I get <" + body  + ">");
-
-                    if (body == expected) {
-
-                        console.log("Request:" + url + ":Got expected response");
-                    } else {
-
-                        console.log("Error:" + url + ":Got unexpected response" + body);
-                    }
-                }
-            });
-        } else {
-            // Add instrumentation to time the call end to end
-            var starttime = (new Date).getTime();
-
-            jq.ajax({
-                dataType: "text",
-                type: "GET",
-                url: url,
-                crossDomain: true,
-                cache: false,
-                async: false,
-                //xhrFields: {
-                //  withCredentials: true
-                //},
-                success: function (data) {
-                    //console.log("success: " + data);
-                    var timed = (new Date).getTime() - starttime;
-                    console.log("Call completed in " + timed + "ms");
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-
-                    console.log("Mistake: " + errorThrown);
-                }
-            });
-        }
-    },
-
 
     restPost: function (url) {
 
         this.postURL(this.connection.server + this.connection.basedir + url);
     },
-
-    restGet: function (url, response) {
-
-        this.getURL(this.connection.server + this.connection.basedir + url, response);
-    },
-
-    countLogApp: function () {
-
-        this.restGet("/getcountlogs", "");
-    },
-
-    // Test to see if the api is present where we think if is
-    testAppAPI: function () {
-
-        this.restGet("/here", "yes");
-    },
-
 
     // This does app level logging
     // Note we do not restrict event types here for now, this is done at server side
@@ -235,13 +187,7 @@ var Restlogging = {
         time = (new Date).getTime() / 1000 //Keep as seconds, with millisecond resolution
 
 
-        if (usePOST) {
-
-            this.restPost("/event/" + time + "/" + this.connection.appname + "/" + this.connection.sessionid + "/" + type + "/" + message, "logged");
-        } else { //Resort to old API call
-
-            this.restGet("/stamp/" + time + "/" + this.connection.appname + "/" + this.connection.sessionid + "/" + type + "/" + message, "logged");
-        }
+        this.restPost("/event/" + time + "/" + this.connection.appname + "/" + this.connection.sessionid + "/" + type + "/" + message, "logged");
     },
 
     // Log a performance statistic for event type and custom message

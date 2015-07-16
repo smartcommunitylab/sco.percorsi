@@ -11,23 +11,22 @@ angular.module('roveretoPercorsi.services.conf', [])
     var APP_BUILD = '';
 
     /** CUSTOM PROPERTIES FOR THE APP */
-    //    var appId = 'ComuneRovereto';
-    //    var APP_VERSION = '1.0.0RC1';
-    //    var cityName = {
-    //        'it': 'Rovereto Percorsi',
-    //        'en': 'Rovereto Paths',
-    //        'de': 'Rovereto Paths'
-    //    };
-    //    var credits = 'credits.html';
-    var appId = 'Ingarda';
-    var APP_VERSION = '1.0.0RC1';
-    var cityName = {
-        'it': 'Tesori Nascosti',
-        'en': 'Hidden Treasures',
-        'de': 'Geheime Shätze'
-    };
-    var credits = 'credits_riva.html';
-
+        var appId = 'ComuneRovereto';
+        var APP_VERSION = '1.0.0RC1';
+        var cityName = {
+            'it': 'Rovereto Percorsi',
+            'en': 'Rovereto Paths',
+            'de': 'Rovereto Paths'
+        };
+        var credits = 'credits.html';
+//    var appId = 'Ingarda';
+//    var APP_VERSION = '1.0.0RC1';
+//    var cityName = {
+//        'it': 'Tesori Nascosti',
+//        'en': 'Hidden Treasures',
+//        'de': 'Geheime Shätze'
+//    };
+//    var credits = 'credits_riva.html';
     var SCHEMA_VERSION = 3;
     var contentTypes = {
         'path': 'it.smartcommunitylab.percorsi.model.Path',

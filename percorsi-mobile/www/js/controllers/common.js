@@ -71,7 +71,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
     });
 
     // Modal 2
-    $ionicModal.fromTemplateUrl('templates/'+Config.credits, {
+    $ionicModal.fromTemplateUrl('templates/' + Config.credits, {
         id: '2', // We need to use and ID to identify the modal that is firing the event!
         scope: $scope,
         backdropClickToClose: false,
@@ -79,7 +79,9 @@ angular.module('roveretoPercorsi.controllers.common', [])
     }).then(function (modal) {
         $scope.oModal2 = modal;
     });
-
+    $scope.startRatingSurvey = function () {
+        startRatingSurvey(true);
+    }
     $scope.openModal = function (index) {
         if (index == 1) $scope.oModal1.show();
         else $scope.oModal2.show();
