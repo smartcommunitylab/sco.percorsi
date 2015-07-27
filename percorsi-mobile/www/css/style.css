@@ -738,6 +738,14 @@ ion-side-menu ion-item .icon {
     white-space: normal;
 }
 
+.description-info i {
+    font-style: italic;
+}
+
+.description-info b {
+    font-weight: bold;
+}
+
 .fadeout {
     position: absolute;
     bottom: 0em;

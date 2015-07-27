@@ -63,6 +63,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
     }
     $scope.translateDescription = function (descr) {
         return $filter('translate_remote')(descr);
+        $scope.description = $sce.trustAsHtml($filter('translate_remote')(descr));
+
     }
 
     $scope.scrollTo = function (id) {

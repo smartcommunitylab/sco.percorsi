@@ -7,6 +7,7 @@
 angular.module('roveretoPercorsi', [
     'ionic',
     'ngCordova',
+    'ngSanitize',
     'leaflet-directive',
     'pascalprecht.translate',
     'services.geo',

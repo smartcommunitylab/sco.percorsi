@@ -17,15 +17,20 @@ angular.module('roveretoPercorsi.filters', [])
 })
 
 .filter('cleanMenuID', function ($filter) {
-    return function (input) {
-        if (!input) return '';
-        if (input.indexOf('csvimport_') == 0) {
-            return input.replace(/[^_]+_([^_]+)_.*/gi, '$1').toLowerCase().replace(/\s+/gi, '_');
-        } else {
-            return input;
+        return function (input) {
+            if (!input) return '';
+            if (input.indexOf('csvimport_') == 0) {
+                return input.replace(/[^_]+_([^_]+)_.*/gi, '$1').toLowerCase().replace(/\s+/gi, '_');
+            } else {
+                return input;
+            }
         }
-    }
-})
+    })
+    .filter('externalLinks', function () {
+        return function (text) {
+            return String(text).replace(/href=/gm, "class=\"ex-link\" href=");
+        }
+    })
 
 .filter('addrclean', function ($filter) {
         return function (input) {
