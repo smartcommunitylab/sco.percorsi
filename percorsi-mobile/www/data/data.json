@@ -4257,8 +4257,8 @@
             }]
         }, {
             "id": "55acb2a0e4b0c94ef91a6483",
-            "updateTime": 1437984839572,
-            "version": 671,
+            "updateTime": 1438077809095,
+            "version": 752,
             "user": null,
             "appId": "Ingarda",
             "localId": "pathMaestra",
@@ -4471,7 +4471,7 @@
                 "appId": null,
                 "localId": "idPoiMaestra6",
                 "title": {
-                    "de": "",
+                    "de": "Abzweigung nach San Martino",
                     "it": "Bivio per S. Martino",
                     "en": "Junction to San Martino"
                 },
@@ -7900,8 +7900,8 @@
             }]
         }, {
             "id": "55b24420e4b0504f7b20f37f",
-            "updateTime": 1437984839593,
-            "version": 678,
+            "updateTime": 1438077809104,
+            "version": 753,
             "user": null,
             "appId": "Ingarda",
             "localId": "pathTesori",
@@ -7912,6 +7912,7 @@
                 "en": "Treasures of Sacred Art"
             },
             "description": {
+                "de": "bitte warten, kommt bald",
                 "it": "L'itinerario è dedicato alle chiese antiche e affrescate del territorio di Arco. Si tratta di chiese \"minori\" la cui presenza sul territorio di Arco traccia un itinerario di grande interesse religioso, storico ed artistico. Esse sono testimonianza di una forte religiosità radicata, sopravvissuta allo scorrere del tempo. <br/><br/>Partenza: Via Legionari Cecoslovacchi, Arco<br/>Termine: Parcheggio al Ponte, Arco / San Giacomo, Monte Velo (opzionale)<br/>Lunghezza: 4,5 km<br/>Durata: 2,5 h.<br/>Dislivello: nessuno (800m opzionale)<br/>Difficoltà: facile<br/>Note: Prima ed ultima tappa opzionali. Parte del percorso è sterrato. ",
                 "en": "The itinerary is about the ancient churches and frescoes found in the territory of Arco. These \"lesser\" churches are scattered throughout the territory of Arco, tracing a route of great religious, historical and artistical interest. They testify the  strong and diffused religiousness of the community, which survived the passing of time. <br/><br/>\nStart: Via Legionari Cecoslovacchi, Arco<br/>\nEnd: Parking \"Al Ponte\", Arco / San Giacomo, Monte Velo (optional)<br/>\nLength: 4.5 km<br/>\nDuration: 2.5 h.<br/>\nAltitude difference: none (800 with optional stage)<br/>\nDifficulty: Easy<br/>\nNotes: The first and last stage are optional. Part of the route is on unpaved road.<br/>\n"
             },
