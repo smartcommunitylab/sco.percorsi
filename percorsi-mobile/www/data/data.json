@@ -46,8 +46,8 @@
         ],
         "it.smartcommunitylab.percorsi.model.Path": [{
             "id": "55658b13e4b0025bfca70c32",
-            "updateTime": 1432805100287,
-            "version": 638,
+            "updateTime": 1439389927466,
+            "version": 759,
             "user": null,
             "appId": "ComuneRovereto",
             "localId": "pathFiabe",
@@ -79,7 +79,7 @@
             "audios": [],
             "shape": "ktdwGotmbAACAACCCEKSa@QQGUMAE[MUBIAYMOKWUMKEA[Ia@Ue@U]YQ@IT?A?@BDDQ?A?S_@Ka@O_@Ka@QQKWYMK]IQKGI[KYGWQ[CICGC[QC@SDIDm@PYE[A_@?C@[AUBYD[D]DG@WHKJ@RH@`@E\\@^?LDTGX@b@PZRRRXRBBTVVR^TTLVJXFVJ?VEHO`@KZG\\I\\I\\GJ@RK^IXDd@??RTVVVTRd@L`@FPBJPRBDTPDCLE`@Fd@Jb@?RI^Cd@Fd@DRIJOVc@@EDO?EDi@V]PKFGPe@XQDAJKB?BBHEPQVUXSXCVGXODK??\n        ",
             "vote": 5.0,
-            "voteCount": 1,
+            "voteCount": 2,
             "externalUrl": null,
             "pois": [{
                 "id": null,
@@ -124,7 +124,7 @@
                         "it": "Dino Lavinio",
                         "en": "Dino Lavinio"
                     },
-                    "url": "http://www.comune.rovereto.tn.it/content/download/98777/970529/file/dino-lavinio-soffre-il-mail-di-denti.MP3",
+                    "url": "http://www.comune.rovereto.tn.it/content/download/98777/970529/file/dino-lavinio-soffre-il-mail-di-denti.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -185,7 +185,7 @@
                         "it": "Il filo di seta di messer Bortolo",
                         "en": "Il filo di seta di messer Bortolo"
                     },
-                    "url": "http://www.comune.rovereto.tn.it/content/download/98983/972339/file/il-filo-di-seta-di-messer-bortolo.MP3",
+                    "url": "http://www.comune.rovereto.tn.it/content/download/98983/972339/file/il-filo-di-seta-di-messer-bortolo.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -246,7 +246,7 @@
                         "it": "Il \"divin poeta\" ha perso le rime",
                         "en": "Il \"divin poeta\" ha perso le rime"
                     },
-                    "url": "http://www.comune.rovereto.tn.it/content/download/98979/972319/file/il-divin-poeta-ha-perso-le-rime.MP3",
+                    "url": "http://www.comune.rovereto.tn.it/content/download/98979/972319/file/il-divin-poeta-ha-perso-le-rime.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -307,7 +307,7 @@
                         "it": "Piccolo Amadè",
                         "en": "Piccolo Amadè"
                     },
-                    "url": "http://www.comune.rovereto.tn.it/content/download/98980/972324/file/ma-perche-piangi-piccolo-amade.MP3",
+                    "url": "http://www.comune.rovereto.tn.it/content/download/98980/972324/file/ma-perche-piangi-piccolo-amade.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -368,7 +368,7 @@
                         "it": "Le tre marionette e il furto del campanone",
                         "en": "Le tre marionette e il furto del campanone"
                     },
-                    "url": "http://www.comune.rovereto.tn.it/content/download/98982/972334/file/le-tre-marionette-e-il-furto-del-campanone.MP3",
+                    "url": "http://www.comune.rovereto.tn.it/content/download/98982/972334/file/le-tre-marionette-e-il-furto-del-campanone.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -429,7 +429,7 @@
                         "it": "Federico e Paolino e le buche di Rovereto",
                         "en": "Federico e Paolino e le buche di Rovereto"
                     },
-                    "url": "http://www.comune.rovereto.tn.it/content/download/98981/972329/file/federico-e-paolino-e-le-buche-di-rovereto.MP3",
+                    "url": "http://www.comune.rovereto.tn.it/content/download/98981/972329/file/federico-e-paolino-e-le-buche-di-rovereto.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -835,8 +835,8 @@
             }]
         }, {
             "id": "55b64761e4b0504f7b20f389",
-            "updateTime": 1438073635912,
-            "version": 746,
+            "updateTime": 1439389927493,
+            "version": 763,
             "user": null,
             "appId": "ComuneRovereto",
             "localId": "pathBoscoVita",
@@ -1281,11 +1281,221 @@
                     "lat": 45.901697,
                     "lng": 11.053906
                 }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "idVitaPoi13",
+                "title": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "XIII esercizio",
+                    "en": "please hold on, coming soon"
+                },
+                "description": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "Arrampicarsi sull'attrezzo ed avanzare appesi con le mani oscillando lentamente",
+                    "en": "please hold on, coming soon"
+                },
+                "images": [{
+                    "title": {},
+                    "url": "http://i.imgur.com/UKE2ba2l.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {},
+                    "url": "http://i.imgur.com/36ha7Ihl.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 45.901864,
+                    "lng": 11.054786
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "idVitaPoi14",
+                "title": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "XIV esercizio",
+                    "en": "please hold on, coming soon"
+                },
+                "description": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "Superare l'ostacolo passando alternativamente sopra e sotto",
+                    "en": "please hold on, coming soon"
+                },
+                "images": [{
+                    "title": {},
+                    "url": "http://i.imgur.com/wEKBLjWl.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {},
+                    "url": "http://i.imgur.com/JFhRr7el.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 45.902401,
+                    "lng": 11.054764
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "idVitaPoi15",
+                "title": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "XV esercizio",
+                    "en": "please hold on, coming soon"
+                },
+                "description": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "Appoggiandosi alle parallele distendere le braccia e portare le ginocchia al petto (6-8 volte)",
+                    "en": "please hold on, coming soon"
+                },
+                "images": [{
+                    "title": {},
+                    "url": "http://i.imgur.com/0IOLNw6l.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {},
+                    "url": "http://i.imgur.com/XLYQqySl.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 45.903055,
+                    "lng": 11.054388
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "idVitaPoi16",
+                "title": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "XVI esercizio",
+                    "en": "please hold on, coming soon"
+                },
+                "description": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "Superare due ostacoli alla volta, correndo e poi saltando a gambe unite",
+                    "en": "please hold on, coming soon"
+                },
+                "images": [{
+                    "title": {},
+                    "url": "http://i.imgur.com/pEa2Xukl.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {},
+                    "url": "http://i.imgur.com/s7sAVSI.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 45.903694,
+                    "lng": 11.054543
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "idVitaPoi17",
+                "title": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "XVII esercizio",
+                    "en": "please hold on, coming soon"
+                },
+                "description": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "Esercizio a corpo libero: divaricare le gambe e stendere le braccia lateralmente; roteare il busto verso sinistra e poi verso destra, inspirando ed espirando profondamente (8-9 volte)",
+                    "en": "please hold on, coming soon"
+                },
+                "images": [{
+                    "title": {},
+                    "url": "http://i.imgur.com/aTXl0uUl.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {},
+                    "url": "http://i.imgur.com/Ze2WD48l.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 45.904403,
+                    "lng": 11.054173
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "idVitaPoi18",
+                "title": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "XVIII esercizio",
+                    "en": "please hold on, coming soon"
+                },
+                "description": {
+                    "de": "bitte warten, kommt bald",
+                    "it": "Se siete stanchi sedetevi. Distendersi in posizione supina. Portare le ginocchia al petto per 6-8 volte. Con questo esercizio il percorso Fitness è terminato. Vi consigliamo di concedervi ancora qualche minuto di stretching e rilassamento per essere poi nuovamente in forma",
+                    "en": "please hold on, coming soon"
+                },
+                "images": [{
+                    "title": {},
+                    "url": "http://i.imgur.com/2arhVRKl.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {},
+                    "url": "http://i.imgur.com/HZvLGsgl.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 45.904846,
+                    "lng": 11.054151
+                }
             }]
         }, {
             "id": "55658b13e4b0025bfca70c33",
-            "updateTime": 1432719783653,
-            "version": 635,
+            "updateTime": 1439389927472,
+            "version": 760,
             "user": null,
             "appId": "ComuneRovereto",
             "localId": "pathAudiotour",
@@ -1396,7 +1606,7 @@
                         "it": "Biblioteca civica",
                         "en": "Biblioteca civica"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/02.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1439,7 +1649,7 @@
                         "it": "Palazzo Annona",
                         "en": "Palazzo Annona"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/03.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1482,7 +1692,7 @@
                         "it": "Sede università - Palazzo dell'Istruzione",
                         "en": "Sede università - Palazzo dell'Istruzione"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/04.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/04.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1525,7 +1735,7 @@
                         "it": "Teatro Zandonai",
                         "en": "Teatro Zandonai"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/05.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/05.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1568,7 +1778,7 @@
                         "it": "Palazzo Alberti",
                         "en": "Palazzo Alberti"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/06.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/06.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1611,7 +1821,7 @@
                         "it": "Palazzo Fedrigotti",
                         "en": "Palazzo Fedrigotti"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/07.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/07.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1654,7 +1864,7 @@
                         "it": "Piazza Rosmini",
                         "en": "Piazza Rosmini"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/08.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/08.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1697,7 +1907,7 @@
                         "it": "Piazza Battisti",
                         "en": "Piazza Battisti"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/09.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/09.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1740,7 +1950,7 @@
                         "it": "Via Rialto",
                         "en": "Via Rialto"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/10.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/10.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1783,7 +1993,7 @@
                         "it": "Porta e Piazza San Marco",
                         "en": "Porta e Piazza San Marco"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/11.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/11.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1826,7 +2036,7 @@
                         "it": "Vicolo San Giuseppe",
                         "en": "Vicolo San Giuseppe"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/12.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/12.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1869,7 +2079,7 @@
                         "it": "Torre Civica",
                         "en": "Torre Civica"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/13.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/13.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1912,7 +2122,7 @@
                         "it": "Museo di Depero",
                         "en": "Museo di Depero"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/14.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/14.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1955,7 +2165,7 @@
                         "it": "Palazzo Pretorio",
                         "en": "Palazzo Pretorio"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/15.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/15.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -1998,7 +2208,7 @@
                         "it": "Castello e Museo Storico Italiano della Guerra",
                         "en": "Castello e Museo Storico Italiano della Guerra"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/16.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/16.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -2041,7 +2251,7 @@
                         "it": "Ponte Forbato",
                         "en": "Ponte Forbato"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/17.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/17.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -2084,7 +2294,7 @@
                         "it": "Piazza Malfatti e piazza Erbe",
                         "en": "Piazza Malfatti e piazza Erbe"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/18.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/18.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -2127,7 +2337,7 @@
                         "it": "Via Mercerie",
                         "en": "Via Mercerie"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/19.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/19.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -2170,7 +2380,7 @@
                         "it": "Via Mazzini: Chiesa della Beata Vergine di Loreto",
                         "en": "Via Mazzini: Chiesa della Beata Vergine di Loreto"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/20.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/20.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -2213,7 +2423,7 @@
                         "it": "Casa Rosmini",
                         "en": "Casa Rosmini"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/21.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/21.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -2256,7 +2466,7 @@
                         "it": "Museo Civico",
                         "en": "Museo Civico"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/22.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/22.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -4072,8 +4282,8 @@
             }]
         }, {
             "id": "5565bc85e4b0025bfca70c35",
-            "updateTime": 1438070761364,
-            "version": 711,
+            "updateTime": 1439389927480,
+            "version": 761,
             "user": null,
             "appId": "ComuneRovereto",
             "localId": "roverunning",
@@ -4184,7 +4394,7 @@
                         "it": "Museo Civico",
                         "en": "Museo Civico"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/22.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/22.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -4227,7 +4437,7 @@
                         "it": "Palazzo Pretorio",
                         "en": "Palazzo Pretorio"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/15.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/15.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -4270,7 +4480,7 @@
                         "it": "Castello e Museo Storico Italiano della Guerra",
                         "en": "Castello e Museo Storico Italiano della Guerra"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/16.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/16.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -4313,7 +4523,7 @@
                         "it": "Museo di Depero",
                         "en": "Museo di Depero"
                     },
-                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/14.MP3",
+                    "url": "http://www2.comune.rovereto.tn.it/servizionline/extra/media/servizionline/cityaudiotour/mp3/14.mp3",
                     "userDefined": false,
                     "userId": null
                 }],
@@ -4879,8 +5089,8 @@
             }]
         }, {
             "id": "55b64761e4b0504f7b20f382",
-            "updateTime": 1438074588344,
-            "version": 747,
+            "updateTime": 1439389927484,
+            "version": 762,
             "user": null,
             "appId": "ComuneRovereto",
             "localId": "pathStradaArtiglieri",
@@ -5094,7 +5304,7 @@
                 "localId": "idArtiglieriPoi6",
                 "title": {
                     "de": "bitte warten, kommt bald",
-                    "it": "Prima lapide II guerra mondiale (ZALTRON)",
+                    "it": "Prima lapide II guerra mondiale",
                     "en": "please hold on, coming soon"
                 },
                 "description": {
@@ -5219,7 +5429,7 @@
                 "localId": "idArtiglieriPoi7",
                 "title": {
                     "de": "bitte warten, kommt bald",
-                    "it": "Prima lapide guerra civile spagnola (MATTHEY)",
+                    "it": "Prima lapide guerra civile spagnola",
                     "en": "please hold on, coming soon"
                 },
                 "description": {
@@ -5419,7 +5629,7 @@
                 "localId": "idArtiglieriPoi9",
                 "title": {
                     "de": "bitte warten, kommt bald",
-                    "it": "Prima lapide I guerra mondiale (EMANUELE FILIBERTO)",
+                    "it": "Prima lapide I guerra mondiale",
                     "en": "please hold on, coming soon"
                 },
                 "description": {
@@ -5564,7 +5774,7 @@
                 "localId": "idArtiglieriPoi10",
                 "title": {
                     "de": "bitte warten, kommt bald",
-                    "it": "Prima lapide guerra italo - turca (BOSELLI)",
+                    "it": "Prima lapide guerra italo - turca",
                     "en": "please hold on, coming soon"
                 },
                 "description": {
@@ -5604,7 +5814,7 @@
                 "localId": "idArtiglieriPoi11",
                 "title": {
                     "de": "bitte warten, kommt bald",
-                    "it": "Prima lapide guerre italo - etiopiche (BOTTEGO)",
+                    "it": "Prima lapide guerre italo - etiopiche",
                     "en": "please hold on, coming soon"
                 },
                 "description": {
@@ -5659,7 +5869,7 @@
                 "localId": "idArtiglieriPoi12",
                 "title": {
                     "de": "bitte warten, kommt bald",
-                    "it": "Prima lapide guerre di indipendenza (VENANZIO OLIVIERI)",
+                    "it": "Prima lapide guerre di indipendenza",
                     "en": "please hold on, coming soon"
                 },
                 "description": {
