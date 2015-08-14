@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.services.addImageService', [])
 
-.factory('addImageService', function ($http, $q, Config, singlePathService, $ionicLoading, $ionicHistory, $filter, Toast) {
+.factory('addImageService', function ($rootScope, $http, $q, Config, singlePathService, $ionicLoading, $ionicHistory, $filter, Toast) {
 
     var addImageService = {};
 
@@ -38,7 +38,7 @@ angular.module('roveretoPercorsi.services.addImageService', [])
                         $ionicLoading.hide();
                         Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
                         //log
-                        Restlogging.appLog("AppProsume", "newimage");
+                        $rootScope.extLogging("AppProsume", "newimage");
                         item = data;
                         deferred.resolve(item);
 
@@ -72,7 +72,7 @@ angular.module('roveretoPercorsi.services.addImageService', [])
                 $ionicLoading.hide();
                 Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
                 //log
-                Restlogging.appLog("AppProsume", "newimage");
+                $rootScope.extLogging("AppProsume", "newimage");
                 item = data;
                 deferred.resolve(item);
 

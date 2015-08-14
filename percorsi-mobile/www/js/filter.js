@@ -17,15 +17,20 @@ angular.module('roveretoPercorsi.filters', [])
 })
 
 .filter('cleanMenuID', function ($filter) {
-    return function (input) {
-        if (!input) return '';
-        if (input.indexOf('csvimport_') == 0) {
-            return input.replace(/[^_]+_([^_]+)_.*/gi, '$1').toLowerCase().replace(/\s+/gi, '_');
-        } else {
-            return input;
+        return function (input) {
+            if (!input) return '';
+            if (input.indexOf('csvimport_') == 0) {
+                return input.replace(/[^_]+_([^_]+)_.*/gi, '$1').toLowerCase().replace(/\s+/gi, '_');
+            } else {
+                return input;
+            }
         }
-    }
-})
+    })
+    .filter('externalLinks', function () {
+        return function (text) {
+            return String(text).replace(/href=/gm, "class=\"ex-link\" href=");
+        }
+    })
 
 .filter('addrclean', function ($filter) {
         return function (input) {
@@ -45,22 +50,21 @@ angular.module('roveretoPercorsi.filters', [])
             if (!input) {
                 return '';
             } else {
-                return input.it || '';
-                //                if (debug) console.log('input.0: ' + input);
-                //                if (debug) console.log('input var type: ' + typeof input);
-                //                if (typeof input == 'string') input = Config.keys()[input] || input;
-                //                if (input[lang] && input[lang] != '') {
-                //                    if (debug) console.log('input.1: ' + JSON.stringify(input));
-                //                    return input[lang];
-                //                } else {
-                //                    if (debug) console.log('input it: ' + (input.it || 'FALSY'));
-                //                    if (debug) console.log('input.2: ' + JSON.stringify(input));
-                //                    if (input.hasOwnProperty('en')) {
-                //                        return input.en || '';
-                //                    } else {
-                //                        return (typeof input == 'string' ? input : '') || '';
-                //                    }
-                //                }
+                if (debug) console.log('input.0: ' + input);
+                if (debug) console.log('input var type: ' + typeof input);
+                if (typeof input == 'string') input = Config.keys()[input] || input;
+                if (input[lang] && input[lang] != '') {
+                    if (debug) console.log('input.1: ' + JSON.stringify(input));
+                    return input[lang];
+                } else {
+                    if (debug) console.log('input it: ' + (input.it || 'FALSY'));
+                    if (debug) console.log('input.2: ' + JSON.stringify(input));
+                    if (input.hasOwnProperty('en')) {
+                        return input.en || '';
+                    } else {
+                        return (typeof input == 'string' ? input : '') || '';
+                    }
+                }
             }
         };
     })

@@ -32,10 +32,10 @@ angular.module('roveretoPercorsi.controllers.common', [])
 })
 
 .factory('FilterVariable', function ($rootScope) {
-    filterSocialTab = true
-    filterSocialSlide = true;
-    filterAddImageButton = true;
-    filterMaxNumberSlide = 6;
+    filterSocialTab = FILTERSOCIALTAB;
+    filterSocialSlide = FILTERSOCIALSLIDE;
+    filterAddImageButton = FILTERSOCIALADDIMAGE;
+    filterMaxNumberSlide = FILTERMAXNUMBERSLIDE;
     return {
         getFilterSocialTab: function () {
             return filterSocialTab;

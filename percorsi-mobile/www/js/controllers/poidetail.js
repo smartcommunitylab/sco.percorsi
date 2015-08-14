@@ -1,8 +1,8 @@
 angular.module('roveretoPercorsi.controllers.poidetail', [])
 
-.controller('PoiDetailCtrl', function ($scope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicScrollDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService, FilterVariable) {
+.controller('PoiDetailCtrl', function ($scope, $rootScope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicScrollDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService, FilterVariable, $sce) {
     $scope.path = singlePathService.getSelectedPath();
-
+    $scope.description = "";
     var gallery = null;
     var endOfThePath = function () {
         if (!!$scope.path && (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1)) {
@@ -59,7 +59,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         $ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').slidesCount();
         $ionicHistory.clearCache()
             //        $ionicScrollDelegate.resize();
-        Restlogging.appLog("AppConsume", "poi+" + singlePoiService.getSelectedPoi().localId);
+        $rootScope.extLogging("AppConsume", "poi+" + singlePoiService.getSelectedPoi().localId);
 
     }
 
@@ -71,6 +71,8 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
     };
 
     $scope.translateDescription = function (descr) {
+        $scope.description = $sce.trustAsHtml($filter('translate_remote')(descr));
+
         return $filter('translate_remote')(descr);
     }
 
