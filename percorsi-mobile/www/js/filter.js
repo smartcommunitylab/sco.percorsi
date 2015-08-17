@@ -45,7 +45,7 @@ angular.module('roveretoPercorsi.filters', [])
     })
     .filter('translate_remote', function ($rootScope, Config) {
         return function (input, debug) {
-            lang = $rootScope.lang;
+            lang = FORCED_LANGUAGE ? FORCED_LANGUAGE : $rootScope.lang;
             if (debug) console.log('translate: lang=' + lang);
             if (!input) {
                 return '';
