@@ -45,9 +45,9 @@ angular.module('roveretoPercorsi', [
 
     $rootScope.QUESTIONNAIRE = QUESTIONNAIRE;
 
-    $rootScope.extLogging = function(app, msg) {
+    $rootScope.extLogging = function (app, msg) {
         if (EXTLOGGING) {
-            Restlogging.appLog(app,msg);
+            Restlogging.appLog(app, msg);
         }
     };
 
@@ -84,7 +84,9 @@ angular.module('roveretoPercorsi', [
                 });
             }, null);
         }
-        //Restlogging.init("http://150.241.239.65:8080");
+        if (EXTLOGGING) {
+            Restlogging.init("http://150.241.239.65:8080");
+        }
         $rootScope.platform = ionic.Platform;
         $rootScope.backButtonStyle = $ionicConfig.backButton.icon();
     });
