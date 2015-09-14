@@ -1,17 +1,20 @@
 angular.module('roveretoPercorsi.controllers.audioplayer', [])
 
-.controller('AudioPlayerCtrl', function ($scope, $http, $cordovaMedia, $ionicLoading, $filter) {
+.controller('AudioPlayerCtrl', function ($scope, $rootScope, $http, $cordovaMedia, $ionicLoading, $filter) {
     $scope.audios = [];
     $scope.audio = null;
     $scope.audioTrack = 0;
     $scope.audioIsPlaying = false;
-
+    if ($rootScope.audio) {
+        $rootScope.audio.pause();
+    }
     $scope.setAudios = function (audios) {
         $scope.audios = audios;
 
         if (!!$scope.audios && $scope.audios.length > 0) {
             //$scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
             $scope.audio = new Media($scope.audios[$scope.audioTrack].url, null, null, mediaStatusCallback);
+            $rootScope.audio = $scope.audio;
         }
     };
 
@@ -74,4 +77,5 @@ angular.module('roveretoPercorsi.controllers.audioplayer', [])
     $scope.audioNext = function () {
         audioSkip(true);
     }
+
 });

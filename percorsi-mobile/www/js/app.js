@@ -45,9 +45,9 @@ angular.module('roveretoPercorsi', [
 
     $rootScope.QUESTIONNAIRE = QUESTIONNAIRE;
 
-    $rootScope.extLogging = function(app, msg) {
+    $rootScope.extLogging = function (app, msg) {
         if (EXTLOGGING) {
-            Restlogging.appLog(app,msg);
+            Restlogging.appLog(app, msg);
         }
     };
 
@@ -84,8 +84,10 @@ angular.module('roveretoPercorsi', [
                 });
             }, null);
         }
-        Restlogging.init("http://150.241.239.65:8080");
-        startRatingSurvey();
+        if (EXTLOGGING) {
+            Restlogging.init("http://150.241.239.65:8080");
+            startRatingSurvey();
+        }
         $rootScope.platform = ionic.Platform;
         $rootScope.backButtonStyle = $ionicConfig.backButton.icon();
     });
@@ -164,7 +166,10 @@ angular.module('roveretoPercorsi', [
         if ($rootScope.previousState == "app.pathdetail.info" && $rootScope.currentState == "app.pathdetail") {
             window.location.assign(comeFrom);
         }
-
+        //solve bug with player if change page
+        if ($rootScope.audio) {
+            $rootScope.audio.pause();
+        }
     });
 })
 
