@@ -21,12 +21,10 @@
                 <h2>{{path.title | translate_remote}}</h2>
                 <div class="path-numbers">
                     <div class="path-length">
-                        <i class="icon sco-distance-h-pois"></i>
-                        <span>{{m2km(path.length)}} km</span>
+                        <i class="icon sco-distance-h-pois"></i> {{m2km(path.length)}} km
                     </div>
                     <div class="path-time">
-                        <i class="icon ion-android-time"></i>
-                        <span>{{min2time(path.time)}}</span>
+                        <i class="icon ion-android-time"></i> {{min2time(path.time)}}
                     </div>
                 </div>
                 <i class="fav icon sco-bookmark" ng-if="isFavorite(path.localId)"></i>

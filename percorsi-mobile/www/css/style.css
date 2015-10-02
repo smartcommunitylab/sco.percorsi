@@ -193,6 +193,7 @@ body {
 
 .path-numbers {
     padding-top: 8px;
+    width: 100%;
 }
 
 .path-numbers div {
@@ -232,10 +233,12 @@ body {
 
 .path-length {
     padding: 4px;
+    width: 30%;
 }
 
 .path-time {
     padding: 4px;
+    width: 30%;
 }
 
 .path-list-detail {
