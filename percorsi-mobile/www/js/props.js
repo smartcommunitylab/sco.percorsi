@@ -1,16 +1,21 @@
-appId = 'ComuneRovereto';
-APP_VERSION = '0.0.2alpha';
-cityName = {
-    'it': 'Rovereto Percorsi',
-    'en': 'Rovereto Paths',
-    'de': 'Rovereto Paths'
-};
-QUESTIONNAIRE = true;
-EXTLOGGING = true;
+appId = 'Ingarda';
+APP_VERSION = '0.0.2';
 
-FILTERSOCIALSLIDE = true;
+cityName = {
+        'it': 'Tesori Nascosti',
+        'en': 'Hidden Treasures',
+        'de': 'Geheime Shätze'
+};
+
+SCHEMA_VERSION = 3;
+
+QUESTIONNAIRE = false;
+EXTLOGGING = false;
+
+FORCED_LANGUAGE = null;
+
+FILTERSOCIALSLIDE = false;
 FILTERSOCIALTAB = true;
 FILTERSOCIALADDIMAGE = true;
 FILTERMAXNUMBERSLIDE = 6;
 
-SCHEMA_VERSION = 3;

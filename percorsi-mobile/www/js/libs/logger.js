@@ -41,7 +41,7 @@ var Restlogging = {
     connection: {
         server: "https://iescities.com:8443",
         basedir: "/IESCities/api/log/app",
-        appname: "DefaultAppName",
+        appname: "roveretoExplorer",
         sessionid: 0
     },
 
@@ -84,7 +84,7 @@ var Restlogging = {
             var appname = header[0].innerHTML;
         } catch (err) {
             //Do something if this is not found...
-            appname = "UndefinedApplicationName";
+            appname = "roveretoPercorsi";
         }
 
         console.log("Initialising app '" + appname + " (session id " + sess + "') connecting to server " + server);
