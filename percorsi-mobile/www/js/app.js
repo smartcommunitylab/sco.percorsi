@@ -6,6 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('roveretoPercorsi', [
     'ionic',
+    'ngIOS9UIWebViewPatch',
     'ngCordova',
     'ngSanitize',
     'leaflet-directive',
