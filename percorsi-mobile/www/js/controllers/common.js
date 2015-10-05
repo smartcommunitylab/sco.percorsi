@@ -193,7 +193,11 @@ angular.module('roveretoPercorsi.controllers.common', [])
             $scope.loginModal.hide();
         });
     };
-
+    $scope.logoutOpen = function () {
+        $rootScope.logout().then(function () {
+            Toast.show($filter('translate')('logout_done'), 'short', 'bottom');
+        });
+    };
     $scope.loginClose = function () {
         $scope.loginModal.hide();
     };

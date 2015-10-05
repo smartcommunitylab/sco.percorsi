@@ -29,11 +29,11 @@
                     <i class="icon voice-menu  sco-questionario"></i>{{'menu_questionnaire' | translate}}
                 </ion-item>
 
-                <ion-item nav-clear menu-close item-icon-left ng-click="logout()" ng-if="userIsLogged">
+                <ion-item nav-clear menu-close item-icon-left ng-click="logoutOpen()" ng-if="userIsLogged">
                     <i class="icon voice-menu  sco-log-out"></i>{{'menu_logout' | translate}}
                 </ion-item>
 
-                <ion-item nav-clear menu-close item-icon-left ng-click="login()" ng-if="!userIsLogged">
+                <ion-item nav-clear menu-close item-icon-left ng-click="loginOpen()" ng-if="!userIsLogged">
                     <i class="icon voice-menu  sco-log-out"></i>{{'menu_login' | translate}}
                 </ion-item>
 

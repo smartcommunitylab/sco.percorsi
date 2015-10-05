@@ -29,8 +29,12 @@ angular.module('roveretoPercorsi.services.login', [])
                         }
 
                         if (success) {
-                            console.log('success:' + decodeURIComponent(success[1]));
-                            deferred.resolve(JSON.parse(decodeURIComponent(success[1])));
+                            var str = success[1];
+                            if (str.substring(str.length - 1) == '#') {
+                                str = str.substring(0, str.length - 1)
+                            }
+                            console.log('success:' + decodeURIComponent(str));
+                            deferred.resolve(JSON.parse(decodeURIComponent(str)));
                         } else if (error) {
                             //The user denied access to the app
                             deferred.reject({
@@ -62,9 +66,8 @@ angular.module('roveretoPercorsi.services.login', [])
 
         },
         logout: function () {
-            //return UserID https://dev.smartcommunitylab.it
-            //hhtp percorsi/logout/
-            //in success metto il seguito
+            var deferred = $q.defer();
+
             $http({
                 method: 'GET',
                 url: Config.URL() + '/' + Config.app() + '/logout',
@@ -77,10 +80,12 @@ angular.module('roveretoPercorsi.services.login', [])
             success(function (data, status, headers, config) {
                 $rootScope.userIsLogged = false;
                 localStorage.userId = "null";
+                deferred.resolve(data);
             }).
             error(function (data, status, headers, config) {
-
+                deferred.reject(data);
             });
+            return deferred.promise;
 
         },
         getUserId: function () {

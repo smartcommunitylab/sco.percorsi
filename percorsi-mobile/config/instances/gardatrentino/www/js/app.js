@@ -114,7 +114,17 @@ angular.module('roveretoPercorsi', [
     };
 
     $rootScope.logout = function () {
-        Login.logout();
+        var deferred = $q.defer();
+        Login.logout().then(function (data) {
+                deferred.resolve(data);
+            },
+            function (error) {
+
+                deferred.reject(error);
+
+
+            });
+        return deferred.promise;
     };
 
     // for BlackBerry 10, WP8, iOS
@@ -344,6 +354,7 @@ angular.module('roveretoPercorsi', [
         login_popup_cancel: 'Non adesso',
         login_popup_ok: 'Login',
         login_done: 'Login effettuato con successo',
+        logout_done: 'Logout effettuato con successo',
         syncing: 'aggiornamento in corso...',
         cleaning: 'pulizia in corso...',
         review_empty_error: 'Inserire uuna recensione',
@@ -415,6 +426,7 @@ angular.module('roveretoPercorsi', [
         login_popup_cancel: 'Not now',
         login_popup_ok: 'Login',
         login_done: 'Login done',
+        logout_done: 'Logout done',
         syncing: 'Syncing....',
         cleaning: 'Cleaning...',
         review_empty_error: 'Insert a review',
@@ -489,6 +501,7 @@ angular.module('roveretoPercorsi', [
         login_popup_cancel: 'Nicht jetzt',
         login_popup_ok: 'Login',
         login_done: 'Login erfolgreich',
+        logout_done: 'Logout erfolgreich',
         syncing: 'Aktualisierung im Gange...',
         cleaning: 'Reinigung im Gange...',
         review_empty_error: 'Fazit veröffentlichen',
