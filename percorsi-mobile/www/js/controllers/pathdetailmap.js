@@ -25,9 +25,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             lng: $scope.path.pois[i].coordinates.lng,
             message: '<div ng-controller="PathDetailMapCtrl" class="map-balloon">' +
                 '<h4 class="text-pop-up">' + (i + 1) + '. ' + $filter('translate_remote')($scope.path.pois[i].title) + '</h4>' +
-                //                '<div class="desc">' + $filter('translate_remote')($scope.path.pois[i].description).substring(0, 100) + '...' + '</div>' +
                 '<div class="row">' +
-                //                '<div class="col"><button class="button button-percorsi button-block" ng-click="closeWin()">' + $filter('translate')('close') + '</button></div>' +
                 '<div class="col"><button class="button button-percorsi button-balloon button-block" ng-click="detail(' + i + ')">' + '<i class="icon ion-information-circled"></i>' + '</button></div>' +
                 '<div class="col"><button class="button button-percorsi button-balloon button-block" ng-click="bringmethere([' + $scope.path.pois[i].coordinates.lat + ', ' + $scope.path.pois[i].coordinates.lng + '])">' + '<i class="icon ion-android-navigate"></i>' + '</button></div>' +
                 '</div>' +
@@ -119,19 +117,11 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
             $scope.myloc = e;
             var radius = e.accuracy / 2;
             L.marker(e.latlng).addTo(map);
-            //.bindPopup("You are within " + radius + " meters from this point").openPopup();
             L.circle(e.latlng, radius).addTo(map);
         };
 
     });
-    //    leafletData.getMap().then(function (map) {
-    //        if (boundArray.length > 0) {
-    //            var bounds = new L.LatLngBounds(boundArray);
-    //            map.fitBounds(bounds, {
-    //                padding: [0, 230]
-    //            });
-    //        }
-    //    });
+
 
 
 

@@ -3,6 +3,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
 .controller('PoiDetailCtrl', function ($scope, $rootScope, $http, singlePoiService, singlePathService, $ionicSlideBoxDelegate, $ionicPopup, $filter, $state, $cordovaCamera, $ionicSlideBoxDelegate, $ionicScrollDelegate, $ionicModal, $ionicLoading, $ionicHistory, DatiDB, Toast, addImageService, galleryService, FilterVariable, $sce) {
     $scope.path = singlePathService.getSelectedPath();
     $scope.description = "";
+
     var gallery = null;
     var endOfThePath = function () {
         if (!!$scope.path && (singlePoiService.getIndexPoi() == $scope.path.pois.length - 1)) {
@@ -111,10 +112,10 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         singlePoiService.setSelectedPoi($scope.path.pois[singlePoiService.getIndexPoi()]);
         //check last poi
         $scope.lastPOI = endOfThePath();
-        $state.go($state.current, {}, {
-            reload: true
-        });
-        //initVariables();
+        //        $state.go($state.current, {}, {
+        //            reload: true
+        //        });
+        initVariables();
 
     };
 
@@ -123,15 +124,23 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         singlePoiService.setSelectedPoi($scope.path.pois[singlePoiService.getIndexPoi()]);
         //check first poi
         $scope.firstPOI = beginOfThePath();
-
-        $state.go($state.current, {}, {
-            reload: true
-        });
-        //initVariables();
+        //patch for reloading to be commented
+        //        $state.go($state.current, {}, {
+        //            reload: true
+        //        });
+        //patch for reloading
+        initVariables();
 
     };
-
-
+    // patch for reloading
+    $scope.$on('$ionicView.beforeEnter', function () {
+        if ($scope.imagesSlide.length == 0) {
+            $scope.getAllItems();
+        } else {
+            $ionicSlideBoxDelegate.update();
+            $ionicSlideBoxDelegate.loop(true);
+        }
+    });
     $ionicModal.fromTemplateUrl('templates/addImages-popup.html', {
         scope: $scope,
         animation: 'slide-in-up'

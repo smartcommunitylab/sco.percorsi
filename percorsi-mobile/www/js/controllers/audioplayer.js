@@ -5,12 +5,15 @@ angular.module('roveretoPercorsi.controllers.audioplayer', [])
     $scope.audio = null;
     $scope.audioTrack = 0;
     $scope.audioIsPlaying = false;
-    if ($rootScope.audio) {
-        $rootScope.audio.pause();
-    }
+    //    $scope.audioIsFirst = false;
+    //    $scope.audioIsEnd = false;
+
+
     $scope.setAudios = function (audios) {
         $scope.audios = audios;
-
+        if ($rootScope.audio) {
+            audioPause();
+        }
         if (!!$scope.audios && $scope.audios.length > 0) {
             //$scope.audio = new Audio($scope.audios[$scope.audioTrack].url);
             $scope.audio = new Media($scope.audios[$scope.audioTrack].url, null, null, mediaStatusCallback);
@@ -18,6 +21,9 @@ angular.module('roveretoPercorsi.controllers.audioplayer', [])
         }
     };
 
+    $scope.$watch('item', function () {
+        $scope.setAudios($scope.item.audios);
+    });
     //     $scope.play = function(src) {
     //        var media = new Media(src, null, null, mediaStatusCallback);
     //        $cordovaMedia.play(media);
@@ -44,8 +50,10 @@ angular.module('roveretoPercorsi.controllers.audioplayer', [])
     };
 
     var audioPause = function () {
-        $scope.audio.pause();
-        $scope.audioIsPlaying = false;
+        if ($scope.audio) {
+            $scope.audio.pause();
+            $scope.audioIsPlaying = false;
+        }
     };
 
     var audioSkip = function (forward) {
@@ -66,16 +74,26 @@ angular.module('roveretoPercorsi.controllers.audioplayer', [])
         }
     };
 
+    $scope.$on('$locationChangeStart', function () {
+        if ($rootScope.audio) {
+            $rootScope.audio.pause();
+        }
+    });
+
     $scope.audioToggle = function () {
         $scope.audioIsPlaying ? audioPause() : audioPlay();
     };
 
     $scope.audioPrev = function () {
-        audioSkip(false);
+        if (audioTrack != 0) {
+            audioSkip(false);
+        }
     }
 
     $scope.audioNext = function () {
-        audioSkip(true);
+        if (audioTrack == (item.audios.length - 1)) {
+            audioSkip(true);
+        }
     }
 
 });

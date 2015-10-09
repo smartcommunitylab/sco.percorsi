@@ -1028,3 +1028,26 @@ ion-side-menu ion-item .icon {
 .list-path .item-content {
     padding-right: 8px;
 }
+
+.button-poi-nav-right {
+    width: 100px;
+    text-align: right;
+}
+
+.button-poi-nav-left {
+    width: 100px;
+    text-align: left;
+}
+
+.button-hidden {
+    color: #dadada!important;
+}
+
+.login-label {
+    padding: 10px;
+    text-align: center;
+}
+
+.button-bottom {
+    min-height: 46px!important;
+}
