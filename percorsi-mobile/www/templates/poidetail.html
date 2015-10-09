@@ -15,11 +15,11 @@
         </button>
     </ion-nav-buttons>
     <div class="bar bar-percorsi bar-subheader">
-        <button class="button button-percorsi button-clear" ng-click="prevPOI()" ng-class="{'hidden': firstPOI}">
+        <button class="button button-percorsi button-clear button-poi-nav-left" ng-click="prevPOI()" ng-class="{'hidden': firstPOI}">
             <i class="ion-chevron-left"></i>
         </button>
         <h2 class="title">{{currentItemIndex}}/{{path.pois.length}}</h2>
-        <button class="button button-percorsi button-clear" ng-click="nextPOI()" ng-class="{'hidden': lastPOI}">
+        <button class="button button-percorsi button-clear button-poi-nav-right" ng-click="nextPOI()" ng-class="{'hidden': lastPOI}">
             <i class="ion-chevron-right"></i>
         </button>
     </div>
@@ -56,13 +56,13 @@
                     {{'path_tracks_title' | translate}}
                 </div>
                 <div ng-controller="AudioPlayerCtrl" ng-init="setAudios(item.audios)" class="audio-player">
-                    <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()">
+                    <button class="button button-percorsi button-clear button-icon" ng-click="audioPrev()" ng-class="{'button-hidden': audioTrack == 0}">
                         <i class="icon ion-skip-backward"></i>
                     </button>
                     <button class="button button-percorsi button-clear button-icon button-play" ng-click="audioToggle()">
                         <i class="icon" ng-class="{'ion-play': !audioIsPlaying, 'ion-pause': !!audioIsPlaying}"></i>
                     </button>
-                    <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()">
+                    <button class="button button-percorsi button-clear button-icon" ng-click="audioNext()" ng-class="{'button-hidden':audioTrack == (item.audios.length-1)}" }>
                         <i class="icon ion-skip-forward"></i>
                     </button>
                     <div class="title">[{{audioTrack + 1}}/{{audios.length}}] {{audios[audioTrack].title | translate_remote| limitTo: 15}} {{(audios[audioTrack].title | translate_remote).length> 15 ? '...' : ''}}</div>
