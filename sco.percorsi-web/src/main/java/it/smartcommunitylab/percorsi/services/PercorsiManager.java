@@ -43,6 +43,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import eu.trentorise.smartcampus.presentation.common.exception.DataException;
 import eu.trentorise.smartcampus.presentation.common.exception.NotFoundException;
@@ -65,13 +66,16 @@ public class PercorsiManager {
 	@Autowired
 	private ProviderSetup providerSetup;
 
+	@Autowired
+	private ModerationManager moderationManager;
+	
 	@PostConstruct
 	private void init() throws DataException {
 		for (ProviderSettings ps : providerSetup.getProviders()) {
 			if (ps.getCategories() != null) {
 				ps.getCategories().setLocalId("1");
 				Categories categories = repository.getObjectById("1",Categories.class,ps.getId());
-				if (categories == null || !categories.getLastChange().equals(ps.getCategories().getLastChange())) {
+				if (categories == null || categories.getLastChange() < ps.getCategories().getLastChange()) {
 					repository.storeObject(ps.getCategories(), ps.getId());
 				}
 			}
@@ -80,11 +84,19 @@ public class PercorsiManager {
 
 	public void storePaths(String appId, List<Path> list) throws DataException {
 		logger.info("Storing paths for app {}", appId);
+		Map<String, Path> oldIds = new HashMap<String, Path>();
+		List<Path> oldPaths = getPaths(appId, null);
+		if (oldPaths != null) for (Path p : oldPaths) oldIds.put(p.getLocalId(), p);
+		
 		for (Path p : list) {
 			p.setAppId(appId);
 			Path old = repository.getObjectById(p.getLocalId(), Path.class, appId);
+			if (old != null) {
+				oldIds.remove(old.getLocalId());
+			}
 			if (old == null || !old.coreDataEquals(p)) {
 				if (old != null) {
+					p.setId(old.getId());
 					p.setVote(old.getVote());
 					p.setVoteCount(old.getVoteCount());
 					p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
@@ -110,8 +122,22 @@ public class PercorsiManager {
 				repository.storeObject(p);
 			}
 		}
+		for (String oldId : oldIds.keySet()) {
+			repository.deleteObject(oldIds.get(oldId), appId);
+		}
 	}
 
+	public void storeCategories(String appId, Categories data) throws DataException {
+		if (data.getCategories() != null) {
+			data.setLocalId("1");
+			data.setAppId(appId);
+			Categories categories = repository.getObjectById("1",Categories.class,appId);
+			if (categories == null || categories.getLastChange() < data.getLastChange()) {
+				repository.storeObject(data, appId);
+			}
+		}
+	}
+	
 	public Categories getCategories(String appId) throws DataException {
 		Categories categories = repository.getObjectById("1",Categories.class, appId);
 		return categories;
@@ -143,6 +169,7 @@ public class PercorsiManager {
 		if (path.getImages() == null) path.setImages(new ArrayList<Multimedia>());
 		path.getImages().add(new Multimedia(url, true, contributor.getUserId()));
 		repository.storeObject(path);
+		moderationManager.addModObjects(appId, pathId, Path.class.getName(), url, contributor);
 		return getPath(appId, pathId);
 	}
 	public Path addImageToPOI(String appId, String pathId, String poiId, String url, Contributor contributor) throws DataException, NotFoundException {
@@ -157,6 +184,7 @@ public class PercorsiManager {
 					if (poi.getImages() == null) poi.setImages(new ArrayList<Multimedia>());
 					poi.getImages().add(new Multimedia(url, true, contributor.getUserId()));
 					repository.storeObject(path);
+					moderationManager.addModObjects(appId, pathId, Path.class.getName(), url, contributor);
 					return getPath(appId, pathId);
 				}
 			}
@@ -196,6 +224,10 @@ public class PercorsiManager {
 		rating.setTimestamp(System.currentTimeMillis());
 		ratingRepository.save(rating);
 
+		if (StringUtils.hasText(comment)) {
+			moderationManager.addModObjects(appId, pathId, Rating.class.getName(), comment, contributor);
+		}
+		
 		List<Rating> list = ratingRepository.findByAppIdAndLocalId(appId, pathId);
 
 		double avg = 0;
@@ -226,4 +258,5 @@ public class PercorsiManager {
 		Rating rating = ratingRepository.findByAppIdAndLocalIdAndUserId(appId, pathId, contributor.getUserId());
 		return rating;
 	}
+
 }
