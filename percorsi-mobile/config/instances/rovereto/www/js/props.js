@@ -1,5 +1,5 @@
 appId = 'ComuneRovereto';
-APP_VERSION = '0.0.3';
+APP_VERSION = '0.0.4';
 cityName = {
     'it': 'Rovereto Percorsi',
     'en': 'Rovereto Paths',
