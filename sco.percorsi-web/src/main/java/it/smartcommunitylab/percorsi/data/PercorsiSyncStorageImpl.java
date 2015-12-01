@@ -165,7 +165,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 						deletedList = new ArrayList<String>();
 						deleted.put(sob.getType(), deletedList);
 					}
-					deletedList.add(sob.getLocalId());
+					deletedList.add(sob.getId());
 				} else {
 					List<BasicObject> updatedList = updated.get(sob.getType());
 					if (updatedList == null) {
