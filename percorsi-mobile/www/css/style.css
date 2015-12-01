@@ -1051,3 +1051,7 @@ ion-side-menu ion-item .icon {
 .button-bottom {
     min-height: 46px!important;
 }
+
+.category-card {
+    min-height: 100px;
+}

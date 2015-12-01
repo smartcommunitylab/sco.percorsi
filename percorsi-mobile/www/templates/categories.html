@@ -7,7 +7,7 @@
         </div>
         <ion-list ng-if="!emptylist">
             <ion-item class="card" ng-repeat="category in categories" href="#/app/categories/{{category.id}}" type="item-link" ng-click="setSelectedCategory(category)">
-                <div class="item item-image">
+                <div class="item item-image category-card">
                     <img ng-src="{{category.image}}">
                 </div>
                 <div class="title">{{category.name | translate_remote}}</div>
