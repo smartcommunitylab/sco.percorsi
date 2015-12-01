@@ -432,8 +432,8 @@ angular.module('roveretoPercorsi', [
         cleaning: 'Cleaning...',
         review_empty_error: 'Insert a review',
         path_tracks_title: 'AUDIO TRACKS',
-        path_more_information: 'More informations',
-        path_less_information: 'Less informations',
+        path_more_information: 'More information',
+        path_less_information: 'Less information',
         gallery_title: 'Images',
         empty_gallery: 'No images',
         modal_istitutional: 'Official photos',
@@ -442,7 +442,7 @@ angular.module('roveretoPercorsi', [
         avg_rating: 'AVERAGE RATING',
         audio_starting: 'Start audiotrack',
         credits_licenses_button: 'READ LICENSES',
-        path_informations: 'INFORMATIONS'
+        path_informations: 'INFORMATION'
 
 
     });
