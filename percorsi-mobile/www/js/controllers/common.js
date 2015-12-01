@@ -129,7 +129,13 @@ angular.module('roveretoPercorsi.controllers.common', [])
     }
 
     $scope.min2time = function (min) {
-        return Math.floor(min / 60) + ':' + min % 60;
+        var hours = Math.floor(min / 60);
+        var minutes = min % 60;
+
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+        return hours + '.' + minutes + ' h';
     }
 
     $scope.voteRound = function (vote) {
