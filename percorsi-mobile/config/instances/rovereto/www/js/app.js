@@ -365,7 +365,13 @@ angular.module('roveretoPercorsi', [
         audio_starting: 'Avvio traccia audio',
         credits_licenses_button: 'VEDI LICENZE',
         path_informations: 'INFORMAZIONI',
-        menu_questionnaire: 'Questionario'
+        menu_questionnaire: 'Questionario',
+        orderby_alphabetically: 'Alfabetico',
+        orderby_general: 'Ordinamento',
+        orderby_length: 'Lunghezza',
+        orderby_time: 'Tempo di percorrenza',
+        orderby_difficulty: 'Difficoltà',
+        orderby_distance: 'Distanza dalla partenza',
     });
 
     $translateProvider.translations('en', {
@@ -438,7 +444,13 @@ angular.module('roveretoPercorsi', [
         audio_starting: 'Start audiotrack',
         credits_licenses_button: 'READ LICENSES',
         path_informations: 'INFORMATION',
-        menu_questionnaire: 'Questionnaire'
+        menu_questionnaire: 'Questionnaire',
+        orderby_alphabetically: 'Alphabetically',
+        orderby_general: 'Order by',
+        orderby_length: 'Length',
+        orderby_time: 'Travel time',
+        orderby_difficulty: 'Difficulty',
+        orderby_distance: 'Distance'
     });
 
     $translateProvider.translations('de', {
@@ -511,7 +523,13 @@ angular.module('roveretoPercorsi', [
         audio_starting: 'Start audiotrack',
         credits_licenses_button: 'READ LICENSES',
         path_informations: 'INFORMATION',
-        menu_questionnaire: 'Umfrage'
+        menu_questionnaire: 'Umfrage',
+        orderby_alphabetically: 'Alphabetically',
+        orderby_general: 'Order by',
+        orderby_length: 'Length',
+        orderby_time: 'Travel time',
+        orderby_difficulty: 'Difficulty',
+        orderby_distance: 'Distance'
 
 
 

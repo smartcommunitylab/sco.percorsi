@@ -351,7 +351,7 @@ angular.module('roveretoPercorsi', [
         close: 'Chiudi',
         details: 'Dettagli',
         login_label: 'Login',
-        login_message: 'Per utilizzare la funzionalita\' devi prima effettuare il login',
+        login_message: 'Per utilizzare la funzionalità devi prima effettuare il login',
         login_popup_cancel: 'Non adesso',
         login_popup_ok: 'Login',
         login_done: 'Login effettuato con successo',
@@ -370,7 +370,13 @@ angular.module('roveretoPercorsi', [
         avg_rating: 'VOTO MEDIO',
         audio_starting: 'Avvio traccia audio',
         credits_licenses_button: 'VEDI LICENZE',
-        path_informations: 'INFORMAZIONI'
+        path_informations: 'INFORMAZIONI',
+        orderby_alphabetically: 'Alfabetico',
+        orderby_general: 'Ordinamento',
+        orderby_length: 'Lunghezza',
+        orderby_time: 'Tempo di percorrenza',
+        orderby_difficulty: 'Difficoltà',
+        orderby_distance: 'Distanza dalla partenza'
     });
 
     $translateProvider.translations('en', {
@@ -442,7 +448,13 @@ angular.module('roveretoPercorsi', [
         avg_rating: 'AVERAGE RATING',
         audio_starting: 'Start audiotrack',
         credits_licenses_button: 'READ LICENSES',
-        path_informations: 'INFORMATION'
+        path_informations: 'INFORMATION',
+        orderby_alphabetically: 'Alphabetically',
+        orderby_general: 'Order by',
+        orderby_length: 'Length',
+        orderby_time: 'Travel time',
+        orderby_difficulty: 'Difficulty',
+        orderby_distance: 'Distance'
 
 
     });
@@ -517,7 +529,14 @@ angular.module('roveretoPercorsi', [
         avg_rating: 'Durchschnittliche Bewertung',
         audio_starting: 'Führen audiospur',
         credits_licenses_button: 'SIEHE LIZENZEN',
-        path_informations: 'INFORMATIONEN'
+        path_informations: 'INFORMATIONEN',
+        orderby_alphabetically: 'Alphabetically',
+        orderby_general: 'Order by',
+        orderby_length: 'Length',
+        orderby_time: 'Travel time',
+        orderby_difficulty: 'Difficulty',
+        orderby_distance: 'Distance'
+
 
 
     });
