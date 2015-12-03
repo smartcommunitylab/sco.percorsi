@@ -128,6 +128,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	public PercorsiObject getObjectById(String id, String appId) throws DataException {
 		Criteria criteria = createBaseCriteria(appId);
+		criteria.and("deleted").is(false);
 		criteria.and("localId").is(id);
 		List<PercorsiObject> objs = find(Query.query(criteria), (Class<PercorsiObject>) PercorsiObject.class);
 		return objs == null || objs.size() == 0 ? null : objs.get(0);
@@ -136,6 +137,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	public <T extends PercorsiObject> T getObjectById(String id, Class<T> cls, String appId)  throws DataException{
 		Criteria criteria = createBaseCriteria(appId);
+		criteria.and("deleted").is(false);
 		criteria.and("localId").is(id);
 		List<T> objs = find(Query.query(criteria), cls);
 		return objs == null || objs.size() == 0 ? null : objs.get(0);
@@ -163,7 +165,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 						deletedList = new ArrayList<String>();
 						deleted.put(sob.getType(), deletedList);
 					}
-					deletedList.add(sob.getLocalId());
+					deletedList.add(sob.getId());
 				} else {
 					List<BasicObject> updatedList = updated.get(sob.getType());
 					if (updatedList == null) {

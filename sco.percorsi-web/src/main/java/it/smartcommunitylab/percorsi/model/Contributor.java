@@ -12,6 +12,16 @@ public class Contributor {
 	@Id
 	private String userId;
 	private String name;
+	public Contributor(String userId, String name) {
+		super();
+		this.userId = userId;
+		this.name = name;
+	}
+	
+	public Contributor() {
+		super();
+	}
+
 	/**
 	 * @return the userId
 	 */

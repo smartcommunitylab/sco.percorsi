@@ -27,6 +27,8 @@ public class ProviderSettings implements Serializable {
 
 	private String id;
     private String password;
+    private boolean moderation;
+    private String moderator;
 
     private Categories categories;
 
@@ -65,6 +67,30 @@ public class ProviderSettings implements Serializable {
 	 */
 	public void setCategories(Categories categories) {
 		this.categories = categories;
+	}
+	/**
+	 * @return the moderation
+	 */
+	public boolean isModeration() {
+		return moderation;
+	}
+	/**
+	 * @param moderation the moderation to set
+	 */
+	public void setModeration(boolean moderation) {
+		this.moderation = moderation;
+	}
+	/**
+	 * @return the moderator
+	 */
+	public String getModerator() {
+		return moderator;
+	}
+	/**
+	 * @param moderator the moderator to set
+	 */
+	public void setModerator(String moderator) {
+		this.moderator = moderator;
 	}
 
 }

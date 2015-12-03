@@ -19,6 +19,15 @@ public class Multimedia {
 		this.userDefined = userDefined;
 	}
 
+	public Multimedia(Map<String, String> title, String url,
+			boolean userDefined, String userId) {
+		super();
+		this.title = title;
+		this.url = url;
+		this.userDefined = userDefined;
+		this.userId = userId;
+	}
+
 	public Map<String, String> getTitle() {
 		return title;
 	}
@@ -82,8 +91,8 @@ public class Multimedia {
 		if (getClass() != obj.getClass())
 			return false;
 		Multimedia other = (Multimedia) obj;
-		if (title == null) {
-			if (other.title != null)
+		if (title == null || title.isEmpty()) {
+			if (other.title != null && !other.title.isEmpty())
 				return false;
 		} else if (!title.equals(other.title))
 			return false;
