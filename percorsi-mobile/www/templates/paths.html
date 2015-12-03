@@ -9,6 +9,11 @@
         <button ng-click="toggleLeftSideMenu()" class="row button button-icon ion-navicon" ng-if="(comeFrom == '#app/favorites')">
         </button>
     </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-percorsi button-clear" ng-click="showOrder()">
+            <i class="icon ion-android-funnel"></i>
+        </button>
+    </ion-nav-buttons>
     <ion-content has-header="true" has-footer="true">
         <div class="padding emptylist" ng-if="emptylist">
             <!--<div class="item item-text-wrap">-->
@@ -18,7 +23,8 @@
         <ion-list ng-if="!emptylist">
             <ion-item class="card item-thumbnail-left item-text-wrap list-path" ng-repeat="path in paths" href="#/app/path" type="item-link" ng-click="setSelectedPath(path)">
                 <img ng-src="{{path.images[0].url}}" />
-                <h2>{{path.title | translate_remote}}</h2>
+                <h2>{{path.title | translate_remote|limitTo:50}}<span ng-if="checkStringLength(path.title)"> ...</span></h2>
+
                 <div class="path-numbers">
                     <div class="path-length">
                         <i class="icon sco-distance-h-pois"></i> {{m2km(path.length)}} km
@@ -30,7 +36,9 @@
                 <i class="fav icon sco-bookmark" ng-if="isFavorite(path.localId)"></i>
             </ion-item>
         </ion-list>
-        <ion-infinite-scroll ng-if="!noMorePathsAvailable" on-infinite="loadMore()" distance="1%">
-        </ion-infinite-scroll>
+<!--
+<ion-infinite-scroll ng-if="!noMorePathsAvailable" on-infinite="loadMore()" distance="1%">
+</ion-infinite-scroll>
+-->
     </ion-content>
 </ion-view>
