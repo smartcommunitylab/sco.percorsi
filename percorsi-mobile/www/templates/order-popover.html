@@ -3,24 +3,7 @@
 </ion-header-bar>
 <ion-content>
     <div class="list">
-        <!--
-        <a class="item" ng-click="order('alphabetically')">
-             {{'orderby_alphabetically' | translate}}
-            </a>
-        <a class="item" ng-click="order('lenght')">
-             {{'orderby_length' | translate}}
-            </a>
-        <a class="item" ng-click="order('time')">
-             {{'orderby_time' | translate}}
-            </a>
-        <a class="item" ng-click="order('difficulty')">
-             {{'orderby_difficulty' | translate}}
-            </a>
-        <a class="item" ng-click="order('distance')">
-             {{'orderby_distance' | translate}}
-            </a>
--->
-        <ion-radio ng-repeat="item in orderList" ng-value="item.value" ng-model="data.actualOrder">
+        <ion-radio ng-repeat="item in orderList" ng-class="radioDisabled(item) ? 'radio-disabled' : 'radio-enabled'" ng-value="item.value" ng-model="data.actualOrder" ng-disabled="radioDisabled(item)">
             {{ item.text }}
         </ion-radio>
     </div>

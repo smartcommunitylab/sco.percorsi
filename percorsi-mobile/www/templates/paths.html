@@ -10,7 +10,7 @@
         </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-        <button class="button button-percorsi button-clear" ng-click="showOrder()">
+        <button class="button button-percorsi button-clear" ng-click="showOrder()" ng-hide="favorites">
             <i class="icon ion-android-funnel"></i>
         </button>
     </ion-nav-buttons>
@@ -26,17 +26,26 @@
                 <h2>{{path.title | translate_remote|limitTo:50}}<span ng-if="checkStringLength(path.title)"> ...</span></h2>
 
                 <div class="path-numbers">
-                    <div class="path-length">
-                        <i class="icon sco-distance-h-pois"></i> {{m2km(path.length)}} km
+                    <div class="path-time" ng-hide="hideOption('time')">
+                        <i class="icon ion-ios-clock-outline"></i> {{min2time(path.time)}}
                     </div>
-                    <div class="path-time">
-                        <i class="icon ion-android-time"></i> {{min2time(path.time)}}
+                    <div class="path-difficulty" ng-class="{'d1': path.difficulty == 1, 'd2': path.difficulty == 2, 'd3': path.difficulty == 3}" ng-hide="hideOption('difficulty')||path.difficulty == null">
+                        <div class="icons-details">
+                            <i class="icon ion-record"></i>
+                        </div>
+                        <span>{{('path_difficulty_' + path.difficulty) | translate}}</span>
+                    </div>
+                    <div class="path-distance" ng-hide="hideOption('distance')">
+                        <i class="icon sco-distance"></i> {{path.distancefromme|setDecimal:2}} km
+                    </div>
+                    <div class="path-length" ng-hide="hideOption('length')">
+                        <i class="icon sco-length"></i> {{m2km(path.length)}} km
                     </div>
                 </div>
                 <i class="fav icon sco-bookmark" ng-if="isFavorite(path.localId)"></i>
             </ion-item>
         </ion-list>
-<!--
+        <!--
 <ion-infinite-scroll ng-if="!noMorePathsAvailable" on-infinite="loadMore()" distance="1%">
 </ion-infinite-scroll>
 -->

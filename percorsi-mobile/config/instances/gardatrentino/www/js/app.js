@@ -376,7 +376,14 @@ angular.module('roveretoPercorsi', [
         orderby_length: 'Lunghezza',
         orderby_time: 'Tempo di percorrenza',
         orderby_difficulty: 'Difficoltà',
-        orderby_distance: 'Distanza dalla partenza'
+        orderby_distance: 'Distanza dalla partenza',
+        geolocation_error_message: 'Geolocazlizzazione non attiva',
+        setting_open_popup: 'Impostazioni',
+        setting_title_popup: 'Impostazioni',
+        setting_body_popup: 'Attiva la geolocalizzazione del tuo dispositivo per visualizzare la distanza',
+        oder_popup_ok: 'Ordina',
+        path_from_me: 'dalla tua posizione'
+
     });
 
     $translateProvider.translations('en', {
@@ -454,7 +461,14 @@ angular.module('roveretoPercorsi', [
         orderby_length: 'Length',
         orderby_time: 'Travel time',
         orderby_difficulty: 'Difficulty',
-        orderby_distance: 'Distance'
+        orderby_distance: 'Distance',
+        geolocation_error_message: 'Geolocation inactive',
+        setting_open_popup: 'Settings',
+        setting_title_popup: 'Settings',
+        setting_body_popup: 'Enable the geolocation of your device to display the distance',
+        oder_popup_ok: 'Order',
+        path_from_me: 'from your position'
+
 
 
     });
@@ -535,7 +549,14 @@ angular.module('roveretoPercorsi', [
         orderby_length: 'Length',
         orderby_time: 'Travel time',
         orderby_difficulty: 'Difficulty',
-        orderby_distance: 'Distance'
+        orderby_distance: 'Distance',
+        geolocation_error_message: 'Geolocation inactive',
+        setting_open_popup: 'Einstellungen',
+        setting_title_popup: 'Einstellungen',
+        setting_body_popup: 'Aktivieren Sie die Geolocation des Geräts , um die Entfernung angezeigt werden',
+        oder_popup_ok: 'Reihenfolge',
+        path_from_me: 'von Ihrem Standort'
+
 
 
 

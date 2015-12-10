@@ -243,6 +243,30 @@ body {
     white-space: nowrap;
 }
 
+.path-distance {
+    padding: 4px;
+    width: 30%;
+    white-space: nowrap;
+}
+
+.path-difficulty {
+    padding: 4px;
+    width: 30%;
+    white-space: nowrap;
+}
+
+.path-difficulty.d1 i {
+    color: green;
+}
+
+.path-difficulty.d2 i {
+    color: orange;
+}
+
+.path-difficulty.d3 i {
+    color: red;
+}
+
 .path-list-detail {
     width: 100%;
     padding: 8px;
@@ -269,6 +293,11 @@ body {
 }
 
 .path-time-detail {
+    width: 100%;
+    padding: 8px;
+}
+
+.path-distance-detail {
     width: 100%;
     padding: 8px;
 }
@@ -1078,4 +1107,10 @@ ion-side-menu ion-item .icon {
 
 .orderpopup-header h1 {
     color: white;
+}
+
+.radio-enabled {}
+
+.radio-disabled {
+    color: lightgray;
 }

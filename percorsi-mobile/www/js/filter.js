@@ -31,8 +31,17 @@ angular.module('roveretoPercorsi.filters', [])
             return String(text).replace(/href=/gm, "class=\"ex-link\" href=");
         }
     })
-
-.filter('addrclean', function ($filter) {
+    .filter('setDecimal', function ($filter) {
+        return function (input, places) {
+            if (isNaN(input)) return input;
+            // If we want 1 decimal place, we want to mult/div by 10
+            // If we want 2 decimal places, we want to mult/div by 100, etc
+            // So use the following to create that factor
+            var factor = "1" + Array(+(places > 0 && places + 1)).join("0");
+            return Math.round(input * factor) / factor;
+        };
+    })
+    .filter('addrclean', function ($filter) {
         return function (input) {
             addr = $filter('translate')(input);
             if (!addr) {

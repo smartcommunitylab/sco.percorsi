@@ -19,8 +19,8 @@ angular.module('services.geo', [])
                             localization.reject('cannot geolocate (web)');
                         }, {
                             //frequency: (20 * 60 * 1000), //20 mins
-                            maximumAge: (10 * 60 * 1000), //10 mins
-                            timeout: 60 * 1000, //1 minute
+                            maximumAge: (10 * 6 * 1000), //10 mins
+                            timeout: 6 * 1000, //1 minute
                             enableHighAccuracy: (device.version.indexOf('2.') == 0) // true for Android 2.x
                         });
                     }, false);
@@ -36,7 +36,7 @@ angular.module('services.geo', [])
                         localization.reject('cannot geolocate (web)');
                     }, {
                         maximumAge: (10 * 60 * 1000), //5 mins
-                        timeout: 60 * 1000, //1 minute
+                        timeout: 6 * 1000, //1 minute
                         enableHighAccuracy: false
                     });
                 }
@@ -175,5 +175,5 @@ angular.module('services.geo', [])
 
             return output;
         };
-    return mapConversionService;
+        return mapConversionService;
     })

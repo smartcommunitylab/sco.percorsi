@@ -29,10 +29,12 @@
     "https://github.com/brodysoft/Cordova-SQLitePlugin.git",
     "org.apache.cordova.network-information",
     "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
-    "org.apache.cordova.media"
+    "org.apache.cordova.media",
+    "https://github.com/deefactorial/Cordova-open-native-settings.git",
+    "cordova-plugin-whitelist"
   ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    "ios",
+    "android"
   ]
 }

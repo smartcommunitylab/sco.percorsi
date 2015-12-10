@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
-.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, $ionicScrollDelegate, $location, $ionicHistory, $rootScope, categoriesService, DatiDB, addImageService, galleryService, FilterVariable) {
+.controller('PathDetailInfoCtrl', function ($scope, $http, singlePathService, singlePoiService, $ionicModal, addImageService, $filter, $cordovaCamera, Toast, $ionicModal, $rootScope, $ionicSlideBoxDelegate, $ionicScrollDelegate, $location, $ionicHistory, $ionicPopup, $rootScope, categoriesService, DatiDB, addImageService, galleryService, FilterVariable) {
     $scope.item = singlePathService.getSelectedPath();
     var gallery = galleryService.createGallery($scope.item);
     $scope.idPoiChoosen = null;
@@ -10,16 +10,45 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
 
     };
     $scope.images = [];
-    //    $scope.item.cost = "iksiad";
-    //    $scope.item.parking = "iksiad";
-    //    $scope.item.transport = "iksiad";
-    //    $scope.item.accessibility = "iksiad";
 
     /*
      * if given group is the selected group, deselect it
      * else, select the given group
      */
 
+
+    $scope.openLocConf = function () {
+        var locConfPopup = $ionicPopup.confirm({
+            template: $filter('translate')('setting_body_popup'),
+            //title: $filter()('translate',
+            scope: $scope,
+            buttons: [{ // Array[Object] (optional). Buttons to place in the popup footer.
+                    text: $filter('translate')('close'),
+                    type: 'button-percorsi'
+                                },
+                {
+                    text: $filter('translate')('setting_open_popup'),
+                    type: 'button-percorsi',
+                    onTap: function (e) {
+                        return true;
+                    }
+                                    }]
+        });
+        locConfPopup.then(function (res) {
+            if (res) {
+                $scope.openGeoSettings();
+            }
+        });
+    };
+    $scope.openGeoSettings = function () {
+        //open popup for open settings
+        if (typeof cordova.plugins.settings.openSetting != undefined)
+            cordova.plugins.settings.openSetting("location_source", function () {
+                console.log("opened settings")
+            }, function () {
+                console.log("failed to settings")
+            });
+    }
     $scope.noExtraListValues = function () {
         if ($scope.item.cost == null && $scope.item.parking == null && $scope.item.transport == null && $scope.item.accessibility == null) {
             return true

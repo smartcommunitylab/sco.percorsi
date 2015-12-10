@@ -64,13 +64,13 @@
                 </div>
                 <div class="path-length-detail" ng-hide="item.length == null">
                     <div class="icons-details">
-                        <i class="icon sco-distance-h-pois"></i>
+                        <i class="icon  sco-length"></i>
                     </div>
                     <span>{{m2km(item.length)}} km</span>
                 </div>
                 <div class="path-time-detail" ng-hide="item.time == null">
                     <div class="icons-details">
-                        <i class="icon ion-android-time"></i>
+                        <i class="icon ion-ios-clock-outline"></i>
                     </div>
                     <span>{{min2time(item.time)}}</span>
                 </div>
@@ -79,6 +79,13 @@
                         <i class="icon ion-record"></i>
                     </div>
                     <span>{{'path_difficulty' | translate}} {{('path_difficulty_' + item.difficulty) | translate}}</span>
+                </div>
+                <div class="path-distance-detail">
+                    <div class="icons-details">
+                        <i class="icon sco-distance"></i>
+                    </div>
+                    <span ng-if="item.distancefromme != null">{{item.distancefromme|setDecimal:2}} km {{'path_from_me'|translate}}</span>
+                    <span class="text-button" ng-if="item.distancefromme == null" ng-click="openLocConf()">{{'geolocation_error_message'|translate}}</span>
                 </div>
 
             </div>

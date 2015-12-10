@@ -30,6 +30,12 @@ angular.module('roveretoPercorsi.controllers.paths', [])
     $scope.data = {
         actualOrder: 'alpha'
     }
+    $scope.radioDisabled = function (item) {
+        if (item.value == "distance" && $scope.paths.length > 0 && !$scope.paths[0].distancefromme) {
+            return true;
+        }
+        return false;
+    }
     listPathsService.getPathsByCategoryIdAndOrder($stateParams, $scope.data.actualOrder, length).then(function (paths) {
         $scope.emptylist = false;
         $scope.paths = paths;
@@ -71,10 +77,10 @@ angular.module('roveretoPercorsi.controllers.paths', [])
             templateUrl: 'templates/order-popover.html',
             scope: $scope,
             buttons: [{ // Array[Object] (optional). Buttons to place in the popup footer.
-                text: 'Cancel',
+                text: $filter('translate')('close'),
 
                 }, {
-                text: 'OK',
+                text: $filter('translate')('oder_popup_ok'),
                 onTap: function (e) {
                     return $scope.data.actualOrder;
                 }
@@ -87,7 +93,16 @@ angular.module('roveretoPercorsi.controllers.paths', [])
         });
     };
 
+    $scope.hideOption = function (optiontohide) {
+        if (optiontohide == $scope.data.actualOrder) {
+            return false;
+        }
+        if ($scope.data.actualOrder == 'alpha' && ((optiontohide == 'time') || (optiontohide == 'difficulty'))) {
+            return false;
+        }
+        return true;
 
+    }
 
     //    $scope.loadMore = function () {
     //        var length = 0;
