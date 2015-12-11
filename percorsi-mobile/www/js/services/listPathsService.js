@@ -147,13 +147,28 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
             deferred.resolve([]);
         }
         DatiDB.getObjectsById(idsString).then(function (pathsFromDb) {
-                from == 0 ? deferred.resolve(pathsFromDb) : deferred.resolve([]);
+             GeoLocate.locate().then(function (myposition) {
+                        //add filed distance from me to all paths
+                        addDistanceFromMyposition(myposition, pathsFromDb);
+                        from == 0 ? deferred.resolve(orderBy("alpha", pathsFromDb, myposition)) : deferred.resolve([]);
+                    },
+                    function (error) {
+                        //resolve without new field but hide distance and option in sorting menu
+                        from == 0 ? deferred.resolve(orderBy("alpha", pathsFromDb)) : deferred.resolve([]);
+
+                        //deferred.reject(error);
+                    });
             },
             function (error) {
                 deferred.reject(error);
             });
-
-
+//                from == 0 ? deferred.resolve(pathsFromDb) : deferred.resolve([]);
+//            },
+//            function (error) {
+//                deferred.reject(error);
+//            });
+//
+//
         return deferred.promise;
     };
 
