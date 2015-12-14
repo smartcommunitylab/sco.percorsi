@@ -83,7 +83,7 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
     //
     //
     //    }
-    var orderBy = function (order, listPath, myposition) {
+    var orderBy = function (order, listPath) {
         switch (order) {
         case "alpha":
             return listPath.sort(alpha);
@@ -115,7 +115,7 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
         }
 
     }
-    listPathsService.getPathsByCategoryIdAndOrder = function (category, order, from) {
+    listPathsService.getPathsByCategoryIdAndOrder = function (category, order) {
         var start = null;
         var deferred = $q.defer();
 
@@ -123,11 +123,11 @@ angular.module('roveretoPercorsi.services.listPathsService', [])
                 GeoLocate.locate().then(function (myposition) {
                         //add filed distance from me to all paths
                         addDistanceFromMyposition(myposition, pathsFromDb);
-                        from == 0 ? deferred.resolve(orderBy(order, pathsFromDb, myposition)) : deferred.resolve([]);
+                        deferred.resolve(orderBy(order, pathsFromDb));
                     },
                     function (error) {
                         //resolve without new field but hide distance and option in sorting menu
-                        from == 0 ? deferred.resolve(orderBy(order, pathsFromDb)) : deferred.resolve([]);
+                        deferred.resolve(orderBy(order, pathsFromDb));
 
                         //deferred.reject(error);
                     });

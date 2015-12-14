@@ -1114,3 +1114,22 @@ ion-side-menu ion-item .icon {
 .radio-disabled {
     color: lightgray;
 }
+
+
+/*redefine style for checkbox*/
+
+.ion-checkmark:before {
+    color: #009688;
+}
+
+.item-radio input:checked ~ .item-content {
+    background: #fff;
+}
+
+.item-radio input:checked + .item-content {
+    background: #fff ;
+}
+
+.item-radio input:checked + .radio-icon {
+    visibility: visible;
+}
