@@ -25,21 +25,21 @@
                 <img ng-src="{{path.images[0].url}}" />
                 <h2>{{path.title | translate_remote|limitTo:50}}<span ng-if="checkStringLength(path.title)"> ...</span></h2>
 
-                <div class="path-numbers">
-                    <div class="path-time" ng-hide="hideOption('time')">
-                        <i class="icon ion-ios-clock-outline"></i> {{min2time(path.time)}}
+                <div class="path-numbers row">
+                    <div class="path-time col col-25" ng-hide="hideOption('time')">
+                        <i class="icon ion-ios-clock-outline v-center"></i> {{min2time(path.time)}}
                     </div>
-                    <div class="path-difficulty" ng-class="{'d1': path.difficulty == 1, 'd2': path.difficulty == 2, 'd3': path.difficulty == 3}" ng-hide="hideOption('difficulty')||path.difficulty == null">
-                        <div class="icons-details">
+                    <div class="path-difficulty col-20" ng-class="{'d1': path.difficulty == 1, 'd2': path.difficulty == 2, 'd3': path.difficulty == 3}" ng-hide="hideOption('difficulty')||path.difficulty == null">
+                        <div class="icon-difficulty">
                             <i class="icon ion-record"></i>
                         </div>
                         <span>{{('path_difficulty_' + path.difficulty) | translate}}</span>
                     </div>
                     <div class="path-distance" ng-hide="hideOption('distance')">
-                        <i class="icon sco-distance"></i> {{path.distancefromme|setDecimal:2}} km
+                        <i class="icon sco-distance v-center"></i> {{path.distancefromme|setDecimal:2}} km
                     </div>
                     <div class="path-length" ng-hide="hideOption('length')">
-                        <i class="icon sco-length"></i> {{m2km(path.length)}} km
+                        <i class="icon sco-length v-center"></i> {{m2km(path.length)}} km
                     </div>
                 </div>
                 <i class="fav icon sco-bookmark" ng-if="isFavorite(path.localId)"></i>

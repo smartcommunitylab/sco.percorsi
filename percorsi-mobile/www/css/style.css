@@ -241,6 +241,7 @@ body {
     padding: 4px;
     width: 30%;
     white-space: nowrap;
+    margin-right: 4px;
 }
 
 .path-distance {
@@ -286,7 +287,14 @@ body {
     align-items: center;
     padding-right: 48px;
 }
+.icon-difficulty {
+    width: 40px;
+    align-items: center;
+}
 
+.v-center {
+    vertical-align: middle;
+}
 .path-length-detail {
     width: 100%;
     padding: 8px;
