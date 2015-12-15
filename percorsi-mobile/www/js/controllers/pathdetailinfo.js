@@ -41,14 +41,20 @@ angular.module('roveretoPercorsi.controllers.pathdetailinfo', [])
         });
     };
     $scope.openGeoSettings = function () {
+
+
+
+//
         //open popup for open settings
-        if (typeof cordova.plugins.settings.openSetting != undefined)
-            cordova.plugins.settings.openSetting("location_source", function () {
+        if (typeof cordova.plugins.settings.openSetting != undefined){
+            if (ionic.Platform.isIOS())
+            {cordova.plugins.settings.open()}
+           else cordova.plugins.settings.openSetting("location_source", function () {
                 console.log("opened settings")
             }, function () {
                 console.log("failed to settings")
             });
-    }
+    }}
     $scope.noExtraListValues = function () {
         if ($scope.item.cost == null && $scope.item.parking == null && $scope.item.transport == null && $scope.item.accessibility == null) {
             return true
