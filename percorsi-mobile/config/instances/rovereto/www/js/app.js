@@ -377,6 +377,7 @@ angular.module('roveretoPercorsi', [
         setting_title_popup: 'Impostazioni',
         setting_body_popup: 'Attiva la geolocalizzazione del tuo dispositivo per visualizzare la distanza',
         oder_popup_ok: 'Ordina',
+        oder_popup_title: 'Ordinamento',
         path_from_me: 'dalla tua posizione'
 
     });
@@ -463,6 +464,7 @@ angular.module('roveretoPercorsi', [
         setting_title_popup: 'Settings',
         setting_body_popup: 'Enable location services on your device to display the distance',
         oder_popup_ok: 'Order',
+        oder_popup_title: 'Order',
         path_from_me: 'by distance from your location'
 
     });
@@ -549,6 +551,7 @@ angular.module('roveretoPercorsi', [
         setting_title_popup: 'Einstellungen',
         setting_body_popup: 'Ortungsdienste auf dem Gerät aktivieren um die Entfernung anzuzeigen',
         oder_popup_ok: 'Ordnen',
+        oder_popup_title: 'Ordnen',
         path_from_me: 'nach Entfernung von deiner Position'
 
 
