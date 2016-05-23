@@ -1,0 +1,36 @@
+<ion-view title="{{path.title | translate_remote}}">
+
+    <ion-nav-buttons>
+        <button ng-click="back()" class="row button button-icon ion-ios-arrow-back">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-percorsi button-clear" ng-click="toggleFavorite()">
+            <i class="icon" ng-class="{'sco-bookmark-outline': !isFavorite, 'sco-bookmark': isFavorite}"></i>
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content ng-init="getPlacesAround()">
+        <div class="padding emptylist" ng-if="emptylist">
+            <!--<div class="item item-text-wrap">-->
+            {{'archive_empty_list' | translate}}
+            <!--</div>-->
+        </div>
+        <ion-list ng-if="!emptylist">
+            <ion-item class="card item-text-wrap list-fb-places item-icon-right" ng-repeat="place in places">
+                <div ng-click="openFbPlace({{place.id}})">
+
+                    <div class="place-category" ng-if="place.category=='Bar'">{{'lbl_bar' | translate |uppercase}}</div>
+                    <div class="place-category" ng-if="place.category=='Restaurant/cafe'">{{'lbl_restaurant' | translate |uppercase}}</div>
+                    <i class="place-icons fb-icon ion-social-facebook">
+                    </i>{{place.name}}
+                    <!--                    <div class="place-name"> {{place.name}}</div>-->
+                </div>
+                <div class="icon">
+                    <i class="place-icons  ion-ios-location" ng-click="openMapPlace({{place}})">
+                    </i>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

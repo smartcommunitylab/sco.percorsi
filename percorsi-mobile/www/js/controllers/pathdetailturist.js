@@ -105,7 +105,6 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
             $scope.rating.review = review;
             $scope.mystars = getStars(vote);
             Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom');
-            $rootScope.extLogging("AppProsume", "newVoteAndComment");
             DatiDB.reset();
         });
     };
