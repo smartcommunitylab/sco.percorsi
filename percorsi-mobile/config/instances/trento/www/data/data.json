@@ -1,1 +1,935 @@
-{"version":889,"updated":{"it.smartcommunitylab.percorsi.model.Categories":[{"id":null,"updateTime":1463659403353,"version":885,"user":null,"appId":"ComuneTrento","localId":"1","categories":[{"id":"a","name":{"de":"Spazi in comune per i giovani","it":"Spazi in comune per i giovani","en":"Spazi in comune per i giovani"},"description":{"it":""},"image":""}],"lastChange":1464019200000}],"it.smartcommunitylab.percorsi.model.Path":[{"id":"573dac01e4b0943281212736","updateTime":1463659521670,"version":886,"user":null,"appId":"ComuneTrento","localId":"pathLuoghiIncontroGiovani","categories":["a"],"title":{"de":"Luoghi di incontro giovani","it":"Luoghi di incontro giovani","en":"Luoghi di incontro giovani"},"description":{"de":"","it":"","en":""},"length":null,"time":null,"difficulty":null,"images":[{"title":{"de":"","it":"","en":""},"url":"","userDefined":false,"userId":null}],"videos":[],"audios":[],"shape":"","vote":null,"voteCount":null,"externalUrl":null,"pois":[{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI2","title":{"de":"Centro Musica","it":"Centro Musica","en":"Centro Musica"},"description":{"de":"\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            ","it":"\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            ","en":"\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/mGvbp","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.046924,"lng":11.133527}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI3","title":{"de":"La Bookique","it":"La Bookique","en":"La Bookique"},"description":{"de":"La Bookique è un caffè letterario che ha assunto nel tempo la forma mutevole del “concept bar“, un luogo dove le idee vengono tradotte nella modalità pubblica dell’evento, attraverso le potenzialità della “parola” come veicolo di creazione e trasformazione (in meglio) dell’esistente. Il bar è fornito di aperitivi creativi mai sentiti prima (e buonissimi), sandwich dai nomi impronunciabili, una piccola libreria rock, riviste da consultare, eventi musicali, poetici, letterari, di attualità… e un grande spazio a disposizione di gruppi e associazioni.<br/>\n<br/>\nORARIO<br/>\nDal lunedì al giovedì 17.00-24.00<br/>\nVenerdì e Sabato 17.00-01.00<br/>\nDomenica chiuso<br/>\n<br/>\nSEDE: via Torre d’Augusto 29, Trento (all’interno del Parco della Predara)<br/>\n<br/>\nINFO:+39 3427011498 (Marco) o +39 3494058123 (Serena)<br/>\n<br/>\nLINK EVENTI:http://www.bookique.net<br/>\n<br/>\n            ","it":"La Bookique è un caffè letterario che ha assunto nel tempo la forma mutevole del “concept bar“, un luogo dove le idee vengono tradotte nella modalità pubblica dell’evento, attraverso le potenzialità della “parola” come veicolo di creazione e trasformazione (in meglio) dell’esistente. Il bar è fornito di aperitivi creativi mai sentiti prima (e buonissimi), sandwich dai nomi impronunciabili, una piccola libreria rock, riviste da consultare, eventi musicali, poetici, letterari, di attualità… e un grande spazio a disposizione di gruppi e associazioni.<br/>\n<br/>\nORARIO<br/>\nDal lunedì al giovedì 17.00-24.00<br/>\nVenerdì e Sabato 17.00-01.00<br/>\nDomenica chiuso<br/>\n<br/>\nSEDE: via Torre d’Augusto 29, Trento (all’interno del Parco della Predara)<br/>\n<br/>\nINFO:+39 3427011498 (Marco) o +39 3494058123 (Serena)<br/>\n<br/>\nLINK EVENTI:http://www.bookique.net<br/>\n<br/>\n            ","en":"La Bookique è un caffè letterario che ha assunto nel tempo la forma mutevole del “concept bar“, un luogo dove le idee vengono tradotte nella modalità pubblica dell’evento, attraverso le potenzialità della “parola” come veicolo di creazione e trasformazione (in meglio) dell’esistente. Il bar è fornito di aperitivi creativi mai sentiti prima (e buonissimi), sandwich dai nomi impronunciabili, una piccola libreria rock, riviste da consultare, eventi musicali, poetici, letterari, di attualità… e un grande spazio a disposizione di gruppi e associazioni.<br/>\n<br/>\nORARIO<br/>\nDal lunedì al giovedì 17.00-24.00<br/>\nVenerdì e Sabato 17.00-01.00<br/>\nDomenica chiuso<br/>\n<br/>\nSEDE: via Torre d’Augusto 29, Trento (all’interno del Parco della Predara)<br/>\n<br/>\nINFO:+39 3427011498 (Marco) o +39 3494058123 (Serena)<br/>\n<br/>\nLINK EVENTI:http://www.bookique.net<br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/59jjG","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.072078,"lng":11.127004}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI4","title":{"de":"Centro Teatro","it":"Centro Teatro","en":"Centro Teatro"},"description":{"de":"\n<br/>\nI prezzi si intendono IVA inclusa.<br/>\n<br/>\nSEDE: Via degli Olmi 24, Trento (vicino alle scuole Winkler)<br/>\n<br/>\nINFO: 0461235723 (Dal lunedì al venerdì dalle 9.00 alle 16.00)\n<br/>\nLINK EVENTI: http://www.centroteatrotn.it/ \n<br/>\n            ","it":"\n<br/>\nI prezzi si intendono IVA inclusa.<br/>\n<br/>\nSEDE: Via degli Olmi 24, Trento (vicino alle scuole Winkler)<br/>\n<br/>\nINFO: 0461235723 (Dal lunedì al venerdì dalle 9.00 alle 16.00)\n<br/>\nLINK EVENTI: http://www.centroteatrotn.it/ \n<br/>\n\n            ","en":"\n<br/>\nI prezzi si intendono IVA inclusa.<br/>\n<br/>\nSEDE: Via degli Olmi 24, Trento (vicino alle scuole Winkler)<br/>\n<br/>\nINFO: 0461235723 (Dal lunedì al venerdì dalle 9.00 alle 16.00)\n<br/>\nLINK EVENTI: http://www.centroteatrotn.it/ \n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/Os25N ","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.050255,"lng":11.131983}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI5","title":{"de":"Libercafè","it":"Libercafè","en":"Libercafè"},"description":{"de":"Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            ","it":"Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            ","en":"Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/Ni9YP","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.071161,"lng":11.120306}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI6","title":{"de":"L'AREA-APPM ","it":"L'AREA-APPM ","en":"L'AREA-APPM "},"description":{"de":"L'AREA-APPM è un centro aggregativo/spazio giovani che offre servizi mirati a sostenere, favorire e incentivare la crescita sociale dei ragazzi attraverso la promozione di percorsi di impegno, offrendo loro occasioni per sperimentare nuove modalità di espressione di sé. Le attività sono promosse nell'ottica della valorizzazione delle risorse del territorio. Il Centro si configura come uno spazio di accoglienza, come parte di una comunità e come specchio di sé stessi, allo scopo di attivare risposte alle richieste della popolazione giovanile. L'accesso è libero.<br/>\n<br/>\nORARI:<br/>\nDal lunedì al sabato: orari differenziati in periodo scolastico ed extrascolastico, di norma 6 giorni su 7 con apertura pomeridiana e ulteriori aperture legate ad attività specifiche.<br/>\n<br/>\nSEDE: Largo Nazario Sauro 21, Trento<br/>\n<br/>\nINFO: 0461 1593279<br/>\n<br/>\nLINK EVENTI:http://www.appm.it/eventi.php <br/>\n<br/>\n            ","it":"L'AREA-APPM è un centro aggregativo/spazio giovani che offre servizi mirati a sostenere, favorire e incentivare la crescita sociale dei ragazzi attraverso la promozione di percorsi di impegno, offrendo loro occasioni per sperimentare nuove modalità di espressione di sé. Le attività sono promosse nell'ottica della valorizzazione delle risorse del territorio. Il Centro si configura come uno spazio di accoglienza, come parte di una comunità e come specchio di sé stessi, allo scopo di attivare risposte alle richieste della popolazione giovanile. L'accesso è libero.<br/>\n<br/>\nORARI:<br/>\nDal lunedì al sabato: orari differenziati in periodo scolastico ed extrascolastico, di norma 6 giorni su 7 con apertura pomeridiana e ulteriori aperture legate ad attività specifiche.<br/>\n<br/>\nSEDE: Largo Nazario Sauro 21, Trento<br/>\n<br/>\nINFO: 0461 1593279<br/>\n<br/>\nLINK EVENTI:http://www.appm.it/eventi.php <br/>\n<br/>\n            ","en":"L'AREA-APPM è un centro aggregativo/spazio giovani che offre servizi mirati a sostenere, favorire e incentivare la crescita sociale dei ragazzi attraverso la promozione di percorsi di impegno, offrendo loro occasioni per sperimentare nuove modalità di espressione di sé. Le attività sono promosse nell'ottica della valorizzazione delle risorse del territorio. Il Centro si configura come uno spazio di accoglienza, come parte di una comunità e come specchio di sé stessi, allo scopo di attivare risposte alle richieste della popolazione giovanile. L'accesso è libero.<br/>\n<br/>\nORARI:<br/>\nDal lunedì al sabato: orari differenziati in periodo scolastico ed extrascolastico, di norma 6 giorni su 7 con apertura pomeridiana e ulteriori aperture legate ad attività specifiche.<br/>\n<br/>\nSEDE: Largo Nazario Sauro 21, Trento<br/>\n<br/>\nINFO: 0461 1593279<br/>\n<br/>\nLINK EVENTI:http://www.appm.it/eventi.php <br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.074967,"lng":11.125157}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI7","title":{"de":"Spazio aperto-Coop. Kaleidoscopio","it":"Spazio aperto-Coop. Kaleidoscopio","en":"Spazio aperto-Coop. Kaleidoscopio"},"description":{"de":"Lo spazio aperto – Coop. Kaleidoscopio è un centro aperto che da più di 20 anni è presente sul territorio di Povo con attività dedicate a bambini, ragazzi e giovani dai 6 ai 20 anni che vivono sulla collina est di Trento. Un luogo che a partire da istanze educative, di aggregazione e di cittadinanza, attiva - all'interno di patti di comunità e in co-progettazione con i diversi portatori di interesse –processi di contrasto alle forme di disagio giovanile, di prevenzione primaria e di produzione di benessere.<br/>\n<br/>\nORARIO<br/>\n<br/>\nSEDE: Via Don Dallafior 2 Povo, Trento<br/>\n<br/>\nINFO: 0461 811188/329.9060104 spazioaperto@kaleidoscopio.coop<br/>\n<br/>\nLINK EVENTI: www.facebook.com/spazioaperto.kaleidoscopio<br/>\n            ","it":"Lo spazio aperto – Coop. Kaleidoscopio è un centro aperto che da più di 20 anni è presente sul territorio di Povo con attività dedicate a bambini, ragazzi e giovani dai 6 ai 20 anni che vivono sulla collina est di Trento. Un luogo che a partire da istanze educative, di aggregazione e di cittadinanza, attiva - all'interno di patti di comunità e in co-progettazione con i diversi portatori di interesse –processi di contrasto alle forme di disagio giovanile, di prevenzione primaria e di produzione di benessere.<br/>\n<br/>\nORARIO<br/>\n<br/>\nSEDE: Via Don Dallafior 2 Povo, Trento<br/>\n<br/>\nINFO: 0461 811188/329.9060104 spazioaperto@kaleidoscopio.coop<br/>\n<br/>\nLINK EVENTI: www.facebook.com/spazioaperto.kaleidoscopio<br/>\n            ","en":"Lo spazio aperto – Coop. Kaleidoscopio è un centro aperto che da più di 20 anni è presente sul territorio di Povo con attività dedicate a bambini, ragazzi e giovani dai 6 ai 20 anni che vivono sulla collina est di Trento. Un luogo che a partire da istanze educative, di aggregazione e di cittadinanza, attiva - all'interno di patti di comunità e in co-progettazione con i diversi portatori di interesse –processi di contrasto alle forme di disagio giovanile, di prevenzione primaria e di produzione di benessere.<br/>\n<br/>\nORARIO<br/>\n<br/>\nSEDE: Via Don Dallafior 2 Povo, Trento<br/>\n<br/>\nINFO: 0461 811188/329.9060104 spazioaperto@kaleidoscopio.coop<br/>\n<br/>\nLINK EVENTI: www.facebook.com/spazioaperto.kaleidoscopio<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/WLpDB","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.065676,"lng":11.154224}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI8","title":{"de":"Kosa nostra-Coop. progetto 92","it":"Kosa nostra-Coop. progetto 92","en":"Kosa nostra-Coop. progetto 92"},"description":{"de":"Kosa Nostra – Coop. Progetto 92 è il centro di aggregazione giovanile che si rivolge a ragazze e ragazzi dai 14 ai 19 anni, proponendo molteplici occasioni di incontro e attività: accoglienza, confronto, scambio di idee, gite, viaggi, serate, pranzi, cene, merende, spazio compiti, giochi, musica e sala prova. Ma anche conforto e supporto per/con le famiglie, nonché collaborazione con il territorio.<br/>\n<br/>\nORARIO<br/>\nLunedì, mercoledì e giovedì 17.00-19.30<br/>\n<br/>\nSEDE: Via Filari Longhi 4/c Ravina di Trento, Trento<br/>\n<br/>\nINFO: +39 349 8356168<br/>\n<br/>\nFACEBOOK https://www.facebook.com/La-Kosa-Nostra-307615900634/?fref=ts<br/>\n            ","it":"Kosa Nostra – Coop. Progetto 92 è il centro di aggregazione giovanile che si rivolge a ragazze e ragazzi dai 14 ai 19 anni, proponendo molteplici occasioni di incontro e attività: accoglienza, confronto, scambio di idee, gite, viaggi, serate, pranzi, cene, merende, spazio compiti, giochi, musica e sala prova. Ma anche conforto e supporto per/con le famiglie, nonché collaborazione con il territorio.<br/>\n<br/>\nORARIO<br/>\nLunedì, mercoledì e giovedì 17.00-19.30<br/>\n<br/>\nSEDE: Via Filari Longhi 4/c Ravina di Trento, Trento<br/>\n<br/>\nINFO: +39 349 8356168<br/>\n<br/>\nFACEBOOK https://www.facebook.com/La-Kosa-Nostra-307615900634/?fref=ts<br/>\n            ","en":"Kosa Nostra – Coop. Progetto 92 è il centro di aggregazione giovanile che si rivolge a ragazze e ragazzi dai 14 ai 19 anni, proponendo molteplici occasioni di incontro e attività: accoglienza, confronto, scambio di idee, gite, viaggi, serate, pranzi, cene, merende, spazio compiti, giochi, musica e sala prova. Ma anche conforto e supporto per/con le famiglie, nonché collaborazione con il territorio.<br/>\n<br/>\nORARIO<br/>\nLunedì, mercoledì e giovedì 17.00-19.30<br/>\n<br/>\nSEDE: Via Filari Longhi 4/c Ravina di Trento, Trento<br/>\n<br/>\nINFO: +39 349 8356168<br/>\n<br/>\nFACEBOOK https://www.facebook.com/La-Kosa-Nostra-307615900634/?fref=ts<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/y044X","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.037676,"lng":11.11061}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI9","title":{"de":"Associazione Periscopio","it":"Associazione Periscopio","en":"Associazione Periscopio"},"description":{"de":"Il servizio superiori offerto dall'Associazione Periscopio è un luogo gestito da adulti in cui poter riacquistare il senso e il gusto per le materie studiate e il loro nesso con la vita in tutti i suoi aspetti. L'obiettivo è attivare i ragazzi nello studio individuale, fino al raggiungimento di un proprio metodo volto al miglioramento delle performance scolastiche e di un approccio allo studio sempre più organizzato.<br/>\n<br/>\nORARIO<br/>\nLunedì, martedì e giovedì 14.15-17.15<br/>\n<br/>\nSEDE: Scuole medie Manzoni, Corso Buonarroti 50, Trento<br/>\n<br/>\nINFO: <br/>\nAntonella Scrosati<br/>\ncell. 328-0381737<br/>\nantonella@periscopio.tn.it<br/>\nwww.periscopio.org<br/>\n<br/>\n            ","it":"Il servizio superiori offerto dall'Associazione Periscopio è un luogo gestito da adulti in cui poter riacquistare il senso e il gusto per le materie studiate e il loro nesso con la vita in tutti i suoi aspetti. L'obiettivo è attivare i ragazzi nello studio individuale, fino al raggiungimento di un proprio metodo volto al miglioramento delle performance scolastiche e di un approccio allo studio sempre più organizzato.<br/>\n<br/>\nORARIO<br/>\nLunedì, martedì e giovedì 14.15-17.15<br/>\n<br/>\nSEDE: Scuole medie Manzoni, Corso Buonarroti 50, Trento<br/>\n<br/>\nINFO: <br/>\nAntonella Scrosati<br/>\ncell. 328-0381737<br/>\nantonella@periscopio.tn.it<br/>\nwww.periscopio.org<br/>\n<br/>\n            ","en":"Il servizio superiori offerto dall'Associazione Periscopio è un luogo gestito da adulti in cui poter riacquistare il senso e il gusto per le materie studiate e il loro nesso con la vita in tutti i suoi aspetti. L'obiettivo è attivare i ragazzi nello studio individuale, fino al raggiungimento di un proprio metodo volto al miglioramento delle performance scolastiche e di un approccio allo studio sempre più organizzato.<br/>\n<br/>\nORARIO<br/>\nLunedì, martedì e giovedì 14.15-17.15<br/>\n<br/>\nSEDE: Scuole medie Manzoni, Corso Buonarroti 50, Trento<br/>\n<br/>\nINFO: <br/>\nAntonella Scrosati<br/>\ncell. 328-0381737<br/>\nantonella@periscopio.tn.it<br/>\nwww.periscopio.org<br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/y3jJP","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.072693,"lng":11.117673}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathLuoghiIncontroGiovaniPOI10","title":{"de":"Centro Aperto La Casetta – Coop. Arianna","it":"Centro Aperto La Casetta – Coop. Arianna","en":"Centro Aperto La Casetta – Coop. Arianna"},"description":{"de":"Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            ","it":"Centro Aperto La Casetta – Coop. Arianna: si rivolge ai ragazzi tra gli 11 e i 20 anni offrendo sostegno scolastico e attività di gioco e svago. Si tratta di uno spazio polifunzionale in cui i ragazzi possono incontrarsi e vivere esperienze di incontro, di creatività, di gioco ma anche trovare informazioni concrete. Si può studiare, chiacchierare, partecipare e organizzare uscite e feste, vedere qualche film in compagnia, cantare, cenare insieme, sfidarsi in serate di gioco a tema e confrontarsi. In alcuni momenti particolari le attività della Casetta si aprono all’intera comunità proponendo iniziative rivolte a favorire momenti di incontro anche con e tra gli adulti. <br/>\n<br/>\nORARIO PER I RAGAZZI DAI 14 AI 20 ANNI<br/>\nMercoledì 17.00-18.30 <br/>\nVenerdì 16.30-21.00<br/>\nSEDE: Via Avisio 2, Canova, Trento<br/>\n<br/>\nINFO: <br/>\n0461 994448, 346 6939751<br/>\ne-mail: lacasetta@arianna.coop<br/>\nwww.arianna.coop<br/>\n            ","en":"Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/zmfnC","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.101277,"lng":11.110193}}]},{"id":"573dd025e4b0943281212737","updateTime":1463668773051,"version":887,"user":null,"appId":"ComuneTrento","localId":"pathAmbientiRiqualificatiGiovani","categories":["a"],"title":{"de":"Ambienti riqualificati dai giovani","it":"Ambienti riqualificati dai giovani","en":"Ambienti riqualificati dai giovani"},"description":{"de":"","it":"","en":""},"length":null,"time":null,"difficulty":null,"images":[{"title":{"de":"","it":"","en":""},"url":"","userDefined":false,"userId":null}],"videos":[],"audios":[],"shape":"","vote":null,"voteCount":null,"externalUrl":null,"pois":[{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathAmbientiRiqualificatiGiovaniPOI2","title":{"de":"Skatepark","it":"Skatepark","en":"Skatepark"},"description":{"de":"Lo skatepark di Trento è situato in via Ghiaie (Trento sud) ed è un'area molto suggestiva dove si vedono montagne in ogni direzione e dove l'aria è talmente fresca da pizzicare il naso.<br/>\nAttorno si trova un enorme prato verdissimo, dove nelle belle giornate la gente può tranquillamente sdraiarsi e godersi i trick di rider e skater. Il park è composto da alcuni quarter e bank alle estremità, 2 canadesi con rail e muretti al centro, un rail inchiodato a terra e un grind-box lungo. In più i ragazzi hanno allestito uno dei quarter con  un'asta graduata, in modo da misurare l'altezza dei big air durante la giornata.<br/>\n<br/>\nSEDE: via Ghiaie Trento Via Hubert Jedin 2 (Trento Sud)<br/>\n<br/>\nINFO: ufficio Parchi e Giardini, 0461884528, 0461-884952<br/>\n<br/>\n            ","it":"Lo skatepark di Trento è situato in via Ghiaie (Trento sud) ed è un'area molto suggestiva dove si vedono montagne in ogni direzione e dove l'aria è talmente fresca da pizzicare il naso.<br/>\nAttorno si trova un enorme prato verdissimo, dove nelle belle giornate la gente può tranquillamente sdraiarsi e godersi i trick di rider e skater. Il park è composto da alcuni quarter e bank alle estremità, 2 canadesi con rail e muretti al centro, un rail inchiodato a terra e un grind-box lungo. In più i ragazzi hanno allestito uno dei quarter con  un'asta graduata, in modo da misurare l'altezza dei big air durante la giornata.<br/>\n<br/>\nSEDE: via Ghiaie Trento Via Hubert Jedin 2 (Trento Sud)<br/>\n<br/>\nINFO: ufficio Parchi e Giardini, 0461884528, 0461-884952<br/>\n<br/>\n            ","en":"Lo skatepark di Trento è situato in via Ghiaie (Trento sud) ed è un'area molto suggestiva dove si vedono montagne in ogni direzione e dove l'aria è talmente fresca da pizzicare il naso.<br/>\nAttorno si trova un enorme prato verdissimo, dove nelle belle giornate la gente può tranquillamente sdraiarsi e godersi i trick di rider e skater. Il park è composto da alcuni quarter e bank alle estremità, 2 canadesi con rail e muretti al centro, un rail inchiodato a terra e un grind-box lungo. In più i ragazzi hanno allestito uno dei quarter con  un'asta graduata, in modo da misurare l'altezza dei big air durante la giornata.<br/>\n<br/>\nSEDE: via Ghiaie Trento Via Hubert Jedin 2 (Trento Sud)<br/>\n<br/>\nINFO: ufficio Parchi e Giardini, 0461884528, 0461-884952<br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"https://imgur.com/oVHUC56https://imgur.com/RZYXniW","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.052047,"lng":11.115468}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathAmbientiRiqualificatiGiovaniPOI3","title":{"de":"Sottopasso Canestrini","it":"Sottopasso Canestrini","en":"Sottopasso Canestrini"},"description":{"de":"Sabato 14 e domenica 15 novembre gli educatori di strada della cooperativa Arianna hanno coordinato l’attività di abbellimento del sottopassaggio attraverso un contest di graffiti art promosso dalla Cooperativa stessa. Diverse e coloratissime le proposte dei disegni realizzati sulle pareti del sottopassaggio tutti incentrati sul tema del passaggio nelle sue declinazioni di: movimento, collegamento, viaggio, fiume, treno...\nGli educatori di strada della cooperativa Arianna hanno messo a disposizione i materiali necessari per la realizzazione delle opere e, insieme agli uffici tecnici del Comune, hanno preparato il sottopassaggio per la decorazione. I giovani artisti la creatività e il loro impegno! <br/>\n<br/>\nSEDE: Sottopasso via Canestrini, Trento<br/>\n<br/>\nINFO: Coop. sociale Arianna, via S. Francesco 10, Trento<br/>\n            ","it":"Sabato 14 e domenica 15 novembre gli educatori di strada della cooperativa Arianna hanno coordinato l’attività di abbellimento del sottopassaggio attraverso un contest di graffiti art promosso dalla Cooperativa stessa. Diverse e coloratissime le proposte dei disegni realizzati sulle pareti del sottopassaggio tutti incentrati sul tema del passaggio nelle sue declinazioni di: movimento, collegamento, viaggio, fiume, treno...\nGli educatori di strada della cooperativa Arianna hanno messo a disposizione i materiali necessari per la realizzazione delle opere e, insieme agli uffici tecnici del Comune, hanno preparato il sottopassaggio per la decorazione. I giovani artisti la creatività e il loro impegno! <br/>\n<br/>\nSEDE: Sottopasso via Canestrini, Trento<br/>\n<br/>\nINFO: Coop. sociale Arianna, via S. Francesco 10, Trento<br/>\n            ","en":"Sabato 14 e domenica 15 novembre gli educatori di strada della cooperativa Arianna hanno coordinato l’attività di abbellimento del sottopassaggio attraverso un contest di graffiti art promosso dalla Cooperativa stessa. Diverse e coloratissime le proposte dei disegni realizzati sulle pareti del sottopassaggio tutti incentrati sul tema del passaggio nelle sue declinazioni di: movimento, collegamento, viaggio, fiume, treno...\nGli educatori di strada della cooperativa Arianna hanno messo a disposizione i materiali necessari per la realizzazione delle opere e, insieme agli uffici tecnici del Comune, hanno preparato il sottopassaggio per la decorazione. I giovani artisti la creatività e il loro impegno! <br/>\n<br/>\nSEDE: Sottopasso via Canestrini, Trento<br/>\n<br/>\nINFO: Coop. sociale Arianna, via S. Francesco 10, Trento<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/VH14Xgm","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.068293,"lng":11.115958}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathAmbientiRiqualificatiGiovaniPOI4","title":{"de":"Beautiful School","it":"Beautiful School","en":"Beautiful School"},"description":{"de":"Il progetto ha coinvolto tutti i bambini della scuola primaria A. Schmid sul tema del rispetto di quanto appartiene a tutti. La scuola stessa è stata considerata il bene comune di cui prendersi cura. Attraverso un percorso di riflessione con i bambini e con la collaborazione degli uffici tecnici comunali, si è arrivati a progettare e realizzare dei murales lungo il perimetro dell'edificio scolastico, inaugurati il 6 giugno 2014, con la partecipazione di oltre 500 persone. Anche nel 2015 ogni classe ha elaborato un progetto grafico che è stato realizzato con la partecipazione di tutti i trecento bambini della scuola. I lavori di pittura e abbellimento sono stati preceduti dall'intervento del servizio Gestione fabbricati, che ha preparato le facciate ad accogliere i disegni dei piccoli artisti. Sono stati realizzati decori con soggetti a libera scelta, vivaci e multicolori, mentre una lunga fila di matite colorate è andata ad impreziosire lo steccato della recinzione.<br/>\n<br/>\nSEDE: Via Schmid Aldo 16, Trento <br/>\n<br/>\nINFO: 0461823136\n<br/>\n            ","it":"Il progetto ha coinvolto tutti i bambini della scuola primaria A. Schmid sul tema del rispetto di quanto appartiene a tutti. La scuola stessa è stata considerata il bene comune di cui prendersi cura. Attraverso un percorso di riflessione con i bambini e con la collaborazione degli uffici tecnici comunali, si è arrivati a progettare e realizzare dei murales lungo il perimetro dell'edificio scolastico, inaugurati il 6 giugno 2014, con la partecipazione di oltre 500 persone. Anche nel 2015 ogni classe ha elaborato un progetto grafico che è stato realizzato con la partecipazione di tutti i trecento bambini della scuola. I lavori di pittura e abbellimento sono stati preceduti dall'intervento del servizio Gestione fabbricati, che ha preparato le facciate ad accogliere i disegni dei piccoli artisti. Sono stati realizzati decori con soggetti a libera scelta, vivaci e multicolori, mentre una lunga fila di matite colorate è andata ad impreziosire lo steccato della recinzione.<br/>\n<br/>\nSEDE: Via Schmid Aldo 16, Trento <br/>\n<br/>\nINFO: 0461823136\n<br/>\n            ","en":"Il progetto ha coinvolto tutti i bambini della scuola primaria A. Schmid sul tema del rispetto di quanto appartiene a tutti. La scuola stessa è stata considerata il bene comune di cui prendersi cura. Attraverso un percorso di riflessione con i bambini e con la collaborazione degli uffici tecnici comunali, si è arrivati a progettare e realizzare dei murales lungo il perimetro dell'edificio scolastico, inaugurati il 6 giugno 2014, con la partecipazione di oltre 500 persone. Anche nel 2015 ogni classe ha elaborato un progetto grafico che è stato realizzato con la partecipazione di tutti i trecento bambini della scuola. I lavori di pittura e abbellimento sono stati preceduti dall'intervento del servizio Gestione fabbricati, che ha preparato le facciate ad accogliere i disegni dei piccoli artisti. Sono stati realizzati decori con soggetti a libera scelta, vivaci e multicolori, mentre una lunga fila di matite colorate è andata ad impreziosire lo steccato della recinzione.<br/>\n<br/>\nSEDE: Via Schmid Aldo 16, Trento <br/>\n<br/>\nINFO: 0461823136\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/5R6XreGhttp://imgur.com/fjoOVhfhttp://imgur.com/yfFstaX","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.083079,"lng":11.115899}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathAmbientiRiqualificatiGiovaniPOI5","title":{"de":"Lascia una traccia","it":"Lascia una traccia","en":"Lascia una traccia"},"description":{"de":"Progetto di abbellimento del portico Sabino Uber a Gardolo<br/>\n<br/>\nPeriodo di realizzazione: dal 2012 al 2015.<br/>\n<br/>\nPiano di lavoro per riqualificare un importante scorcio del sobborgo e che prevede il coinvolgimento degli alunni \ndelle scuole elementari nella preparazione dei manufatti che vengono posati nel portico.<br/>\n<br/>\nLa finalità del progetto è di accrescere il senso di appartenenza, il senso civico, la responsabilità<br/>\nindividuale delle nuove generazioni nei confronti della comunità.<br/>\n            ","it":"Progetto di abbellimento del portico Sabino Uber a Gardolo<br/>\n<br/>\nPeriodo di realizzazione: dal 2012 al 2015.<br/>\n<br/>\nPiano di lavoro per riqualificare un importante scorcio del sobborgo e che prevede il coinvolgimento degli alunni \ndelle scuole elementari nella preparazione dei manufatti che vengono posati nel portico.<br/>\n<br/>\nLa finalità del progetto è di accrescere il senso di appartenenza, il senso civico, la responsabilità<br/>\nindividuale delle nuove generazioni nei confronti della comunità.<br/>\n            ","en":"Progetto di abbellimento del portico Sabino Uber a Gardolo<br/>\n<br/>\nPeriodo di realizzazione: dal 2012 al 2015.<br/>\n<br/>\nPiano di lavoro per riqualificare un importante scorcio del sobborgo e che prevede il coinvolgimento degli alunni \ndelle scuole elementari nella preparazione dei manufatti che vengono posati nel portico.<br/>\n<br/>\nLa finalità del progetto è di accrescere il senso di appartenenza, il senso civico, la responsabilità<br/>\nindividuale delle nuove generazioni nei confronti della comunità.<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/ic6dCH0","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.059474,"lng":11.124537}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathAmbientiRiqualificatiGiovaniPOI6","title":{"de":"Trento I care","it":"Trento I care","en":"Trento I care"},"description":{"de":"SEDE:<br/>\n<br/>\nINFO: Scuola Secondaria di Primo Grado \"\"G. Bresadola\"\",  Via Al Torrione 2, Trento<br/>\n            ","it":"SEDE:<br/>\n<br/>\nINFO: Scuola Secondaria di Primo Grado \"\"G. Bresadola\"\",  Via Al Torrione 2, Trento<br/>\n            ","en":"SEDE:<br/>\n<br/>\nINFO: Scuola Secondaria di Primo Grado \"\"G. Bresadola\"\",  Via Al Torrione 2, Trento<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/gudYR","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.065316,"lng":11.12177}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathAmbientiRiqualificatiGiovaniPOI7","title":{"de":"Wake up ","it":"Wake up ","en":"Wake up "},"description":{"de":"Dal febbraio 2015, gli studenti del Liceo artistico A. Vittoria, dell'Istituto Artigianelli, dell’Istituto Sacro Cuore, del Centro di formazione professionale Sandro Pertini, in  collaborazione con l'associazione studentesca Erasmus Student Network, hanno lavorato per preparare una “galleria a cielo aperto”, ideando e progettando i disegni da trasporre  sui muri con la tecnica dello stencil.<br/>\nDiversi sono i luoghi della città che sono stati individuati per essere rigenerati: sottopasso di piazza Venezia, facciata delle scuole medie Bresadola, interventi in collaborazione con le scuole dell’infanzia Piccolo Principe e Cristo Re e l’ex-mensa di via Zanella.<br/>\n<br/>\nSEDE:<br/>\n<br/>\nINFO:<br/>\n            ","it":"Dal febbraio 2015, gli studenti del Liceo artistico A. Vittoria, dell'Istituto Artigianelli, dell’Istituto Sacro Cuore, del Centro di formazione professionale Sandro Pertini, in  collaborazione con l'associazione studentesca Erasmus Student Network, hanno lavorato per preparare una “galleria a cielo aperto”, ideando e progettando i disegni da trasporre  sui muri con la tecnica dello stencil.<br/>\nDiversi sono i luoghi della città che sono stati individuati per essere rigenerati: sottopasso di piazza Venezia, facciata delle scuole medie Bresadola, interventi in collaborazione con le scuole dell’infanzia Piccolo Principe e Cristo Re e l’ex-mensa di via Zanella.<br/>\n<br/>\nSEDE:<br/>\n<br/>\nINFO:<br/>\n            ","en":"Dal febbraio 2015, gli studenti del Liceo artistico A. Vittoria, dell'Istituto Artigianelli, dell’Istituto Sacro Cuore, del Centro di formazione professionale Sandro Pertini, in  collaborazione con l'associazione studentesca Erasmus Student Network, hanno lavorato per preparare una “galleria a cielo aperto”, ideando e progettando i disegni da trasporre  sui muri con la tecnica dello stencil.<br/>\nDiversi sono i luoghi della città che sono stati individuati per essere rigenerati: sottopasso di piazza Venezia, facciata delle scuole medie Bresadola, interventi in collaborazione con le scuole dell’infanzia Piccolo Principe e Cristo Re e l’ex-mensa di via Zanella.<br/>\n<br/>\nSEDE:<br/>\n<br/>\nINFO:<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.065316,"lng":11.12177}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathAmbientiRiqualificatiGiovaniPOI8","title":{"de":"Social Street","it":"Social Street","en":"Social Street"},"description":{"de":"Lo skatepark di Trento è situato in via Ghiaie (Trento sud) ed è un'area molto suggestiva dove si vedono montagne in ogni direzione e dove l'aria è talmente fresca da pizzicare il naso.<br/>\nAttorno si trova un enorme prato verdissimo, dove nelle belle giornate la gente può tranquillamente sdraiarsi e godersi i trick di rider e skater. Il park è composto da alcuni quarter e bank alle estremità, 2 canadesi con rail e muretti al centro, un rail inchiodato a terra e un grind-box lungo. In più i ragazzi hanno allestito uno dei quarter con  un'asta graduata, in modo da misurare l'altezza dei big air durante la giornata.<br/>\n<br/>\nSEDE: via Ghiaie Trento Via Hubert Jedin 2 (Trento Sud)<br/>\n<br/>\nINFO: ufficio Parchi e Giardini, 0461884528, 0461-884952<br/>\n<br/>\n            ","it":"Social street è il luogo dove gli abitanti si conoscono, condividono spazi, vivono ed interagiscono attivamente per rigenerare una cultura sociale di vicinato, creando una rete sociale e contribuendo ad una migliore vivibilità del quartiere.<br/>\nE' stato creato un gruppo su facebook “Residenti in San Pio X e dintorni”, pubblicizzato attraverso un volantinaggio. Chi ha proposte le condivide con il gruppo e, se le idee trovano consenso, vengono attuate.<br/>\nIl gruppo ha posizionato, per esempio, in via S. Pio X  la \"\"casetta dei libri\"\" dove si pratica il book crossing ed ha organizzato una giornata di pulizia del quartiere nel marzo 2015.<br/>\n<br/>\nINFO: gruppo FB,  Residenti in San Pio X e dintorni<br/>\n            ","en":"Lo skatepark di Trento è situato in via Ghiaie (Trento sud) ed è un'area molto suggestiva dove si vedono montagne in ogni direzione e dove l'aria è talmente fresca da pizzicare il naso.<br/>\nAttorno si trova un enorme prato verdissimo, dove nelle belle giornate la gente può tranquillamente sdraiarsi e godersi i trick di rider e skater. Il park è composto da alcuni quarter e bank alle estremità, 2 canadesi con rail e muretti al centro, un rail inchiodato a terra e un grind-box lungo. In più i ragazzi hanno allestito uno dei quarter con  un'asta graduata, in modo da misurare l'altezza dei big air durante la giornata.<br/>\n<br/>\nSEDE: via Ghiaie Trento Via Hubert Jedin 2 (Trento Sud)<br/>\n<br/>\nINFO: ufficio Parchi e Giardini, 0461884528, 0461-884952<br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.054607,"lng":11.12051}}]},{"id":"573dd025e4b0943281212738","updateTime":1463668773057,"version":888,"user":null,"appId":"ComuneTrento","localId":"pathPuntoInfoGiovani","categories":["a"],"title":{"de":"Punti info giovani","it":"Punti info giovani","en":"Punti info giovani"},"description":{"de":"","it":"   ","en":""},"length":null,"time":null,"difficulty":null,"images":[{"title":{"de":"","it":"","en":""},"url":"","userDefined":false,"userId":null}],"videos":[],"audios":[],"shape":"","vote":null,"voteCount":null,"externalUrl":null,"pois":[{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathPuntoInfoGiovaniPOI2","title":{"de":"Politiche giovanili del Comune di Trento","it":"Politiche giovanili del Comune di Trento","en":"Politiche giovanili del Comune di Trento"},"description":{"de":"Le Politiche giovanili del Comune di Trento si occupano di offrire opportunità e servizi a favore di bambini, ragazzi e giovani nella fascia d'età 6-29 anni, considerabili una risorsa per la collettività in quanto cittadini di oggi e non solo del futuro. <br/>\nIl metodo di lavoro prevede un'attenzione particolare all'ascolto dei bisogni e dei desideri emergenti, alla creazione di sinergie con i diversi attori sociali del territorio, al sostegno di progettualità “dal basso” a rinforzo del protagonismo, della partecipazione e dello sviluppo di bambini, ragazzi e giovani in quanto cittadini responsabili e attivi.\n<br/>\nLe opportunità offerte si concentrano su quattro aree di intervento prioritarie:<br/>\n<br/>\n1. favorire il sostegno alla progettualità e all'imprenditività giovanile, l’informazione e l’orientamento, la promozione di opportunità di avvicinamento al lavoro, di mobilità internazionale;<br/>\n2. promuovere la cittadinanza attiva e il volontariato di ragazzi e giovani, favorendo l’adesione dei giovani alle attività progettuali e di pianificazione dei Piani Giovani di Zona, sostenendo il volontariato e l’associazionismo, promuovendo e gestendo progetti di Servizio Civile, di educazione alla cittadinanza europea, alla sostenibilità ambientale, alla cooperazione internazionale, alla legalità, di recupero della Memoria, di attenzione e cura del bene comune;<br/>\n3. sostenere la creatività giovanile, ad esempio attraverso le proposte culturali del Centro Musica, del Centro Teatro, del Caffè letterario Predara – Bookique, l’offerta di opportunità formative e di crescita in ambito musicale, teatrale, e grafico-espressivo; <br/>\n4. promuovere politiche per una città a misura di bambina e bambino, attraverso l’offerta di spazi di aggregazione per bambini e ragazzi, la collaborazione con il mondo della scuola e dell’associazionismo, la sensibilizzazione sui diritti dell’infanzia e sulla mobilità sostenibile.<br/>\n<br/>\n<br/>\nL'accessibilità delle opportunità esistenti, e quindi la partecipazione dei più giovani sia come soggetti fruitori che come co-attori e co-progettatori, dipende però dalla capacità di comunicare con loro, informandoli ed eventualmente orientandoli rispetto all'offerta. Di qui la centralità della comunicazione, conditio sine qua non per la PARTECIPAZIONE, quale asse strategico trasversale all'operato delle Politiche giovanili. In un contesto di crisi economica-sociale che rende ancora più faticoso il passaggio all'età adulta dei giovani e, in particolare, il loro accesso al mondo del lavoro, l'informazione/comunicazione svolge un ruolo ancora più determinante.<br/>\n<br/>\nORARI <br/>\nDal lunedì al venerdì 8.30-12.00 / pomeriggio su appuntamento<br/>\n<br/>\nSEDE: via Roma 56 e 60, Trento<br/>\n<br/>\nINFO: 0461 884240<br/>\n<br/>\nLINK EVENTI: http://trentogiovani.it/index.php/agenda<br/>\n<br/>\n            ","it":"Le Politiche giovanili del Comune di Trento si occupano di offrire opportunità e servizi a favore di bambini, ragazzi e giovani nella fascia d'età 6-29 anni, considerabili una risorsa per la collettività in quanto cittadini di oggi e non solo del futuro. <br/>\nIl metodo di lavoro prevede un'attenzione particolare all'ascolto dei bisogni e dei desideri emergenti, alla creazione di sinergie con i diversi attori sociali del territorio, al sostegno di progettualità “dal basso” a rinforzo del protagonismo, della partecipazione e dello sviluppo di bambini, ragazzi e giovani in quanto cittadini responsabili e attivi.\n<br/>\nLe opportunità offerte si concentrano su quattro aree di intervento prioritarie:<br/>\n<br/>\n1. favorire il sostegno alla progettualità e all'imprenditività giovanile, l’informazione e l’orientamento, la promozione di opportunità di avvicinamento al lavoro, di mobilità internazionale;<br/>\n2. promuovere la cittadinanza attiva e il volontariato di ragazzi e giovani, favorendo l’adesione dei giovani alle attività progettuali e di pianificazione dei Piani Giovani di Zona, sostenendo il volontariato e l’associazionismo, promuovendo e gestendo progetti di Servizio Civile, di educazione alla cittadinanza europea, alla sostenibilità ambientale, alla cooperazione internazionale, alla legalità, di recupero della Memoria, di attenzione e cura del bene comune;<br/>\n3. sostenere la creatività giovanile, ad esempio attraverso le proposte culturali del Centro Musica, del Centro Teatro, del Caffè letterario Predara – Bookique, l’offerta di opportunità formative e di crescita in ambito musicale, teatrale, e grafico-espressivo; <br/>\n4. promuovere politiche per una città a misura di bambina e bambino, attraverso l’offerta di spazi di aggregazione per bambini e ragazzi, la collaborazione con il mondo della scuola e dell’associazionismo, la sensibilizzazione sui diritti dell’infanzia e sulla mobilità sostenibile.<br/>\n<br/>\n<br/>\nL'accessibilità delle opportunità esistenti, e quindi la partecipazione dei più giovani sia come soggetti fruitori che come co-attori e co-progettatori, dipende però dalla capacità di comunicare con loro, informandoli ed eventualmente orientandoli rispetto all'offerta. Di qui la centralità della comunicazione, conditio sine qua non per la PARTECIPAZIONE, quale asse strategico trasversale all'operato delle Politiche giovanili. In un contesto di crisi economica-sociale che rende ancora più faticoso il passaggio all'età adulta dei giovani e, in particolare, il loro accesso al mondo del lavoro, l'informazione/comunicazione svolge un ruolo ancora più determinante.<br/>\n<br/>\nORARI <br/>\nDal lunedì al venerdì 8.30-12.00 / pomeriggio su appuntamento<br/>\n<br/>\nSEDE: via Roma 56 e 60, Trento<br/>\n<br/>\nINFO: 0461 884240<br/>\n<br/>\nLINK EVENTI: http://trentogiovani.it/index.php/agenda<br/>\n<br/>\n            ","en":"Le Politiche giovanili del Comune di Trento si occupano di offrire opportunità e servizi a favore di bambini, ragazzi e giovani nella fascia d'età 6-29 anni, considerabili una risorsa per la collettività in quanto cittadini di oggi e non solo del futuro. <br/>\nIl metodo di lavoro prevede un'attenzione particolare all'ascolto dei bisogni e dei desideri emergenti, alla creazione di sinergie con i diversi attori sociali del territorio, al sostegno di progettualità “dal basso” a rinforzo del protagonismo, della partecipazione e dello sviluppo di bambini, ragazzi e giovani in quanto cittadini responsabili e attivi.\n<br/>\nLe opportunità offerte si concentrano su quattro aree di intervento prioritarie:<br/>\n<br/>\n1. favorire il sostegno alla progettualità e all'imprenditività giovanile, l’informazione e l’orientamento, la promozione di opportunità di avvicinamento al lavoro, di mobilità internazionale;<br/>\n2. promuovere la cittadinanza attiva e il volontariato di ragazzi e giovani, favorendo l’adesione dei giovani alle attività progettuali e di pianificazione dei Piani Giovani di Zona, sostenendo il volontariato e l’associazionismo, promuovendo e gestendo progetti di Servizio Civile, di educazione alla cittadinanza europea, alla sostenibilità ambientale, alla cooperazione internazionale, alla legalità, di recupero della Memoria, di attenzione e cura del bene comune;<br/>\n3. sostenere la creatività giovanile, ad esempio attraverso le proposte culturali del Centro Musica, del Centro Teatro, del Caffè letterario Predara – Bookique, l’offerta di opportunità formative e di crescita in ambito musicale, teatrale, e grafico-espressivo; <br/>\n4. promuovere politiche per una città a misura di bambina e bambino, attraverso l’offerta di spazi di aggregazione per bambini e ragazzi, la collaborazione con il mondo della scuola e dell’associazionismo, la sensibilizzazione sui diritti dell’infanzia e sulla mobilità sostenibile.<br/>\n<br/>\n<br/>\nL'accessibilità delle opportunità esistenti, e quindi la partecipazione dei più giovani sia come soggetti fruitori che come co-attori e co-progettatori, dipende però dalla capacità di comunicare con loro, informandoli ed eventualmente orientandoli rispetto all'offerta. Di qui la centralità della comunicazione, conditio sine qua non per la PARTECIPAZIONE, quale asse strategico trasversale all'operato delle Politiche giovanili. In un contesto di crisi economica-sociale che rende ancora più faticoso il passaggio all'età adulta dei giovani e, in particolare, il loro accesso al mondo del lavoro, l'informazione/comunicazione svolge un ruolo ancora più determinante.<br/>\n<br/>\nORARI <br/>\nDal lunedì al venerdì 8.30-12.00 / pomeriggio su appuntamento<br/>\n<br/>\nSEDE: via Roma 56 e 60, Trento<br/>\n<br/>\nINFO: 0461 884240<br/>\n<br/>\nLINK EVENTI: http://trentogiovani.it/index.php/agenda<br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/mUWhW","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.069753,"lng":11.120501}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathPuntoInfoGiovaniPOI3","title":{"de":"INCO- Interculturalità & Comunicazione","it":"INCO- Interculturalità & Comunicazione","en":"INCO- Interculturalità & Comunicazione"},"description":{"de":"L'Associazione InCo - Interculturalità & Comunicazione è un'associazione senza fini di lucro nata nel 2004 a cura di un gruppo di amici che volevano sviluppare lo scambio ed il contatto internazionale, la tolleranza reciproca e stimolare la sensibilità interculturale dei giovani. InCo crede in un mondo senza pregiudizi, dove ogni cultura viene valorizzata - riconoscendone pregi e limiti<br/>\n- senza discriminazione alcuna. Per raggiungere questi obiettivi InCo crea opportunità di scambio e apprendimento soprattutto per i giovani attraverso la promozione e l'organizzazione di progetti all'estero. Gli strumenti che InCo utilizza sono il Servizio Volontario Europeo, il Volontariato Internazionale e il programma Au Pair.<br/>\n<br/>\nORARIO<br/>\nDa lunedì a giovedì dalle 9.00 alle 13.00<br/>\nMartedì e mercoledì anche nel pomeriggio, dalle 14.00 alle 17.00.<br/>\n<br/>\nSEDE: via B. Bomporto 12, Trento <br/>\n<br/>\nINFO: 04611822471<br/>\n<br/>\nLINK EVENTI: http://www.incoweb.org/<br/>\n            ","it":"L'Associazione InCo - Interculturalità & Comunicazione è un'associazione senza fini di lucro nata nel 2004 a cura di un gruppo di amici che volevano sviluppare lo scambio ed il contatto internazionale, la tolleranza reciproca e stimolare la sensibilità interculturale dei giovani. InCo crede in un mondo senza pregiudizi, dove ogni cultura viene valorizzata - riconoscendone pregi e limiti<br/>\n- senza discriminazione alcuna. Per raggiungere questi obiettivi InCo crea opportunità di scambio e apprendimento soprattutto per i giovani attraverso la promozione e l'organizzazione di progetti all'estero. Gli strumenti che InCo utilizza sono il Servizio Volontario Europeo, il Volontariato Internazionale e il programma Au Pair.<br/>\n<br/>\nORARIO<br/>\nDa lunedì a giovedì dalle 9.00 alle 13.00<br/>\nMartedì e mercoledì anche nel pomeriggio, dalle 14.00 alle 17.00.<br/>\n<br/>\nSEDE: via B. Bomporto 12, Trento <br/>\n<br/>\nINFO: 04611822471<br/>\n<br/>\nLINK EVENTI: http://www.incoweb.org/<br/>\n            ","en":"L'Associazione InCo - Interculturalità & Comunicazione è un'associazione senza fini di lucro nata nel 2004 a cura di un gruppo di amici che volevano sviluppare lo scambio ed il contatto internazionale, la tolleranza reciproca e stimolare la sensibilità interculturale dei giovani. InCo crede in un mondo senza pregiudizi, dove ogni cultura viene valorizzata - riconoscendone pregi e limiti<br/>\n- senza discriminazione alcuna. Per raggiungere questi obiettivi InCo crea opportunità di scambio e apprendimento soprattutto per i giovani attraverso la promozione e l'organizzazione di progetti all'estero. Gli strumenti che InCo utilizza sono il Servizio Volontario Europeo, il Volontariato Internazionale e il programma Au Pair.<br/>\n<br/>\nORARIO<br/>\nDa lunedì a giovedì dalle 9.00 alle 13.00<br/>\nMartedì e mercoledì anche nel pomeriggio, dalle 14.00 alle 17.00.<br/>\n<br/>\nSEDE: via B. Bomporto 12, Trento <br/>\n<br/>\nINFO: 04611822471<br/>\n<br/>\nLINK EVENTI: http://www.incoweb.org/<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/IUFW2","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.065417,"lng":11.118334}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathPuntoInfoGiovaniPOI4","title":{"de":"CSV-NON PROFIT NETWORK","it":"CSV-NON PROFIT NETWORK","en":"CSV-NON PROFIT NETWORK"},"description":{"de":"Non Profit Network – CSV Trentino è un ente non commerciale con personalità giuridica che dal 2002 gestisce il Centro Servizi Volontariato del Trentino. Ad oggi più di 100 associazioni socie, sparse sull’intera provincia, compongono la base sociale. Nella consapevolezza che la solidarietà produce benessere, CSV Trentino si impegna a supportare e promuovere il volontariato e le diverse espressioni di cittadinanza attiva. <br/>\nI Centri di Servizio per il Volontariato (CSV) nascono con l'obiettivo di far crescere e promuovere il volontariato attraverso specifici servizi e iniziative. La filosofia dei CSV è quella di aggiungere valore alle risorse esistenti sul territorio, permettendo alle esperienze e al patrimonio del volontariato di potenziarsi e diffondersi all’interno della comunità.<br/>\nIn Italia sono presenti 78 CSV a livello regionale e/o provinciale, di questi il 90% fa parte di CSVnet, il coordinamento nazionale, che si propone di rafforzare la collaborazione e lo scambio di esperienze e competenze tra i CSV.<br/>\n<br/>\nORARI<br/>\nDa lunedì a venerdì 8.30-12.30 e 14.00-18.00<br/>\n<br/>\nSEDE: Piazzetta Leonardo Da Vinci 2, Trento<br/>\n<br/>\nINFO: 0461.916604<br/>\n<br/>\nLINK EVENTI: http://www.volontariatotrentino.it/formazione<br/>\n            ","it":"Non Profit Network – CSV Trentino è un ente non commerciale con personalità giuridica che dal 2002 gestisce il Centro Servizi Volontariato del Trentino. Ad oggi più di 100 associazioni socie, sparse sull’intera provincia, compongono la base sociale. Nella consapevolezza che la solidarietà produce benessere, CSV Trentino si impegna a supportare e promuovere il volontariato e le diverse espressioni di cittadinanza attiva. <br/>\nI Centri di Servizio per il Volontariato (CSV) nascono con l'obiettivo di far crescere e promuovere il volontariato attraverso specifici servizi e iniziative. La filosofia dei CSV è quella di aggiungere valore alle risorse esistenti sul territorio, permettendo alle esperienze e al patrimonio del volontariato di potenziarsi e diffondersi all’interno della comunità.<br/>\nIn Italia sono presenti 78 CSV a livello regionale e/o provinciale, di questi il 90% fa parte di CSVnet, il coordinamento nazionale, che si propone di rafforzare la collaborazione e lo scambio di esperienze e competenze tra i CSV.<br/>\n<br/>\nORARI<br/>\nDa lunedì a venerdì 8.30-12.30 e 14.00-18.00<br/>\n<br/>\nSEDE: Piazzetta Leonardo Da Vinci 2, Trento<br/>\n<br/>\nINFO: 0461.916604<br/>\n<br/>\nLINK EVENTI: http://www.volontariatotrentino.it/formazione<br/>\n            ","en":"Non Profit Network – CSV Trentino è un ente non commerciale con personalità giuridica che dal 2002 gestisce il Centro Servizi Volontariato del Trentino. Ad oggi più di 100 associazioni socie, sparse sull’intera provincia, compongono la base sociale. Nella consapevolezza che la solidarietà produce benessere, CSV Trentino si impegna a supportare e promuovere il volontariato e le diverse espressioni di cittadinanza attiva. <br/>\nI Centri di Servizio per il Volontariato (CSV) nascono con l'obiettivo di far crescere e promuovere il volontariato attraverso specifici servizi e iniziative. La filosofia dei CSV è quella di aggiungere valore alle risorse esistenti sul territorio, permettendo alle esperienze e al patrimonio del volontariato di potenziarsi e diffondersi all’interno della comunità.<br/>\nIn Italia sono presenti 78 CSV a livello regionale e/o provinciale, di questi il 90% fa parte di CSVnet, il coordinamento nazionale, che si propone di rafforzare la collaborazione e lo scambio di esperienze e competenze tra i CSV.<br/>\n<br/>\nORARI<br/>\nDa lunedì a venerdì 8.30-12.30 e 14.00-18.00<br/>\n<br/>\nSEDE: Piazzetta Leonardo Da Vinci 2, Trento<br/>\n<br/>\nINFO: 0461.916604<br/>\n<br/>\nLINK EVENTI: http://www.volontariatotrentino.it/formazione<br/>\n            "},"images":[],"videos":[{"title":{"de":"","it":"","en":""},"url":"https://www.youtube.com/watch?v=gQx6r5mug-I","userDefined":false,"userId":null}],"audios":[],"externalUrl":null,"coordinates":{"lat":46.070061,"lng":11.117785}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathPuntoInfoGiovaniPOI5","title":{"de":"Punto Europa PAT","it":"Punto Europa PAT","en":"Punto Europa PAT"},"description":{"de":"Con il portale tematico “puntoEuropa” la Provincia autonoma di Trento ha inteso fornire un punto di accesso unico a tutte le informazioni e le attività che si svolgono in Provincia e sul suo territorio sui temi che riguardano l’Europa. Le strutture della Provincia, infatti, collaborano attraverso un portale (http://www.europa.provincia.tn.it/chi_siamo/) per garantire agli utilizzatori di trovare facilmente tutte le politiche e le attività pertinenti l’Unione europea.<br/>\nA “puntoEuropa” potrete trovare notizie sui progetti e attività avviate e gestite dalle strutture provinciali in collegamento con le istituzioni europee, opportunità offerte dai fondi e dalle iniziative messe a disposizione dall’Unione europea, informazioni sulla partecipazione della Provincia, in qualità di membro, in istituzioni e associazioni a livello europeo, eventi, pubblicazioni e attività di formazione inerenti l’Europa. Il portale è gestito dal Servizio Europa della Provincia autonoma di Trento che ne cura l’aggiornamento.\n<br/>\nORARI<br/>\nDal lunedì al giovedì dalle 8.30-12.45 e 14.00-16.30 <br/>\nVenerdì 8.30-12.45<br/>\n<br/>\nSEDE: Provincia autonoma di Trento - Servizio Europa, via Romagnosi 7, Trento <br/>\n<br/>\nINFO: 0461 495088 <br/>\n<br/>\nLINK EVENTI:<br/>\n            ","it":"Con il portale tematico “puntoEuropa” la Provincia autonoma di Trento ha inteso fornire un punto di accesso unico a tutte le informazioni e le attività che si svolgono in Provincia e sul suo territorio sui temi che riguardano l’Europa. Le strutture della Provincia, infatti, collaborano attraverso un portale (http://www.europa.provincia.tn.it/chi_siamo/) per garantire agli utilizzatori di trovare facilmente tutte le politiche e le attività pertinenti l’Unione europea.<br/>\nA “puntoEuropa” potrete trovare notizie sui progetti e attività avviate e gestite dalle strutture provinciali in collegamento con le istituzioni europee, opportunità offerte dai fondi e dalle iniziative messe a disposizione dall’Unione europea, informazioni sulla partecipazione della Provincia, in qualità di membro, in istituzioni e associazioni a livello europeo, eventi, pubblicazioni e attività di formazione inerenti l’Europa. Il portale è gestito dal Servizio Europa della Provincia autonoma di Trento che ne cura l’aggiornamento.\n<br/>\nORARI<br/>\nDal lunedì al giovedì dalle 8.30-12.45 e 14.00-16.30 <br/>\nVenerdì 8.30-12.45<br/>\n<br/>\nSEDE: Provincia autonoma di Trento - Servizio Europa, via Romagnosi 7, Trento <br/>\n<br/>\nINFO: 0461 495088 <br/>\n<br/>\nLINK EVENTI:<br/>\n            ","en":"Con il portale tematico “puntoEuropa” la Provincia autonoma di Trento ha inteso fornire un punto di accesso unico a tutte le informazioni e le attività che si svolgono in Provincia e sul suo territorio sui temi che riguardano l’Europa. Le strutture della Provincia, infatti, collaborano attraverso un portale (http://www.europa.provincia.tn.it/chi_siamo/) per garantire agli utilizzatori di trovare facilmente tutte le politiche e le attività pertinenti l’Unione europea.<br/>\nA “puntoEuropa” potrete trovare notizie sui progetti e attività avviate e gestite dalle strutture provinciali in collegamento con le istituzioni europee, opportunità offerte dai fondi e dalle iniziative messe a disposizione dall’Unione europea, informazioni sulla partecipazione della Provincia, in qualità di membro, in istituzioni e associazioni a livello europeo, eventi, pubblicazioni e attività di formazione inerenti l’Europa. Il portale è gestito dal Servizio Europa della Provincia autonoma di Trento che ne cura l’aggiornamento.\n<br/>\nORARI<br/>\nDal lunedì al giovedì dalle 8.30-12.45 e 14.00-16.30 <br/>\nVenerdì 8.30-12.45<br/>\n<br/>\nSEDE: Provincia autonoma di Trento - Servizio Europa, via Romagnosi 7, Trento <br/>\n<br/>\nINFO: 0461 495088 <br/>\n<br/>\nLINK EVENTI:<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"http://imgur.com/a/Xu1nS","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.0725,"lng":11.12506}},{"id":null,"updateTime":-1,"version":0,"user":null,"appId":null,"localId":"pathPuntoInfoGiovaniPOI6","title":{"de":"Ufficio Servizio Civile PAT","it":"Ufficio Servizio Civile PAT","en":"Ufficio Servizio Civile PAT"},"description":{"de":"Il Servizio Civile offre l’opportunità di partecipare concretamente alla costruzione solidale della realtà sociale, ogni giovane mette a disposizione degli altri le proprie energie e il proprio entusiasmo, arricchendo al contempo il proprio bagaglio personale di conoscenze e competenze, con la garanzia di una minima autonomia economica. <br/>\n<br/>\nORARI: ?\n<br/>\nSEDE: via don Giuseppe Grazioli 1, Trento <br/>\nINFO: 0461493100<br/>\n<br/>\nLINK EVENTI: http://www.serviziocivile.provincia.tn.it/news/<br/>\n<br/>\n            ","it":"Il Servizio Civile offre l’opportunità di partecipare concretamente alla costruzione solidale della realtà sociale, ogni giovane mette a disposizione degli altri le proprie energie e il proprio entusiasmo, arricchendo al contempo il proprio bagaglio personale di conoscenze e competenze, con la garanzia di una minima autonomia economica. <br/>\n<br/>\nORARI: ?\n<br/>\nSEDE: via don Giuseppe Grazioli 1, Trento <br/>\nINFO: 0461493100<br/>\n<br/>\nLINK EVENTI: http://www.serviziocivile.provincia.tn.it/news/<br/>\n<br/>\n            ","en":"Il Servizio Civile offre l’opportunità di partecipare concretamente alla costruzione solidale della realtà sociale, ogni giovane mette a disposizione degli altri le proprie energie e il proprio entusiasmo, arricchendo al contempo il proprio bagaglio personale di conoscenze e competenze, con la garanzia di una minima autonomia economica. <br/>\n<br/>\nORARI: ?\n<br/>\nSEDE: via don Giuseppe Grazioli 1, Trento <br/>\nINFO: 0461493100<br/>\n<br/>\nLINK EVENTI: http://www.serviziocivile.provincia.tn.it/news/<br/>\n<br/>\n            "},"images":[{"title":{"de":"","it":"","en":""},"url":"","userDefined":false,"userId":null}],"videos":[],"audios":[],"externalUrl":null,"coordinates":{"lat":46.067234,"lng":11.12802}}]}]},"deleted":{},"exclude":null,"include":null}
+{
+    "version": 896,
+    "updated": {
+        "it.smartcommunitylab.percorsi.model.Categories": [{
+            "id": null,
+            "updateTime": 1463659403353,
+            "version": 885,
+            "user": null,
+            "appId": "ComuneTrento",
+            "localId": "1",
+            "categories": [{
+                "id": "a",
+                "name": {
+                    "de": "Spazi in comune per i giovani",
+                    "it": "Spazi in comune per i giovani",
+                    "en": "Spazi in comune per i giovani"
+                },
+                "description": {
+                    "it": ""
+                },
+                "image": ""
+            }],
+            "lastChange": 1464019200000
+        }],
+        "it.smartcommunitylab.percorsi.model.Path": [{
+            "id": "573dac01e4b0943281212736",
+            "updateTime": 1464709923327,
+            "version": 893,
+            "user": null,
+            "appId": "ComuneTrento",
+            "localId": "pathLuoghiIncontroGiovani",
+            "categories": ["a"],
+            "title": {
+                "de": "Luoghi di incontro giovani",
+                "it": "Luoghi di incontro giovani",
+                "en": "Luoghi di incontro giovani"
+            },
+            "description": {
+                "de": "I luoghi di incontro sono spazi di socialità per ragazzi e giovani con attività di tipo artistico, culturale, ricreativo, scolastico.",
+                "it": "I luoghi di incontro sono spazi di socialità per ragazzi e giovani con attività di tipo artistico, culturale, ricreativo, scolastico.",
+                "en": "I luoghi di incontro sono spazi di socialità per ragazzi e giovani con attività di tipo artistico, culturale, ricreativo, scolastico."
+            },
+            "length": 96000,
+            "time": 130,
+            "difficulty": 2,
+            "images": [{
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/hO03BKj.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/j0fF0XP.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/7lA21Vb.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/5eGn1YJ.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/KyUerqA.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/aWW6dME.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/hC4x0dp.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/wRyXW1R.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/X2f6GKY.jpg",
+                "userDefined": false,
+                "userId": null
+            }],
+            "videos": [],
+            "audios": [],
+            "shape": "",
+            "vote": null,
+            "voteCount": null,
+            "externalUrl": null,
+            "pois": [{
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI2",
+                "title": {
+                    "de": "Centro Musica",
+                    "it": "Centro Musica",
+                    "en": "Centro Musica"
+                },
+                "description": {
+                    "de": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            ",
+                    "it": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            ",
+                    "en": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/aHkA6Xp.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/G27ywtt.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/30qkjEP.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.046924,
+                    "lng": 11.133527
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI3",
+                "title": {
+                    "de": "La Bookique",
+                    "it": "La Bookique",
+                    "en": "La Bookique"
+                },
+                "description": {
+                    "de": "La Bookique è un caffè letterario che ha assunto nel tempo la forma mutevole del “concept bar“, un luogo dove le idee vengono tradotte nella modalità pubblica dell’evento, attraverso le potenzialità della “parola” come veicolo di creazione e trasformazione (in meglio) dell’esistente. Il bar è fornito di aperitivi creativi mai sentiti prima (e buonissimi), sandwich dai nomi impronunciabili, una piccola libreria rock, riviste da consultare, eventi musicali, poetici, letterari, di attualità… e un grande spazio a disposizione di gruppi e associazioni.<br/>\n<br/>\nORARIO<br/>\nDal lunedì al giovedì 17.00-24.00<br/>\nVenerdì e Sabato 17.00-01.00<br/>\nDomenica chiuso<br/>\n<br/>\nSEDE: via Torre d’Augusto 29, Trento (all’interno del Parco della Predara)<br/>\n<br/>\nINFO:+39 3427011498 (Marco) o +39 3494058123 (Serena)<br/>\n<br/>\nLINK EVENTI:http://www.bookique.net<br/>\n<br/>\n            ",
+                    "it": "La Bookique è un caffè letterario che ha assunto nel tempo la forma mutevole del “concept bar“, un luogo dove le idee vengono tradotte nella modalità pubblica dell’evento, attraverso le potenzialità della “parola” come veicolo di creazione e trasformazione (in meglio) dell’esistente. Il bar è fornito di aperitivi creativi mai sentiti prima (e buonissimi), sandwich dai nomi impronunciabili, una piccola libreria rock, riviste da consultare, eventi musicali, poetici, letterari, di attualità… e un grande spazio a disposizione di gruppi e associazioni.<br/>\n<br/>\nORARIO<br/>\nDal lunedì al giovedì 17.00-24.00<br/>\nVenerdì e Sabato 17.00-01.00<br/>\nDomenica chiuso<br/>\n<br/>\nSEDE: via Torre d’Augusto 29, Trento (all’interno del Parco della Predara)<br/>\n<br/>\nINFO:+39 3427011498 (Marco) o +39 3494058123 (Serena)<br/>\n<br/>\nLINK EVENTI:http://www.bookique.net<br/>\n<br/>\n            ",
+                    "en": "La Bookique è un caffè letterario che ha assunto nel tempo la forma mutevole del “concept bar“, un luogo dove le idee vengono tradotte nella modalità pubblica dell’evento, attraverso le potenzialità della “parola” come veicolo di creazione e trasformazione (in meglio) dell’esistente. Il bar è fornito di aperitivi creativi mai sentiti prima (e buonissimi), sandwich dai nomi impronunciabili, una piccola libreria rock, riviste da consultare, eventi musicali, poetici, letterari, di attualità… e un grande spazio a disposizione di gruppi e associazioni.<br/>\n<br/>\nORARIO<br/>\nDal lunedì al giovedì 17.00-24.00<br/>\nVenerdì e Sabato 17.00-01.00<br/>\nDomenica chiuso<br/>\n<br/>\nSEDE: via Torre d’Augusto 29, Trento (all’interno del Parco della Predara)<br/>\n<br/>\nINFO:+39 3427011498 (Marco) o +39 3494058123 (Serena)<br/>\n<br/>\nLINK EVENTI:http://www.bookique.net<br/>\n<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/nMyOGaH.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/vo5DRPz.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/mfyFnOL.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/FLhwxJT.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/BXWtm2P.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/CUUOA82.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.072078,
+                    "lng": 11.127004
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI4",
+                "title": {
+                    "de": "Centro Teatro",
+                    "it": "Centro Teatro",
+                    "en": "Centro Teatro"
+                },
+                "description": {
+                    "de": "\n<br/>\nI prezzi si intendono IVA inclusa.<br/>\n<br/>\nSEDE: Via degli Olmi 24, Trento (vicino alle scuole Winkler)<br/>\n<br/>\nINFO: 0461235723 (Dal lunedì al venerdì dalle 9.00 alle 16.00)\n<br/>\nLINK EVENTI: http://www.centroteatrotn.it/ \n<br/>\n            ",
+                    "it": "\n<br/>\nI prezzi si intendono IVA inclusa.<br/>\n<br/>\nSEDE: Via degli Olmi 24, Trento (vicino alle scuole Winkler)<br/>\n<br/>\nINFO: 0461235723 (Dal lunedì al venerdì dalle 9.00 alle 16.00)\n<br/>\nLINK EVENTI: http://www.centroteatrotn.it/ \n<br/>\n\n            ",
+                    "en": "\n<br/>\nI prezzi si intendono IVA inclusa.<br/>\n<br/>\nSEDE: Via degli Olmi 24, Trento (vicino alle scuole Winkler)<br/>\n<br/>\nINFO: 0461235723 (Dal lunedì al venerdì dalle 9.00 alle 16.00)\n<br/>\nLINK EVENTI: http://www.centroteatrotn.it/ \n<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/Ayb20gI.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/f3fOTMA.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/xJK3Zcx.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/TWmOpRh.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.050255,
+                    "lng": 11.131983
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI5",
+                "title": {
+                    "de": "Libercafè",
+                    "it": "Libercafè",
+                    "en": "Libercafè"
+                },
+                "description": {
+                    "de": "Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            ",
+                    "it": "Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            ",
+                    "en": "Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/iLt4Sz1.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/dk7gj5g.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/B4xTHgr.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.071161,
+                    "lng": 11.120306
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI6",
+                "title": {
+                    "de": "L'AREA-APPM ",
+                    "it": "L'AREA-APPM ",
+                    "en": "L'AREA-APPM "
+                },
+                "description": {
+                    "de": "L'AREA-APPM è un centro aggregativo/spazio giovani che offre servizi mirati a sostenere, favorire e incentivare la crescita sociale dei ragazzi attraverso la promozione di percorsi di impegno, offrendo loro occasioni per sperimentare nuove modalità di espressione di sé. Le attività sono promosse nell'ottica della valorizzazione delle risorse del territorio. Il Centro si configura come uno spazio di accoglienza, come parte di una comunità e come specchio di sé stessi, allo scopo di attivare risposte alle richieste della popolazione giovanile. L'accesso è libero.<br/>\n<br/>\nORARI:<br/>\nDal lunedì al sabato: orari differenziati in periodo scolastico ed extrascolastico, di norma 6 giorni su 7 con apertura pomeridiana e ulteriori aperture legate ad attività specifiche.<br/>\n<br/>\nSEDE: Largo Nazario Sauro 21, Trento<br/>\n<br/>\nINFO: 0461 1593279<br/>\n<br/>\nLINK EVENTI:http://www.appm.it/eventi.php <br/>\n<br/>\n            ",
+                    "it": "L'AREA-APPM è un centro aggregativo/spazio giovani che offre servizi mirati a sostenere, favorire e incentivare la crescita sociale dei ragazzi attraverso la promozione di percorsi di impegno, offrendo loro occasioni per sperimentare nuove modalità di espressione di sé. Le attività sono promosse nell'ottica della valorizzazione delle risorse del territorio. Il Centro si configura come uno spazio di accoglienza, come parte di una comunità e come specchio di sé stessi, allo scopo di attivare risposte alle richieste della popolazione giovanile. L'accesso è libero.<br/>\n<br/>\nORARI:<br/>\nDal lunedì al sabato: orari differenziati in periodo scolastico ed extrascolastico, di norma 6 giorni su 7 con apertura pomeridiana e ulteriori aperture legate ad attività specifiche.<br/>\n<br/>\nSEDE: Largo Nazario Sauro 21, Trento<br/>\n<br/>\nINFO: 0461 1593279<br/>\n<br/>\nLINK EVENTI:http://www.appm.it/eventi.php <br/>\n<br/>\n            ",
+                    "en": "L'AREA-APPM è un centro aggregativo/spazio giovani che offre servizi mirati a sostenere, favorire e incentivare la crescita sociale dei ragazzi attraverso la promozione di percorsi di impegno, offrendo loro occasioni per sperimentare nuove modalità di espressione di sé. Le attività sono promosse nell'ottica della valorizzazione delle risorse del territorio. Il Centro si configura come uno spazio di accoglienza, come parte di una comunità e come specchio di sé stessi, allo scopo di attivare risposte alle richieste della popolazione giovanile. L'accesso è libero.<br/>\n<br/>\nORARI:<br/>\nDal lunedì al sabato: orari differenziati in periodo scolastico ed extrascolastico, di norma 6 giorni su 7 con apertura pomeridiana e ulteriori aperture legate ad attività specifiche.<br/>\n<br/>\nSEDE: Largo Nazario Sauro 21, Trento<br/>\n<br/>\nINFO: 0461 1593279<br/>\n<br/>\nLINK EVENTI:http://www.appm.it/eventi.php <br/>\n<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/D80SSi2.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/qkwdRUI.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.074967,
+                    "lng": 11.125157
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI7",
+                "title": {
+                    "de": "Spazio aperto-Coop. Kaleidoscopio",
+                    "it": "Spazio aperto-Coop. Kaleidoscopio",
+                    "en": "Spazio aperto-Coop. Kaleidoscopio"
+                },
+                "description": {
+                    "de": "Lo spazio aperto – Coop. Kaleidoscopio è un centro aperto che da più di 20 anni è presente sul territorio di Povo con attività dedicate a bambini, ragazzi e giovani dai 6 ai 20 anni che vivono sulla collina est di Trento. Un luogo che a partire da istanze educative, di aggregazione e di cittadinanza, attiva - all'interno di patti di comunità e in co-progettazione con i diversi portatori di interesse –processi di contrasto alle forme di disagio giovanile, di prevenzione primaria e di produzione di benessere.<br/>\n<br/>\nORARIO<br/>\n<br/>\nSEDE: Via Don Dallafior 2 Povo, Trento<br/>\n<br/>\nINFO: 0461 811188/329.9060104 spazioaperto@kaleidoscopio.coop<br/>\n<br/>\nLINK EVENTI: www.facebook.com/spazioaperto.kaleidoscopio<br/>\n            ",
+                    "it": "Lo spazio aperto – Coop. Kaleidoscopio è un centro aperto che da più di 20 anni è presente sul territorio di Povo con attività dedicate a bambini, ragazzi e giovani dai 6 ai 20 anni che vivono sulla collina est di Trento. Un luogo che a partire da istanze educative, di aggregazione e di cittadinanza, attiva - all'interno di patti di comunità e in co-progettazione con i diversi portatori di interesse –processi di contrasto alle forme di disagio giovanile, di prevenzione primaria e di produzione di benessere.<br/>\n<br/>\nORARIO<br/>\n<br/>\nSEDE: Via Don Dallafior 2 Povo, Trento<br/>\n<br/>\nINFO: 0461 811188/329.9060104 spazioaperto@kaleidoscopio.coop<br/>\n<br/>\nLINK EVENTI: www.facebook.com/spazioaperto.kaleidoscopio<br/>\n            ",
+                    "en": "Lo spazio aperto – Coop. Kaleidoscopio è un centro aperto che da più di 20 anni è presente sul territorio di Povo con attività dedicate a bambini, ragazzi e giovani dai 6 ai 20 anni che vivono sulla collina est di Trento. Un luogo che a partire da istanze educative, di aggregazione e di cittadinanza, attiva - all'interno di patti di comunità e in co-progettazione con i diversi portatori di interesse –processi di contrasto alle forme di disagio giovanile, di prevenzione primaria e di produzione di benessere.<br/>\n<br/>\nORARIO<br/>\n<br/>\nSEDE: Via Don Dallafior 2 Povo, Trento<br/>\n<br/>\nINFO: 0461 811188/329.9060104 spazioaperto@kaleidoscopio.coop<br/>\n<br/>\nLINK EVENTI: www.facebook.com/spazioaperto.kaleidoscopio<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/q8eTa02.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/Sr4nroY.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/DxsWGtI.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.065676,
+                    "lng": 11.154224
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI8",
+                "title": {
+                    "de": "Kosa nostra-Coop. progetto 92",
+                    "it": "Kosa nostra-Coop. progetto 92",
+                    "en": "Kosa nostra-Coop. progetto 92"
+                },
+                "description": {
+                    "de": "Kosa Nostra – Coop. Progetto 92 è il centro di aggregazione giovanile che si rivolge a ragazze e ragazzi dai 14 ai 19 anni, proponendo molteplici occasioni di incontro e attività: accoglienza, confronto, scambio di idee, gite, viaggi, serate, pranzi, cene, merende, spazio compiti, giochi, musica e sala prova. Ma anche conforto e supporto per/con le famiglie, nonché collaborazione con il territorio.<br/>\n<br/>\nORARIO<br/>\nLunedì, mercoledì e giovedì 17.00-19.30<br/>\n<br/>\nSEDE: Via Filari Longhi 4/c Ravina di Trento, Trento<br/>\n<br/>\nINFO: +39 349 8356168<br/>\n<br/>\nFACEBOOK https://www.facebook.com/La-Kosa-Nostra-307615900634/?fref=ts<br/>\n            ",
+                    "it": "Kosa Nostra – Coop. Progetto 92 è il centro di aggregazione giovanile che si rivolge a ragazze e ragazzi dai 14 ai 19 anni, proponendo molteplici occasioni di incontro e attività: accoglienza, confronto, scambio di idee, gite, viaggi, serate, pranzi, cene, merende, spazio compiti, giochi, musica e sala prova. Ma anche conforto e supporto per/con le famiglie, nonché collaborazione con il territorio.<br/>\n<br/>\nORARIO<br/>\nLunedì, mercoledì e giovedì 17.00-19.30<br/>\n<br/>\nSEDE: Via Filari Longhi 4/c Ravina di Trento, Trento<br/>\n<br/>\nINFO: +39 349 8356168<br/>\n<br/>\nFACEBOOK https://www.facebook.com/La-Kosa-Nostra-307615900634/?fref=ts<br/>\n            ",
+                    "en": "Kosa Nostra – Coop. Progetto 92 è il centro di aggregazione giovanile che si rivolge a ragazze e ragazzi dai 14 ai 19 anni, proponendo molteplici occasioni di incontro e attività: accoglienza, confronto, scambio di idee, gite, viaggi, serate, pranzi, cene, merende, spazio compiti, giochi, musica e sala prova. Ma anche conforto e supporto per/con le famiglie, nonché collaborazione con il territorio.<br/>\n<br/>\nORARIO<br/>\nLunedì, mercoledì e giovedì 17.00-19.30<br/>\n<br/>\nSEDE: Via Filari Longhi 4/c Ravina di Trento, Trento<br/>\n<br/>\nINFO: +39 349 8356168<br/>\n<br/>\nFACEBOOK https://www.facebook.com/La-Kosa-Nostra-307615900634/?fref=ts<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/ZsXzjDx.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/SL3O6py.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.037676,
+                    "lng": 11.11061
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI9",
+                "title": {
+                    "de": "Associazione Periscopio",
+                    "it": "Associazione Periscopio",
+                    "en": "Associazione Periscopio"
+                },
+                "description": {
+                    "de": "Il servizio superiori offerto dall'Associazione Periscopio è un luogo gestito da adulti in cui poter riacquistare il senso e il gusto per le materie studiate e il loro nesso con la vita in tutti i suoi aspetti. L'obiettivo è attivare i ragazzi nello studio individuale, fino al raggiungimento di un proprio metodo volto al miglioramento delle performance scolastiche e di un approccio allo studio sempre più organizzato.<br/>\n<br/>\nORARIO<br/>\nLunedì, martedì e giovedì 14.15-17.15<br/>\n<br/>\nSEDE: Scuole medie Manzoni, Corso Buonarroti 50, Trento<br/>\n<br/>\nINFO: <br/>\nAntonella Scrosati<br/>\ncell. 328-0381737<br/>\nantonella@periscopio.tn.it<br/>\nwww.periscopio.org<br/>\n<br/>\n            ",
+                    "it": "Il servizio superiori offerto dall'Associazione Periscopio è un luogo gestito da adulti in cui poter riacquistare il senso e il gusto per le materie studiate e il loro nesso con la vita in tutti i suoi aspetti. L'obiettivo è attivare i ragazzi nello studio individuale, fino al raggiungimento di un proprio metodo volto al miglioramento delle performance scolastiche e di un approccio allo studio sempre più organizzato.<br/>\n<br/>\nORARIO<br/>\nLunedì, martedì e giovedì 14.15-17.15<br/>\n<br/>\nSEDE: Scuole medie Manzoni, Corso Buonarroti 50, Trento<br/>\n<br/>\nINFO: <br/>\nAntonella Scrosati<br/>\ncell. 328-0381737<br/>\nantonella@periscopio.tn.it<br/>\nwww.periscopio.org<br/>\n<br/>\n            ",
+                    "en": "Il servizio superiori offerto dall'Associazione Periscopio è un luogo gestito da adulti in cui poter riacquistare il senso e il gusto per le materie studiate e il loro nesso con la vita in tutti i suoi aspetti. L'obiettivo è attivare i ragazzi nello studio individuale, fino al raggiungimento di un proprio metodo volto al miglioramento delle performance scolastiche e di un approccio allo studio sempre più organizzato.<br/>\n<br/>\nORARIO<br/>\nLunedì, martedì e giovedì 14.15-17.15<br/>\n<br/>\nSEDE: Scuole medie Manzoni, Corso Buonarroti 50, Trento<br/>\n<br/>\nINFO: <br/>\nAntonella Scrosati<br/>\ncell. 328-0381737<br/>\nantonella@periscopio.tn.it<br/>\nwww.periscopio.org<br/>\n<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/tLUJP1R.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/bvRCzEj.png",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.072693,
+                    "lng": 11.117673
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathLuoghiIncontroGiovaniPOI10",
+                "title": {
+                    "de": "Centro Aperto La Casetta – Coop. Arianna",
+                    "it": "Centro Aperto La Casetta – Coop. Arianna",
+                    "en": "Centro Aperto La Casetta – Coop. Arianna"
+                },
+                "description": {
+                    "de": "Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            ",
+                    "it": "Centro Aperto La Casetta – Coop. Arianna: si rivolge ai ragazzi tra gli 11 e i 20 anni offrendo sostegno scolastico e attività di gioco e svago. Si tratta di uno spazio polifunzionale in cui i ragazzi possono incontrarsi e vivere esperienze di incontro, di creatività, di gioco ma anche trovare informazioni concrete. Si può studiare, chiacchierare, partecipare e organizzare uscite e feste, vedere qualche film in compagnia, cantare, cenare insieme, sfidarsi in serate di gioco a tema e confrontarsi. In alcuni momenti particolari le attività della Casetta si aprono all’intera comunità proponendo iniziative rivolte a favorire momenti di incontro anche con e tra gli adulti. <br/>\n<br/>\nORARIO PER I RAGAZZI DAI 14 AI 20 ANNI<br/>\nMercoledì 17.00-18.30 <br/>\nVenerdì 16.30-21.00<br/>\nSEDE: Via Avisio 2, Canova, Trento<br/>\n<br/>\nINFO: <br/>\n0461 994448, 346 6939751<br/>\ne-mail: lacasetta@arianna.coop<br/>\nwww.arianna.coop<br/>\n            ",
+                    "en": "Terminati i lavori di restauro, la palazzina Liberty di piazza Dante torna a vivere! Nelle sale del primo e secondo piano ha traslocato la biblioteca giovanile, mentre il piano terra è occupato, oltre che da una sala riunioni, da un caffè culturale letterario chiamato Libercafè. Non è solo un locale che serve colazioni, spuntini e pranzi veloci, ma anche un luogo di aggregazione per bambini, ragazzi, giovani e famiglie, in cui convivono l'aspetto commerciale, culturale e ricreativo.<br/>\nORARIO <br/>\nLunedì 07.30-14.00<br/>\nDal martedì alla domenica 07.30-23.00<br/>\n<br/>\nSEDE: Palazzina Liberty, Giardini di P.zza Dante 29, Trento<br/>\n<br/>\nINFO: 3457004040, 348569 7713<br/>\n<br/>\nLINK EVENTI: https://www.facebook.com/Liber-Caf%C3%A8-1600377553586414/<br/>\n<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/7eiHJw2.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/RokFPeP.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/cnFPXtj.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.101277,
+                    "lng": 11.110193
+                }
+            }]
+        }, {
+            "id": "573dd025e4b0943281212738",
+            "updateTime": 1464709923385,
+            "version": 894,
+            "user": null,
+            "appId": "ComuneTrento",
+            "localId": "pathPuntoInfoGiovani",
+            "categories": ["a"],
+            "title": {
+                "de": "Punti info giovani",
+                "it": "Punti info giovani",
+                "en": "Punti info giovani"
+            },
+            "description": {
+                "de": "I punti informativi sono i luoghi dove i giovani trovano opportunità negli ambiti della cittadinanza attiva, del volontariato, del servizio civile ,delle opportunità all'estero.",
+                "it": "I punti informativi sono i luoghi dove i giovani trovano opportunità negli ambiti della cittadinanza attiva, del volontariato, del servizio civile ,delle opportunità all'estero. ",
+                "en": "I punti informativi sono i luoghi dove i giovani trovano opportunità negli ambiti della cittadinanza attiva, del volontariato, del servizio civile ,delle opportunità all'estero."
+            },
+            "length": 39000,
+            "time": 48,
+            "difficulty": 1,
+            "images": [{
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/XlBj1nF.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/Y0NP1hN.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/Dp5IKIX.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/dH1cuIN.jpg",
+                "userDefined": false,
+                "userId": null
+            }, {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "url": "http://i.imgur.com/sPqLvaA.jpg",
+                "userDefined": false,
+                "userId": null
+            }],
+            "videos": [],
+            "audios": [],
+            "shape": "",
+            "vote": null,
+            "voteCount": null,
+            "externalUrl": null,
+            "pois": [{
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathPuntoInfoGiovaniPOI2",
+                "title": {
+                    "de": "Politiche giovanili del Comune di Trento",
+                    "it": "Politiche giovanili del Comune di Trento",
+                    "en": "Politiche giovanili del Comune di Trento"
+                },
+                "description": {
+                    "de": "Le Politiche giovanili del Comune di Trento si occupano di offrire opportunità e servizi a favore di bambini, ragazzi e giovani nella fascia d'età 6-29 anni, considerabili una risorsa per la collettività in quanto cittadini di oggi e non solo del futuro. <br/>\nIl metodo di lavoro prevede un'attenzione particolare all'ascolto dei bisogni e dei desideri emergenti, alla creazione di sinergie con i diversi attori sociali del territorio, al sostegno di progettualità “dal basso” a rinforzo del protagonismo, della partecipazione e dello sviluppo di bambini, ragazzi e giovani in quanto cittadini responsabili e attivi.\n<br/>\nLe opportunità offerte si concentrano su quattro aree di intervento prioritarie:<br/>\n<br/>\n1. favorire il sostegno alla progettualità e all'imprenditività giovanile, l’informazione e l’orientamento, la promozione di opportunità di avvicinamento al lavoro, di mobilità internazionale;<br/>\n2. promuovere la cittadinanza attiva e il volontariato di ragazzi e giovani, favorendo l’adesione dei giovani alle attività progettuali e di pianificazione dei Piani Giovani di Zona, sostenendo il volontariato e l’associazionismo, promuovendo e gestendo progetti di Servizio Civile, di educazione alla cittadinanza europea, alla sostenibilità ambientale, alla cooperazione internazionale, alla legalità, di recupero della Memoria, di attenzione e cura del bene comune;<br/>\n3. sostenere la creatività giovanile, ad esempio attraverso le proposte culturali del Centro Musica, del Centro Teatro, del Caffè letterario Predara – Bookique, l’offerta di opportunità formative e di crescita in ambito musicale, teatrale, e grafico-espressivo; <br/>\n4. promuovere politiche per una città a misura di bambina e bambino, attraverso l’offerta di spazi di aggregazione per bambini e ragazzi, la collaborazione con il mondo della scuola e dell’associazionismo, la sensibilizzazione sui diritti dell’infanzia e sulla mobilità sostenibile.<br/>\n<br/>\n<br/>\nL'accessibilità delle opportunità esistenti, e quindi la partecipazione dei più giovani sia come soggetti fruitori che come co-attori e co-progettatori, dipende però dalla capacità di comunicare con loro, informandoli ed eventualmente orientandoli rispetto all'offerta. Di qui la centralità della comunicazione, conditio sine qua non per la PARTECIPAZIONE, quale asse strategico trasversale all'operato delle Politiche giovanili. In un contesto di crisi economica-sociale che rende ancora più faticoso il passaggio all'età adulta dei giovani e, in particolare, il loro accesso al mondo del lavoro, l'informazione/comunicazione svolge un ruolo ancora più determinante.<br/>\n<br/>\nORARI <br/>\nDal lunedì al venerdì 8.30-12.00 / pomeriggio su appuntamento<br/>\n<br/>\nSEDE: via Roma 56 e 60, Trento<br/>\n<br/>\nINFO: 0461 884240<br/>\n<br/>\nLINK EVENTI: http://trentogiovani.it/index.php/agenda<br/>\n<br/>\n            ",
+                    "it": "Le Politiche giovanili del Comune di Trento si occupano di offrire opportunità e servizi a favore di bambini, ragazzi e giovani nella fascia d'età 6-29 anni, considerabili una risorsa per la collettività in quanto cittadini di oggi e non solo del futuro. <br/>\nIl metodo di lavoro prevede un'attenzione particolare all'ascolto dei bisogni e dei desideri emergenti, alla creazione di sinergie con i diversi attori sociali del territorio, al sostegno di progettualità “dal basso” a rinforzo del protagonismo, della partecipazione e dello sviluppo di bambini, ragazzi e giovani in quanto cittadini responsabili e attivi.\n<br/>\nLe opportunità offerte si concentrano su quattro aree di intervento prioritarie:<br/>\n<br/>\n1. favorire il sostegno alla progettualità e all'imprenditività giovanile, l’informazione e l’orientamento, la promozione di opportunità di avvicinamento al lavoro, di mobilità internazionale;<br/>\n2. promuovere la cittadinanza attiva e il volontariato di ragazzi e giovani, favorendo l’adesione dei giovani alle attività progettuali e di pianificazione dei Piani Giovani di Zona, sostenendo il volontariato e l’associazionismo, promuovendo e gestendo progetti di Servizio Civile, di educazione alla cittadinanza europea, alla sostenibilità ambientale, alla cooperazione internazionale, alla legalità, di recupero della Memoria, di attenzione e cura del bene comune;<br/>\n3. sostenere la creatività giovanile, ad esempio attraverso le proposte culturali del Centro Musica, del Centro Teatro, del Caffè letterario Predara – Bookique, l’offerta di opportunità formative e di crescita in ambito musicale, teatrale, e grafico-espressivo; <br/>\n4. promuovere politiche per una città a misura di bambina e bambino, attraverso l’offerta di spazi di aggregazione per bambini e ragazzi, la collaborazione con il mondo della scuola e dell’associazionismo, la sensibilizzazione sui diritti dell’infanzia e sulla mobilità sostenibile.<br/>\n<br/>\n<br/>\nL'accessibilità delle opportunità esistenti, e quindi la partecipazione dei più giovani sia come soggetti fruitori che come co-attori e co-progettatori, dipende però dalla capacità di comunicare con loro, informandoli ed eventualmente orientandoli rispetto all'offerta. Di qui la centralità della comunicazione, conditio sine qua non per la PARTECIPAZIONE, quale asse strategico trasversale all'operato delle Politiche giovanili. In un contesto di crisi economica-sociale che rende ancora più faticoso il passaggio all'età adulta dei giovani e, in particolare, il loro accesso al mondo del lavoro, l'informazione/comunicazione svolge un ruolo ancora più determinante.<br/>\n<br/>\nORARI <br/>\nDal lunedì al venerdì 8.30-12.00 / pomeriggio su appuntamento<br/>\n<br/>\nSEDE: via Roma 56 e 60, Trento<br/>\n<br/>\nINFO: 0461 884240<br/>\n<br/>\nLINK EVENTI: http://trentogiovani.it/index.php/agenda<br/>\n<br/>\n            ",
+                    "en": "Le Politiche giovanili del Comune di Trento si occupano di offrire opportunità e servizi a favore di bambini, ragazzi e giovani nella fascia d'età 6-29 anni, considerabili una risorsa per la collettività in quanto cittadini di oggi e non solo del futuro. <br/>\nIl metodo di lavoro prevede un'attenzione particolare all'ascolto dei bisogni e dei desideri emergenti, alla creazione di sinergie con i diversi attori sociali del territorio, al sostegno di progettualità “dal basso” a rinforzo del protagonismo, della partecipazione e dello sviluppo di bambini, ragazzi e giovani in quanto cittadini responsabili e attivi.\n<br/>\nLe opportunità offerte si concentrano su quattro aree di intervento prioritarie:<br/>\n<br/>\n1. favorire il sostegno alla progettualità e all'imprenditività giovanile, l’informazione e l’orientamento, la promozione di opportunità di avvicinamento al lavoro, di mobilità internazionale;<br/>\n2. promuovere la cittadinanza attiva e il volontariato di ragazzi e giovani, favorendo l’adesione dei giovani alle attività progettuali e di pianificazione dei Piani Giovani di Zona, sostenendo il volontariato e l’associazionismo, promuovendo e gestendo progetti di Servizio Civile, di educazione alla cittadinanza europea, alla sostenibilità ambientale, alla cooperazione internazionale, alla legalità, di recupero della Memoria, di attenzione e cura del bene comune;<br/>\n3. sostenere la creatività giovanile, ad esempio attraverso le proposte culturali del Centro Musica, del Centro Teatro, del Caffè letterario Predara – Bookique, l’offerta di opportunità formative e di crescita in ambito musicale, teatrale, e grafico-espressivo; <br/>\n4. promuovere politiche per una città a misura di bambina e bambino, attraverso l’offerta di spazi di aggregazione per bambini e ragazzi, la collaborazione con il mondo della scuola e dell’associazionismo, la sensibilizzazione sui diritti dell’infanzia e sulla mobilità sostenibile.<br/>\n<br/>\n<br/>\nL'accessibilità delle opportunità esistenti, e quindi la partecipazione dei più giovani sia come soggetti fruitori che come co-attori e co-progettatori, dipende però dalla capacità di comunicare con loro, informandoli ed eventualmente orientandoli rispetto all'offerta. Di qui la centralità della comunicazione, conditio sine qua non per la PARTECIPAZIONE, quale asse strategico trasversale all'operato delle Politiche giovanili. In un contesto di crisi economica-sociale che rende ancora più faticoso il passaggio all'età adulta dei giovani e, in particolare, il loro accesso al mondo del lavoro, l'informazione/comunicazione svolge un ruolo ancora più determinante.<br/>\n<br/>\nORARI <br/>\nDal lunedì al venerdì 8.30-12.00 / pomeriggio su appuntamento<br/>\n<br/>\nSEDE: via Roma 56 e 60, Trento<br/>\n<br/>\nINFO: 0461 884240<br/>\n<br/>\nLINK EVENTI: http://trentogiovani.it/index.php/agenda<br/>\n<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/aPzdfrX.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/tJZSUVe.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/YwrUd39.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.069753,
+                    "lng": 11.120501
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathPuntoInfoGiovaniPOI3",
+                "title": {
+                    "de": "INCO- Interculturalità & Comunicazione",
+                    "it": "INCO- Interculturalità & Comunicazione",
+                    "en": "INCO- Interculturalità & Comunicazione"
+                },
+                "description": {
+                    "de": "L'Associazione InCo - Interculturalità & Comunicazione è un'associazione senza fini di lucro nata nel 2004 a cura di un gruppo di amici che volevano sviluppare lo scambio ed il contatto internazionale, la tolleranza reciproca e stimolare la sensibilità interculturale dei giovani. InCo crede in un mondo senza pregiudizi, dove ogni cultura viene valorizzata - riconoscendone pregi e limiti<br/>\n- senza discriminazione alcuna. Per raggiungere questi obiettivi InCo crea opportunità di scambio e apprendimento soprattutto per i giovani attraverso la promozione e l'organizzazione di progetti all'estero. Gli strumenti che InCo utilizza sono il Servizio Volontario Europeo, il Volontariato Internazionale e il programma Au Pair.<br/>\n<br/>\nORARIO<br/>\nDa lunedì a giovedì dalle 9.00 alle 13.00<br/>\nMartedì e mercoledì anche nel pomeriggio, dalle 14.00 alle 17.00.<br/>\n<br/>\nSEDE: via B. Bomporto 12, Trento <br/>\n<br/>\nINFO: 04611822471<br/>\n<br/>\nLINK EVENTI: http://www.incoweb.org/<br/>\n            ",
+                    "it": "L'Associazione InCo - Interculturalità & Comunicazione è un'associazione senza fini di lucro nata nel 2004 a cura di un gruppo di amici che volevano sviluppare lo scambio ed il contatto internazionale, la tolleranza reciproca e stimolare la sensibilità interculturale dei giovani. InCo crede in un mondo senza pregiudizi, dove ogni cultura viene valorizzata - riconoscendone pregi e limiti<br/>\n- senza discriminazione alcuna. Per raggiungere questi obiettivi InCo crea opportunità di scambio e apprendimento soprattutto per i giovani attraverso la promozione e l'organizzazione di progetti all'estero. Gli strumenti che InCo utilizza sono il Servizio Volontario Europeo, il Volontariato Internazionale e il programma Au Pair.<br/>\n<br/>\nORARIO<br/>\nDa lunedì a giovedì dalle 9.00 alle 13.00<br/>\nMartedì e mercoledì anche nel pomeriggio, dalle 14.00 alle 17.00.<br/>\n<br/>\nSEDE: via B. Bomporto 12, Trento <br/>\n<br/>\nINFO: 04611822471<br/>\n<br/>\nLINK EVENTI: http://www.incoweb.org/<br/>\n            ",
+                    "en": "L'Associazione InCo - Interculturalità & Comunicazione è un'associazione senza fini di lucro nata nel 2004 a cura di un gruppo di amici che volevano sviluppare lo scambio ed il contatto internazionale, la tolleranza reciproca e stimolare la sensibilità interculturale dei giovani. InCo crede in un mondo senza pregiudizi, dove ogni cultura viene valorizzata - riconoscendone pregi e limiti<br/>\n- senza discriminazione alcuna. Per raggiungere questi obiettivi InCo crea opportunità di scambio e apprendimento soprattutto per i giovani attraverso la promozione e l'organizzazione di progetti all'estero. Gli strumenti che InCo utilizza sono il Servizio Volontario Europeo, il Volontariato Internazionale e il programma Au Pair.<br/>\n<br/>\nORARIO<br/>\nDa lunedì a giovedì dalle 9.00 alle 13.00<br/>\nMartedì e mercoledì anche nel pomeriggio, dalle 14.00 alle 17.00.<br/>\n<br/>\nSEDE: via B. Bomporto 12, Trento <br/>\n<br/>\nINFO: 04611822471<br/>\n<br/>\nLINK EVENTI: http://www.incoweb.org/<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/TRu0B1L.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/gqZd7sE.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/ekcEzRd.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.065417,
+                    "lng": 11.118334
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathPuntoInfoGiovaniPOI4",
+                "title": {
+                    "de": "CSV-NON PROFIT NETWORK",
+                    "it": "CSV-NON PROFIT NETWORK",
+                    "en": "CSV-NON PROFIT NETWORK"
+                },
+                "description": {
+                    "de": "Non Profit Network – CSV Trentino è un ente non commerciale con personalità giuridica che dal 2002 gestisce il Centro Servizi Volontariato del Trentino. Ad oggi più di 100 associazioni socie, sparse sull’intera provincia, compongono la base sociale. Nella consapevolezza che la solidarietà produce benessere, CSV Trentino si impegna a supportare e promuovere il volontariato e le diverse espressioni di cittadinanza attiva. <br/>\nI Centri di Servizio per il Volontariato (CSV) nascono con l'obiettivo di far crescere e promuovere il volontariato attraverso specifici servizi e iniziative. La filosofia dei CSV è quella di aggiungere valore alle risorse esistenti sul territorio, permettendo alle esperienze e al patrimonio del volontariato di potenziarsi e diffondersi all’interno della comunità.<br/>\nIn Italia sono presenti 78 CSV a livello regionale e/o provinciale, di questi il 90% fa parte di CSVnet, il coordinamento nazionale, che si propone di rafforzare la collaborazione e lo scambio di esperienze e competenze tra i CSV.<br/>\n<br/>\nORARI<br/>\nDa lunedì a venerdì 8.30-12.30 e 14.00-18.00<br/>\n<br/>\nSEDE: Piazzetta Leonardo Da Vinci 2, Trento<br/>\n<br/>\nINFO: 0461.916604<br/>\n<br/>\nLINK EVENTI: http://www.volontariatotrentino.it/formazione<br/>\n            ",
+                    "it": "Non Profit Network – CSV Trentino è un ente non commerciale con personalità giuridica che dal 2002 gestisce il Centro Servizi Volontariato del Trentino. Ad oggi più di 100 associazioni socie, sparse sull’intera provincia, compongono la base sociale. Nella consapevolezza che la solidarietà produce benessere, CSV Trentino si impegna a supportare e promuovere il volontariato e le diverse espressioni di cittadinanza attiva. <br/>\nI Centri di Servizio per il Volontariato (CSV) nascono con l'obiettivo di far crescere e promuovere il volontariato attraverso specifici servizi e iniziative. La filosofia dei CSV è quella di aggiungere valore alle risorse esistenti sul territorio, permettendo alle esperienze e al patrimonio del volontariato di potenziarsi e diffondersi all’interno della comunità.<br/>\nIn Italia sono presenti 78 CSV a livello regionale e/o provinciale, di questi il 90% fa parte di CSVnet, il coordinamento nazionale, che si propone di rafforzare la collaborazione e lo scambio di esperienze e competenze tra i CSV.<br/>\n<br/>\nORARI<br/>\nDa lunedì a venerdì 8.30-12.30 e 14.00-18.00<br/>\n<br/>\nSEDE: Piazzetta Leonardo Da Vinci 2, Trento<br/>\n<br/>\nINFO: 0461.916604<br/>\n<br/>\nLINK EVENTI: http://www.volontariatotrentino.it/formazione<br/>\n            ",
+                    "en": "Non Profit Network – CSV Trentino è un ente non commerciale con personalità giuridica che dal 2002 gestisce il Centro Servizi Volontariato del Trentino. Ad oggi più di 100 associazioni socie, sparse sull’intera provincia, compongono la base sociale. Nella consapevolezza che la solidarietà produce benessere, CSV Trentino si impegna a supportare e promuovere il volontariato e le diverse espressioni di cittadinanza attiva. <br/>\nI Centri di Servizio per il Volontariato (CSV) nascono con l'obiettivo di far crescere e promuovere il volontariato attraverso specifici servizi e iniziative. La filosofia dei CSV è quella di aggiungere valore alle risorse esistenti sul territorio, permettendo alle esperienze e al patrimonio del volontariato di potenziarsi e diffondersi all’interno della comunità.<br/>\nIn Italia sono presenti 78 CSV a livello regionale e/o provinciale, di questi il 90% fa parte di CSVnet, il coordinamento nazionale, che si propone di rafforzare la collaborazione e lo scambio di esperienze e competenze tra i CSV.<br/>\n<br/>\nORARI<br/>\nDa lunedì a venerdì 8.30-12.30 e 14.00-18.00<br/>\n<br/>\nSEDE: Piazzetta Leonardo Da Vinci 2, Trento<br/>\n<br/>\nINFO: 0461.916604<br/>\n<br/>\nLINK EVENTI: http://www.volontariatotrentino.it/formazione<br/>\n            "
+                },
+                "images": [],
+                "videos": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "https://www.youtube.com/watch?v=gQx6r5mug-I",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.070061,
+                    "lng": 11.117785
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathPuntoInfoGiovaniPOI5",
+                "title": {
+                    "de": "Punto Europa PAT",
+                    "it": "Punto Europa PAT",
+                    "en": "Punto Europa PAT"
+                },
+                "description": {
+                    "de": "Con il portale tematico “puntoEuropa” la Provincia autonoma di Trento ha inteso fornire un punto di accesso unico a tutte le informazioni e le attività che si svolgono in Provincia e sul suo territorio sui temi che riguardano l’Europa. Le strutture della Provincia, infatti, collaborano attraverso un portale (http://www.europa.provincia.tn.it/chi_siamo/) per garantire agli utilizzatori di trovare facilmente tutte le politiche e le attività pertinenti l’Unione europea.<br/>\nA “puntoEuropa” potrete trovare notizie sui progetti e attività avviate e gestite dalle strutture provinciali in collegamento con le istituzioni europee, opportunità offerte dai fondi e dalle iniziative messe a disposizione dall’Unione europea, informazioni sulla partecipazione della Provincia, in qualità di membro, in istituzioni e associazioni a livello europeo, eventi, pubblicazioni e attività di formazione inerenti l’Europa. Il portale è gestito dal Servizio Europa della Provincia autonoma di Trento che ne cura l’aggiornamento.\n<br/>\nORARI<br/>\nDal lunedì al giovedì dalle 8.30-12.45 e 14.00-16.30 <br/>\nVenerdì 8.30-12.45<br/>\n<br/>\nSEDE: Provincia autonoma di Trento - Servizio Europa, via Romagnosi 7, Trento <br/>\n<br/>\nINFO: 0461 495088 <br/>\n<br/>\nLINK EVENTI:<br/>\n            ",
+                    "it": "Con il portale tematico “puntoEuropa” la Provincia autonoma di Trento ha inteso fornire un punto di accesso unico a tutte le informazioni e le attività che si svolgono in Provincia e sul suo territorio sui temi che riguardano l’Europa. Le strutture della Provincia, infatti, collaborano attraverso un portale (http://www.europa.provincia.tn.it/chi_siamo/) per garantire agli utilizzatori di trovare facilmente tutte le politiche e le attività pertinenti l’Unione europea.<br/>\nA “puntoEuropa” potrete trovare notizie sui progetti e attività avviate e gestite dalle strutture provinciali in collegamento con le istituzioni europee, opportunità offerte dai fondi e dalle iniziative messe a disposizione dall’Unione europea, informazioni sulla partecipazione della Provincia, in qualità di membro, in istituzioni e associazioni a livello europeo, eventi, pubblicazioni e attività di formazione inerenti l’Europa. Il portale è gestito dal Servizio Europa della Provincia autonoma di Trento che ne cura l’aggiornamento.\n<br/>\nORARI<br/>\nDal lunedì al giovedì dalle 8.30-12.45 e 14.00-16.30 <br/>\nVenerdì 8.30-12.45<br/>\n<br/>\nSEDE: Provincia autonoma di Trento - Servizio Europa, via Romagnosi 7, Trento <br/>\n<br/>\nINFO: 0461 495088 <br/>\n<br/>\nLINK EVENTI:<br/>\n            ",
+                    "en": "Con il portale tematico “puntoEuropa” la Provincia autonoma di Trento ha inteso fornire un punto di accesso unico a tutte le informazioni e le attività che si svolgono in Provincia e sul suo territorio sui temi che riguardano l’Europa. Le strutture della Provincia, infatti, collaborano attraverso un portale (http://www.europa.provincia.tn.it/chi_siamo/) per garantire agli utilizzatori di trovare facilmente tutte le politiche e le attività pertinenti l’Unione europea.<br/>\nA “puntoEuropa” potrete trovare notizie sui progetti e attività avviate e gestite dalle strutture provinciali in collegamento con le istituzioni europee, opportunità offerte dai fondi e dalle iniziative messe a disposizione dall’Unione europea, informazioni sulla partecipazione della Provincia, in qualità di membro, in istituzioni e associazioni a livello europeo, eventi, pubblicazioni e attività di formazione inerenti l’Europa. Il portale è gestito dal Servizio Europa della Provincia autonoma di Trento che ne cura l’aggiornamento.\n<br/>\nORARI<br/>\nDal lunedì al giovedì dalle 8.30-12.45 e 14.00-16.30 <br/>\nVenerdì 8.30-12.45<br/>\n<br/>\nSEDE: Provincia autonoma di Trento - Servizio Europa, via Romagnosi 7, Trento <br/>\n<br/>\nINFO: 0461 495088 <br/>\n<br/>\nLINK EVENTI:<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/zE3uKYR.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/nPBeJeU.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.0725,
+                    "lng": 11.12506
+                }
+            }, {
+                "id": null,
+                "updateTime": -1,
+                "version": 0,
+                "user": null,
+                "appId": null,
+                "localId": "pathPuntoInfoGiovaniPOI6",
+                "title": {
+                    "de": "Ufficio Servizio Civile PAT",
+                    "it": "Ufficio Servizio Civile PAT",
+                    "en": "Ufficio Servizio Civile PAT"
+                },
+                "description": {
+                    "de": "Il Servizio Civile offre l’opportunità di partecipare concretamente alla costruzione solidale della realtà sociale, ogni giovane mette a disposizione degli altri le proprie energie e il proprio entusiasmo, arricchendo al contempo il proprio bagaglio personale di conoscenze e competenze, con la garanzia di una minima autonomia economica. <br/>\n<br/>\nORARI: ?\n<br/>\nSEDE: via don Giuseppe Grazioli 1, Trento <br/>\nINFO: 0461493100<br/>\n<br/>\nLINK EVENTI: http://www.serviziocivile.provincia.tn.it/news/<br/>\n<br/>\n            ",
+                    "it": "Il Servizio Civile offre l’opportunità di partecipare concretamente alla costruzione solidale della realtà sociale, ogni giovane mette a disposizione degli altri le proprie energie e il proprio entusiasmo, arricchendo al contempo il proprio bagaglio personale di conoscenze e competenze, con la garanzia di una minima autonomia economica. <br/>\n<br/>\nORARI: ?\n<br/>\nSEDE: via don Giuseppe Grazioli 1, Trento <br/>\nINFO: 0461493100<br/>\n<br/>\nLINK EVENTI: http://www.serviziocivile.provincia.tn.it/news/<br/>\n<br/>\n            ",
+                    "en": "Il Servizio Civile offre l’opportunità di partecipare concretamente alla costruzione solidale della realtà sociale, ogni giovane mette a disposizione degli altri le proprie energie e il proprio entusiasmo, arricchendo al contempo il proprio bagaglio personale di conoscenze e competenze, con la garanzia di una minima autonomia economica. <br/>\n<br/>\nORARI: ?\n<br/>\nSEDE: via don Giuseppe Grazioli 1, Trento <br/>\nINFO: 0461493100<br/>\n<br/>\nLINK EVENTI: http://www.serviziocivile.provincia.tn.it/news/<br/>\n<br/>\n            "
+                },
+                "images": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/yJdmKGq.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/dr4zJ76.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/y9yb2Fq.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }, {
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "http://i.imgur.com/tNLHNwa.jpg",
+                    "userDefined": false,
+                    "userId": null
+                }],
+                "videos": [],
+                "audios": [],
+                "externalUrl": null,
+                "coordinates": {
+                    "lat": 46.067234,
+                    "lng": 11.12802
+                }
+            }]
+        }]
+    },
+    "deleted": {
+        "it.smartcommunitylab.percorsi.model.Path": ["573dd025e4b0943281212737"]
+    },
+    "exclude": null,
+    "include": null
+}
