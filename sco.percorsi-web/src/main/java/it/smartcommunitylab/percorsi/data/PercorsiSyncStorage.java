@@ -47,4 +47,7 @@ public interface PercorsiSyncStorage extends BasicObjectSyncStorage {
 	public <T extends PercorsiObject> T storeObject(T obj, String appId) throws DataException;
 	public <T extends PercorsiObject> void deleteObject(T obj, String appId) throws DataException;
 
+	public Long publish(String appId);
+	public Long getLastAppVersion(String appId);
+
 }

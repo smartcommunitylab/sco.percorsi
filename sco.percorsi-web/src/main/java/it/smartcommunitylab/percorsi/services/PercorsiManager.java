@@ -259,4 +259,19 @@ public class PercorsiManager {
 		return rating;
 	}
 
+	/**
+	 * @param appId
+	 */
+	public Long publish(String appId) {
+		return repository.publish(appId);
+	}
+
+	/**
+	 * @param appId
+	 * @return
+	 */
+	public Long getNewVersion(String appId) {
+		return repository.getLastAppVersion(appId);
+	}
+
 }

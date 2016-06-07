@@ -98,7 +98,7 @@ public class BaseConfig extends WebMvcConfigurerAdapter {
 		sender.setPort(Integer.parseInt(env.getProperty("mailPort")));
 		sender.setUsername(env.getProperty("mailUsername"));
 		sender.setPassword(env.getProperty("mailPassword"));
-		sender.setProtocol("smtp");
+		sender.setProtocol("smtps");
 		
 		Properties props = new Properties();
 		props.load(mailProps.getInputStream());

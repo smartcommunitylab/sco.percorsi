@@ -1,6 +1,9 @@
 package it.smartcommunitylab.percorsi.data;
 
 import it.smartcommunitylab.percorsi.model.PercorsiObject;
+import it.smartcommunitylab.percorsi.model.ProviderSettings;
+import it.smartcommunitylab.percorsi.model.VersionObject;
+import it.smartcommunitylab.percorsi.security.ProviderSetup;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+
+import javax.annotation.PostConstruct;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +33,61 @@ import eu.trentorise.smartcampus.presentation.storage.sync.mongo.GenericObjectSy
 @Component
 public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<PercorsiBean> implements PercorsiSyncStorage {
 
+	private Map<String, Long> versionMap = new HashMap<String, Long>();
+	
+	@Autowired
+	private ProviderSetup setup;
+	
 	@Autowired
 	public PercorsiSyncStorageImpl(MongoOperations mongoTemplate) {
 		super(mongoTemplate);
 	}
+	
+	@PostConstruct
+	protected void initVersions() {
+		// read from DB
+		List<VersionObject> versions = mongoTemplate.findAll(VersionObject.class);
+		if (versions != null) {
+			for (VersionObject vo : versions) {
+				versionMap.put(vo.getAppId(), vo.getVersion());
+				setup.findProviderById(vo.getAppId()).setVersion(vo.getVersion());
+			}
+		}
+		// in case of data with no version, create it
+		List<ProviderSettings> providers = setup.getProviders();
+		for (ProviderSettings p : providers) {
+			if (versionMap.get(p.getId()) == null) {
+				publish(p.getId());
+			}
+		}
+	}
+	
+	public Long getPublicVersion(String appId) {
+		return versionMap.get(appId);
+	}
 
+	@Override
+	public Long getLastAppVersion(String appId) {
+		Criteria criteria = createBaseCriteria(appId);
+		Query q = Query.query(criteria);
+		q.with(new Sort(Direction.DESC, "version"));
+		q.limit(1);
+		List<PercorsiBean> res = mongoTemplate.find(q, getObjectClass(), getCollectionName(getObjectClass()));
+		if (res != null && res.size() > 0) return res.get(0).getVersion();
+		return getPublicVersion(appId);
+	}
+
+	public Long publish(String appId) {
+		Long version = getLastAppVersion(appId);
+		VersionObject vo = new VersionObject();
+		vo.setAppId(appId);
+		vo.setVersion(version);
+		mongoTemplate.save(vo);
+		versionMap.put(vo.getAppId(), vo.getVersion());
+		setup.findProviderById(appId).setVersion(version);
+		return version;
+	}
+	
 	@Override
 	public Class<PercorsiBean> getObjectClass() {
 		return PercorsiBean.class;
@@ -151,7 +206,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 
 	@SuppressWarnings("unchecked")
 	private SyncData retrieveSyncData(String appId, long since, Map<String, Object> include, Map<String, Object> exclude) {
-		long newVersion = getVersion();
+		long newVersion = getPublicVersion(appId);
 		SyncData syncData = new SyncData();
 		syncData.setVersion(newVersion);
 		List<PercorsiBean> list = searchWithVersion(appId, since-1, newVersion, include, exclude);

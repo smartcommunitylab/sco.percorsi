@@ -28,21 +28,17 @@ import it.smartcommunitylab.percorsi.services.ModerationManager;
 import it.smartcommunitylab.percorsi.services.PercorsiManager;
 import it.smartcommunitylab.percorsi.utils.XMLUtils;
 
-import java.nio.charset.Charset;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXB;
 
-import org.apache.commons.io.FileUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
-import org.springframework.util.StreamUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -80,7 +76,13 @@ public class ConsoleController {
 
 	@RequestMapping(value = "/console/data")
 	public @ResponseBody ProviderSettings data() {
-		return setup.findProviderById(getAppId());
+		return getProvider(getAppId());
+	}
+	@RequestMapping(value = "/console/publish", method = RequestMethod.POST)
+	public @ResponseBody ProviderSettings publish(MultipartHttpServletRequest req) throws Exception {
+		String appId = getAppId();
+		manager.publish(appId);
+		return getProvider(appId);
 	}
 
 	@RequestMapping(value = "/console/upload", method = RequestMethod.POST)
@@ -92,7 +94,7 @@ public class ConsoleController {
 
 		String appId = getAppId();
 		manager.storePaths(appId, list.getData());
-		return setup.findProviderById(appId);
+		return getProvider(appId);
 	}
 
 	@RequestMapping(value = "/console/uploadxml", method = RequestMethod.POST)
@@ -112,7 +114,7 @@ public class ConsoleController {
 			Categories data = XMLUtils.toDomain(xmlData);
 			manager.storeCategories(appId, data);
 		}
-		return setup.findProviderById(appId);
+		return getProvider(appId);
 	}
 
 	@RequestMapping(value = "/console/export", method = RequestMethod.GET) 
@@ -141,6 +143,12 @@ public class ConsoleController {
 			moderationManager.rejectComment(getAppId(), localId, contributorId, value);
 		else 
 			moderationManager.rejectUserImage(getAppId(), localId, contributorId, value);
+	}
+	
+	private ProviderSettings getProvider(String appId) {
+		ProviderSettings ps = setup.findProviderById(appId);
+		ps.setNewVersion(manager.getNewVersion(appId));
+		return ps;
 	}
 	
 	private String getAppId() {

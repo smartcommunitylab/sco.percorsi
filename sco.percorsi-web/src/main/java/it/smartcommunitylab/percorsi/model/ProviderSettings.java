@@ -32,6 +32,9 @@ public class ProviderSettings implements Serializable {
 
     private Categories categories;
 
+    private Long version;
+    private Long newVersion;
+    
 	/**
 	 * @return the id
 	 */
@@ -92,5 +95,16 @@ public class ProviderSettings implements Serializable {
 	public void setModerator(String moderator) {
 		this.moderator = moderator;
 	}
-
+	public Long getVersion() {
+		return version;
+	}
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+	public Long getNewVersion() {
+		return newVersion;
+	}
+	public void setNewVersion(Long newVersion) {
+		this.newVersion = newVersion;
+	}
 }
