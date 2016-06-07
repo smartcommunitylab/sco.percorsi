@@ -25,10 +25,13 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.pathdetailinfo',
     'roveretoPercorsi.controllers.pathdetailmap',
     'roveretoPercorsi.controllers.pathdetailturist',
+        'roveretoPercorsi.controllers.pathdetailnear',
+
     'roveretoPercorsi.controllers.poidetail',
     'roveretoPercorsi.controllers.favorites',
     'roveretoPercorsi.controllers.gallery',
     'roveretoPercorsi.services.conf',
+    'roveretoPercorsi.services.mapService',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
     'roveretoPercorsi.services.listPathsService',
@@ -43,14 +46,6 @@ angular.module('roveretoPercorsi', [
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate, Config) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
-
-    $rootScope.QUESTIONNAIRE = QUESTIONNAIRE;
-
-    $rootScope.extLogging = function (app, msg) {
-        if (EXTLOGGING) {
-            Restlogging.appLog(app, msg);
-        }
-    };
 
     $rootScope.getUserId = function () {
         if ($rootScope.userIsLogged) {
@@ -85,10 +80,7 @@ angular.module('roveretoPercorsi', [
                 });
             }, null);
         }
-        if (EXTLOGGING) {
-            Restlogging.init("http://150.241.239.65:8080");
-            startRatingSurvey();
-        }
+
         $rootScope.platform = ionic.Platform;
         $rootScope.backButtonStyle = $ionicConfig.backButton.icon();
     });
@@ -107,6 +99,13 @@ angular.module('roveretoPercorsi', [
         return deferred.promise;
 
     }
+    $rootScope.openFavorites = function () {
+        window.location.assign('#/app/favorites');
+        $ionicHistory.nextViewOptions({
+            disableAnimate: true,
+            disableBack: true
+        });
+    };
 
     $rootScope.logout = function () {
         var deferred = $q.defer();
@@ -162,20 +161,20 @@ angular.module('roveretoPercorsi', [
 
     $rootScope.previousState;
     $rootScope.currentState;
-    var comeFrom = null;
+    $rootScope.comeFrom = null;
 
     $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
         $rootScope.previousState = from.name;
         $rootScope.currentState = to.name;
         //tmp workaraound for tabs
         if ($rootScope.currentState == "app.favorites") {
-            comeFrom = "#app/favorites";
+            $rootScope.comeFrom = "#app/favorites";
         }
         if ($rootScope.currentState == "app.paths") {
-            comeFrom = "#/app/categories/" + toParams.id;
+            $rootScope.comeFrom = "#/app/categories/" + toParams.id;
         }
         if ($rootScope.previousState == "app.pathdetail.info" && $rootScope.currentState == "app.pathdetail") {
-            window.location.assign(comeFrom);
+            window.location.assign($rootScope.comeFrom);
         }
 
     });
@@ -247,27 +246,36 @@ angular.module('roveretoPercorsi', [
     })
 
     .state('app.pathdetail.turist', {
-        cache: false,
-        url: '/turist',
-        views: {
-            'app-pathdetail-turist': {
-                templateUrl: 'templates/pathdetail-turist.html',
-                controller: 'PathDetailTuristCtrl'
+            cache: false,
+            url: '/turist',
+            views: {
+                'app-pathdetail-turist': {
+                    templateUrl: 'templates/pathdetail-turist.html',
+                    controller: 'PathDetailTuristCtrl'
+                }
             }
-        }
-    })
-
-    .state('app.poidetail', {
-        cache: false,
-        url: '/poidetail',
-        abstract: false,
-        views: {
-            'menuContent': {
-                templateUrl: "templates/poidetail.html",
-                controller: 'PoiDetailCtrl'
+        })
+        .state('app.pathdetail.near', {
+            cache: false,
+            url: '/near',
+            views: {
+                'app-pathdetail-near': {
+                    templateUrl: 'templates/pathdetail-near.html',
+                    controller: 'PathDetailNearCtrl'
+                }
             }
-        }
-    })
+        })
+        .state('app.poidetail', {
+            cache: false,
+            url: '/poidetail',
+            abstract: false,
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/poidetail.html",
+                    controller: 'PoiDetailCtrl'
+                }
+            }
+        })
 
     .state('app.favorites', {
             cache: false,
@@ -310,9 +318,9 @@ angular.module('roveretoPercorsi', [
         path_difficulty_3: 'Alta',
         path_itinerary: 'ITINERARIO',
         archive_empty_list: 'Nessun percorso',
-        categories_title: 'Rovereto Percorsi',
+        categories_title: 'Tesori Nascosti',
         credits_title: 'Credits',
-        credits_app: 'Rovereto Percorsi',
+        credits_app: 'Tesori Nascosti',
         credits_project: 'Un progetto di:',
         credits_sponsored: 'Con la collaborazione di:',
         credits_info: 'Per informazioni:',
@@ -345,7 +353,7 @@ angular.module('roveretoPercorsi', [
         close: 'Chiudi',
         details: 'Dettagli',
         login_label: 'Login',
-        login_message: 'Per utilizzare la funzionalita\' devi prima effettuare il login',
+        login_message: 'Per utilizzare la funzionalità devi prima effettuare il login',
         login_popup_cancel: 'Non adesso',
         login_popup_ok: 'Login',
         login_done: 'Login effettuato con successo',
@@ -365,7 +373,6 @@ angular.module('roveretoPercorsi', [
         audio_starting: 'Avvio traccia audio',
         credits_licenses_button: 'VEDI LICENZE',
         path_informations: 'INFORMAZIONI',
-        menu_questionnaire: 'Questionario',
         orderby_alphabetically: 'Alfabetico',
         orderby_general: 'Ordinamento',
         orderby_length: 'Lunghezza',
@@ -378,8 +385,10 @@ angular.module('roveretoPercorsi', [
         setting_body_popup: 'Attiva la geolocalizzazione del tuo dispositivo per visualizzare la distanza',
         oder_popup_ok: 'Ordina',
         oder_popup_title: 'Ordinamento',
-        path_from_me: 'dalla tua posizione'
-
+        path_from_me: 'dalla tua posizione',
+        lbl_bar: 'Bar',
+        lbl_restaurant: 'Ristorante',
+        places_empty_error: 'Nessun luogo trovato'
     });
 
     $translateProvider.translations('en', {
@@ -465,8 +474,10 @@ angular.module('roveretoPercorsi', [
         setting_body_popup: 'Enable location services on your device to display the distance',
         oder_popup_ok: 'Order',
         oder_popup_title: 'Order',
-        path_from_me: 'by distance from your location'
-
+        path_from_me: 'by distance from your location',
+        lbl_bar: 'Bar',
+        lbl_restaurant: 'Restaurant',
+        places_empty_error: 'No places found'
     });
 
     $translateProvider.translations('de', {
@@ -475,70 +486,71 @@ angular.module('roveretoPercorsi', [
         menu_login: 'Login',
         menu_logout: 'Logout',
         menu_credits: 'Credits',
-        archive_empty_list: 'No paths',
-        categories_title: 'Hidden Treasures',
+        categories_title: 'Geheime Schätze',
+        archive_empty_list: 'Kein route',
         path_info: 'Info',
-        path_map: 'Map',
+        path_map: 'Karte',
         path_turist: 'Social',
-        path_difficulty: 'Difficulty',
-        path_difficulty_1: 'Low',
-        path_difficulty_2: 'Medium',
-        path_difficulty_3: 'Hard',
+        path_difficulty: 'Schwierigkeitsgrad',
+        path_difficulty_1: 'Leicht',
+        path_difficulty_2: 'Mittel',
+        path_difficulty_3: 'Schwer',
         path_itinerary: 'ROUTE',
+        favorites_emptylist: '',
         credits_title: 'Credits',
-        credits_app: 'Hidden Treasures',
-        credits_project: 'A project by:',
-        credits_sponsored: 'In collaboration with:',
-        credits_info: 'Further information:',
-        pathdetailmap_startpath: 'START ROUTE',
-        pathdetailmap_goto: 'Go',
+        credits_app: 'Geheime Schätze',
+        credits_project: 'Ein projekt von:',
+        credits_sponsored: 'In Zusammenarbeit mit:',
+        credits_info: 'Weitere Informationen:',
+        pathdetailmap_startpath: 'ROUTE STARTEN',
+        pathdetailmap_goto: 'Gehen',
         pathdetailinfo_vote: 'Rating',
-        pathdetailturist_vote: 'Rate',
+        pathdetailturist_vote: 'Bewerten',
         pathdetailturist_votes: 'Reviews',
-        pathdetailturist_review_label: 'Review',
-        pathdetailturist_review_hint: 'Review',
-        pathdetailturist_review: 'Add a review',
-        pathdetailturist_voteinfo: 'Rate this itinerary',
-        pathdetailtourist_empty_list: 'Sorry, no reviews',
-        pathdetailtourist_anonymous: 'Anonymous',
-        pathdetailtourist_your_review: 'Your review',
-        newreview_popup_title: 'Add your rating',
-        newreview_popup_cancel: 'Close',
-        newreview_popup_ok: 'Confirm',
-        vote_sent_toast_ok: 'Vote registered',
-        review_sent_toast_ok: 'Review sent',
-        addImage_popup_ok: 'Ok',
-        addImage_popup_cancel: 'Cancel',
-        addImage_label: 'Add an image',
-        addImage_isEmpty: 'Please, select a valid image',
-        images_send_toast_ok: 'New images added successfully',
-        images_send_toast_error: 'Error adding images',
-        toast_must_login: 'Function disabled. You must login',
-        poi_add_image_popup: 'Add to',
-        images_send_percorso_string: 'Path',
-        close: 'Close',
+        pathdetailturist_review_label: 'Fazit schreiben',
+        pathdetailturist_review_hint: 'Fazit',
+        pathdetailturist_review: 'Fazit veröffentlichen',
+        pathdetailturist_voteinfo: 'Bewertung hinzufügen',
+        pathdetailtourist_empty_list: 'Keine Reviews',
+        pathdetailtourist_anonymous: 'Anonym',
+        pathdetailtourist_your_review: 'Ihre Bewertung',
+        newreview_popup_title: 'Bewertung hinzufügen',
+        newreview_popup_cancel: 'Schließen',
+        newreview_popup_ok: 'Bestätigen',
+        vote_sent_toast_ok: 'Bewertung aufgezeichnet',
+        review_sent_toast_ok: 'Fazit aufgezeichnet',
+        addImage_popup_ok: 'OK',
+        addImage_popup_cancel: 'Abbrechen',
+        addImage_label: 'Bild hinzufügen',
+        addImage_isEmpty: 'Bitte wählen Sie ein gültiges Bildformat',
+        images_send_toast_ok: 'Neue Bilder wurden erfolgreich hinzugefügt',
+        images_send_toast_error: 'Fehler beim Hinzufügen von Bildern',
+        toast_must_login: 'Funktion nicht verfügbar: Login erforderlich',
+        poi_add_image_popup: 'Verbinde mit',
+        images_send_percorso_string: 'Weg',
+        close: 'Schließen',
         details: 'Details',
         login_label: 'Login',
-        login_message: 'You must login to use this functionality',
-        login_popup_cancel: 'Not now',
+        login_message: 'Man muss eingeloggt sein um diese Funktion zu nutzen',
+        login_popup_cancel: 'Nicht jetzt',
         login_popup_ok: 'Login',
-        login_done: 'Login durchgeführt',
-        logout_done: 'Logout durchgeführt',
-        syncing: 'Syncing....',
-        cleaning: 'Cleaning...',
-        review_empty_error: 'Insert a review',
-        path_tracks_title: 'AUDIO TRACKS',
-        path_more_information: 'More information',
-        path_less_information: 'Less information',
-        gallery_title: 'Images',
-        empty_gallery: 'No images',
-        modal_istitutional: 'Official photos',
-        modal_public: 'User photos',
-        preview_label: 'Preview',
-        avg_rating: 'AVERAGE RATING',
-        audio_starting: 'Start audiotrack',
-        credits_licenses_button: 'READ LICENSES',
-        path_informations: 'INFORMATION',
+        login_done: 'Login erfolgreich',
+        logout_done: 'Logout erfolgreich',
+        syncing: 'Aktualisierung im Gange...',
+        cleaning: 'Reinigung im Gange...',
+        review_empty_error: 'Fazit veröffentlichen',
+        path_tracks_title: 'AUDIO',
+        path_more_information: 'Mehr Informationen',
+        path_less_information: 'Weniger Informationen',
+        gallery_title: 'Fotos',
+        empty_gallery: 'Keine Fotos vorhanden',
+        modal_istitutional: 'Offizielle Fotos',
+        modal_public: 'Benutzerfotos',
+        preview_label: 'Vorschau',
+        avg_rating: 'Durchschnittliche Bewertung',
+        audio_starting: 'Führen audiospur',
+        credits_licenses_button: 'SIEHE LIZENZEN',
+        path_informations: 'INFORMATIONEN',
         menu_questionnaire: 'Umfrage',
         orderby_alphabetically: 'Alphabetically',
         orderby_general: 'Order by',
@@ -552,9 +564,10 @@ angular.module('roveretoPercorsi', [
         setting_body_popup: 'Ortungsdienste auf dem Gerät aktivieren um die Entfernung anzuzeigen',
         oder_popup_ok: 'Ordnen',
         oder_popup_title: 'Ordnen',
-        path_from_me: 'nach Entfernung von deiner Position'
-
-
+        path_from_me: 'nach Entfernung von deiner Position',
+        lbl_bar: 'Bar',
+        lbl_restaurant: 'Restaurant',
+        places_empty_error: 'Nichts gefunden'
 
 
     });
