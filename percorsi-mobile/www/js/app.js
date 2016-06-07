@@ -7,6 +7,7 @@
 angular.module('roveretoPercorsi', [
     'ionic',
     'ngCordova',
+    'ngIOS9UIWebViewPatch',
     'ngSanitize',
     'leaflet-directive',
     'pascalprecht.translate',
@@ -371,13 +372,13 @@ angular.module('roveretoPercorsi', [
         orderby_time: 'Tempo di percorrenza',
         orderby_difficulty: 'Difficoltà',
         orderby_distance: 'Distanza dalla partenza',
-        geolocation_error_message: 'Geolocazlizzazione non attiva',
+        geolocation_error_message: 'Geolocalizzazione non attiva',
         setting_open_popup: 'Impostazioni',
         setting_title_popup: 'Impostazioni',
         setting_body_popup: 'Attiva la geolocalizzazione del tuo dispositivo per visualizzare la distanza',
         oder_popup_ok: 'Ordina',
+        oder_popup_title: 'Ordinamento',
         path_from_me: 'dalla tua posizione'
-
 
     });
 
@@ -401,7 +402,7 @@ angular.module('roveretoPercorsi', [
         credits_app: 'Hidden Treasures',
         credits_project: 'A project by:',
         credits_sponsored: 'In collaboration with:',
-        credits_info: 'Further informations:',
+        credits_info: 'Further information:',
         pathdetailmap_startpath: 'START ROUTE',
         pathdetailmap_goto: 'Go',
         pathdetailinfo_vote: 'Rating',
@@ -440,8 +441,8 @@ angular.module('roveretoPercorsi', [
         cleaning: 'Cleaning...',
         review_empty_error: 'Insert a review',
         path_tracks_title: 'AUDIO TRACKS',
-        path_more_information: 'More informations',
-        path_less_information: 'Less informations',
+        path_more_information: 'More information',
+        path_less_information: 'Less information',
         gallery_title: 'Images',
         empty_gallery: 'No images',
         modal_istitutional: 'Official photos',
@@ -450,7 +451,7 @@ angular.module('roveretoPercorsi', [
         avg_rating: 'AVERAGE RATING',
         audio_starting: 'Start audiotrack',
         credits_licenses_button: 'READ LICENSES',
-        path_informations: 'INFORMATIONS',
+        path_informations: 'INFORMATION',
         menu_questionnaire: 'Questionnaire',
         orderby_alphabetically: 'Alphabetically',
         orderby_general: 'Order by',
@@ -458,12 +459,13 @@ angular.module('roveretoPercorsi', [
         orderby_time: 'Travel time',
         orderby_difficulty: 'Difficulty',
         orderby_distance: 'Distance',
-        geolocation_error_message: 'Geolocation inactive',
+        geolocation_error_message: 'Location services are disabled',
         setting_open_popup: 'Settings',
         setting_title_popup: 'Settings',
-        setting_body_popup: 'Enable the geolocation of your device to display the distance',
+        setting_body_popup: 'Enable location services on your device to display the distance',
         oder_popup_ok: 'Order',
-        path_from_me: 'from your position'
+        oder_popup_title: 'Order',
+        path_from_me: 'by distance from your location'
 
     });
 
@@ -487,7 +489,7 @@ angular.module('roveretoPercorsi', [
         credits_app: 'Hidden Treasures',
         credits_project: 'A project by:',
         credits_sponsored: 'In collaboration with:',
-        credits_info: 'Further informations:',
+        credits_info: 'Further information:',
         pathdetailmap_startpath: 'START ROUTE',
         pathdetailmap_goto: 'Go',
         pathdetailinfo_vote: 'Rating',
@@ -526,8 +528,8 @@ angular.module('roveretoPercorsi', [
         cleaning: 'Cleaning...',
         review_empty_error: 'Insert a review',
         path_tracks_title: 'AUDIO TRACKS',
-        path_more_information: 'More informations',
-        path_less_information: 'Less informations',
+        path_more_information: 'More information',
+        path_less_information: 'Less information',
         gallery_title: 'Images',
         empty_gallery: 'No images',
         modal_istitutional: 'Official photos',
@@ -536,7 +538,7 @@ angular.module('roveretoPercorsi', [
         avg_rating: 'AVERAGE RATING',
         audio_starting: 'Start audiotrack',
         credits_licenses_button: 'READ LICENSES',
-        path_informations: 'INFORMATIONS',
+        path_informations: 'INFORMATION',
         menu_questionnaire: 'Umfrage',
         orderby_alphabetically: 'Alphabetically',
         orderby_general: 'Order by',
@@ -544,12 +546,14 @@ angular.module('roveretoPercorsi', [
         orderby_time: 'Travel time',
         orderby_difficulty: 'Difficulty',
         orderby_distance: 'Distance',
-        geolocation_error_message: 'Geolocation inactive',
+        geolocation_error_message: 'Ortungsdienste sind deaktiviert',
         setting_open_popup: 'Einstellungen',
         setting_title_popup: 'Einstellungen',
-        setting_body_popup: 'Aktivieren Sie die Geolocation des Geräts , um die Entfernung angezeigt werden',
-        oder_popup_ok: 'Reihenfolge',
-        path_from_me: 'von Ihrem Standort'
+        setting_body_popup: 'Ortungsdienste auf dem Gerät aktivieren um die Entfernung anzuzeigen',
+        oder_popup_ok: 'Ordnen',
+        oder_popup_title: 'Ordnen',
+        path_from_me: 'nach Entfernung von deiner Position'
+
 
 
 
