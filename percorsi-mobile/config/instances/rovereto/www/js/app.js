@@ -25,10 +25,11 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.pathdetailinfo',
     'roveretoPercorsi.controllers.pathdetailmap',
     'roveretoPercorsi.controllers.pathdetailturist',
-    'roveretoPercorsi.controllers.poidetail',
+    'roveretoPercorsi.controllers.pathdetailnear', 'roveretoPercorsi.controllers.poidetail',
     'roveretoPercorsi.controllers.favorites',
     'roveretoPercorsi.controllers.gallery',
     'roveretoPercorsi.services.conf',
+    'roveretoPercorsi.services.mapService',
     'roveretoPercorsi.services.login',
     'roveretoPercorsi.services.categories',
     'roveretoPercorsi.services.listPathsService',
@@ -44,13 +45,6 @@ angular.module('roveretoPercorsi', [
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate, Config) {
     $rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 
-    $rootScope.QUESTIONNAIRE = QUESTIONNAIRE;
-
-    $rootScope.extLogging = function (app, msg) {
-        if (EXTLOGGING) {
-            Restlogging.appLog(app, msg);
-        }
-    };
 
     $rootScope.getUserId = function () {
         if ($rootScope.userIsLogged) {
@@ -85,10 +79,7 @@ angular.module('roveretoPercorsi', [
                 });
             }, null);
         }
-        if (EXTLOGGING) {
-            Restlogging.init("http://150.241.239.65:8080");
-            startRatingSurvey();
-        }
+
         $rootScope.platform = ionic.Platform;
         $rootScope.backButtonStyle = $ionicConfig.backButton.icon();
     });
@@ -247,27 +238,36 @@ angular.module('roveretoPercorsi', [
     })
 
     .state('app.pathdetail.turist', {
-        cache: false,
-        url: '/turist',
-        views: {
-            'app-pathdetail-turist': {
-                templateUrl: 'templates/pathdetail-turist.html',
-                controller: 'PathDetailTuristCtrl'
+            cache: false,
+            url: '/turist',
+            views: {
+                'app-pathdetail-turist': {
+                    templateUrl: 'templates/pathdetail-turist.html',
+                    controller: 'PathDetailTuristCtrl'
+                }
             }
-        }
-    })
-
-    .state('app.poidetail', {
-        cache: false,
-        url: '/poidetail',
-        abstract: false,
-        views: {
-            'menuContent': {
-                templateUrl: "templates/poidetail.html",
-                controller: 'PoiDetailCtrl'
+        })
+        .state('app.pathdetail.near', {
+            cache: false,
+            url: '/near',
+            views: {
+                'app-pathdetail-near': {
+                    templateUrl: 'templates/pathdetail-near.html',
+                    controller: 'PathDetailNearCtrl'
+                }
             }
-        }
-    })
+        })
+        .state('app.poidetail', {
+            cache: false,
+            url: '/poidetail',
+            abstract: false,
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/poidetail.html",
+                    controller: 'PoiDetailCtrl'
+                }
+            }
+        })
 
     .state('app.favorites', {
             cache: false,
@@ -378,7 +378,11 @@ angular.module('roveretoPercorsi', [
         setting_body_popup: 'Attiva la geolocalizzazione del tuo dispositivo per visualizzare la distanza',
         oder_popup_ok: 'Ordina',
         oder_popup_title: 'Ordinamento',
-        path_from_me: 'dalla tua posizione'
+        path_from_me: 'dalla tua posizione',
+        lbl_bar: 'Bar',
+        lbl_restaurant: 'Ristorante',
+        places_empty_error: 'Nessun luogo trovato'
+
 
     });
 
@@ -465,7 +469,11 @@ angular.module('roveretoPercorsi', [
         setting_body_popup: 'Enable location services on your device to display the distance',
         oder_popup_ok: 'Order',
         oder_popup_title: 'Order',
-        path_from_me: 'by distance from your location'
+        path_from_me: 'by distance from your location',
+        lbl_bar: 'Bar',
+        lbl_restaurant: 'Restaurant',
+        places_empty_error: 'No places found'
+
 
     });
 
@@ -552,7 +560,11 @@ angular.module('roveretoPercorsi', [
         setting_body_popup: 'Ortungsdienste auf dem Gerät aktivieren um die Entfernung anzuzeigen',
         oder_popup_ok: 'Ordnen',
         oder_popup_title: 'Ordnen',
-        path_from_me: 'nach Entfernung von deiner Position'
+        path_from_me: 'nach Entfernung von deiner Position',
+        lbl_bar: 'Bar',
+        lbl_restaurant: 'Restaurant',
+        places_empty_error: 'Nichts gefunden'
+
 
 
 

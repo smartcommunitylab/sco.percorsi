@@ -1,0 +1,29 @@
+<ion-modal-view class="fb-places-modal" ng-click="closeMap()">
+    <ion-header-bar>
+        <h1 class="title">{{item.title | translate_remote}}</h1>
+        <button class="button button-clear" ng-click="closeMap()">
+            <i class="icon ion-close"></i>
+        </button>
+    </ion-header-bar>
+    <!--
+<ion-modal-view class="gallery-modal" ng-click="closeModal()">
+    <ion-header-bar align-title="center">
+        <div class="buttons">
+            <i class="icon close-modal" ng-class="{'ion-android-arrow-back': platform.isAndroid(), 'ion-ios-arrow-back': !platform.isAndroid()}" ng-click="closeMap()"></i>
+        </div>
+        <h1 class="title">{{title}}</h1>
+
+    </ion-header-bar>
+-->
+
+    <ion-content scroll="false">
+        <!--
+        <div id="modal-map-container" data-tap-disabled="true">
+            <leaflet event-broadcast="events" center="center" markers="markers" style="width: 100%; height: 700px;" ng-init="initMap()" id="modalMap"></leaflet>
+        </div>
+-->
+        <div id="map-container" data-tap-disabled="true">
+            <leaflet event-broadcast="events" center="center" markers="markers" paths="pathLine" ng-init="initMap()" id="modalMap" style="width: 100%; height: 700px;"></leaflet>
+        </div>
+    </ion-content>
+</ion-modal-view>

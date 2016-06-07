@@ -2,7 +2,6 @@ angular.module('roveretoPercorsi.controllers.paths', [])
 
 .controller('PathsCtrl', function ($scope, $rootScope, $http, $ionicPopup, $stateParams, $ionicHistory, $filter, $ionicLoading, categoriesService, listPathsService, singlePathService, favoritesService) {
     $scope.category = categoriesService.getSelectedCategory();
-    $rootScope.extLogging("AppConsume", "category+" + $scope.category.id);
     $scope.paths = [];
     $scope.noMorePathsAvailable = false;
     $scope.orderList = [

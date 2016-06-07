@@ -9,8 +9,6 @@ cityName = {
 
 SCHEMA_VERSION = 3;
 
-QUESTIONNAIRE = false;
-EXTLOGGING = false;
 
 FORCED_LANGUAGE = null;
 

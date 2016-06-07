@@ -18,6 +18,8 @@ body {
 .modal-backdrop.active .modal-backdrop-bg {
     opacity: 0.8;
 }
+
+
 /*
 #map {
     position: absolute;
@@ -117,7 +119,6 @@ body {
     border-color: #009688;
     background-color: #009688;
     /*background-image: none;*/
-
     color: #fff;
 }
 
@@ -147,7 +148,6 @@ body {
 
 .tabs-striped.tabs-percorsi .tab-item {
     /*color: rgba(255, 255, 255, .4);*/
-
     color: #fff;
     opacity: 1;
 }
@@ -156,7 +156,6 @@ body {
 .tabs-striped.tabs-percorsi .tab-item.active,
 .tabs-striped.tabs-percorsi .tab-item.tab-item-active {
     /*margin-top: -2px;*/
-
     color: #fff;
     border-style: solid;
     border-width: 0 0 4px !important;
@@ -183,7 +182,6 @@ body {
     z-index: 3;
     padding: 8px;
     /*0.5em;*/
-
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
     color: #009688;
@@ -213,7 +211,6 @@ body {
 
 .path-numbers span {
     /*    color: #009688;*/
-
     vertical-align: super;
 }
 
@@ -287,6 +284,7 @@ body {
     align-items: center;
     padding-right: 48px;
 }
+
 .icon-difficulty {
     width: 40px;
     align-items: center;
@@ -295,6 +293,7 @@ body {
 .v-center {
     vertical-align: middle;
 }
+
 .path-length-detail {
     width: 100%;
     padding: 8px;
@@ -321,6 +320,8 @@ body {
     right: 8px;
     font-size: larger;
 }
+
+
 /*
 ion-slide div[cover-img] i {
     position: absolute;
@@ -573,7 +574,6 @@ ion-slide div[cover-img] i {
 
 .rating-avg .icon-rating {
     /*    color: #b2dfdb;*/
-
     margin: 0;
 }
 
@@ -707,7 +707,6 @@ ion-side-menu ion-item .icon {
 
 .poi-list-item {
     /*    margin-top: 10px;*/
-
     color: #000000;
     position: absolute;
     padding: 28px;
@@ -853,7 +852,6 @@ ion-side-menu ion-item .icon {
     width: 30%;
     padding-bottom: 30%;
     /* = width for a 1:1 aspect ratio */
-
     margin: 1.66%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -982,7 +980,6 @@ ion-side-menu ion-item .icon {
 
 .social-numbers span {
     /*    color: #009688;*/
-
     font-size: 18px;
     vertical-align: super;
 }
@@ -1068,6 +1065,27 @@ ion-side-menu ion-item .icon {
     padding-right: 8px;
 }
 
+.list-fb-places {
+    min-height: 50px;
+}
+
+.place-category {
+    font-size: 10px;
+}
+
+.place-name {
+    width: 80%;
+}
+
+.place-icons {
+    min-width: 25px;
+    color: #009688;
+}
+
+.item-button-right {
+    min-height: 50px;
+}
+
 .button-poi-nav-right {
     width: 100px;
     text-align: right;
@@ -1135,9 +1153,26 @@ ion-side-menu ion-item .icon {
 }
 
 .item-radio input:checked + .item-content {
-    background: #fff ;
+    background: #fff;
 }
 
 .item-radio input:checked + .radio-icon {
     visibility: visible;
+}
+
+.fb-places-modal {
+    background-color: #009688;
+    color: #009688;
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.fb-places-modal ion-header-bar {
+    background-color: #009688;
+}
+
+.fb-icon {
+    color: #3b5998;
 }

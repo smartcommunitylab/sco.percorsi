@@ -38,7 +38,6 @@ angular.module('roveretoPercorsi.services.addImageService', [])
                         $ionicLoading.hide();
                         Toast.show($filter('translate')("images_send_toast_ok"), "short", "bottom");
                         //log
-                        $rootScope.extLogging("AppProsume", "newimage");
                         item = data;
                         deferred.resolve(item);
 

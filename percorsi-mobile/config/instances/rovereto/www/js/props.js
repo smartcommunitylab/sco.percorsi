@@ -5,8 +5,6 @@ cityName = {
     'en': 'Rovereto Paths',
     'de': 'Rovereto Paths'
 };
-QUESTIONNAIRE = true;
-EXTLOGGING = true;
 
 FILTERSOCIALSLIDE = true;
 FILTERSOCIALTAB = true;

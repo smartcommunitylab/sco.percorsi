@@ -1,10 +1,13 @@
 angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
 
-.controller('PathDetailMapCtrl', function ($scope, $state, singlePathService, $ionicPlatform, $ionicHistory, leafletData, $filter, mapConversionService, singlePoiService) {
+.controller('PathDetailMapCtrl', function ($scope, $state, singlePathService, $ionicPlatform, $ionicHistory, mapService, leafletData, $filter, mapConversionService, singlePoiService) {
     $scope.path = singlePathService.getSelectedPath();
     var markers = [];
     var boundArray = [];
     var mymap = document.getElementById('map-container');
+    mapService.initMap('tabMap').then(function () {
+        //add polyline
+    });
     if (mymap != null) {
         resizeElementHeight(mymap);
     }
@@ -63,7 +66,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
     };
 
     $scope.closeWin = function () {
-        leafletData.getMap().then(function (map) {
+        mapService.getMap('tabMap').then(function (map) {
             map.closePopup();
         });
     };
@@ -94,7 +97,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
         });
     };
 
-    leafletData.getMap().then(function (map) {
+    mapService.getMap('tabMap').then(function (map) {
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18
         }).addTo(map);

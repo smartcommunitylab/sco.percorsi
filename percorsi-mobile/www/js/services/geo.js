@@ -1,6 +1,6 @@
 angular.module('services.geo', [])
 
-.factory('GeoLocate', function ($q, $rootScope) {
+.factory('GeoLocate', function ($q, $rootScope, $ionicPlatform, leafletData) {
         var localization = undefined;
         var initLocalization = function () {
             if (typeof localization == 'undefined') {
@@ -75,6 +75,26 @@ angular.module('services.geo', [])
                     console.log('cannot calculate distance!');
                 }
                 return d;
+            },
+            initMap: function (mapId) {
+                var deferred = $q.defer();
+
+                leafletData.getMap(mapId).then(function (map) {
+                        L.tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png', {
+                            type: 'map',
+                            ext: 'jpg',
+                            attribution: '',
+                            subdomains: '1234',
+                            maxZoom: 18
+                        }).addTo(map);
+                        map.invalidateSize();
+                        deferred.resolve(map);
+                    },
+                    function (error) {
+                        console.log('error creation');
+                        deferred.reject(error);
+                    });
+                return deferred.promise;
             },
             distanceTo: function (gotoPosition) {
                 var GL = this;

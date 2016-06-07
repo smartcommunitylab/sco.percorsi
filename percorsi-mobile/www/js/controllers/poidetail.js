@@ -60,7 +60,6 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
         $ionicSlideBoxDelegate.$getByHandle('poi-details-slide-box').slidesCount();
         $ionicHistory.clearCache()
             //        $ionicScrollDelegate.resize();
-        $rootScope.extLogging("AppConsume", "poi+" + singlePoiService.getSelectedPoi().localId);
 
     }
 
