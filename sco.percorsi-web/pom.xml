@@ -36,12 +36,12 @@
 			<type>jar</type>
 		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-log4j12</artifactId> -->
-<!-- 			<version>1.7.7</version> -->
-<!-- 		</dependency> -->
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        
 		<!-- Servlet and lib -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -181,7 +181,7 @@
                 <version>1.6</version>
                 <executions>
                     <execution>
-                        <id>SayService</id>
+                        <id>SCO</id>
                         <configuration>
                             <schemaDirectory>XSD</schemaDirectory>
                             <bindingDirectory>XSD</bindingDirectory>
