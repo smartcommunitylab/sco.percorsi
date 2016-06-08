@@ -84,7 +84,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         	.antMatchers("/","/console/**","/mgmt/**")
         		.authenticated()
             .anyRequest()
-            	.permitAll();
+            	.permitAll()
+        	.and()
+        		.addFilter(basicAuthenticationFilter());
+	    
 	    http
         .formLogin()
             .loginPage("/login")
@@ -98,6 +101,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Bean
 	public RememberMeAuthenticationFilter rememberMeAuthenticationFilter() throws Exception{
 		 return new RememberMeAuthenticationFilter(authenticationManager(), tokenBasedRememberMeService());
+	}
+	@Bean
+	public BasicAuthenticationFilter basicAuthenticationFilter() throws Exception{
+		 return new BasicAuthenticationFilter(authenticationManager());
 	}
 	public RememberMeAuthenticationProvider rememberMeAuthenticationProvider(){
 		 return new RememberMeAuthenticationProvider(tokenBasedRememberMeService().getKey());
