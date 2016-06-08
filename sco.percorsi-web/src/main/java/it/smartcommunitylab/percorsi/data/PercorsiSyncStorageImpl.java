@@ -83,7 +83,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 
 	public Long publish(String appId) throws DataException {
 		Long version = getDraftVersion(appId);
-		if (version > getPublicVersion(appId)) {
+		if (version != null && version > getPublicVersion(appId)) {
 			// update categories if changed
 			Categories draftCategories = getDraftCategories(appId);
 			if (draftCategories != null) {
