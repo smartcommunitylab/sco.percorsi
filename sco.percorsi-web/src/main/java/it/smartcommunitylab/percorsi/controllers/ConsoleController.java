@@ -18,6 +18,7 @@ package it.smartcommunitylab.percorsi.controllers;
 
 import it.smartcommunitylab.percorsi.model.Categories;
 import it.smartcommunitylab.percorsi.model.ModObj;
+import it.smartcommunitylab.percorsi.model.Path;
 import it.smartcommunitylab.percorsi.model.PathData;
 import it.smartcommunitylab.percorsi.model.ProviderSettings;
 import it.smartcommunitylab.percorsi.model.Rating;
@@ -41,6 +42,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -74,10 +76,29 @@ public class ConsoleController {
 		return "login";
 	}
 
-	@RequestMapping(value = "/console/data")
-	public @ResponseBody ProviderSettings data() {
+	@RequestMapping(value = "/console/provider")
+	public @ResponseBody ProviderSettings provider() throws DataException {
 		return getProvider(getAppId());
 	}
+	@RequestMapping(value = "/console/categories")
+	public @ResponseBody Categories categories() throws DataException {
+		return manager.getDraftCategories(getAppId());
+	}
+	@RequestMapping(value = "/console/categories", method = RequestMethod.POST)
+	public @ResponseBody ProviderSettings saveCategories(@RequestBody Categories categories) throws DataException {
+		manager.storeDraftCategories(getAppId(), categories);
+		return getProvider(getAppId());
+	}
+	@RequestMapping(value = "/console/paths")
+	public @ResponseBody List<Path> paths() throws DataException {
+		return manager.getDraftPaths(getAppId());
+	}
+	@RequestMapping(value = "/console/paths", method = RequestMethod.POST)
+	public @ResponseBody ProviderSettings savePaths(@RequestBody List<Path> paths) throws DataException {
+		manager.storeDraftPaths(getAppId(), paths);
+		return getProvider(getAppId());
+	}
+	
 	@RequestMapping(value = "/console/publish", method = RequestMethod.POST)
 	public @ResponseBody ProviderSettings publish(MultipartHttpServletRequest req) throws Exception {
 		String appId = getAppId();
@@ -93,7 +114,7 @@ public class ConsoleController {
 		PathData list = new ObjectMapper().readValue(file.getInputStream(), PathData.class);
 
 		String appId = getAppId();
-		manager.storePaths(appId, list.getData());
+		manager.storeDraftPaths(appId, list.getData());
 		return getProvider(appId);
 	}
 
@@ -107,12 +128,12 @@ public class ConsoleController {
 		if (file != null && !file.isEmpty()) {
 			it.smartcommunitylab.percorsi.xml.PathData xmlData = JAXB.unmarshal(file.getInputStream(), it.smartcommunitylab.percorsi.xml.PathData.class);
 			PathData data = XMLUtils.toDomain(xmlData);
-			manager.storePaths(appId, data.getData());
+			manager.storeDraftPaths(appId, data.getData());
 		}
 		if (catFile != null && !catFile.isEmpty()) {
 			it.smartcommunitylab.percorsi.xml.Categories xmlData = JAXB.unmarshal(catFile.getInputStream(), it.smartcommunitylab.percorsi.xml.Categories.class);
 			Categories data = XMLUtils.toDomain(xmlData);
-			manager.storeCategories(appId, data);
+			manager.storeDraftCategories(appId, data);
 		}
 		return getProvider(appId);
 	}
@@ -145,9 +166,9 @@ public class ConsoleController {
 			moderationManager.rejectUserImage(getAppId(), localId, contributorId, value);
 	}
 	
-	private ProviderSettings getProvider(String appId) {
+	private ProviderSettings getProvider(String appId) throws DataException {
 		ProviderSettings ps = setup.findProviderById(appId);
-		ps.setNewVersion(manager.getNewVersion(appId));
+		ps.setNewVersion(manager.getDraftVersion(appId));
 		return ps;
 	}
 	
