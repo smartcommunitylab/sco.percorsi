@@ -16,7 +16,7 @@ angular.module('DataService', [])
     return {
        getProfile : function() {
           var deferred = $q.defer();
-          $http.get('console/data').success(function(data) {
+          $http.get('console/provider').success(function(data) {
             deferred.resolve(data);
           }).error(function(e) {
             deferred.reject(e);
