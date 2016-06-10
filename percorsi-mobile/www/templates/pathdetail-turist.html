@@ -29,7 +29,7 @@
             </span>
         </div>
         <div class="row">
-            <div class="col-25 col-offset-75 social-numbers"><span>{{path.voteCount}}</span><i class="icon sco-public"></i>
+            <div class="col-25 col-offset-75 social-numbers"><span ng-if="path.voteCount!=0">{{path.voteCount}}</span><span ng-if="path.voteCount==0 || !path.voteCount">0</span><i class="icon sco-public"></i>
             </div>
         </div>
         <div class="separator"></div>
@@ -56,7 +56,7 @@
             <span class="social-label">{{'pathdetailturist_votes'| translate}}</span>
         </div>
         <!-- Reviews list -->
-        <div class="emptylist" ng-if="emptylist">
+        <div class="emptylist " ng-if="emptylist || reviews.length == 0">
             <!--<div class="item item-text-wrap">-->
             {{'pathdetailtourist_empty_list' | translate}}
             <!--</div>-->

@@ -144,9 +144,9 @@
                     "en": "Centro Musica"
                 },
                 "description": {
-                    "de": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            ",
-                    "it": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            ",
-                    "en": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: http://www.trentogiovani.it/index.php/musica/centro-musica<br/>\n            "
+                    "de": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: <a href='http://www.trentogiovani.it/index.php/musica/centro-musica'>http://www.trentogiovani.it/index.php/musica/centro-musica</a><br/>\n            ",
+                    "it": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: <a href='http://www.trentogiovani.it/index.php/musica/centro-musica'>http://www.trentogiovani.it/index.php/musica/centro-musica</a><br/>\n            ",
+                    "en": "\n<br/>\nSEDE: Sanbapolis, via della Malpensada 136, Trento<br/>\n<br/>\nINFO: 0461 217497<br/>\n<br/>\nLINK EVENTI: <a href='http://www.trentogiovani.it/index.php/musica/centro-musica'>http://www.trentogiovani.it/index.php/musica/centro-musica</a><br/>\n            "
                 },
                 "images": [{
                     "title": {

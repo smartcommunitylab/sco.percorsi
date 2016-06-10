@@ -18,7 +18,7 @@
         <button class="button button-percorsi button-clear button-poi-nav-left" ng-click="prevPOI()" ng-class="{'hidden': firstPOI}">
             <i class="ion-chevron-left"></i>
         </button>
-        <h2 class="title">{{currentItemIndex}}/{{path.pois.length}}</h2>
+        <h2 class="title">{{'poi_details_stage' | translate}} {{currentItemIndex}} {{'poi_details_of' | translate}}  {{path.pois.length}}</h2>
         <button class="button button-percorsi button-clear button-poi-nav-right" ng-click="nextPOI()" ng-class="{'hidden': lastPOI}">
             <i class="ion-chevron-right"></i>
         </button>

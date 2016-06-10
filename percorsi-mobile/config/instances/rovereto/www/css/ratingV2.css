@@ -1,0 +1,290 @@
+/* This section of the file was found on http://trentrichardson.com/Impromptu/ .It handles the appearance of the feedback form.*/
+/*! jQuery-Impromptu - v5.2.3 - 2014-03-09 * Copyright (c) 2014 Trent Richardson; Licensed MIT */
+
+.jqifade {
+    position: absolute;
+    background-color: #777777;
+}
+
+div.jqi {
+    width: 92%;
+    <!--height: 80%;
+    --> max-width: 92%;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    position: absolute;
+    background-color: #ffffff;
+    font-size: 16px;
+    text-align: left;
+    border: solid 0px green;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    padding: 7px;
+}
+
+div.jqi .jqicontainer {}
+
+div.jqi .jqiclose {
+    position: absolute;
+    top: 5px;
+    right: -5px;
+    width: 38px;
+    cursor: default;
+    color: #bbbbbb;
+    font-size: 28px;
+}
+
+div.jqi .jqistate {
+    background-color: #fff;
+    border: 0px solid yellow;
+    padding: 0;
+}
+
+div.jqi .jqititle {
+    padding: 5px 10px;
+    font-size: 15px;
+    line-height: 27px;
+    margin-right: 12px;
+    border-bottom: solid 1px #eeeeee;
+    background-image: url("iescities-logo.png");
+    background-repeat: no-repeat;
+    <!--text-align: center;
+    -->
+}
+
+div.jqi .jqimessage {
+    padding: 2px;
+    line-height: 20px;
+    color: #444444;
+    border: 0px solid blue;
+}
+
+div.jqi .jqibuttons {
+    text-align: right;
+    margin: 0 -7px -7px -7px;
+    border-top: solid 1px #e4e4e4;
+    background-color: #f4f4f4;
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+}
+
+div.jqi .jqibuttons button {
+    margin: 0;
+    padding: 15px 20px;
+    background-color: transparent;
+    font-weight: normal;
+    border: none;
+    border-left: solid 1px #e4e4e4;
+    color: #777;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+div.jqi .jqibuttons button.jqidefaultbutton {
+    color: #489afe;
+}
+
+div.jqi .jqibuttons button:hover,
+div.jqi .jqibuttons button:focus {
+    color: #287ade;
+    outline: none;
+}
+
+.jqiwarning .jqi .jqibuttons {
+    background-color: #b95656;
+}
+/* sub states */
+
+div.jqi .jqiparentstate::after {
+    background-color: #777;
+    opacity: 0.6;
+    filter: alpha(opacity 60);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+}
+
+div.jqi .jqisubstate {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 60%;
+    padding: 7px;
+    border: solid 1px #eeeeee;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+}
+
+div.jqi .jqisubstate .jqibuttons button {
+    padding: 10px 18px;
+}
+/* arrows for tooltips/tours */
+
+.jqi .jqiarrow {
+    position: absolute;
+    height: 0;
+    width: 0;
+    line-height: 0;
+    font-size: 0;
+    border: solid 10px transparent;
+}
+
+.jqi .jqiarrowtl {
+    left: 10px;
+    top: -20px;
+    border-bottom-color: #ffffff;
+}
+
+.jqi .jqiarrowtc {
+    left: 50%;
+    top: -20px;
+    border-bottom-color: #ffffff;
+    margin-left: -10px;
+}
+
+.jqi .jqiarrowtr {
+    right: 10px;
+    top: -20px;
+    border-bottom-color: #ffffff;
+}
+
+.jqi .jqiarrowbl {
+    left: 10px;
+    bottom: -20px;
+    border-top-color: #ffffff;
+}
+
+.jqi .jqiarrowbc {
+    left: 50%;
+    bottom: -20px;
+    border-top-color: #ffffff;
+    margin-left: -10px;
+}
+
+.jqi .jqiarrowbr {
+    right: 10px;
+    bottom: -20px;
+    border-top-color: #ffffff;
+}
+
+.jqi .jqiarrowlt {
+    left: -20px;
+    top: 10px;
+    border-right-color: #ffffff;
+}
+
+.jqi .jqiarrowlm {
+    left: -20px;
+    top: 50%;
+    border-right-color: #ffffff;
+    margin-top: -10px;
+}
+
+.jqi .jqiarrowlb {
+    left: -20px;
+    bottom: 10px;
+    border-right-color: #ffffff;
+}
+
+.jqi .jqiarrowrt {
+    right: -20px;
+    top: 10px;
+    border-left-color: #ffffff;
+}
+
+.jqi .jqiarrowrm {
+    right: -20px;
+    top: 50%;
+    border-left-color: #ffffff;
+    margin-top: -10px;
+}
+
+.jqi .jqiarrowrb {
+    right: -20px;
+    bottom: 10px;
+    border-left-color: #ffffff;
+}
+/*  http://code.stephenmorley.org/html-and-css/star-rating-widget/#css   */
+
+.RatingContainer-light {
+    margin: 0;
+    padding: 0.2em;
+    font-family: sans-serif;
+    border: 0px solid red;
+    line-height: 1.3em;
+    background-color: #fff;
+}
+
+.RatingContainer-dark {
+    margin: 0;
+    padding: 0.2em;
+    font-family: sans-serif;
+    border: 0px solid red;
+    line-height: 1.3em;
+    background-color: #EBEBE6;
+    font-size: 14px;
+    clear: both;
+}
+
+.RatingContainer {
+    margin: 0;
+    padding: 0.2em;
+    font-family: sans-serif;
+    border: 0px solid red;
+    line-height: 2.1em;
+    background-color: #EBEBE6;
+}
+
+p.starRatingPara {
+    margin: 0 0 0em;
+    padding: 0.1em;
+}
+
+.starRating:not(old) {
+    display: inline-block;
+    width: 7.5em;
+    height: 1.5em;
+    overflow: hidden;
+    vertical-align: bottom;
+    position: absolute;
+    right: 20px;
+}
+
+.starRating:not(old) > input {
+    margin-right: -100%;
+    opacity: 0;
+}
+
+.starRating:not(old) > label {
+    display: block;
+    float: right;
+    position: relative;
+    background-image: url('star-off.svg');
+    background-size: contain;
+}
+
+.starRating:not(old) > label:before {
+    content: '';
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url('star-on.svg');
+    background-size: contain;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.starRating:not(old) > label:hover:before,
+.starRating:not(old) > label:hover ~ label:before,
+.starRating:not(:hover) >:checked ~ label:before {
+    opacity: 1;
+}
