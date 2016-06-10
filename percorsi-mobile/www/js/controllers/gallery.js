@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.gallery', [])
 
-.controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService, singlePoiService, $cordovaCamera, $filter, Toast, FilterVariable, addImageService, DatiDB, $ionicHistory) {
+.controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService, singlePoiService, $cordovaCamera, $filter, Toast, FilterVariable, addImageService, DatiDB, $ionicHistory, $state) {
         $scope.item = null;
         $scope.selectedOption = null;
         $scope.path = singlePathService.getSelectedPath();
