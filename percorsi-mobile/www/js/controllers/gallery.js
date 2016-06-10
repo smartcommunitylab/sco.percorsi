@@ -1,6 +1,6 @@
 angular.module('roveretoPercorsi.controllers.gallery', [])
 
-.controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService, singlePoiService, $cordovaCamera, $filter, Toast, FilterVariable, addImageService, DatiDB) {
+.controller('GalleryCtrl', function ($scope, $http, $ionicModal, galleryService, singlePathService, singlePoiService, $cordovaCamera, $filter, Toast, FilterVariable, addImageService, DatiDB, $ionicHistory) {
         $scope.item = null;
         $scope.selectedOption = null;
         $scope.path = singlePathService.getSelectedPath();
@@ -22,6 +22,16 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
             name: $filter('translate')('images_send_percorso_string'),
             id: 0
     }];
+
+        $scope.back = function () {
+            if ($ionicHistory.length > 0) {
+                $ionicHistory.goBack();
+            } else {
+                $state.go('app.pathdetail.info');
+                // window.location.assign("#/app/path/info");
+            }
+        }
+
 
         for (var i = 0; i < ($scope.path.pois.length); i++) {
             $scope.options.push({
