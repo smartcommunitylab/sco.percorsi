@@ -2,6 +2,11 @@ var consoleControllers = angular.module('consoleControllers', [])
 
 .controller('MainCtrl', ['$scope', '$rootScope', '$location', 'DataService',
   function ($scope, $rootScope, $location, DataService) {
+	$scope.view = 'model';
+	$scope.switchView = function(view) {
+		$scope.view = view;
+	}
+
 	$scope.modView = 'it.smartcommunitylab.percorsi.model.Path';
 	$scope.moderated = {};
 	$scope.paging = {'it.smartcommunitylab.percorsi.model.Path':{page:0, size: 5}, 'it.smartcommunitylab.percorsi.model.Rating':{page:0, size: 5}};
@@ -31,6 +36,10 @@ var consoleControllers = angular.module('consoleControllers', [])
     	window.open('console/export','_blank');
     };
     
+    $scope.publish = function() {
+    	DataService.publish($scope.profile.id);
+    };
+
     $scope.next = function(type) {
     	if ($scope.moderated[type].length < $scope.paging[type].size) return;
     	

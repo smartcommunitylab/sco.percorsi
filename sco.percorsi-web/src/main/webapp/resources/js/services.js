@@ -16,12 +16,21 @@ angular.module('DataService', [])
     return {
        getProfile : function() {
           var deferred = $q.defer();
-          $http.get('console/data').success(function(data) {
+          $http.get('console/provider').success(function(data) {
             deferred.resolve(data);
           }).error(function(e) {
             deferred.reject(e);
           });
           return deferred.promise;
+       },
+       publish : function() {
+           var deferred = $q.defer();
+           $http.post('console/publish').success(function(data) {
+             deferred.resolve(data);
+           }).error(function(e) {
+             deferred.reject(e);
+           });
+           return deferred.promise;
        },
        getModerated : function(type, paging) {
            var deferred = $q.defer();

@@ -76,21 +76,21 @@ public class PercorsiManager {
 				ps.getCategories().setLocalId("1");
 				Categories categories = repository.getObjectById("1",Categories.class,ps.getId());
 				if (categories == null || categories.getLastChange() < ps.getCategories().getLastChange()) {
-					repository.storeObject(ps.getCategories(), ps.getId());
+					repository.storeDraftObject(ps.getCategories(), ps.getId());
 				}
 			}
 		}
 	}
 
-	public void storePaths(String appId, List<Path> list) throws DataException {
+	public void storeDraftPaths(String appId, List<Path> list) throws DataException {
 		logger.info("Storing paths for app {}", appId);
 		Map<String, Path> oldIds = new HashMap<String, Path>();
-		List<Path> oldPaths = getPaths(appId, null);
+		List<Path> oldPaths = getDraftPaths(appId);
 		if (oldPaths != null) for (Path p : oldPaths) oldIds.put(p.getLocalId(), p);
 		
 		for (Path p : list) {
 			p.setAppId(appId);
-			Path old = repository.getObjectById(p.getLocalId(), Path.class, appId);
+			Path old = oldIds.get(p.getLocalId());
 			if (old != null) {
 				oldIds.remove(old.getLocalId());
 			}
@@ -119,22 +119,19 @@ public class PercorsiManager {
 						}
 					}
 				}
-				repository.storeObject(p);
+				repository.storeDraftObject(p, appId);
 			}
 		}
 		for (String oldId : oldIds.keySet()) {
-			repository.deleteObject(oldIds.get(oldId), appId);
+			repository.deleteDraftObject(oldIds.get(oldId), appId);
 		}
 	}
 
-	public void storeCategories(String appId, Categories data) throws DataException {
+	public void storeDraftCategories(String appId, Categories data) throws DataException {
 		if (data.getCategories() != null) {
 			data.setLocalId("1");
 			data.setAppId(appId);
-			Categories categories = repository.getObjectById("1",Categories.class,appId);
-			if (categories == null || categories.getLastChange() < data.getLastChange()) {
-				repository.storeObject(data, appId);
-			}
+			repository.storeDraftObject(data, appId);
 		}
 	}
 	
@@ -257,6 +254,32 @@ public class PercorsiManager {
 		}
 		Rating rating = ratingRepository.findByAppIdAndLocalIdAndUserId(appId, pathId, contributor.getUserId());
 		return rating;
+	}
+
+	/**
+	 * @param appId
+	 */
+	public Long publish(String appId) throws DataException{
+		return repository.publish(appId);
+	}
+
+	/**
+	 * @param appId
+	 * @return
+	 */
+	public Long getDraftVersion(String appId) throws DataException{
+		return repository.getDraftVersion(appId);
+	}
+
+	public Categories getDraftCategories(String appId) throws DataException{
+		Categories draft = repository.getDraftCategories(appId);
+		if (draft == null) draft = getCategories(appId);
+		return draft;
+	}
+	public List<Path> getDraftPaths(String appId) throws DataException{
+		List<Path> paths = repository.getDraftPaths(appId);
+		if (paths == null || paths.isEmpty()) paths = getPaths(appId, null);
+		return paths;
 	}
 
 }

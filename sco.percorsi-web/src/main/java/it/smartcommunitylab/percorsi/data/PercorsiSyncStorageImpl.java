@@ -1,6 +1,13 @@
 package it.smartcommunitylab.percorsi.data;
 
+import it.smartcommunitylab.percorsi.model.Categories;
+import it.smartcommunitylab.percorsi.model.POI;
+import it.smartcommunitylab.percorsi.model.Path;
 import it.smartcommunitylab.percorsi.model.PercorsiObject;
+import it.smartcommunitylab.percorsi.model.ProviderSettings;
+import it.smartcommunitylab.percorsi.model.VersionObject;
+import it.smartcommunitylab.percorsi.security.ProviderSetup;
+import it.smartcommunitylab.percorsi.utils.MultimediaUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,6 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+
+import javax.annotation.PostConstruct;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +37,116 @@ import eu.trentorise.smartcampus.presentation.storage.sync.mongo.GenericObjectSy
 @Component
 public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<PercorsiBean> implements PercorsiSyncStorage {
 
+	private Map<String, Long> versionMap = new HashMap<String, Long>();
+
+	@Autowired
+	private ProviderSetup setup;
+
 	@Autowired
 	public PercorsiSyncStorageImpl(MongoOperations mongoTemplate) {
 		super(mongoTemplate);
+	}
+
+	@PostConstruct
+	protected void initVersions() throws DataException {
+		// read from DB
+		List<VersionObject> versions = mongoTemplate.findAll(VersionObject.class);
+		if (versions != null) {
+			for (VersionObject vo : versions) {
+				versionMap.put(vo.getAppId(), vo.getVersion());
+				setup.findProviderById(vo.getAppId()).setVersion(vo.getVersion());
+			}
+		}
+		// in case of data with no version, create it
+		List<ProviderSettings> providers = setup.getProviders();
+		for (ProviderSettings p : providers) {
+			if (versionMap.get(p.getId()) == null) {
+				publish(p.getId());
+			}
+		}
+	}
+
+	public Long getPublicVersion(String appId) {
+		return versionMap.get(appId);
+	}
+
+	@Override
+	public Long getDraftVersion(String appId) {
+		Criteria criteria = createBaseCriteria(appId);
+		Query q = Query.query(criteria);
+		q.with(new Sort(Direction.DESC, "version"));
+		q.limit(1);
+		List<PercorsiBean> res = mongoTemplate.find(q, getObjectClass(), getDraftCollectionName(getObjectClass()));
+		if (res != null && res.size() > 0) return res.get(0).getVersion();
+		return getPublicVersion(appId);
+	}
+
+	public Long publish(String appId) throws DataException {
+		Long version = getDraftVersion(appId);
+		if (version != null && version > getPublicVersion(appId)) {
+			// update categories if changed
+			Categories draftCategories = getDraftCategories(appId);
+			if (draftCategories != null) {
+				storeObject(draftCategories);
+			}
+			// update paths, merging the user images inside
+			List<Path> list = getDraftPaths(appId);
+			if (list != null && !list.isEmpty()) {
+				Criteria criteria = createBaseCriteria(appId);
+				criteria.and("deleted").is(false);
+				List<Path> oldPaths = find(Query.query(criteria), Path.class);
+
+				Map<String, Path> oldIds = new HashMap<String, Path>();
+				if (oldPaths != null) for (Path p : oldPaths) oldIds.put(p.getLocalId(), p);
+				for (Path p : list) {
+					p.setAppId(appId);
+					Path old = oldIds.get(p.getLocalId());
+					if (old != null) {
+						oldIds.remove(old.getLocalId());
+					}
+					if (old == null || !old.coreDataEquals(p)) {
+						if (old != null) {
+							p.setId(old.getId());
+							p.setVote(old.getVote());
+							p.setVoteCount(old.getVoteCount());
+							p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
+							p.setVideos(MultimediaUtils.mergeProviderMultimedia(p.getVideos(), old.getVideos()));
+						}
+						if (p.getPois() != null) {
+							Map<String, POI> oldPois = new HashMap<String, POI>();
+							if (old != null && old.getPois() != null) {
+								for (POI oldPoi : old.getPois()) {
+									oldPois.put(oldPoi.getLocalId(), oldPoi);
+								}
+							}
+
+							for (POI poi : p.getPois()) {
+								if (poi.getLocalId() == null) throw new DataException("POI local ID is missing");
+								POI oldPoi = oldPois.get(poi.getLocalId());
+								if (oldPoi != null) {
+									poi.setImages(MultimediaUtils.mergeProviderMultimedia(poi.getImages(), oldPoi.getImages()));
+									poi.setVideos(MultimediaUtils.mergeProviderMultimedia(poi.getVideos(), oldPoi.getVideos()));
+								}
+							}
+						}
+						storeObject(p);
+					}
+				}
+				for (String oldId : oldIds.keySet()) {
+					deleteObject(oldIds.get(oldId));
+				}
+			}
+			Criteria criteria = createBaseCriteria(appId);
+			mongoTemplate.remove(Query.query(criteria), getObjectClass(), getDraftCollectionName(getObjectClass()));
+		}
+
+		VersionObject vo = new VersionObject();
+		vo.setAppId(appId);
+		vo.setVersion(version);
+		mongoTemplate.save(vo);
+		versionMap.put(vo.getAppId(), vo.getVersion());
+		setup.findProviderById(appId).setVersion(version);
+		return version;
 	}
 
 	@Override
@@ -41,6 +157,10 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	public String getCollectionName(Class<?> cls) {
 		return "syncObject";
+	}
+
+	private String getDraftCollectionName(Class<?> cls) {
+		return "syncObjectDraft";
 	}
 
 	@Override
@@ -116,6 +236,11 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		return find(Query.query(criteria), (Class<PercorsiObject>) PercorsiObject.class);
 	}
 
+	protected <T extends BasicObject> List<T> findDraft(Query query, Class<T> cls) {
+		List<PercorsiBean> result = mongoTemplate.find(query, getObjectClass(), getDraftCollectionName(getObjectClass()));
+		return (List<T>)convert(result, cls);
+	}
+
 
 	@Override
 	public <T extends PercorsiObject> List<T> getAppObjectsByType(String appId, Class<T> cls) throws DataException {
@@ -151,7 +276,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 
 	@SuppressWarnings("unchecked")
 	private SyncData retrieveSyncData(String appId, long since, Map<String, Object> include, Map<String, Object> exclude) {
-		long newVersion = getVersion();
+		long newVersion = getPublicVersion(appId);
 		SyncData syncData = new SyncData();
 		syncData.setVersion(newVersion);
 		List<PercorsiBean> list = searchWithVersion(appId, since-1, newVersion, include, exclude);
@@ -215,11 +340,33 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	}
 
 	@Override
-	public <T extends PercorsiObject> T storeObject(T obj, String appId) throws DataException {
+	public <T extends PercorsiObject> T storeDraftObject(T obj, String appId) throws DataException {
 		obj.setLocalId(obj.getLocalId());
 		obj.setAppId(appId);
 
-		PercorsiBean old = getBean(obj, appId);
+		PercorsiBean old = getDraftBean(obj, appId);
+
+		try {
+			obj.setVersion(getNewVersion());
+			PercorsiBean newObj = convertToObjectBean(obj);
+			if (old != null) {
+				newObj.setId(old.getId());
+			} else {
+				newObj.setId(new ObjectId().toString());
+			}
+			mongoTemplate.save(newObj, getDraftCollectionName(obj.getClass()));
+			return obj;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataException(e.getMessage());
+		}
+	}
+
+	public <T extends PercorsiObject> T storePublicObject(T obj, String appId) throws DataException {
+		obj.setLocalId(obj.getLocalId());
+		obj.setAppId(appId);
+
+		PercorsiBean old = getBean(obj, appId, getCollectionName(getObjectClass()));
 
 		try {
 			obj.setVersion(getNewVersion());
@@ -235,8 +382,8 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			e.printStackTrace();
 			throw new DataException(e.getMessage());
 		}
-
 	}
+
 
 	@Override
 	protected <T extends BasicObject> PercorsiBean convertToObjectBean(T object)
@@ -254,11 +401,16 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		return appObj;
 	}
 
-	private <T extends PercorsiObject> PercorsiBean getBean(T obj, String appId) {
+	private <T extends PercorsiObject> PercorsiBean getDraftBean(T obj, String appId) {
+		PercorsiBean old = getBean(obj, appId, getDraftCollectionName(getObjectClass()));
+		if (old == null) old = getBean(obj, appId, getCollectionName(getObjectClass()));
+		return old;
+	}
+	private <T extends PercorsiObject> PercorsiBean getBean(T obj, String appId, String collection) {
 		PercorsiBean old = null;
 		Criteria criteria = createBaseCriteria(appId);
 		criteria.and("localId").is(obj.getLocalId());
-		List<PercorsiBean> result = mongoTemplate.find(Query.query(criteria), getObjectClass(), getCollectionName(getObjectClass()));
+		List<PercorsiBean> result = mongoTemplate.find(Query.query(criteria), getObjectClass(), collection);
 		if (result != null && !result.isEmpty()) {
 			old = result.get(0);
 		}
@@ -266,9 +418,9 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	}
 
 	@Override
-	public <T extends PercorsiObject> void deleteObject(T obj, String appId)  throws DataException {
+	public <T extends PercorsiObject> void deleteDraftObject(T obj, String appId)  throws DataException {
 		obj.setVersion(getNewVersion());
-		PercorsiBean old = getBean(obj, appId);
+		PercorsiBean old = getDraftBean(obj, appId);
 
 		try {
 			PercorsiBean newObj = convertToObjectBean(obj);
@@ -278,11 +430,29 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 				newObj.setId(new ObjectId().toString());
 			}
 			newObj.setDeleted(true);
-			mongoTemplate.save(newObj, getCollectionName(obj.getClass()));
+			mongoTemplate.save(newObj, getDraftCollectionName(obj.getClass()));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataException(e.getMessage());
 		}
 	}
+
+	@Override
+	public Categories getDraftCategories(String appId) throws DataException {
+		Criteria criteria = createBaseCriteria(appId);
+		criteria.and("deleted").is(false);
+		criteria.and("localId").is("1");
+		List<Categories> objs = findDraft(Query.query(criteria), Categories.class);
+		return objs == null || objs.size() == 0 ? null : objs.get(0);
+	}
+
+	@Override
+	public List<Path> getDraftPaths(String appId) throws DataException {
+		Criteria criteria = createBaseCriteria(appId);
+		criteria.and("deleted").is(false);
+		List<Path> objs = findDraft(Query.query(criteria), Path.class);
+		return objs;
+	}
+
 
 }

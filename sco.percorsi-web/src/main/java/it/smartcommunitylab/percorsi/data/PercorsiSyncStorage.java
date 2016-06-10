@@ -15,6 +15,8 @@
  ******************************************************************************/
 package it.smartcommunitylab.percorsi.data;
 
+import it.smartcommunitylab.percorsi.model.Categories;
+import it.smartcommunitylab.percorsi.model.Path;
 import it.smartcommunitylab.percorsi.model.PercorsiObject;
 
 import java.util.List;
@@ -44,7 +46,12 @@ public interface PercorsiSyncStorage extends BasicObjectSyncStorage {
 	public PercorsiObject getObjectById(String id, String appId) throws DataException;
 	public <T extends PercorsiObject> T getObjectById(String id, Class<T> cls, String appId) throws DataException;
 
-	public <T extends PercorsiObject> T storeObject(T obj, String appId) throws DataException;
-	public <T extends PercorsiObject> void deleteObject(T obj, String appId) throws DataException;
+	public <T extends PercorsiObject> T storeDraftObject(T obj, String appId) throws DataException;
+	public <T extends PercorsiObject> void deleteDraftObject(T obj, String appId) throws DataException;
+
+	public Long publish(String appId) throws DataException;
+	public Long getDraftVersion(String appId) throws DataException;
+	public Categories getDraftCategories(String appId) throws DataException;
+	public List<Path> getDraftPaths(String appId) throws DataException;
 
 }

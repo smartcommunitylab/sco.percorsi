@@ -52,9 +52,9 @@ public class TestModeration {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		Categories categories = mapper.readValue(new FileInputStream("src/test/resources/categories.json"), Categories.class);
-		percorsiManager.storeCategories("test", categories); 
+		percorsiManager.storeDraftCategories("test", categories);
 		PathData data = mapper.readValue(new FileInputStream("src/test/resources/paths.json"), PathData.class);
-		percorsiManager.storePaths("test", data.getData());
+		percorsiManager.storeDraftPaths("test", data.getData());
 	}
 	
 	@Test
