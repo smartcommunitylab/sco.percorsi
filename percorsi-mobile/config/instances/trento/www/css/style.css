@@ -144,6 +144,7 @@ body {
 
 .tabs-striped.tabs-percorsi .tabs {
     background-color: #0677bd;
+    padding-bottom: 2px;
 }
 
 .tabs-striped.tabs-percorsi .tab-item {
@@ -159,7 +160,7 @@ body {
     color: #fff;
     border-style: solid;
     border-width: 0 0 4px !important;
-    border-color: #023b69;
+    border-color: #fff;
 }
 
 .card {
@@ -1028,7 +1029,7 @@ ion-side-menu ion-item .icon {
     text-align: justify!important;
     color: #0677bd;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: normal!important;
 }
 
 .credits_row {
@@ -1198,4 +1199,8 @@ ion-side-menu ion-item .icon {
 
 .my-review-textarea {
     padding-left: 10px;
+}
+
+.menu .bar-header {
+    z-index: 0;
 }
