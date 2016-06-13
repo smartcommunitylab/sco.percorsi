@@ -74,7 +74,7 @@
 
             <div class="section" ng-class="{'expanded':isDescriptionShown()||(translateDescription(item.description).length<300)}">
                 <div class="description-info" compile="translateDescription(item.description)"></div>
-                <div class="fadeout"></div>
+                <div class="fadeout" ng-if="!isDescriptionShown()"></div>
             </div>
             <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()||(translateDescription(item.description).length<300)">
                 <div class="text-button">
