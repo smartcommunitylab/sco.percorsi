@@ -24,12 +24,14 @@ angular.module('roveretoPercorsi.controllers.gallery', [])
     }];
 
         $scope.back = function () {
-            if ($ionicHistory.length > 0) {
-                $ionicHistory.goBack();
-            } else {
-                $state.go('app.pathdetail.info');
-                // window.location.assign("#/app/path/info");
-            }
+//            if ($ionicHistory.length > 0) {
+//                $ionicHistory.goBack();
+//            } else {
+//                $state.go('app.pathdetail.info');
+//                // window.location.assign("#/app/path/info");
+//            }
+            $ionicHistory.goBack();
+
         }
 
 

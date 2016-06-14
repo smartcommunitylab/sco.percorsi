@@ -715,6 +715,9 @@ ion-side-menu ion-item .icon {
     padding: 28px;
     top: 0;
     left: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .poi-list-item-container {
@@ -1032,10 +1035,10 @@ ion-side-menu ion-item .icon {
 }
 
 .credits_thanks {
-    text-align: justify!important;
-    color: #0677bd;
-    font-size: 18px;
     font-weight: normal!important;
+    color: black;
+    font-size: 14px!important;
+    text-align: justify!important;
 }
 
 .credits_row {

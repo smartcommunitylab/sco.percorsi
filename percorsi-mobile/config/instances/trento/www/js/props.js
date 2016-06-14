@@ -1,4 +1,4 @@
-appId = 'ComuneTrento';
+appId = 'Trento';
 APP_VERSION = '1.0.0';
 
 cityName = {

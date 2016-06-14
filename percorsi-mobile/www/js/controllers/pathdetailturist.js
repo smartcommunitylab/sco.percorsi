@@ -66,7 +66,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.syncRating();
 
     $scope.getStars = function () {
-        return getStars($scope.path.vote);
+        if ($scope.path.vote)
+            return getStars($scope.path.vote);
+        return 0;
     };
 
 

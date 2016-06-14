@@ -714,6 +714,9 @@ ion-side-menu ion-item .icon {
     padding: 28px;
     top: 0;
     left: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .poi-list-item-container {
