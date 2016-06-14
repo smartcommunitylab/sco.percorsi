@@ -419,7 +419,7 @@ angular.module('roveretoPercorsi', [
         credits_project: 'A project by:',
         credits_sponsored: 'In collaboration with:',
         credits_info: 'Further information:',
-        credits_thanks: 'Un ringraziamento particolare agli studenti e agli insegnanti del Liceo A. Rosmini e ai ragazzi in servizio civile presso le Politiche giovanili del Comune di Trento che hanno contribuito a produrre i dati visualizzati nella app.',
+        credits_thanks: 'Special thanks to the students and teachers of Liceo A. Rosmini and to the youngsters engaged in the civil service at the Office for Youth Policies of the Municipality of Trento who helped producing the data displayed in the app.',
         credits_ambito: 'Inside the project:',
         credits_finanziato: 'Financed by:',
         pathdetailmap_startpath: 'START ROUTE',

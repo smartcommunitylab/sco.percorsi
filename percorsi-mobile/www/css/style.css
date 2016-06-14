@@ -239,7 +239,8 @@ body {
     padding: 4px;
     width: 30%;
     white-space: nowrap;
-    margin-right: 4px;
+    margin-right: 8px;
+    padding-right: 8px;
 }
 
 .path-distance {
@@ -289,6 +290,7 @@ body {
 .icon-difficulty {
     width: 40px;
     align-items: center;
+    padding-left: 16px;
 }
 
 .v-center {
@@ -771,6 +773,10 @@ ion-side-menu ion-item .icon {
     overflow: hidden;
 }
 
+.description-info.pathdetail {
+    margin-bottom: 20px;
+}
+
 .expanded .description-info {
     transition: 0.50s;
     text-align: justify;
@@ -1109,11 +1115,13 @@ ion-side-menu ion-item .icon {
 .button-poi-nav-right {
     width: 100px;
     text-align: right;
+    margin-right: 10px;
 }
 
 .button-poi-nav-left {
     width: 100px;
     text-align: left;
+    margin-left: 10px;
 }
 
 .button-hidden {
@@ -1133,9 +1141,18 @@ ion-side-menu ion-item .icon {
     min-height: 100px;
 }
 
+.order-popup .popup {
+    background-color: white;
+}
+
 .order-popup .popup-body {
     height: 300px;
+    width: 200px;
     background-color: white;
+}
+
+.order-popup .item.item-radio {
+    width: 250px;
 }
 
 .order-popup .button {
@@ -1147,8 +1164,16 @@ ion-side-menu ion-item .icon {
     background-color: white;
 }
 
-.orderpopup-header {
+
+/*
+.order-popup .orderpopup-header {
+    width: 250px;
+}
+*/
+
+.order-popup .orderpopup-header {
     background-color: #0677bd;
+    width: 250px;
 }
 
 .orderpopup-header h1 {

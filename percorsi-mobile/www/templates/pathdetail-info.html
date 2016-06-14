@@ -131,7 +131,7 @@
             <div id="firstSeparator" class="separator"></div>
             <h3>{{item.title | translate_remote}}</h3>
             <div class="section" ng-class="{'expanded':(isDescriptionShown())||(translateDescription(item.description).length<300)}">
-                <div class="description-info" compile="translateDescription(item.description)"></div>
+                <div class="description-info pathdetail" compile="translateDescription(item.description)"></div>
                 <div class="fadeout" ng-hide="hideExpandDescriptionButton()||(translateDescription(item.description).length<300)"></div>
             </div>
             <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()||(translateDescription(item.description).length<300)">
