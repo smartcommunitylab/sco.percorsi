@@ -94,33 +94,31 @@ public class PercorsiManager {
 			if (old != null) {
 				oldIds.remove(old.getLocalId());
 			}
-			if (old == null || !old.coreDataEquals(p)) {
-				if (old != null) {
-					p.setId(old.getId());
-					p.setVote(old.getVote());
-					p.setVoteCount(old.getVoteCount());
-					p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
-					p.setVideos(MultimediaUtils.mergeProviderMultimedia(p.getVideos(), old.getVideos()));
-				}
-				if (p.getPois() != null) {
-					Map<String, POI> oldPois = new HashMap<String, POI>();
-					if (old != null && old.getPois() != null) {
-						for (POI oldPoi : old.getPois()) {
-							oldPois.put(oldPoi.getLocalId(), oldPoi);
-						}
-					}
-
-					for (POI poi : p.getPois()) {
-						if (poi.getLocalId() == null) throw new DataException("POI local ID is missing");
-						POI oldPoi = oldPois.get(poi.getLocalId());
-						if (oldPoi != null) {
-							poi.setImages(MultimediaUtils.mergeProviderMultimedia(poi.getImages(), oldPoi.getImages()));
-							poi.setVideos(MultimediaUtils.mergeProviderMultimedia(poi.getVideos(), oldPoi.getVideos()));
-						}
-					}
-				}
-				repository.storeDraftObject(p, appId);
+			if (old != null) {
+				p.setId(old.getId());
+				p.setVote(old.getVote());
+				p.setVoteCount(old.getVoteCount());
+				p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
+				p.setVideos(MultimediaUtils.mergeProviderMultimedia(p.getVideos(), old.getVideos()));
 			}
+			if (p.getPois() != null) {
+				Map<String, POI> oldPois = new HashMap<String, POI>();
+				if (old != null && old.getPois() != null) {
+					for (POI oldPoi : old.getPois()) {
+						oldPois.put(oldPoi.getLocalId(), oldPoi);
+					}
+				}
+
+				for (POI poi : p.getPois()) {
+					if (poi.getLocalId() == null) throw new DataException("POI local ID is missing");
+					POI oldPoi = oldPois.get(poi.getLocalId());
+					if (oldPoi != null) {
+						poi.setImages(MultimediaUtils.mergeProviderMultimedia(poi.getImages(), oldPoi.getImages()));
+						poi.setVideos(MultimediaUtils.mergeProviderMultimedia(poi.getVideos(), oldPoi.getVideos()));
+					}
+				}
+			}
+			repository.storeDraftObject(p, appId);
 		}
 		for (String oldId : oldIds.keySet()) {
 			repository.deleteDraftObject(oldIds.get(oldId), appId);
