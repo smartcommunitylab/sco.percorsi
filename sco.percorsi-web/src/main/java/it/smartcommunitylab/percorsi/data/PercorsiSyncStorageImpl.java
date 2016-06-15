@@ -442,6 +442,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		Criteria criteria = createBaseCriteria(appId);
 		criteria.and("deleted").is(false);
 		criteria.and("localId").is("1");
+		criteria.and("type").is(Categories.class.getCanonicalName());
 		List<Categories> objs = findDraft(Query.query(criteria), Categories.class);
 		return objs == null || objs.size() == 0 ? null : objs.get(0);
 	}
@@ -450,6 +451,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	public List<Path> getDraftPaths(String appId) throws DataException {
 		Criteria criteria = createBaseCriteria(appId);
 		criteria.and("deleted").is(false);
+		criteria.and("type").is(Path.class.getCanonicalName());
 		List<Path> objs = findDraft(Query.query(criteria), Path.class);
 		return objs;
 	}
