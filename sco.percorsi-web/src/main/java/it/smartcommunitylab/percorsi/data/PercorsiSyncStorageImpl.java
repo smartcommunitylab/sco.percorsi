@@ -67,7 +67,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	}
 
 	public Long getPublicVersion(String appId) {
-		return versionMap.get(appId);
+		return versionMap.get(appId) == null ? 0 : versionMap.get(appId);
 	}
 
 	@Override
