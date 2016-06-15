@@ -6,7 +6,7 @@ var consoleControllers = angular.module('consoleControllers', [])
 	$scope.switchView = function(view) {
 		$scope.view = view;
 	}
-	
+
 	$scope.modView = 'it.smartcommunitylab.percorsi.model.Path';
 	$scope.moderated = {};
 	$scope.paging = {'it.smartcommunitylab.percorsi.model.Path':{page:0, size: 5}, 'it.smartcommunitylab.percorsi.model.Rating':{page:0, size: 5}};

@@ -131,7 +131,7 @@ public class ModerationManager {
 					filter(poi.getVideos(), obj.getValue());
 					filter(poi.getAudios(), obj.getValue());
 				}
-				storage.storeObject(path);	
+				storage.storeObject(path);
 				repository.save(obj);
 			}	
 		}

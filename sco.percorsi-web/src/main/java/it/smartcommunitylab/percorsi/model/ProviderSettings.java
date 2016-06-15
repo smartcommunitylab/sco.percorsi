@@ -34,7 +34,7 @@ public class ProviderSettings implements Serializable {
 
     private Long version;
     private Long newVersion;
-    
+
 	/**
 	 * @return the id
 	 */

@@ -98,7 +98,7 @@ public class ConsoleController {
 		manager.storeDraftPaths(getAppId(), paths);
 		return getProvider(getAppId());
 	}
-	
+
 	@RequestMapping(value = "/console/publish", method = RequestMethod.POST)
 	public @ResponseBody ProviderSettings publish(MultipartHttpServletRequest req) throws Exception {
 		String appId = getAppId();
@@ -171,7 +171,7 @@ public class ConsoleController {
 		ps.setNewVersion(manager.getDraftVersion(appId));
 		return ps;
 	}
-	
+
 	private String getAppId() {
 		AppDetails details = (AppDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String app = details.getUsername();

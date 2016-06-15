@@ -10,7 +10,7 @@
         <a class="button button-icon icon myback" ng-click="$ionicGoBack($event)"> <i ng-class="{ 'ion-android-arrow-back': platform.isAndroid(),  'ion-ios-arrow-back': !platform.isAndroid()}" class="icon"></i>
         </a>
 -->
-        <button ng-click="$ionicGoBack($event)" class="row button button-icon ion-ios-arrow-back">
+        <button ng-click="back()" class="row button button-icon ion-ios-arrow-back">
         </button>
 
     </ion-nav-buttons>
@@ -21,18 +21,6 @@
     </ion-nav-buttons>
 
     <ion-content class="has-header padding">
-        <!-- Rating -->
-        <div class="rating-avg">
-            <span class="rating-avg-txt">{{'avg_rating'| translate}}</span>
-            <span style="white-space: nowrap;">
-            <i ng-repeat="starType in getStars() track by $index" class="icon icon-rating" ng-class="{'ion-android-star': starType == 'full', 'ion-android-star-half': starType == 'half', 'ion-android-star-outline': starType == 'empty'}"></i>
-            </span>
-        </div>
-        <div class="row">
-            <div class="col-25 col-offset-75 social-numbers"><span>{{path.voteCount}}</span><i class="icon sco-public"></i>
-            </div>
-        </div>
-        <div class="separator"></div>
         <div class="row" ng-if="!rating.current && !rating.review">
             <div class="col">
                 <button class="button button-percorsi button-block" ng-click="showVote()">
@@ -51,12 +39,24 @@
                 </div>
             </ion-item>
         </div>
-
+        <!--        Horizontal line-->
+        <div class="separator"></div>
+        <!-- Rating -->
+        <div class="rating-avg">
+            <span class="rating-avg-txt">{{'avg_rating'| translate}}</span>
+            <span style="white-space: nowrap;">
+            <i ng-repeat="starType in getStars() track by $index" class="icon icon-rating" ng-class="{'ion-android-star': starType == 'full', 'ion-android-star-half': starType == 'half', 'ion-android-star-outline': starType == 'empty'}"></i>
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-25 col-offset-75 social-numbers"><span ng-if="path.voteCount!=0">{{path.voteCount}}</span><span ng-if="path.voteCount==0 || !path.voteCount">0</span><i class="icon sco-public"></i>
+            </div>
+        </div>
         <div class="row">
             <span class="social-label">{{'pathdetailturist_votes'| translate}}</span>
         </div>
         <!-- Reviews list -->
-        <div class="emptylist" ng-if="emptylist">
+        <div class="emptylist " ng-if="emptylist || reviews.length == 0">
             <!--<div class="item item-text-wrap">-->
             {{'pathdetailtourist_empty_list' | translate}}
             <!--</div>-->

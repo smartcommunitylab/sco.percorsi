@@ -87,7 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             	.permitAll()
         	.and()
         		.addFilter(basicAuthenticationFilter());
-	    
+
 	    http
         .formLogin()
             .loginPage("/login")

@@ -38,15 +38,15 @@ import eu.trentorise.smartcampus.presentation.storage.sync.mongo.GenericObjectSy
 public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<PercorsiBean> implements PercorsiSyncStorage {
 
 	private Map<String, Long> versionMap = new HashMap<String, Long>();
-	
+
 	@Autowired
 	private ProviderSetup setup;
-	
+
 	@Autowired
 	public PercorsiSyncStorageImpl(MongoOperations mongoTemplate) {
 		super(mongoTemplate);
 	}
-	
+
 	@PostConstruct
 	protected void initVersions() throws DataException {
 		// read from DB
@@ -65,7 +65,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			}
 		}
 	}
-	
+
 	public Long getPublicVersion(String appId) {
 		return versionMap.get(appId);
 	}
@@ -90,12 +90,12 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 				storeObject(draftCategories);
 			}
 			// update paths, merging the user images inside
-			List<Path> list = getDraftPaths(appId);			
+			List<Path> list = getDraftPaths(appId);
 			if (list != null && !list.isEmpty()) {
 				Criteria criteria = createBaseCriteria(appId);
 				criteria.and("deleted").is(false);
 				List<Path> oldPaths = find(Query.query(criteria), Path.class);
-				
+
 				Map<String, Path> oldIds = new HashMap<String, Path>();
 				if (oldPaths != null) for (Path p : oldPaths) oldIds.put(p.getLocalId(), p);
 				for (Path p : list) {
@@ -139,7 +139,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			Criteria criteria = createBaseCriteria(appId);
 			mongoTemplate.remove(Query.query(criteria), getObjectClass(), getDraftCollectionName(getObjectClass()));
 		}
-		
+
 		VersionObject vo = new VersionObject();
 		vo.setAppId(appId);
 		vo.setVersion(version);
@@ -148,7 +148,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		setup.findProviderById(appId).setVersion(version);
 		return version;
 	}
-	
+
 	@Override
 	public Class<PercorsiBean> getObjectClass() {
 		return PercorsiBean.class;
@@ -162,7 +162,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	private String getDraftCollectionName(Class<?> cls) {
 		return "syncObjectDraft";
 	}
-	
+
 	@Override
 	public SyncData getSyncAppData(long since, String appId, Map<String, Object> include, Map<String, Object> exclude) throws DataException {
 		return retrieveSyncData(appId, since, include, exclude);
@@ -237,7 +237,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	}
 
 	protected <T extends BasicObject> List<T> findDraft(Query query, Class<T> cls) {
-		List<PercorsiBean> result = mongoTemplate.find(query, getObjectClass(), getDraftCollectionName(getObjectClass())); 
+		List<PercorsiBean> result = mongoTemplate.find(query, getObjectClass(), getDraftCollectionName(getObjectClass()));
 		return (List<T>)convert(result, cls);
 	}
 
@@ -361,7 +361,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			throw new DataException(e.getMessage());
 		}
 	}
-	
+
 	public <T extends PercorsiObject> T storePublicObject(T obj, String appId) throws DataException {
 		obj.setLocalId(obj.getLocalId());
 		obj.setAppId(appId);
@@ -454,5 +454,5 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		return objs;
 	}
 
-	
+
 }

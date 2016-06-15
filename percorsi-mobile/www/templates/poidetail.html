@@ -18,7 +18,7 @@
         <button class="button button-percorsi button-clear button-poi-nav-left" ng-click="prevPOI()" ng-class="{'hidden': firstPOI}">
             <i class="ion-chevron-left"></i>
         </button>
-        <h2 class="title">{{currentItemIndex}}/{{path.pois.length}}</h2>
+        <h2 class="title">{{'poi_details_stage' | translate}} {{currentItemIndex}} {{'poi_details_of' | translate}}  {{path.pois.length}}</h2>
         <button class="button button-percorsi button-clear button-poi-nav-right" ng-click="nextPOI()" ng-class="{'hidden': lastPOI}">
             <i class="ion-chevron-right"></i>
         </button>
@@ -74,7 +74,7 @@
 
             <div class="section" ng-class="{'expanded':isDescriptionShown()||(translateDescription(item.description).length<300)}">
                 <div class="description-info" compile="translateDescription(item.description)"></div>
-                <div class="fadeout"></div>
+                <div class="fadeout" ng-if="!isDescriptionShown()"></div>
             </div>
             <ion-item class="item-stable text-button" ng-click="toggleDescription()" ng-class="{active: isDescriptionShown()}" ng-hide="hideExpandDescriptionButton()||(translateDescription(item.description).length<300)">
                 <div class="text-button">

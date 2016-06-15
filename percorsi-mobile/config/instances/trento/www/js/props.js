@@ -1,10 +1,10 @@
-appId = 'ComuneTrento';
-APP_VERSION = '0.0.1';
+appId = 'Trento';
+APP_VERSION = '1.0.0';
 
 cityName = {
-    'it': 'Trento Percorsi',
-    'en': 'Trento Percorsi',
-    'de': 'Trento Percorsi'
+    'it': 'Vivo la città',
+    'en': 'Vivo la città',
+    'de': 'Vivo la città'
 };
 
 SCHEMA_VERSION = 3;

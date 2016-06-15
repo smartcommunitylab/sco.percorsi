@@ -11,6 +11,15 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         max: 5
     };
 
+    $scope.back = function () {
+        if ($ionicHistory.length > 0) {
+            $ionicHistory.goBack();
+        } else {
+            $state.go('app.pathdetail.info');
+            // window.location.assign("#/app/path/info");
+        }
+    }
+
     var getStars = function (vote) {
         var stars = [];
 
@@ -57,7 +66,9 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.syncRating();
 
     $scope.getStars = function () {
-        return getStars($scope.path.vote);
+        if ($scope.path.vote)
+            return getStars($scope.path.vote);
+        return 0;
     };
 
 
@@ -87,7 +98,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                 $scope.reviews = reviews;
             }
 
-            if (!!$scope.reviews && $scope.reviews.length == 0) {
+            if (!!$scope.reviews && $scope.reviews.length == 0 || $scope.reviews && $scope.reviews.length == 1 && $scope.getUserId() == $scope.reviews[0].contributor.userId) {
                 $scope.emptylist = true;
             } else {
                 $scope.emptylist = false;

@@ -84,6 +84,7 @@ angular.module('roveretoPercorsi.controllers.poidetail', [])
             $scope.expandedDescritpion = true;
 
         }
+        $ionicScrollDelegate.resize();
     };
     $scope.isDescriptionShown = function () {
         return $scope.expandedDescritpion;
