@@ -98,7 +98,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
                 $scope.reviews = reviews;
             }
 
-            if (!!$scope.reviews && $scope.reviews.length == 0) {
+            if (!!$scope.reviews && $scope.reviews.length == 0 || $scope.reviews && $scope.reviews.length == 1 && $scope.getUserId() == $scope.reviews[0].contributor.userId) {
                 $scope.emptylist = true;
             } else {
                 $scope.emptylist = false;
