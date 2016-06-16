@@ -3,12 +3,8 @@ angular.module('DataService', [])
         '$q', '$http', '$rootScope',
   function ($q, $http, $rootScope)
         {
-            var URL = 'https://dev.smartcommunitylab.it/percorsi';
-            var options = {
-                headers: {
-                    Authorization: 'Basic Q29tdW5lUm92ZXJldG86cm92ZXJldG8='
-                }
-            };
+            var URL = '';
+            var options = {};
             var logout = function () {
                 var data = $q.defer();
                 $http.post('logout', {}).success(function () {
