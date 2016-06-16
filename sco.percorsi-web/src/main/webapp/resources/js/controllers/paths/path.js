@@ -1,10 +1,14 @@
-angular.module('consoleControllers.paths', [])
+angular.module('consoleControllers.paths', ['ngSanitize'])
 
 // Paths controller
-.controller('PathsCtrl', function ($scope, $rootScope, DataService) {
+.controller('PathsCtrl', function ($scope, $rootScope, $sce, DataService) {
     DataService.getPaths().then(function (data) {
         $rootScope.paths = data;
     });
+
+    $scope.trustHTML = function (code) {
+        return $sce.trustAsHtml(code);
+    }
 
     $scope.delete = function (idPoi) {
         $rootScope.paths.splice(idPoi, 1);

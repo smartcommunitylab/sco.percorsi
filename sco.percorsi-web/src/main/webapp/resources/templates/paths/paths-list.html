@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-9">
                 <h4>{{path.title[languages[0]]}}</h4>
-                <p>{{path.description[languages[0]]}}</p>
+                <p ng-bind-html="trustHTML(path.description[languages[0]])"></p>
                 <p><a href="#/path/{{$index}}" class="btn btn-primary" role="button">Modifica</a> <a ng-click="delete($index)" class="btn btn-danger" role="button">Elimina</a></p>
             </div>
         </div>
