@@ -3,7 +3,6 @@ angular.module('DataService', [])
         '$q', '$http', '$rootScope',
   function ($q, $http, $rootScope)
         {
-            var URL = '';
             var options = {};
             var logout = function () {
                 var data = $q.defer();
@@ -18,7 +17,7 @@ angular.module('DataService', [])
             return {
                 getProfile: function () {
                     var deferred = $q.defer();
-                    $http.get(URL + '/console/provider', options).success(function (data) {
+                    $http.get('console/provider', options).success(function (data) {
                         deferred.resolve(data);
                     }).error(function (e) {
                         deferred.reject(e);
@@ -27,7 +26,7 @@ angular.module('DataService', [])
                 },
                 getPaths: function () {
                     var deferred = $q.defer();
-                    $http.get(URL + '/console/paths', options).success(function (data) {
+                    $http.get('console/paths', options).success(function (data) {
                         deferred.resolve(data);
                     }).error(function (e) {
                         deferred.reject(e);
@@ -36,7 +35,7 @@ angular.module('DataService', [])
                 },
                 getCategories: function () {
                     var deferred = $q.defer();
-                    $http.get(URL + '/console/categories', options).success(function (data) {
+                    $http.get('console/categories', options).success(function (data) {
                         deferred.resolve(data.categories);
                     }).error(function (e) {
                         deferred.reject(e);
@@ -45,7 +44,7 @@ angular.module('DataService', [])
                 },
                 savePaths: function (data) {
                     var deferred = $q.defer();
-                    $http.post(URL + '/console/paths', data, options).success(function (data, status, headers, config) {
+                    $http.post('console/paths', data, options).success(function (data, status, headers, config) {
                         deferred.resolve(data);
                     }).error(function (e) {
                         deferred.reject(e);
@@ -54,7 +53,7 @@ angular.module('DataService', [])
                 },
                 saveCategories: function (data) {
                     var deferred = $q.defer();
-                    $http.post(URL + '/console/categories', data, options).success(function (data, status, headers, config) {
+                    $http.post('console/categories', data, options).success(function (data, status, headers, config) {
                         deferred.resolve(data);
                     }).error(function (e) {
                         deferred.reject(e);
@@ -63,7 +62,7 @@ angular.module('DataService', [])
                 },
                 publish: function () {
                     var deferred = $q.defer();
-                    $http.post(URL + '/console/publish', options).success(function (data) {
+                    $http.post('console/publish', options).success(function (data) {
                         deferred.resolve(data);
                     }).error(function (e) {
                         deferred.reject(e);
@@ -72,7 +71,7 @@ angular.module('DataService', [])
                 },
                 getModerated: function (type, paging) {
                     var deferred = $q.defer();
-                    $http.get(URL + '/console/moderated/' + type + '?start=' + paging.page + '&count=' + paging.size, options).success(function (data) {
+                    $http.get('console/moderated/' + type + '?start=' + paging.page + '&count=' + paging.size, options).success(function (data) {
                         deferred.resolve(data);
                     }).error(function (e) {
                         deferred.reject(e);
@@ -81,7 +80,7 @@ angular.module('DataService', [])
                 },
                 decide: function (type, localId, value, contributor, action) {
                     var deferred = $q.defer();
-                    $http.post(URL + '/console/moderated/' + type + '/' + localId + '/' + contributor + '/' + action + '?value=' + encodeURIComponent(value), options).success(function (data) {
+                    $http.post('console/moderated/' + type + '/' + localId + '/' + contributor + '/' + action + '?value=' + encodeURIComponent(value), options).success(function (data) {
                         deferred.resolve(data);
                     }).error(function (e) {
                         deferred.reject(e);
@@ -90,7 +89,7 @@ angular.module('DataService', [])
                 },
                 remove: function (type, localId, value, contributor) {
                     var deferred = $q.defer();
-                    $http.delete(URL + '/console/moderated/' + type + '/' + localId + '/' + contributor + '/?value=' + encodeURIComponent(value), options).success(function (data) {
+                    $http.delete('console/moderated/' + type + '/' + localId + '/' + contributor + '/?value=' + encodeURIComponent(value), options).success(function (data) {
                         deferred.resolve(data);
                     }).error(function (e) {
                         deferred.reject(e);
