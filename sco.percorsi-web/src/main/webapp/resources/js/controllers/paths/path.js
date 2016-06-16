@@ -75,12 +75,12 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         drawMap.generatesPath($scope.currentPath.pois);
     };
 
-    $scope.showMarkers = function () {
-        drawMap.showMarkers();
-    };
-
-    $scope.hideMarkers = function () {
-        drawMap.hideMarkers();
+    $scope.toggleMarkers = function () {
+        $scope.toggle = !$scope.toggle;
+        if ($scope.toggle)
+            drawMap.showMarkers();
+        else
+            drawMap.hideMarkers();
     };
 
     // Get the categories list
