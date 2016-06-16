@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="console">
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <title>Percorsi Console</title>
-      <!-- Bootstrap core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <!-- Custom styles for this template -->
-      <link href="css/style.css" rel="stylesheet">
 
-      <script src="lib/angular/angular.min.js"></script>
-      <script src="lib/angular/angular-route.min.js"></script>
-      <script src="lib/ui-bootstrap-tpls-0.11.0.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Percorsi Console</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css" />
+    <!-- Loading bar CSS -->
+    <link rel="stylesheet" type="text/css" href="lib/loading-bar/loading-bar.min.css" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
 
-      <script src="lib/ng-upload.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <!--<script src="lib/angular/angular-route.min.js"></script>-->
+    <script src="lib/angular/angular-ui-router.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.11.0.js"></script>
 
-      <script src="js/app.js"></script>
-      <script src="js/controllers.js"></script>
-      <script src="js/services.js"></script>
+    <script src="lib/ng-upload.min.js"></script>
 
-    </head>
-    <body>
-      <div class="container" ng-view>
-      </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="lib/bootstrap.min.js"></script>
-    </body>
+    <!-- Angular Checklist Models -->
+    <script src="lib/checklist-model/checklist-model.js"></script>
+    <!-- Angular HTML editor -->
+    <script src="lib/textAngular/textAngular-rangy.min.js"></script>
+    <script src="lib/textAngular/textAngular-sanitize.min.js"></script>
+    <script src="lib/textAngular/textAngular.min.js"></script>
+    <!-- Image base64 converter -->
+    <script src="lib/angular-base64-upload/angular-base64-upload.min.js"></script>
+    <!-- Loading bar -->
+    <script src="lib/loading-bar/loading-bar.min.js"></script>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2URZunODUSBJpXtamnHhbTpm_HQAQs1c&libraries=geometry"></script>
+
+    <script src="js/app.js"></script>
+    <!-- App controllers -->
+    <script src="js/controllers/main-controller.js"></script>
+    <!-- Paths controllers -->
+    <script src="js/controllers/paths/path.js"></script>
+    <!-- Poi controllers -->
+    <script src="js/controllers/pois/poi.js"></script>
+    <!-- Categories controllers -->
+    <script src="js/controllers/categories/category.js"></script>
+
+    <!-- App services -->
+    <script src="js/services/data-service.js"></script>
+    <script src="js/services/maps-service.js"></script>
+    <script src="js/services/imgur-service.js"></script>
+
+</head>
+
+<body>
+    <div class="container" ui-view>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+</body>
+
 </html>

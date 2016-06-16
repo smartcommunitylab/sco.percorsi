@@ -1,0 +1,234 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="center">Edit POI: {{poi.title.it}}</h1>
+    </div>
+    <!-- Save and discard changes buttons -->
+    <div class="col-lg-12 right">
+        <a ng-click="save()" class="btn btn-primary">Salva</a>
+        <a ng-click="back()" class="btn btn-default">Non salvare</a>
+    </div>
+</div>
+<div class="row" style="margin-bottom: 20px;">
+    <!-- Data edit -->
+    <div class="col-md-6 fields border">
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Modifica dati:</h3>
+            </div>
+        </div>
+        <!-- Language combobox -->
+        <div class="row">
+            <div class="col-sm-3">
+                Lingua:
+            </div>
+            <div class="col-sm-9">
+                <select class="form-control" ng-model="lang">
+                    <option ng-repeat="language in languages" value="{{language}}">{{ language }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div ng-repeat="language in languages" ng-show="lang == language">
+            <!-- Edit title -->
+            <div class="row">
+                <div class="col-sm-3">
+                    Nome ({{language | uppercase}}):
+                </div>
+                <div class="col-sm-9">
+                    <input ng-class="{error: !poi.title[language]}" class="form-control" type="text" ng-model="poi.title[language]" />
+                </div>
+            </div>
+            <!-- Edit description -->
+            <div class="row">
+                <div class="col-sm-3">
+                    Descrizione ({{language | uppercase}}):
+                </div>
+                <div class="col-sm-9">
+                    <text-angular ng-class="{error: !poi.description[language]}" ng-model="poi.description[language]"></text-angular>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Coordinates -->
+        <div class="row">
+            <div class="col-sm-3">
+                Latitudine:
+            </div>
+            <div class="col-sm-9">
+                <input class="form-control" ng-class="{error: !poi.coordinates.lat}" ng-change="updateMarkerPosition()" type="text" ng-model="poi.coordinates.lat" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Longitudine:
+            </div>
+            <div class="col-sm-9">
+                <input class="form-control" ng-class="{error: !poi.coordinates.lng}" ng-change="updateMarkerPosition()" type="text" ng-model="poi.coordinates.lng" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Mappa:</h3>
+            </div>
+            <div class="col-lg-12">
+                <div id="map-poi"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Media edit -->
+    <div class="col-md-6 fields">
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Edit media:</h3>
+            </div>
+        </div>
+
+        <!-- Images -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Immagini</h4>
+            </div>
+        </div>
+        <div class="row" ng-repeat="img in poi.images">
+            <div class="col-md-9 no-padding">
+                <div ng-repeat="language in languages" ng-show="lang == language">
+                    <div class="col-sm-3">
+                        Titolo ({{language | uppercase}}):
+                    </div>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" ng-model="img.title[language]" />
+                    </div>
+                </div>
+                <!-- Image url -->
+                <div class="col-sm-3">
+                    URL:
+                </div>
+                <div class="col-sm-9">
+                    <input ng-class="{error: !img.url}" class="form-control" type="text" ng-model="img.url" />
+                </div>
+            </div>
+            <div class="col-md-3 no-padding">
+                <img style="max-width: 100%;" ng-src="{{img.url}}" alt="{{img.title[languages[0]]}}" />
+            </div>
+        </div>
+
+        <!-- Videos -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Video</h4>
+            </div>
+        </div>
+        <div class="row" ng-repeat="video in poi.videos">
+            <div class="col-md-9 no-padding">
+                <div ng-repeat="language in languages" ng-show="lang == language">
+                    <div class="col-sm-3">
+                        Titolo ({{language | uppercase}}):
+                    </div>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" ng-model="video.title[language]" />
+                    </div>
+                </div>
+                <!-- Video url -->
+                <div class="col-sm-3">
+                    URL:
+                </div>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" ng-model="video.url" />
+                </div>
+            </div>
+            <div class="col-md-3 no-padding">
+                Preview non disponibile
+            </div>
+        </div>
+
+        <!-- Audios -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Audio</h4>
+            </div>
+        </div>
+        <div class="row" ng-repeat="audio in poi.audios">
+            <div class="col-md-9 no-padding">
+                <div ng-repeat="language in languages" ng-show="lang == language">
+                    <div class="col-sm-3">
+                        Titolo ({{language | uppercase}}):
+                    </div>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" ng-model="audio.title[language]" />
+                    </div>
+                </div>
+                <!-- Audio url -->
+                <div class="col-sm-3">
+                    URL:
+                </div>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" ng-model="audio.url" />
+                </div>
+            </div>
+            <div class="col-md-3 no-padding">
+                preview non disponibile
+            </div>
+        </div>
+
+        <!-- Add new media -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Aggiungi un nuovo elemento multimediale</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Tipo di oggetto:
+            </div>
+            <div class="col-sm-9">
+                <select class="form-control" ng-model="mediaType">
+                    <option value="image">Immagine</option>
+                    <option value="video">Video</option>
+                    <option value="audio">Audio</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-repeat="language in languages">
+            <div class="col-sm-3">
+                Titolo ({{language | uppercase}}):
+            </div>
+            <div class="col-sm-9">
+                <input class="form-control" type="text" ng-model="newMedia.title[language]" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                URL:
+            </div>
+            <div class="col-sm-9">
+                <input class="form-control" type="text" ng-model="newMedia.url" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 right">
+                <a ng-click="addMedia()" class="btn btn-primary" role="button">Aggiungi elemento</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Carica immagine su <a href="http://www.imgur.com" target="_blank">imgur</a></h4>
+            </div>
+        </div>
+        <div class="row">
+            <!-- File uploader -->
+            <div class="col-md-3">
+                Scegli file:
+            </div>
+            <div class="col-md-9">
+                <input type="file" base-sixty-four-input ng-model="file" accept="image/*" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 right">
+                <a ng-disabled="!file" ng-click="!file || uploadPic(file)" class="btn btn-primary">Carica</a>
+            </div>
+        </div>
+    </div>
+</div>
