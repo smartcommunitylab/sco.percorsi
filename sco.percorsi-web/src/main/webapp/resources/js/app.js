@@ -1,5 +1,6 @@
 var consoleApp = angular.module('console', ['ui.bootstrap',
 'ui.router',
+'ui.sortable',
 'consoleControllers.mainCtrl',
 'consoleControllers.paths',
 'consoleControllers.poi',
@@ -77,4 +78,13 @@ consoleApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/moderate',
             templateUrl: 'templates/moderate.html'
         });
-});
+})
+
+// Accordion reorder (probalby removing it)
+consoleApp.config(['$provide', function ($provide) {
+    $provide.decorator('accordionDirective', function ($delegate) {
+        var directive = $delegate[0];
+        directive.replace = true;
+        return $delegate;
+    });
+}]);

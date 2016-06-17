@@ -25,6 +25,10 @@ input.error {
     border-bottom: 1px solid black;
 }
 
+.cat-list-item {
+    border: none;
+}
+
 .path-img {
     max-height: 100%;
     max-width: 100%;

@@ -4,18 +4,26 @@
     </div>
     <div class="col-lg-12 right">
         <a href="#/category/" class="btn btn-primary">Nuova categoria</a>
+        <a class="btn btn-info" ng-click="order()">{{enableOrder ? 'Fine' : 'Riordina'}}</a>
         <a href="#/paths-list" class="btn btn-default">Gestione percorsi</a>
     </div>
-    <div class="col-lg-12" ng-repeat="cat in catList">
-        <div class="row path-list-item">
-            <div class="col-md-3">
-                <img class="path-img" ng-src="{{cat.image}}" alt="{{cat.name.it}}">
-            </div>
-            <div class="col-md-9">
-                <h4>{{cat.name[languages[0]]}}</h4>
-                <p>{{cat.description[languages[0]]}}</p>
-                <p><a href="#/category/{{$index}}" class="btn btn-primary" role="button">Modifica</a> <a ng-click="delete($index)" class="btn btn-danger" role="button">Elimina</a></p>
-            </div>
-        </div>
+
+    <div class="col-lg-12">
+        <ul ui-sortable="sortableOptions" ng-model="catList" class="list-group">
+            <li class="list-group-item" ng-repeat="cat in catList">
+                <div class="row path-list-item cat-list-item">
+                    <div class="col-md-3">
+                        <img class="path-img" ng-src="{{cat.image}}" alt="{{cat.name.it}}">
+                    </div>
+                    <div class="col-md-9">
+                        <h4>{{cat.name[languages[0]]}}</h4>
+                        <p>{{cat.description[languages[0]]}}</p>
+                        <p>
+                            <a href="#/category/{{$index}}" class="btn btn-primary" role="button">Modifica</a> <a ng-click="delete($index)" class="btn btn-danger" role="button">Elimina</a> <a ng-show="enableOrder" class="handle btn btn-primary"><i class="glyphicon glyphicon-move"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>

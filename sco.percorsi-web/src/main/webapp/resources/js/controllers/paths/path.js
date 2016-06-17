@@ -157,4 +157,10 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
             $scope.file = null;
         });
     };
+
+    // Reorder of the pois
+    $scope.sortableOptions = {
+        handle: ' .handle',
+        axis: 'y'
+    };
 });

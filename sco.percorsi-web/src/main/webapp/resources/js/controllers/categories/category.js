@@ -43,6 +43,24 @@ angular.module('consoleControllers.categories', [])
                 isUsed = true;
         });
         return isUsed;
+    };
+
+    $scope.sortableOptions = {
+        handle: ' .handle',
+        axis: 'y'
+    };
+
+    $scope.order = function () {
+        $scope.enableOrder = !$scope.enableOrder;
+        if (!$scope.enableOrder) {
+            // DataService to server
+            var postRequest = {
+                "appId": $rootScope.profile.id,
+                "localId": '1',
+                "categories": $rootScope.catList
+            };
+            DataService.saveCategories(postRequest);
+        }
     }
 })
 
