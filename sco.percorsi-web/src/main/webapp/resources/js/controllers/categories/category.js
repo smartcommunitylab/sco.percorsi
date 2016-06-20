@@ -45,6 +45,15 @@ angular.module('consoleControllers.categories', [])
         return isUsed;
     };
 
+    $scope.calPathsOfCategory = function (idCat) {
+        var numberOfPaths = 0;
+        $rootScope.paths.forEach(function (path, idx) {
+            if (path.categories.indexOf($rootScope.catList[idCat].id) != -1)
+                numberOfPaths++;
+        });
+        return numberOfPaths;
+    }
+
     $scope.sortableOptions = {
         handle: ' .handle',
         axis: 'y'
