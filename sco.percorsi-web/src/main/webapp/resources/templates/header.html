@@ -31,7 +31,7 @@
     <!-- Include update section -->
     <div ng-include="'templates/update.html'" ng-if="view=='model'">
     </div>
-    <div class="col-lg-12">
+    <div class="col-lg-12" ng-if="view=='model'">
         <div style="float: left;" class="selection-tab categories-tab" ng-class="{'active':mainView == 'categories'}">
             <a href="#/categories-list" ng-click="mainView = 'categories'">Categorie</a>
         </div>

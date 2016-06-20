@@ -1,83 +1,51 @@
-<div class="row ">
-    <div class="col-lg-12">
-        <h1 class="center">Modifica categoria: {{cat.name.it}}</h1>
-    </div>
-    <!-- Save and discard changes buttons -->
-    <div class="col-lg-12 right">
-        <a ng-click="save()" class="btn btn-primary" role="button">Salva</a>
-        <a ng-click="back()" class="btn btn-default" role="button">Non salvare</a>
-    </div>
-    <div class="col-md-7 fields border">
-        <div class="row">
-            <h3 class="center">Modifica campi</h3>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                Lingua:
-            </div>
-            <div class="col-sm-9">
-                <select class="form-control" ng-model="lang">
-                    <option ng-repeat="language in languages" value="{{language}}">{{ language }}</option>
-                </select>
-            </div>
-        </div>
+<div class="col-md-6 header-path-category">
+    <h4>{{cat.name[languages[0]] ? 'MODIFICA CATEGORIA: ' + cat.name[languages[0]] : 'CREA NUOVA CATEGORIA'}}</h4>
+    <p>I campi contrassegnati col simbolo <span class="required-sign">*</span> sono obbligatori</p>
+</div>
 
-        <div ng-repeat="language in languages" ng-show="lang == language">
-            <!-- Edit title -->
-            <div class="row">
-                <div class="col-sm-3">
-                    Nome ({{language | uppercase}}):
-                </div>
-                <div class="col-sm-9">
-                    <input ng-class="{error: !cat.name[language]}" class="form-control required" type="text" ng-model="cat.name[language]" />
-                </div>
-            </div>
-            <!-- Edit description -->
-            <div class="row">
-                <div class="col-sm-3">
-                    Descrizione ({{language | uppercase}}):
-                </div>
-                <div class="col-sm-9">
-                    <text-angular ng-class="{error: !cat.description[language]}" class="required" ng-model="cat.description[language]"></text-angular>
-                </div>
-            </div>
-        </div>
+<div class="col-md-6 right">
+    <a ng-click="save()" class="btn btn-save btn-margin" role="button">Salva</a>
+    <a ng-click="back()" class="btn btn-danger" role="button">Annulla</a>
+</div>
 
+<div class="col-lg-12 field">
+    <p><b>Lingua:</b></p>
+    <select class="form-control" ng-model="lang">
+        <option ng-repeat="language in languages" value="{{language}}">{{ language }}</option>
+    </select>
+</div>
+
+<div ng-repeat="language in languages" ng-show="lang == language">
+    <div class="col-lg-12 field">
+        <p><span class="required-sign">*</span> <b>Nome ({{language | uppercase}}):</b></p>
+        <input ng-class="{error: !cat.name[language]}" class="form-control" type="text" ng-model="cat.name[language]" />
     </div>
-    <!-- Image of category -->
-    <div class="col-md-5">
-        <div class="row">
-            <h3 class="center">Modifica immagine</h3>
-        </div>
-        <div class="row fields">
-            <div class="col-lg-12">
-                <img class="path-img" ng-src="{{cat.image}}" alt="{{cat.name.it}}" />
-            </div>
-            <div class="col-lg-12" style="padding-top: 20px">
-                Link immagine:
-            </div>
-            <div class="col-lg-12">
-                <input ng-class="{error: !cat.image}" class="form-control required" type="text" ng-model="cat.image" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <h4>Carica immagine su <a href="http://www.imgur.com" target="_blank">imgur</a></h4>
-            </div>
-        </div>
-        <div class="row">
-            <!-- File uploader -->
-            <div class="col-md-3">
-                Scegli file:
-            </div>
-            <div class="col-md-9">
-                <input type="file" base-sixty-four-input ng-model="file" accept="image/*" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 right">
-                <a ng-disabled="!file" ng-click="!file || uploadPic(file)" class="btn btn-primary">Carica</a>
-            </div>
-        </div>
+    <div class="col-lg-12 field">
+        <p><span class="required-sign">*</span> <b>Descrizione ({{language | uppercase}}):</b></p>
+        <text-angular ng-class="{error: !cat.description[language]}" ng-model="cat.description[language]"></text-angular>
     </div>
+</div>
+
+<div class="col-md-3 col-md-offset-9 center preview-container">
+    <span class="preview-title">Anteprima immagine:</span>
+</div>
+
+<div class="col-md-9">
+    <div class="field">
+        <p><span class="required-sign">*</span> <b>Immagine (link):</b></p>
+        <input ng-class="{error: !cat.image}" class="form-control" type="text" ng-model="cat.image" />
+    </div>
+    <div class="field">
+        <p>oppure</p>
+    </div>
+    <div class="field">
+        <p><span class="required-sign">*</span> <b>Carica immagine su <a href="http://www.imgur.com" target="_blank">imgur</a>:</b> {{file.filename ? file.filename : 'Nessun file selezionato'}}</p>
+        <span class="btn btn-info btn-file btn-margin">
+            Scegli file <input type="file" base-sixty-four-input ng-model="file" accept="image/*" />
+        </span>
+        <a ng-disabled="!file" ng-click="!file || uploadPic(file)" class="btn btn-info">Carica</a>
+    </div>
+</div>
+<div class="col-md-3 field" ng-class="{'image-container': !cat.image}">
+    <img class="path-img" ng-src="{{cat.image}}" alt="{{cat.name.it}}" />
 </div>
