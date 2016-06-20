@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">{{profile.id}}</a>
+        <span>{{profile.id}}</span>
     </div>
     <ul class="nav navbar-nav">
         <li ng-click="switchView('model')" role="presentation" ng-class="{'active':view == 'model'}"><a href="#/paths-list">Data</a></li>
@@ -12,6 +12,8 @@
         </ul>
     </div>
 </nav>
+
+<!-- Errors section -->
 <div class="row">
     <div class="col-md-10 col-md-offset-1 main">
         <div class="row">
@@ -25,12 +27,11 @@
                 {{successText}}
             </div>
         </div>
-
-        <div class="row">
-            <div ng-include="'templates/update.html'" ng-if="view=='model'">
-            </div>
-        </div>
     </div>
+    <!-- Include update section -->
+    <div ng-include="'templates/update.html'" ng-if="view=='model'">
+    </div>
+    <!-- Main section -->
     <div class="col-lg-12">
         <div ui-view></div>
     </div>

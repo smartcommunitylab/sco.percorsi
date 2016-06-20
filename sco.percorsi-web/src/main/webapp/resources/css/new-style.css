@@ -1,0 +1,86 @@
+/*
+    Theme colors:
+        > Green: rgb(17, 133, 117);
+        > Gray: rgb(193, 193, 193);
+        > Cyan: rgb(21, 164, 184);
+*/
+
+
+/* Buttons style */
+
+.btn.btn-info {
+    background-color: rgb(21, 164, 184);
+    padding-right: 18px;
+    padding-left: 18px;
+    border: 0;
+    border-radius: 6px;
+}
+
+
+/* Navbar */
+
+.navbar {
+    min-height: 20px;
+}
+
+.navbar-default {
+    background-color: rgb(193, 193, 193);
+    border: 0;
+    border-bottom: 5px rgb(17, 133, 117) solid;
+    border-radius: 0px;
+}
+
+.navbar-header {
+    width: 250px;
+    height: 40px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.navbar-default .navbar-header > span {
+    color: rgb(17, 133, 117);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #fff;
+    font-weight: 500;
+    background-color: rgb(17, 133, 117);
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: rgb(17, 133, 117);
+    font-weight: 500;
+}
+
+.navbar-nav>li>a {
+    text-align: center;
+    font-size: 15px;
+    width: 115px;
+    padding: 10px 0;
+}
+
+
+/* Submit new data */
+
+.lang-checkers {
+    display: inline-block;
+}
+
+.lang-checkers .checkbox {
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.lang-checkers .checkbox input {
+    margin: 0;
+}
+
+hr.border-paths {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
