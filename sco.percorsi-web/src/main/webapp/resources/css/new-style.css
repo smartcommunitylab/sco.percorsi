@@ -84,3 +84,33 @@ hr.border-paths {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+.form-update {
+    margin-bottom: 50px;
+}
+
+
+/* Paths or Cateogries tab */
+
+.selection-tab {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 0;
+    text-align: center;
+    background-color: rgb(193, 193, 193);
+    border-bottom: 5px solid rgb(17, 133, 117);
+    width: 50%;
+    display: inline-block;
+}
+
+.selection-tab a {
+    color: rgb(17, 133, 117);
+}
+
+.selection-tab.active {
+    background-color: rgb(17, 133, 117);
+}
+
+.selection-tab.active a {
+    color: #fff;
+}
