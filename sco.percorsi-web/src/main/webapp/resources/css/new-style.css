@@ -176,7 +176,8 @@ hr.border-paths {
 }
 
 .selection-tab a {
-    color: rgb(17, 133, 117);
+    color: #fff;
+    text-decoration: none;
 }
 
 .selection-tab.active {

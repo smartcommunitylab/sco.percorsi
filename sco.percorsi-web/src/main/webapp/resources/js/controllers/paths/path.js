@@ -6,6 +6,10 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         $rootScope.paths = data;
     });
 
+    DataService.getCategories().then(function (data) {
+        $rootScope.catList = data;
+    });
+
     $scope.trustHTML = function (code) {
         return $sce.trustAsHtml(code);
     }
@@ -17,6 +21,18 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
                 $rootScope.paths = data;
             });
         });
+    };
+
+    // Get names of categories for each category of the path (because the path contains only the id)
+    $scope.getCategoriesName = function (catOfPath) {
+        var output = "";
+        catOfPath.forEach(function (cat, idx) {
+            $rootScope.catList.forEach(function (rootCat, i) {
+                if (cat == rootCat.id)
+                    output += rootCat.name[$rootScope.languages[0]] + ", ";
+            });
+        });
+        return output.slice(0, -2);
     };
 })
 
