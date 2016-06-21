@@ -342,6 +342,25 @@ hr.border-paths {
     border-left: 1px solid rgb(193, 193, 193);
 }
 
+.check-container {
+    margin-bottom: 20px;
+}
+
+.check-container p {
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.check-container > div {
+    display: inline-block;
+}
+
+.check-container .checkbox {
+    margin-top: 0;
+}
+
 .add-media {
     margin-bottom: 14px;
 }
@@ -370,4 +389,8 @@ hr.border-paths {
     margin: 0;
     border: 0;
     margin-top: 10px;
+}
+
+.media-type-title {
+    margin-left: 10px;
 }

@@ -108,15 +108,15 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     // Set the default language to IT
     $scope.data = {
-        lang: $rootScope.languages[0]
+        lang: $rootScope.languages[0],
+        mediaType: 'image'
     };
 
-    $scope.mediaType = 'image';
     $scope.newMedia = {};
 
     // Add media to the current path
     $scope.addMedia = function () {
-        switch ($scope.mediaType) {
+        switch ($scope.data.mediaType) {
         case 'image':
             $scope.currentPath.images.push($scope.newMedia);
             break;
@@ -132,6 +132,10 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         // Reset the newMedia object
         $scope.newMedia = {};
     };
+
+    $scope.delete = function (idx, array) {
+        array.splice(idx, 1);
+    }
 
     $scope.remove = function (idPoi) {
         $scope.currentPath.pois.splice(idPoi, 1);

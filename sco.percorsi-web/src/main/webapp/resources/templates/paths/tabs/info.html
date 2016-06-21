@@ -6,6 +6,16 @@
         </select>
     </div>
     <!-- Catgories -->
+    <div class="col-lg-12 check-container">
+        <p><span class="required-sign">*</span> <b>Categoria:</b></p>
+        <div>
+            <div class="checkbox" ng-repeat="cat in catList">
+                <label>
+                    <input type="checkbox" checklist-model="currentPath.categories" checklist-value="cat.id"> {{cat.name[data.lang]}}
+                </label>
+            </div>
+        </div>
+    </div>
     <!-- Name -->
     <div class="col-lg-12 field" ng-repeat="language in languages" ng-show="data.lang == language">
         <p><span class="required-sign">*</span> <b>Nome ({{language | uppercase}}):</b></p>
