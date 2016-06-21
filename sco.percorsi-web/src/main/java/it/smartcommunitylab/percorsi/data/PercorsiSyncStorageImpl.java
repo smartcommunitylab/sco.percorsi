@@ -67,7 +67,15 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	}
 
 	public Long getPublicVersion(String appId) {
-		return versionMap.get(appId);
+		if (versionMap.get(appId) != null) return versionMap.get(appId);
+		
+		Criteria criteria = createBaseCriteria(appId);
+		Query q = Query.query(criteria);
+		q.with(new Sort(Direction.DESC, "version"));
+		q.limit(1);
+		List<PercorsiBean> res = mongoTemplate.find(q, getObjectClass(), getCollectionName(getObjectClass()));
+		if (res != null && res.size() > 0) return res.get(0).getVersion();
+		return 0L;
 	}
 
 	@Override
@@ -83,7 +91,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 
 	public Long publish(String appId) throws DataException {
 		Long version = getDraftVersion(appId);
-		if (version != null && version > getPublicVersion(appId)) {
+		if (version != null && version != getPublicVersion(appId)) {
 			// update categories if changed
 			Categories draftCategories = getDraftCategories(appId);
 			if (draftCategories != null) {
@@ -138,15 +146,21 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			}
 			Criteria criteria = createBaseCriteria(appId);
 			mongoTemplate.remove(Query.query(criteria), getObjectClass(), getDraftCollectionName(getObjectClass()));
+		} else {
+			version = getPublicVersion(appId);
 		}
 
+		updateVersion(appId, version);
+		return version;
+	}
+
+	private void updateVersion(String appId, Long version) {
 		VersionObject vo = new VersionObject();
 		vo.setAppId(appId);
 		vo.setVersion(version);
 		mongoTemplate.save(vo);
 		versionMap.put(vo.getAppId(), vo.getVersion());
 		setup.findProviderById(appId).setVersion(version);
-		return version;
 	}
 
 	@Override
@@ -279,7 +293,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		long newVersion = getPublicVersion(appId);
 		SyncData syncData = new SyncData();
 		syncData.setVersion(newVersion);
-		List<PercorsiBean> list = searchWithVersion(appId, since-1, newVersion, include, exclude);
+		List<PercorsiBean> list = searchWithVersion(appId, since-1, newVersion+1, include, exclude);
 		if (list != null && !list.isEmpty()) {
 			Map<String,List<BasicObject>> updated = new HashMap<String, List<BasicObject>>();
 			Map<String,List<String>> deleted = new HashMap<String, List<String>>();
@@ -384,6 +398,12 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		}
 	}
 
+	public <T extends BasicObject> void storeObject(T obj) throws DataException {
+		super.storeObject(obj);
+		String appId = ((PercorsiObject)obj).getAppId();
+		Long version = obj.getVersion();
+		updateVersion(appId, version);
+	}
 
 	@Override
 	protected <T extends BasicObject> PercorsiBean convertToObjectBean(T object)
@@ -442,6 +462,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		Criteria criteria = createBaseCriteria(appId);
 		criteria.and("deleted").is(false);
 		criteria.and("localId").is("1");
+		criteria.and("type").is(Categories.class.getCanonicalName());
 		List<Categories> objs = findDraft(Query.query(criteria), Categories.class);
 		return objs == null || objs.size() == 0 ? null : objs.get(0);
 	}
@@ -450,6 +471,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	public List<Path> getDraftPaths(String appId) throws DataException {
 		Criteria criteria = createBaseCriteria(appId);
 		criteria.and("deleted").is(false);
+		criteria.and("type").is(Path.class.getCanonicalName());
 		List<Path> objs = findDraft(Query.query(criteria), Path.class);
 		return objs;
 	}

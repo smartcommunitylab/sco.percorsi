@@ -1,0 +1,302 @@
+/*
+    Theme colors:
+        > Green: rgb(17, 133, 117);
+        > Gray: rgb(193, 193, 193);
+        > Cyan: rgb(21, 164, 184);
+        > Dark Cyan: rgb(17, 124, 139);
+        > Light blue: rgb(37, 154, 219);
+        > Red: rgb(228, 0, 27);
+*/
+
+
+/* Vertical align center columns of a row */
+
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+a {
+    color: rgb(21, 164, 184);
+}
+
+a:hover {
+    color: rgb(17, 124, 139);
+}
+
+
+/* Buttons style */
+
+.btn {
+    padding-right: 18px;
+    padding-left: 18px;
+    border-radius: 6px;
+}
+
+.btn-icon {
+    border: 0;
+    font-size: 18px;
+    padding: 6px 12px;
+}
+
+.btn.btn-info {
+    border: 0;
+    background-color: rgb(21, 164, 184);
+}
+
+.btn.btn-primary {
+    border: 0;
+    background-color: rgb(37, 154, 219);
+}
+
+.btn.btn-danger {
+    border: 0;
+    background-color: rgb(228, 0, 27);
+}
+
+.btn.btn-save {
+    background-color: rgb(105, 193, 52);
+    color: #fff;
+}
+
+.btn.btn-save:hover {
+    color: #fff;
+}
+
+.btn-reorder,
+.btn-reorder:hover {
+    border: 0;
+    cursor: move;
+    font-size: 25px;
+    color: rgb(17, 124, 139);
+}
+
+.btn-reorder:active {
+    outline: 0;
+    box-shadow: 0;
+    color: rgb(21, 164, 184);
+}
+
+.btn.btn-margin {
+    margin-right: 5px;
+}
+
+.btn-group,
+.ta-text {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+
+/* Navbar */
+
+.navbar {
+    min-height: 20px;
+}
+
+.navbar-default {
+    background-color: rgb(193, 193, 193);
+    border: 0;
+    border-bottom: 5px rgb(17, 133, 117) solid;
+    border-radius: 0px;
+}
+
+.navbar-header {
+    width: 250px;
+    height: 40px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.navbar-default .navbar-header > span {
+    color: rgb(17, 133, 117);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #fff;
+    font-weight: 500;
+    background-color: rgb(17, 133, 117);
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: rgb(17, 133, 117);
+    font-weight: 500;
+}
+
+.navbar-nav>li>a {
+    text-align: center;
+    font-size: 15px;
+    width: 115px;
+    padding: 10px 0;
+}
+
+
+/* Submit new data */
+
+.lang-checkers {
+    display: inline-block;
+}
+
+.lang-checkers .checkbox {
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.lang-checkers .checkbox input {
+    margin: 0;
+}
+
+hr.border-paths {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form-update {
+    margin-bottom: 50px;
+}
+
+
+/* Paths or Cateogries tab */
+
+.selection-tab {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 0;
+    text-align: center;
+    background-color: rgb(193, 193, 193);
+    border-bottom: 5px solid rgb(17, 133, 117);
+    width: 50%;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.selection-tab a {
+    color: rgb(17, 133, 117);
+}
+
+.selection-tab.active {
+    background-color: rgb(17, 133, 117);
+}
+
+.selection-tab.active a {
+    color: #fff;
+}
+
+
+/* Reorder and add new buttons */
+
+.buttons-tab {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+/* Categories list */
+
+.list-categories {}
+
+.list-categories > .list-group-item {
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.list-categories > .list-group-item h5 {
+    font-size: 15px;
+}
+
+
+/* Path, POI and category page */
+
+.header-path-category {
+    margin-bottom: 40px;
+}
+
+.header-path-category h4 {
+    margin-bottom: 0;
+}
+
+.header-path-category p {
+    margin-top: 0;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field p {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.field select {
+    display: inline-block;
+    width: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    background: transparent url('../img/arrow.png') no-repeat 80px center;
+    border-radius: 6px;
+    border: 1px solid rgb(193, 193, 193);
+}
+
+.field input {
+    height: 29px;
+    border-radius: 6px;
+    display: inline-block;
+    width: 350px;
+}
+
+.field input:focus {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid rgb(193, 193, 193);
+}
+
+.field.image-container {
+    background-color: rgb(193, 193, 193);
+    min-height: 200px;
+}
+
+.preview-container {
+    margin-bottom: 10px;
+}
+
+.preview-title {
+    color: rgb(112, 112, 112);
+    font-size: 15px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+
+/* Form validation */
+
+.required-sign {
+    color: rgb(228, 0, 27);
+}

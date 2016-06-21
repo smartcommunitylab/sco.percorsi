@@ -1,0 +1,25 @@
+<div class="col-lg-12 buttons-tab">
+    <a href="#/category/" class="btn btn-info btn-margin">Nuova categoria</a>
+    <a class="btn btn-info" ng-click="order()">{{enableOrder ? 'Conferma ordine' : 'Riordina categorie'}}</a>
+</div>
+
+<div class="col-md-10 col-md-offset-1">
+    <ul ui-sortable="sortableOptions" ng-model="catList" class="list-group list-categories">
+        <li class="list-group-item" ng-repeat="cat in catList">
+            <div class="row v-center">
+                <div class="col-md-2">
+                    <img class="path-img" ng-src="{{cat.image}}" alt="{{cat.name.it}}">
+                </div>
+                <div class="col-md-8">
+                    <h5>{{cat.name[languages[0]]}}</h5>
+                    <h5>Percorsi: {{ calPathsOfCategory($index)}}</h5>
+                </div>
+                <div class="col-md-2 right">
+                    <a ng-hide="enableOrder" href="#/category/{{$index}}" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <a ng-hide="enableOrder" ng-click="delete($index)" class="btn btn-icon btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a ng-show="enableOrder" class="handle btn-icon btn-reorder"><i class="glyphicon glyphicon-align-justify"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

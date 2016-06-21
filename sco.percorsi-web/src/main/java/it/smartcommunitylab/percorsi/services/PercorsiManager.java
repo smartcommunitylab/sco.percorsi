@@ -26,11 +26,11 @@ import it.smartcommunitylab.percorsi.model.Path;
 import it.smartcommunitylab.percorsi.model.ProviderSettings;
 import it.smartcommunitylab.percorsi.model.Rating;
 import it.smartcommunitylab.percorsi.security.ProviderSetup;
-import it.smartcommunitylab.percorsi.utils.MultimediaUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -94,33 +94,31 @@ public class PercorsiManager {
 			if (old != null) {
 				oldIds.remove(old.getLocalId());
 			}
-			if (old == null || !old.coreDataEquals(p)) {
-				if (old != null) {
-					p.setId(old.getId());
-					p.setVote(old.getVote());
-					p.setVoteCount(old.getVoteCount());
-					p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
-					p.setVideos(MultimediaUtils.mergeProviderMultimedia(p.getVideos(), old.getVideos()));
-				}
-				if (p.getPois() != null) {
-					Map<String, POI> oldPois = new HashMap<String, POI>();
-					if (old != null && old.getPois() != null) {
-						for (POI oldPoi : old.getPois()) {
-							oldPois.put(oldPoi.getLocalId(), oldPoi);
-						}
-					}
-
-					for (POI poi : p.getPois()) {
-						if (poi.getLocalId() == null) throw new DataException("POI local ID is missing");
-						POI oldPoi = oldPois.get(poi.getLocalId());
-						if (oldPoi != null) {
-							poi.setImages(MultimediaUtils.mergeProviderMultimedia(poi.getImages(), oldPoi.getImages()));
-							poi.setVideos(MultimediaUtils.mergeProviderMultimedia(poi.getVideos(), oldPoi.getVideos()));
-						}
-					}
-				}
-				repository.storeDraftObject(p, appId);
+			if (old != null) {
+				p.setId(old.getId());
+//				p.setVote(old.getVote());
+//				p.setVoteCount(old.getVoteCount());
+//				p.setImages(MultimediaUtils.mergeProviderMultimedia(p.getImages(), old.getImages()));
+//				p.setVideos(MultimediaUtils.mergeProviderMultimedia(p.getVideos(), old.getVideos()));
 			}
+//			if (p.getPois() != null) {
+//				Map<String, POI> oldPois = new HashMap<String, POI>();
+//				if (old != null && old.getPois() != null) {
+//					for (POI oldPoi : old.getPois()) {
+//						oldPois.put(oldPoi.getLocalId(), oldPoi);
+//					}
+//				}
+//
+//				for (POI poi : p.getPois()) {
+//					if (poi.getLocalId() == null) throw new DataException("POI local ID is missing");
+//					POI oldPoi = oldPois.get(poi.getLocalId());
+//					if (oldPoi != null) {
+//						poi.setImages(MultimediaUtils.mergeProviderMultimedia(poi.getImages(), oldPoi.getImages()));
+//						poi.setVideos(MultimediaUtils.mergeProviderMultimedia(poi.getVideos(), oldPoi.getVideos()));
+//					}
+//				}
+//			}
+			repository.storeDraftObject(p, appId);
 		}
 		for (String oldId : oldIds.keySet()) {
 			repository.deleteDraftObject(oldIds.get(oldId), appId);
@@ -278,8 +276,40 @@ public class PercorsiManager {
 	}
 	public List<Path> getDraftPaths(String appId) throws DataException{
 		List<Path> paths = repository.getDraftPaths(appId);
-		if (paths == null || paths.isEmpty()) paths = getPaths(appId, null);
+		if (paths == null || paths.isEmpty()) {
+			paths = getPaths(appId, null);
+			cleanUserMultimedia(paths);
+		}
 		return paths;
+	}
+
+	/**
+	 * @param paths
+	 */
+	private void cleanUserMultimedia(List<Path> paths) {
+		for (Path p : paths) {
+			for (Iterator<Multimedia> iterator = p.getImages().iterator(); iterator.hasNext();) {
+				Multimedia m = iterator.next();
+				if (m.isUserDefined()) iterator.remove();
+			}
+			for (Iterator<Multimedia> iterator = p.getVideos().iterator(); iterator.hasNext();) {
+				Multimedia m = iterator.next();
+				if (m.isUserDefined()) iterator.remove();
+			}
+			if (p.getPois() != null) {
+				for (POI poi : p.getPois()) {
+					for (Iterator<Multimedia> iterator = poi.getImages().iterator(); iterator.hasNext();) {
+						Multimedia m = iterator.next();
+						if (m.isUserDefined()) iterator.remove();
+					}
+					for (Iterator<Multimedia> iterator = poi.getVideos().iterator(); iterator.hasNext();) {
+						Multimedia m = iterator.next();
+						if (m.isUserDefined()) iterator.remove();
+					}
+				}
+			}
+
+		}
 	}
 
 }

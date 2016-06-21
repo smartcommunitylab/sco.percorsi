@@ -1,0 +1,51 @@
+<div class="col-md-6 header-path-category">
+    <h4>{{cat.name[languages[0]] ? 'MODIFICA CATEGORIA: ' + cat.name[languages[0]] : 'CREA NUOVA CATEGORIA'}}</h4>
+    <p>I campi contrassegnati col simbolo <span class="required-sign">*</span> sono obbligatori</p>
+</div>
+
+<div class="col-md-6 right">
+    <a ng-click="save()" class="btn btn-save btn-margin" role="button">Salva</a>
+    <a ng-click="back()" class="btn btn-danger" role="button">Annulla</a>
+</div>
+
+<div class="col-lg-12 field">
+    <p><b>Lingua:</b></p>
+    <select class="form-control" ng-model="lang">
+        <option ng-repeat="language in languages" value="{{language}}">{{ language }}</option>
+    </select>
+</div>
+
+<div ng-repeat="language in languages" ng-show="lang == language">
+    <div class="col-lg-12 field">
+        <p><span class="required-sign">*</span> <b>Nome ({{language | uppercase}}):</b></p>
+        <input ng-class="{error: !cat.name[language]}" class="form-control" type="text" ng-model="cat.name[language]" />
+    </div>
+    <div class="col-lg-12 field">
+        <p><span class="required-sign">*</span> <b>Descrizione ({{language | uppercase}}):</b></p>
+        <text-angular ng-class="{error: !cat.description[language]}" ng-model="cat.description[language]"></text-angular>
+    </div>
+</div>
+
+<div class="col-md-3 col-md-offset-9 center preview-container">
+    <span class="preview-title">Anteprima immagine:</span>
+</div>
+
+<div class="col-md-9">
+    <div class="field">
+        <p><span class="required-sign">*</span> <b>Immagine (link):</b></p>
+        <input ng-class="{error: !cat.image}" class="form-control" type="text" ng-model="cat.image" />
+    </div>
+    <div class="field">
+        <p>oppure</p>
+    </div>
+    <div class="field">
+        <p><span class="required-sign">*</span> <b>Carica immagine su <a href="http://www.imgur.com" target="_blank">imgur</a>:</b> {{file.filename ? file.filename : 'Nessun file selezionato'}}</p>
+        <span class="btn btn-info btn-file btn-margin">
+            Scegli file <input type="file" base-sixty-four-input ng-model="file" accept="image/*" />
+        </span>
+        <a ng-disabled="!file" ng-click="!file || uploadPic(file)" class="btn btn-info">Carica</a>
+    </div>
+</div>
+<div class="col-md-3 field" ng-class="{'image-container': !cat.image}">
+    <img class="path-img" ng-src="{{cat.image}}" alt="{{cat.name.it}}" />
+</div>
