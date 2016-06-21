@@ -67,7 +67,15 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	}
 
 	public Long getPublicVersion(String appId) {
-		return versionMap.get(appId) == null ? 0 : versionMap.get(appId);
+		if (versionMap.get(appId) != null) return versionMap.get(appId);
+		
+		Criteria criteria = createBaseCriteria(appId);
+		Query q = Query.query(criteria);
+		q.with(new Sort(Direction.DESC, "version"));
+		q.limit(1);
+		List<PercorsiBean> res = mongoTemplate.find(q, getObjectClass(), getCollectionName(getObjectClass()));
+		if (res != null && res.size() > 0) return res.get(0).getVersion();
+		return 0L;
 	}
 
 	@Override
@@ -138,6 +146,8 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			}
 			Criteria criteria = createBaseCriteria(appId);
 			mongoTemplate.remove(Query.query(criteria), getObjectClass(), getDraftCollectionName(getObjectClass()));
+		} else {
+			version = getPublicVersion(appId);
 		}
 
 		VersionObject vo = new VersionObject();
