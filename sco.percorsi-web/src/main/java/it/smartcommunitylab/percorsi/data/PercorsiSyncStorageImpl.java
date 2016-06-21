@@ -293,7 +293,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		long newVersion = getPublicVersion(appId);
 		SyncData syncData = new SyncData();
 		syncData.setVersion(newVersion);
-		List<PercorsiBean> list = searchWithVersion(appId, since-1, newVersion, include, exclude);
+		List<PercorsiBean> list = searchWithVersion(appId, since-1, newVersion+1, include, exclude);
 		if (list != null && !list.isEmpty()) {
 			Map<String,List<BasicObject>> updated = new HashMap<String, List<BasicObject>>();
 			Map<String,List<String>> deleted = new HashMap<String, List<String>>();
