@@ -52,7 +52,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
     };
 })
 
-.controller('AppCtrl', function ($scope, $rootScope, $cordovaDevice, $ionicModal, $ionicHistory, $timeout, $filter, Toast, Config) {
+.controller('AppCtrl', function ($scope, $rootScope, $cordovaDevice, $ionicModal, $ionicLoading, $ionicHistory, $timeout, $state, $stateParams, $filter, Toast, Config) {
     // Categories submenu
     $scope.categoriesSubmenu = false;
     $scope.version = Config.getVersion();
@@ -194,9 +194,17 @@ angular.module('roveretoPercorsi.controllers.common', [])
     });
 
     $scope.loginOpen = function () {
+        $ionicLoading.show();
         $rootScope.login().then(function () {
             Toast.show($filter('translate')('login_done'), 'short', 'bottom');
+            $state.go($state.current, $stateParams, {
+                reload: true,
+                inherit: false
+            });
             $scope.loginModal.hide();
+            $ionicLoading.hide();
+        }, function (err) {
+            $ionicLoading.hide();
         });
     };
     $scope.logoutOpen = function () {

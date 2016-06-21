@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <widget id="it.smartcommunitylab.percorsi.trento" version="0.0.1" android-versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-        <name>Vivo la città</name>
-        <description>Vivo la città</description>
+    <widget id="it.smartcommunitylab.percorsi.trento" version="1.0.0" android-versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+        <name>Vivo La Città</name>
+        <description>Vivo La Città</description>
         <author email="info@smartcommunitylab.it" href="http://www.smartcommunitylab.it/">Smart Community Lab</author>
         <content src="index.html" />
         <access origin="*" />

@@ -66,7 +66,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.syncRating();
 
     $scope.getStars = function () {
-        if ($scope.path.vote)
+        if ($scope.path && $scope.path.vote)
             return getStars($scope.path.vote);
         return 0;
     };
@@ -103,46 +103,26 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
             } else {
                 $scope.emptylist = false;
             }
-
+            //only if there i
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
+
     };
 
     $scope.sendVote = function (vote, review) {
         reviewsService.sendRate($scope.path.localId, vote, review).then(function (updatedPath) {
-            singlePathService.setSelectedPath(updatedPath);
-            $scope.path = updatedPath;
-            $scope.rating.current = vote;
-            $scope.rating.review = review;
-            $scope.mystars = getStars(vote);
-            Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom');
-            DatiDB.reset();
+            if (updatedPath) {
+                singlePathService.setSelectedPath(updatedPath);
+                $scope.path = updatedPath;
+                $scope.rating.current = vote;
+                $scope.rating.review = review;
+                $scope.mystars = getStars(vote);
+                Toast.show($filter('translate')('vote_sent_toast_ok'), 'short', 'bottom');
+                DatiDB.reset();
+            }
         });
     };
 
-    //    $scope.sendReview = function (review) {
-    //        reviewsService.sendRate($scope.path.localId, $scope.rating.current, review).then(function (updatedPath) {
-    //            singlePathService.setSelectedPath(updatedPath);
-    //            $scope.path = updatedPath;
-    //            $scope.rating.review = $scope.rating.myreview;
-    //            Toast.show($filter('translate')('review_sent_toast_ok'), 'short', 'bottom');
-    //            DatiDB.reset();
-    //            $scope.loadMore(true);
-    //        });
-    //    };
-    //    $scope.openGallery = function () {
-    //        var gallery = [];
-    //        for (var i = 0; i < $scope.path.images.length; i++) {
-    //            if ($scope.path.images[i].userDefined) {
-    //                gallery.push($scope.path.images[i].url);
-    //            }
-    //        }
-    //
-    //        galleryService.setGallery(gallery);
-    //        window.location.assign("#/app/gallery");
-    //
-    //
-    //    }
 
     $ionicModal.fromTemplateUrl('templates/review-modal.html', {
         scope: $scope,
@@ -167,66 +147,12 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         $scope.rating.myvote = $scope.rating.current;
         if ($scope.userIsLogged) { //$scope.userIsLogged
             $scope.reviewModal.show();
-            //            var confirmPopup = $ionicPopup.confirm({
-            //                title: $filter('translate')('pathdetailturist_voteinfo'),
-            //                templateUrl: 'templates/vote-popup.html',
-            //                scope: $scope,
-            //                buttons: [
-            //                    {
-            //                        text: $filter('translate')('newreview_popup_cancel'),
-            //                        type: ' button-percorsi'
-            //                    },
-            //                    {
-            //                        text: $filter('translate')('newreview_popup_ok'),
-            //                        type: 'button-percorsi',
-            //                        onTap: function (e) {
-            //                            if (!$scope.rating.myvote) {
-            //                                e.preventDefault();
-            //                            } else {
-            //                                //return $scope.rating.current;
-            //                                $scope.sendVote($scope.rating.myvote);
-            //                            }
-            //                        }
-            //                    }
-            //                ]
-            //            });
         } else {
             $scope.loginModal.show();
         }
     };
     $scope.back = function () {
-            $ionicHistory.goBack();
-        }
-        //    $scope.showReview = function (name) {
-        //        $scope.rating.myreview = $scope.rating.review;
-        //        if ($scope.userIsLogged) {
-        //            var confirmPopup = $ionicPopup.confirm({
-        //                title: $filter('translate')('newreview_popup_title'),
-        //                templateUrl: 'templates/review-popup.html',
-        //                scope: $scope,
-        //                buttons: [
-        //                    {
-        //                        text: $filter('translate')('newreview_popup_cancel'),
-        //                        type: 'button-percorsi'
-        //                    },
-        //                    {
-        //                        text: $filter('translate')('newreview_popup_ok'),
-        //                        type: 'button-percorsi',
-        //                        onTap: function (e) {
-        //                            if (!$scope.rating.myreview) {
-        //                                e.preventDefault();
-        //                                Toast.show($filter('translate')('review_empty_error'), 'short', 'bottom');
-        //
-        //                            } else {
-        //                                // return $scope.review;
-        //                                $scope.sendReview($scope.rating.myreview);
-        //                            }
-        //                        }
-        //                    }
-        //                ]
-        //            });
-        //        } else {
-        //            $scope.loginModal.show();
-        //        }
-        //    }
+        $ionicHistory.goBack();
+    }
+
 });
