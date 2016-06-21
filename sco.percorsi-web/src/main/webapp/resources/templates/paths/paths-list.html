@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Lista dei percorsi disponibili:</h1>
+    </div>
+    <div class="col-lg-12 right">
+        <a href="#/path/" class="btn btn-primary">Nuovo percorso</a>
+        <a href="#/categories-list" class="btn btn-default">Gestione categorie</a>
+    </div>
+    <div class="col-lg-12" ng-repeat="path in paths">
+        <div class="row path-list-item">
+            <div class="col-md-3">
+                <img class="path-img" ng-src="{{path.images[0].url}}" alt="{{path.title[languages[0]]}}">
+            </div>
+            <div class="col-md-9">
+                <h4>{{path.title[languages[0]]}}</h4>
+                <p ng-bind-html="trustHTML(path.description[languages[0]])"></p>
+                <p><a href="#/path/{{$index}}" class="btn btn-primary" role="button">Modifica</a> <a ng-click="delete($index)" class="btn btn-danger" role="button">Elimina</a></p>
+            </div>
+        </div>
+    </div>
+</div>
