@@ -25,7 +25,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     // Get names of categories for each category of the path (because the path contains only the id)
     $scope.getCategoriesName = function (catOfPath) {
-        var output = "";
+        var output = '';
         catOfPath.forEach(function (cat, idx) {
             $rootScope.catList.forEach(function (rootCat, i) {
                 if (cat == rootCat.id)
@@ -38,6 +38,8 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
 // Edit an existing path
 .controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService, uploadImageOnImgur, drawMap) {
+    // Active tab
+    $scope.selectedTab = 'info';
     // Check if it should add or modify a path
     if ($stateParams.idPath)
         $scope.currentPath = $rootScope.paths[$stateParams.idPath];
@@ -106,6 +108,9 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     // Set the default language to IT
     $scope.lang = $rootScope.languages[0];
+    $scope.data = {
+        lang: $rootScope.languages[0]
+    };
 
     $scope.mediaType = 'image';
     $scope.newMedia = {};

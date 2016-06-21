@@ -301,3 +301,42 @@ hr.border-paths {
 .required-sign {
     color: rgb(228, 0, 27);
 }
+
+
+/* Path page */
+
+.tabs-menu {
+    padding-right: 0;
+}
+
+.tabs-menu a {
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+    display: block;
+    font-size: 15px;
+    text-decoration: none;
+    padding-left: 10px;
+    margin-top: 30px;
+    transition: all 0.1s;
+    border-bottom: 4px solid #fff;
+}
+
+.tabs-menu a:first-child {
+    margin-top: 0;
+}
+
+.tabs-menu a:hover {
+    color: rgb(17, 133, 117);
+    border-bottom: 4px solid rgb(17, 133, 117);
+}
+
+.tabs-menu a.active-tab {
+    cursor: default;
+    color: rgb(17, 133, 117);
+    border-bottom: 4px solid rgb(17, 133, 117);
+}
+
+.tabs-container {
+    border-left: 1px solid rgb(193, 193, 193);
+}

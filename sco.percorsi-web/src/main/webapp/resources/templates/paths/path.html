@@ -1,275 +1,308 @@
-<div class="row">
-    <!-- Title -->
-    <div class="col-lg-12">
-        <h2 class="center">Percorso: {{currentPath.title.it}}</h2>
-    </div>
-    <!-- Save and discard changes buttons -->
-    <div class="col-lg-12 right">
-        <a ng-click="save()" class="btn btn-primary" role="button">Salva</a>
-        <a ng-click="back()" class="btn btn-default" role="button">Non salvare</a>
-    </div>
-
-    <!-- Edit fields -->
-    <div class="col-md-5 fields border">
-        <!-- Title -->
-        <div class="row">
-            <h3 class="center">Modifica campi</h3>
-        </div>
-        <!-- Language combobox -->
-        <div class="row">
-            <div class="col-sm-3">
-                Lingua:
-            </div>
-            <div class="col-sm-9">
-                <select class="form-control" ng-model="lang">
-                    <option ng-repeat="language in languages" value="{{language}}">{{ language }}</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                Categoria:
-            </div>
-            <div class="col-sm-9">
-                <div class="checkbox" ng-repeat="cat in catList">
-                    <label>
-                        <input type="checkbox" checklist-model="currentPath.categories" checklist-value="cat.id"> {{cat.name[lang]}}
-                    </label>
-                </div>
-            </div>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6 header-path-category">
+            <h4>{{currentPath.title[languages[0]] ? 'MODIFICA PERCORSO: ' + currentPath.title[languages[0]] : 'CREA NUOVO PERCORSO'}}</h4>
+            <p>I campi contrassegnati col simbolo <span class="required-sign">*</span> sono obbligatori</p>
         </div>
 
-        <div ng-repeat="language in languages" ng-show="lang == language">
-            <!-- Edit title -->
+        <div class="col-md-6 right">
+            <a ng-click="save()" class="btn btn-save btn-margin" role="button">Salva</a>
+            <a ng-click="back()" class="btn btn-danger" role="button">Annulla</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Menu tab -->
+        <div class="col-md-2 tabs-menu">
+            <a ng-class="{'active-tab':selectedTab == 'info'}" ng-click="selectedTab = 'info'">INFO</a>
+            <a ng-class="{'active-tab':selectedTab == 'multimedia'}" ng-click="selectedTab = 'multimedia'">MULTIMEDIA</a>
+            <a ng-class="{'active-tab':selectedTab == 'pois'}" ng-click="selectedTab = 'pois'">TAPPE</a>
+            <a ng-class="{'active-tab':selectedTab == 'map'}" ng-click="selectedTab = 'map'">ITINERARIO</a>
+        </div>
+
+        <!-- Tabs container -->
+        <div class="col-md-10 tabs-container">
+            <!-- Info tab -->
+            <div ng-include="'templates/paths/tabs/info.html'" ng-if="selectedTab == 'info'"></div>
+            <div ng-include="'templates/paths/tabs/multimedia.html'" ng-if="selectedTab == 'multimedia'"></div>
+            <div ng-include="'templates/paths/tabs/pois-list.html'" ng-if="selectedTab == 'pois'"></div>
+            <div ng-include="'templates/paths/tabs/path-shape.html'" ng-if="selectedTab == 'map'"></div>
+        </div>
+
+        <div class="col-md-12">
+            <!-- OLD VERSION -->
             <div class="row">
-                <div class="col-sm-3">
-                    Nome ({{language | uppercase}}):
+                <!-- Title -->
+                <div class="col-lg-12">
+                    <h2 class="center">Percorso: {{currentPath.title.it}}</h2>
                 </div>
-                <div class="col-sm-9">
-                    <input ng-class="{error: !currentPath.title[language]}" class="form-control" type="text" ng-model="currentPath.title[language]" />
+                <!-- Save and discard changes buttons -->
+                <div class="col-lg-12 right">
+                    <a ng-click="save()" class="btn btn-primary" role="button">Salva</a>
+                    <a ng-click="back()" class="btn btn-default" role="button">Non salvare</a>
+                </div>
+
+                <!-- Edit fields -->
+                <div class="col-md-5 fields border">
+                    <!-- Title -->
+                    <div class="row">
+                        <h3 class="center">Modifica campi</h3>
+                    </div>
+                    <!-- Language combobox -->
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Lingua:
+                        </div>
+                        <div class="col-sm-9">
+                            <!--<select class="form-control" ng-model="lang">
+                                <option ng-repeat="language in languages" value="{{language}}">{{ language }}</option>
+                            </select>-->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Categoria:
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="checkbox" ng-repeat="cat in catList">
+                                <label>
+                                    <input type="checkbox" checklist-model="currentPath.categories" checklist-value="cat.id"> {{cat.name[lang]}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-repeat="language in languages" ng-show="data.lang == language">
+                        <!-- Edit title -->
+                        <div class="row">
+                            <div class="col-sm-3">
+                                Nome ({{language | uppercase}}):
+                            </div>
+                            <div class="col-sm-9">
+                                <input ng-class="{error: !currentPath.title[language]}" class="form-control" type="text" ng-model="currentPath.title[language]" />
+                            </div>
+                        </div>
+                        <!-- Edit description -->
+                        <div class="row">
+                            <div class="col-sm-3">
+                                Descrizione ({{language | uppercase}}):
+                            </div>
+                            <div class="col-sm-9">
+                                <text-angular ng-class="{error: !currentPath.description[language]}" ng-model="currentPath.description[language]"></text-angular>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Edit length, time and difficulty -->
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Lunghezza:
+                        </div>
+                        <div class="col-sm-9">
+                            <input ng-class="{error: !currentPath.length}" class="form-control" type="text" ng-model="currentPath.length" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Tempo:
+                        </div>
+                        <div class="col-sm-9">
+                            <input ng-class="{error: !currentPath.time}" class="form-control" type="text" ng-model="currentPath.time" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Difficoltà:
+                        </div>
+                        <div class="col-sm-9">
+                            <input ng-class="{error: !currentPath.difficulty}" class="form-control" type="text" ng-model="currentPath.difficulty" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media objects -->
+                <div class="col-md-7 fields">
+                    <!-- Title -->
+                    <div class="row">
+                        <h3 class="center">Edit media</h3>
+                    </div>
+
+                    <!-- Images -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4>Immagini</h4>
+                        </div>
+                    </div>
+                    <div class="row" ng-repeat="img in currentPath.images">
+                        <div class="col-md-9 no-padding">
+                            <div ng-repeat="language in languages" ng-show="lang == language">
+                                <div class="col-sm-3">
+                                    Titolo ({{language | uppercase}}):
+                                </div>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" ng-model="img.title[language]" />
+                                </div>
+                            </div>
+                            <!-- Image url -->
+                            <div class="col-sm-3">
+                                URL:
+                            </div>
+                            <div class="col-sm-9">
+                                <input ng-class="{error: !img.url}" class="form-control" type="text" ng-model="img.url" />
+                            </div>
+                        </div>
+                        <div class="col-md-3 no-padding">
+                            <img style="max-width: 100%;" ng-src="{{img.url}}" />
+                        </div>
+                    </div>
+
+                    <!-- Videos -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4>Video</h4>
+                        </div>
+                    </div>
+                    <div class="row" ng-repeat="video in currentPath.videos">
+                        <div class="col-md-9 no-padding">
+                            <div ng-repeat="language in languages" ng-show="lang == language">
+                                <div class="col-sm-3">
+                                    Titolo ({{language | uppercase}}):
+                                </div>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" ng-model="video.title[language]" />
+                                </div>
+                            </div>
+                            <!-- Video url -->
+                            <div class="col-sm-3">
+                                URL:
+                            </div>
+                            <div class="col-sm-9">
+                                <input ng-class="{error: !video.url}" class="form-control" type="text" ng-model="video.url" />
+                            </div>
+                        </div>
+                        <div class="col-md-3 no-padding">
+                            Preview non disponibile
+                        </div>
+                    </div>
+
+                    <!-- Audios -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4>Audio</h4>
+                        </div>
+                    </div>
+                    <div class="row" ng-repeat="audio in currentPath.audios">
+                        <div class="col-md-9 no-padding">
+                            <div ng-repeat="language in languages" ng-show="lang == language">
+                                <div class="col-sm-3">
+                                    Titolo ({{language | uppercase}}):
+                                </div>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" ng-model="audio.title[language]" />
+                                </div>
+                            </div>
+                            <!-- Audio url -->
+                            <div class="col-sm-3">
+                                URL:
+                            </div>
+                            <div class="col-sm-9">
+                                <input ng-class="{error: !audio.url}" class="form-control" type="text" ng-model="audio.url" />
+                            </div>
+                        </div>
+                        <div class="col-md-3 no-padding">
+                            preview non disponibile
+                        </div>
+                    </div>
+
+                    <!-- Add new media -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4>Aggiungi un nuovo elemento multimediale</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Tipo di oggetto:
+                        </div>
+                        <div class="col-sm-9">
+                            <select class="form-control" ng-model="mediaType">
+                                <option value="image">Immagine</option>
+                                <option value="video">Video</option>
+                                <option value="audio">Audio</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" ng-repeat="language in languages">
+                        <div class="col-sm-3">
+                            Titolo ({{language | uppercase}}):
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" ng-model="newMedia.title[language]" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            URL:
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="text" ng-model="newMedia.url" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 right">
+                            <a ng-click="addMedia()" class="btn btn-primary" role="button">Aggiungi elemento</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4>Carica immagine su <a href="http://www.imgur.com" target="_blank">imgur</a></h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- File uploader -->
+                        <div class="col-md-3">
+                            Scegli file:
+                        </div>
+                        <div class="col-md-9">
+                            <input type="file" base-sixty-four-input ng-model="file" accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 right">
+                            <a ng-disabled="!file" ng-click="!file || uploadPic(file)" class="btn btn-primary">Carica</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Edit description -->
+            <!-- Edit path shape -->
             <div class="row">
-                <div class="col-sm-3">
-                    Descrizione ({{language | uppercase}}):
+                <div class="col-lg-12">
+                    <h3>Modifica percorso</h3>
                 </div>
-                <div class="col-sm-9">
-                    <text-angular ng-class="{error: !currentPath.description[language]}" ng-model="currentPath.description[language]"></text-angular>
-                </div>
-            </div>
-        </div>
-
-        <!-- Edit length, time and difficulty -->
-        <div class="row">
-            <div class="col-sm-3">
-                Lunghezza:
-            </div>
-            <div class="col-sm-9">
-                <input ng-class="{error: !currentPath.length}" class="form-control" type="text" ng-model="currentPath.length" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                Tempo:
-            </div>
-            <div class="col-sm-9">
-                <input ng-class="{error: !currentPath.time}" class="form-control" type="text" ng-model="currentPath.time" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                Difficoltà:
-            </div>
-            <div class="col-sm-9">
-                <input ng-class="{error: !currentPath.difficulty}" class="form-control" type="text" ng-model="currentPath.difficulty" />
-            </div>
-        </div>
-    </div>
-
-    <!-- Media objects -->
-    <div class="col-md-7 fields">
-        <!-- Title -->
-        <div class="row">
-            <h3 class="center">Edit media</h3>
-        </div>
-
-        <!-- Images -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h4>Immagini</h4>
-            </div>
-        </div>
-        <div class="row" ng-repeat="img in currentPath.images">
-            <div class="col-md-9 no-padding">
-                <div ng-repeat="language in languages" ng-show="lang == language">
-                    <div class="col-sm-3">
-                        Titolo ({{language | uppercase}}):
-                    </div>
-                    <div class="col-sm-9">
-                        <input class="form-control" type="text" ng-model="img.title[language]" />
-                    </div>
-                </div>
-                <!-- Image url -->
-                <div class="col-sm-3">
-                    URL:
-                </div>
-                <div class="col-sm-9">
-                    <input ng-class="{error: !img.url}" class="form-control" type="text" ng-model="img.url" />
+                <div class="col-lg-12 right">
+                    <a ng-click="generatesPath()" class="btn btn-primary">Genera percorso</a>
+                    <a ng-click="toggleMarkers()" class="btn btn-default">{{toggle ? 'Nascondi' : 'Mostra'}} markers</a>
                 </div>
             </div>
-            <div class="col-md-3 no-padding">
-                <img style="max-width: 100%;" ng-src="{{img.url}}" />
-            </div>
-        </div>
-
-        <!-- Videos -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h4>Video</h4>
-            </div>
-        </div>
-        <div class="row" ng-repeat="video in currentPath.videos">
-            <div class="col-md-9 no-padding">
-                <div ng-repeat="language in languages" ng-show="lang == language">
-                    <div class="col-sm-3">
-                        Titolo ({{language | uppercase}}):
-                    </div>
-                    <div class="col-sm-9">
-                        <input class="form-control" type="text" ng-model="video.title[language]" />
-                    </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <textarea ng-change="updateShape()" ng-model="currentPath.shape" class="form-control map-shape-area"></textarea>
                 </div>
-                <!-- Video url -->
-                <div class="col-sm-3">
-                    URL:
-                </div>
-                <div class="col-sm-9">
-                    <input ng-class="{error: !video.url}" class="form-control" type="text" ng-model="video.url" />
+                <div class="col-md-7">
+                    <div id="map"></div>
                 </div>
             </div>
-            <div class="col-md-3 no-padding">
-                Preview non disponibile
-            </div>
-        </div>
-
-        <!-- Audios -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h4>Audio</h4>
-            </div>
-        </div>
-        <div class="row" ng-repeat="audio in currentPath.audios">
-            <div class="col-md-9 no-padding">
-                <div ng-repeat="language in languages" ng-show="lang == language">
-                    <div class="col-sm-3">
-                        Titolo ({{language | uppercase}}):
-                    </div>
-                    <div class="col-sm-9">
-                        <input class="form-control" type="text" ng-model="audio.title[language]" />
-                    </div>
-                </div>
-                <!-- Audio url -->
-                <div class="col-sm-3">
-                    URL:
-                </div>
-                <div class="col-sm-9">
-                    <input ng-class="{error: !audio.url}" class="form-control" type="text" ng-model="audio.url" />
-                </div>
-            </div>
-            <div class="col-md-3 no-padding">
-                preview non disponibile
-            </div>
-        </div>
-
-        <!-- Add new media -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h4>Aggiungi un nuovo elemento multimediale</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                Tipo di oggetto:
-            </div>
-            <div class="col-sm-9">
-                <select class="form-control" ng-model="mediaType">
-                    <option value="image">Immagine</option>
-                    <option value="video">Video</option>
-                    <option value="audio">Audio</option>
-                </select>
-            </div>
-        </div>
-        <div class="row" ng-repeat="language in languages">
-            <div class="col-sm-3">
-                Titolo ({{language | uppercase}}):
-            </div>
-            <div class="col-sm-9">
-                <input class="form-control" type="text" ng-model="newMedia.title[language]" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                URL:
-            </div>
-            <div class="col-sm-9">
-                <input class="form-control" type="text" ng-model="newMedia.url" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 right">
-                <a ng-click="addMedia()" class="btn btn-primary" role="button">Aggiungi elemento</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <h4>Carica immagine su <a href="http://www.imgur.com" target="_blank">imgur</a></h4>
-            </div>
-        </div>
-        <div class="row">
-            <!-- File uploader -->
-            <div class="col-md-3">
-                Scegli file:
-            </div>
-            <div class="col-md-9">
-                <input type="file" base-sixty-four-input ng-model="file" accept="image/*" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 right">
-                <a ng-disabled="!file" ng-click="!file || uploadPic(file)" class="btn btn-primary">Carica</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Edit path shape -->
-<div class="row">
-    <div class="col-lg-12">
-        <h3>Modifica percorso</h3>
-    </div>
-    <div class="col-lg-12 right">
-        <a ng-click="generatesPath()" class="btn btn-primary">Genera percorso</a>
-        <a ng-click="toggleMarkers()" class="btn btn-default">{{toggle ? 'Nascondi' : 'Mostra'}} markers</a>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-5">
-        <textarea ng-change="updateShape()" ng-model="currentPath.shape" class="form-control map-shape-area"></textarea>
-    </div>
-    <div class="col-md-7">
-        <div id="map"></div>
-    </div>
-</div>
-<div class="row">
-    <!-- Pois list -->
-    <div class="col-lg-12">
-        <h2>Elenco dei punti:</h2>
-        <!-- List of pois -->
-        <div class="row">
-            <div class="col-lg-12" style="margin-bottom: 20px">
-                <a href="#/poi/" class="btn btn-primary">Aggiungi nuovo punto</a>
-                <a class="btn btn-info" ng-click="enableOrder = !enableOrder">{{enableOrder ? 'Fine' : 'Riordina'}}</a>
-            </div>
-            <!--
+            <div class="row">
+                <!-- Pois list -->
+                <div class="col-lg-12">
+                    <h2>Elenco dei punti:</h2>
+                    <!-- List of pois -->
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-bottom: 20px">
+                            <a href="#/poi/" class="btn btn-primary">Aggiungi nuovo punto</a>
+                            <a class="btn btn-info" ng-click="enableOrder = !enableOrder">{{enableOrder ? 'Fine' : 'Riordina'}}</a>
+                        </div>
+                        <!--
             <div class="col-lg-12" style="margin-bottom: 20px" ng-repeat="poi in currentPath.pois">
                 <div class="row">
                     <div class="col-sm-2">
@@ -290,30 +323,32 @@
                     </div>
                 </div>
             </div>-->
-            <div class="col-lg-12">
-                <ul ui-sortable="sortableOptions" ng-model="currentPath.pois" class="list-group">
-                    <li class="list-group-item" ng-repeat="poi in currentPath.pois">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <!-- Poi image -->
-                                <img class="path-img" ng-src="{{poi.images[0].url}}" alt="{{poi.images[0].title[lang]}}" />
-                            </div>
-                            <div class="col-sm-10">
-                                <!-- Poi info + edit buttons -->
-                                <h4>{{poi.title[lang]}}</h4>
-                                <ul>
-                                    <li>Numero foto: {{poi.images.length}}</li>
-                                    <li>Numero video: {{poi.videos.length}}</li>
-                                    <li>Numero audio: {{poi.audios.length}}</li>
-                                    <li>Lat: {{poi.coordinates.lat}} - Long: {{poi.coordinates.lng}}</li>
-                                </ul>
-                                <p><a href="#/poi/{{$index}}" class="btn btn-primary" role="button">Modifica</a>
-                                    <a ng-click="remove($index)" class="btn btn-danger" role="button">Rimuovi</a> <a ng-show="enableOrder" class="handle btn btn-primary"><i class="glyphicon glyphicon-move"></i></a></p>
-                            </div>
+                        <div class="col-lg-12">
+                            <ul ui-sortable="sortableOptions" ng-model="currentPath.pois" class="list-group">
+                                <li class="list-group-item" ng-repeat="poi in currentPath.pois">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <!-- Poi image -->
+                                            <img class="path-img" ng-src="{{poi.images[0].url}}" alt="{{poi.images[0].title[lang]}}" />
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <!-- Poi info + edit buttons -->
+                                            <h4>{{poi.title[lang]}}</h4>
+                                            <ul>
+                                                <li>Numero foto: {{poi.images.length}}</li>
+                                                <li>Numero video: {{poi.videos.length}}</li>
+                                                <li>Numero audio: {{poi.audios.length}}</li>
+                                                <li>Lat: {{poi.coordinates.lat}} - Long: {{poi.coordinates.lng}}</li>
+                                            </ul>
+                                            <p><a href="#/poi/{{$index}}" class="btn btn-primary" role="button">Modifica</a>
+                                                <a ng-click="remove($index)" class="btn btn-danger" role="button">Rimuovi</a> <a ng-show="enableOrder" class="handle btn btn-primary"><i class="glyphicon glyphicon-move"></i></a></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
