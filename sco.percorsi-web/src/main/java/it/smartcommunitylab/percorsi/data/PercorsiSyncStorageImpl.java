@@ -91,7 +91,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 
 	public Long publish(String appId) throws DataException {
 		Long version = getDraftVersion(appId);
-		if (version != null && version > getPublicVersion(appId)) {
+		if (version != null && version != getPublicVersion(appId)) {
 			// update categories if changed
 			Categories draftCategories = getDraftCategories(appId);
 			if (draftCategories != null) {
@@ -150,13 +150,17 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			version = getPublicVersion(appId);
 		}
 
+		updateVersion(appId, version);
+		return version;
+	}
+
+	private void updateVersion(String appId, Long version) {
 		VersionObject vo = new VersionObject();
 		vo.setAppId(appId);
 		vo.setVersion(version);
 		mongoTemplate.save(vo);
 		versionMap.put(vo.getAppId(), vo.getVersion());
 		setup.findProviderById(appId).setVersion(version);
-		return version;
 	}
 
 	@Override
@@ -394,6 +398,12 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 		}
 	}
 
+	public <T extends BasicObject> void storeObject(T obj) throws DataException {
+		super.storeObject(obj);
+		String appId = ((PercorsiObject)obj).getAppId();
+		Long version = obj.getVersion();
+		updateVersion(appId, version);
+	}
 
 	@Override
 	protected <T extends BasicObject> PercorsiBean convertToObjectBean(T object)
