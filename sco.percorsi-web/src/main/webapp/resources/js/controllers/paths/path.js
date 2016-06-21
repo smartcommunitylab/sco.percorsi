@@ -107,7 +107,6 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     });
 
     // Set the default language to IT
-    $scope.lang = $rootScope.languages[0];
     $scope.data = {
         lang: $rootScope.languages[0]
     };

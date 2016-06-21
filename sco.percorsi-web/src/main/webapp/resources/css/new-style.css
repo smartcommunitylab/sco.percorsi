@@ -55,6 +55,7 @@ a:hover {
 }
 
 .btn.btn-save {
+    border: 0;
     background-color: rgb(105, 193, 52);
     color: #fff;
 }
@@ -339,4 +340,34 @@ hr.border-paths {
 
 .tabs-container {
     border-left: 1px solid rgb(193, 193, 193);
+}
+
+.add-media {
+    margin-bottom: 14px;
+}
+
+.add-media input,
+.add-media select {
+    width: 250px;
+}
+
+.add-media select {
+    background: transparent url('../img/arrow.png') no-repeat 230px center;
+}
+
+.add-media p {
+    margin-bottom: 0;
+}
+
+.add-media-label {
+    width: 100px;
+    display: inline-block;
+}
+
+.add-media hr {
+    background-color: rgb(193, 193, 193);
+    height: 1px;
+    margin: 0;
+    border: 0;
+    margin-top: 10px;
 }
