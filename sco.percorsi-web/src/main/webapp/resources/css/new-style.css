@@ -394,3 +394,7 @@ hr.border-paths {
 .media-type-title {
     margin-left: 10px;
 }
+
+.map-shape-area {
+    height: 200px!important;
+}

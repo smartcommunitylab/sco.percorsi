@@ -72,17 +72,19 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     $rootScope.pathModified = false;
 
-    // Draw the map with pois of the path + shape
-    drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
-        lat: '45.8832637',
-        lng: '11.0014507'
-    } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
-        $scope.currentPath.shape = shape;
-        $scope.currentPath.length = drawMap.shapeLength();
-        $scope.currentPath.time = drawMap.shapeTime();
-        if (!$scope.$$phase)
-            $scope.$apply();
-    }, $scope.currentPath.pois);
+    $scope.initMap = function () {
+        // Draw the map with pois of the path + shape
+        drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
+            lat: '45.8832637',
+            lng: '11.0014507'
+        } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
+            $scope.currentPath.shape = shape;
+            $scope.currentPath.length = drawMap.shapeLength();
+            $scope.currentPath.time = drawMap.shapeTime();
+            if (!$scope.$$phase)
+                $scope.$apply();
+        }, $scope.currentPath.pois);
+    };
 
     // Updating the polyline on the map when the shape change
     $scope.updateShape = function () {
