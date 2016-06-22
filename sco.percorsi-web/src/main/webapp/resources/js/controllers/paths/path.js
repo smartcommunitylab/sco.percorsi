@@ -174,21 +174,29 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
                 // back to the home page
                 $location.path('paths-list');
             });
-    };
-
-    function checkFields() {
-        var allCompiled = true;
-        //var emptyFields = $('.error');
-
-        /*if (emptyFields.length > 0 || $scope.currentPath.images.length == 0 || $scope.currentPath.pois.length == 0 || $scope.currentPath.categories.length == 0) {
+        else {
             $rootScope.errorTexts = [];
             $rootScope.errorTexts.push("Errore! Tutti i campi con bordo rosso devono essere compilati e deve essere selezionata almeno una categoria, inoltre deve essere presente almeno una foto per il percorso e un punto di interesse");
             $timeout(function () {
                 $rootScope.errorTexts = [];
             }, 5000);
-            allCompiled = false;
-        }*/
-        return allCompiled;
+        }
+    };
+
+    function checkFields() {
+        var path = $scope.currentPath;
+
+        if (!path.title || !path.description)
+            return false;
+        $rootScope.languages.forEach(function (lang, idx) {
+            if (!path.title[lang] || !path.description[lang] || path.title[lang] == '' || path.description[lang] == '')
+                return false;
+        })
+
+        if (path.images.length == 0 || path.pois.length == 0 || path.categories.length == 0)
+            return false;
+
+        return true;
     }
 
     // Back without saving changes
