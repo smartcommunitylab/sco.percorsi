@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg-12 field">
+        <p><b>Lingua:</b></p>
+        <select class="form-control" ng-model="data.lang">
+            <option ng-repeat="language in languages" ng-value="{{language}}">{{ language }}</option>
+        </select>
+    </div>
+    <!-- Catgories -->
+    <div class="col-lg-12 check-container">
+        <p><span class="required-sign">*</span> <b>Categoria:</b></p>
+        <div>
+            <div class="checkbox" ng-repeat="cat in catList">
+                <label>
+                    <input type="checkbox" checklist-model="currentPath.categories" checklist-value="cat.id"> {{cat.name[data.lang]}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <!-- Name -->
+    <div class="col-lg-12 field" ng-repeat="language in languages" ng-show="data.lang == language">
+        <p><span class="required-sign">*</span> <b>Nome ({{language | uppercase}}):</b></p>
+        <input ng-class="{error: !currentPath.title[language]}" class="form-control" type="text" ng-model="currentPath.title[language]" />
+    </div>
+    <!-- Length -->
+    <div class="col-lg-12 field">
+        <p><span class="required-sign">*</span> <b>Lunghezza:</b></p>
+        <input ng-class="{error: !currentPath.length}" class="form-control" type="text" ng-model="currentPath.length" />
+    </div>
+    <!-- Time -->
+    <div class="col-lg-12 field">
+        <p><span class="required-sign">*</span> <b>Tempo:</b></p>
+        <input ng-class="{error: !currentPath.time}" class="form-control" type="text" ng-model="currentPath.time" />
+    </div>
+    <!-- Difficulty -->
+    <div class="col-lg-12 field">
+        <p><span class="required-sign">*</span> <b>Difficoltà:</b></p>
+        <input ng-class="{error: !currentPath.difficulty}" class="form-control" type="text" ng-model="currentPath.difficulty" />
+    </div>
+    <!-- Description -->
+    <div class="col-lg-12 field" ng-repeat="language in languages" ng-show="data.lang == language">
+        <p><span class="required-sign">*</span> <b>Descrizione ({{language | uppercase}}):</b></p>
+        <text-angular ng-class="{error: !currentPath.description[language]}" ng-model="currentPath.description[language]"></text-angular>
+    </div>
+</div>

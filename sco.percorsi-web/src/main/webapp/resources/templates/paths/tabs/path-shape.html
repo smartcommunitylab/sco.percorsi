@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-lg-12 right field">
+        <a class="btn btn-info btn-margin" ng-click="generatesPath()">Genera itinerario</a>
+        <a class="btn btn-info" ng-click="toggleMarkers()">{{toggle ? 'Nascondi' : 'Vedi'}} tappe</a>
+    </div>
+    <div class="col-lg-12 field">
+        <div data-ng-init="initMap()" id="map"></div>
+    </div>
+    <div class="col-lg-12 field">
+        <textarea ng-change="updateShape()" ng-model="currentPath.shape" class="form-control map-shape-area"></textarea>
+    </div>
+</div>

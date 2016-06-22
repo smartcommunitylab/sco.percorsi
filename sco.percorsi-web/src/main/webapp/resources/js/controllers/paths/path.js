@@ -6,6 +6,10 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         $rootScope.paths = data;
     });
 
+    DataService.getCategories().then(function (data) {
+        $rootScope.catList = data;
+    });
+
     $scope.trustHTML = function (code) {
         return $sce.trustAsHtml(code);
     }
@@ -18,10 +22,24 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
             });
         });
     };
+
+    // Get names of categories for each category of the path (because the path contains only the id)
+    $scope.getCategoriesName = function (catOfPath) {
+        var output = '';
+        catOfPath.forEach(function (cat, idx) {
+            $rootScope.catList.forEach(function (rootCat, i) {
+                if (cat == rootCat.id)
+                    output += rootCat.name[$rootScope.languages[0]] + ", ";
+            });
+        });
+        return output.slice(0, -2);
+    };
 })
 
 // Edit an existing path
 .controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService, uploadImageOnImgur, drawMap) {
+    // Active tab
+    $scope.selectedTab = 'info';
     // Check if it should add or modify a path
     if ($stateParams.idPath)
         $scope.currentPath = $rootScope.paths[$stateParams.idPath];
@@ -54,17 +72,19 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     $rootScope.pathModified = false;
 
-    // Draw the map with pois of the path + shape
-    drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
-        lat: '45.8832637',
-        lng: '11.0014507'
-    } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
-        $scope.currentPath.shape = shape;
-        $scope.currentPath.length = drawMap.shapeLength();
-        $scope.currentPath.time = drawMap.shapeTime();
-        if (!$scope.$$phase)
-            $scope.$apply();
-    }, $scope.currentPath.pois);
+    $scope.initMap = function () {
+        // Draw the map with pois of the path + shape
+        drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
+            lat: '45.8832637',
+            lng: '11.0014507'
+        } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
+            $scope.currentPath.shape = shape;
+            $scope.currentPath.length = drawMap.shapeLength();
+            $scope.currentPath.time = drawMap.shapeTime();
+            if (!$scope.$$phase)
+                $scope.$apply();
+        }, $scope.currentPath.pois);
+    };
 
     // Updating the polyline on the map when the shape change
     $scope.updateShape = function () {
@@ -89,14 +109,16 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     });
 
     // Set the default language to IT
-    $scope.lang = $rootScope.languages[0];
+    $scope.data = {
+        lang: $rootScope.languages[0],
+        mediaType: 'image'
+    };
 
-    $scope.mediaType = 'image';
     $scope.newMedia = {};
 
     // Add media to the current path
     $scope.addMedia = function () {
-        switch ($scope.mediaType) {
+        switch ($scope.data.mediaType) {
         case 'image':
             $scope.currentPath.images.push($scope.newMedia);
             break;
@@ -112,6 +134,10 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         // Reset the newMedia object
         $scope.newMedia = {};
     };
+
+    $scope.delete = function (idx, array) {
+        array.splice(idx, 1);
+    }
 
     $scope.remove = function (idPoi) {
         $scope.currentPath.pois.splice(idPoi, 1);

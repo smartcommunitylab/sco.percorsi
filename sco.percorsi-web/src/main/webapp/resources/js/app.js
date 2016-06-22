@@ -15,15 +15,6 @@ var consoleApp = angular.module('console', ['ui.bootstrap',
 'angular-loading-bar'
 ]);
 
-consoleApp.run(['$rootScope', '$q', '$modal', '$location', 'DataService',
-  function ($localize, $rootScope, $q, $modal, $location, DataService, CodeProcessor, ValidationService) {
-        $rootScope.logout = function (url) {
-            DataService.logout().then(function () {
-                window.location.reload();
-            });
-        };
-  }]);
-
 // Text editor toolbar config
 consoleApp.config(['$provide', function ($provide) {
     $provide.decorator('taOptions', ['$delegate', function (taOptions) {
@@ -78,13 +69,13 @@ consoleApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/moderate',
             templateUrl: 'templates/moderate.html'
         });
-})
+});
 
-// Accordion reorder (probalby removing it)
-consoleApp.config(['$provide', function ($provide) {
-    $provide.decorator('accordionDirective', function ($delegate) {
-        var directive = $delegate[0];
-        directive.replace = true;
-        return $delegate;
-    });
-}]);
+consoleApp.run(['$rootScope', '$q', '$modal', '$location', 'DataService',
+  function ($localize, $rootScope, $q, $modal, $location, DataService, CodeProcessor, ValidationService) {
+        $rootScope.logout = function (url) {
+            DataService.logout().then(function () {
+                window.location.reload();
+            });
+        };
+  }]);

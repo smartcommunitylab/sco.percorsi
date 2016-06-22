@@ -55,6 +55,7 @@ a:hover {
 }
 
 .btn.btn-save {
+    border: 0;
     background-color: rgb(105, 193, 52);
     color: #fff;
 }
@@ -176,7 +177,8 @@ hr.border-paths {
 }
 
 .selection-tab a {
-    color: rgb(17, 133, 117);
+    color: #fff;
+    text-decoration: none;
 }
 
 .selection-tab.active {
@@ -299,4 +301,100 @@ hr.border-paths {
 
 .required-sign {
     color: rgb(228, 0, 27);
+}
+
+
+/* Path page */
+
+.tabs-menu {
+    padding-right: 0;
+}
+
+.tabs-menu a {
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+    display: block;
+    font-size: 15px;
+    text-decoration: none;
+    padding-left: 10px;
+    margin-top: 30px;
+    transition: all 0.1s;
+    border-bottom: 4px solid #fff;
+}
+
+.tabs-menu a:first-child {
+    margin-top: 0;
+}
+
+.tabs-menu a:hover {
+    color: rgb(17, 133, 117);
+    border-bottom: 4px solid rgb(17, 133, 117);
+}
+
+.tabs-menu a.active-tab {
+    cursor: default;
+    color: rgb(17, 133, 117);
+    border-bottom: 4px solid rgb(17, 133, 117);
+}
+
+.tabs-container {
+    border-left: 1px solid rgb(193, 193, 193);
+}
+
+.check-container {
+    margin-bottom: 20px;
+}
+
+.check-container p {
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.check-container > div {
+    display: inline-block;
+}
+
+.check-container .checkbox {
+    margin-top: 0;
+}
+
+.add-media {
+    margin-bottom: 14px;
+}
+
+.add-media input,
+.add-media select {
+    width: 250px;
+}
+
+.add-media select {
+    background: transparent url('../img/arrow.png') no-repeat 230px center;
+}
+
+.add-media p {
+    margin-bottom: 0;
+}
+
+.add-media-label {
+    width: 100px;
+    display: inline-block;
+}
+
+.add-media hr {
+    background-color: rgb(193, 193, 193);
+    height: 1px;
+    margin: 0;
+    border: 0;
+    margin-top: 10px;
+}
+
+.media-type-title {
+    margin-left: 10px;
+}
+
+.map-shape-area {
+    height: 200px!important;
 }
