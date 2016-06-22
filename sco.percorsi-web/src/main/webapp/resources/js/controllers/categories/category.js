@@ -2,9 +2,16 @@ angular.module('consoleControllers.categories', [])
 
 // Categories management
 .controller('CategoriesCtrl', function ($scope, $rootScope, $timeout, DataService) {
+    $scope.mainView = 'categories';
     // Get the list of all categories from the server
-    DataService.getCategories().then(function (list) {
-        $rootScope.catList = list;
+    DataService.getCategories().then(function (catList) {
+        if (!$rootScope.paths)
+            DataService.getPaths().then(function (list) {
+                $rootScope.paths = list;
+                $rootScope.catList = catList;
+            });
+        else
+            $rootScope.catList = list;
     });
 
     // Delete the category selected
