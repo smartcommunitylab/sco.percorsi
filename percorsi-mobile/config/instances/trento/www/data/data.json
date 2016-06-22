@@ -1,5 +1,5 @@
 {
-    "version": 967,
+    "version": 976,
     "updated": {
         "it.smartcommunitylab.percorsi.model.Categories": [{
             "id": null,
@@ -25,7 +25,7 @@
         "it.smartcommunitylab.percorsi.model.Path": [{
             "id": "575a785ce4b046c05797580f",
             "updateTime": 1465829802257,
-            "version": 954,
+            "version": 975,
             "user": null,
             "appId": "Trento",
             "localId": "pathLuoghiIncontroGiovani",
@@ -128,8 +128,8 @@
             "videos": [],
             "audios": [],
             "shape": "",
-            "vote": 3.6666666666666665,
-            "voteCount": 3,
+            "vote": null,
+            "voteCount": 0,
             "externalUrl": null,
             "pois": [{
                 "id": null,
@@ -264,7 +264,16 @@
                     "userDefined": false,
                     "userId": null
                 }],
-                "videos": [],
+                "videos": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "https://www.youtube.com/watch?v=YHn25_FePZM&feature=youtu.be",
+                    "userDefined": false,
+                    "userId": null
+                }],
                 "audios": [],
                 "externalUrl": null,
                 "coordinates": {
@@ -325,7 +334,16 @@
                     "userDefined": false,
                     "userId": null
                 }],
-                "videos": [],
+                "videos": [{
+                    "title": {
+                        "de": "",
+                        "it": "",
+                        "en": ""
+                    },
+                    "url": "https://www.youtube.com/watch?v=2rIMczEG_S4&feature=youtu.be",
+                    "userDefined": false,
+                    "userId": null
+                }],
                 "audios": [],
                 "externalUrl": null,
                 "coordinates": {
@@ -619,7 +637,7 @@
         }, {
             "id": "575a785ce4b046c057975810",
             "updateTime": 1465913573215,
-            "version": 967,
+            "version": 976,
             "user": null,
             "appId": "Trento",
             "localId": "pathPuntoInfoGiovani",
@@ -686,8 +704,8 @@
             "videos": [],
             "audios": [],
             "shape": "",
-            "vote": 4.333333333333333,
-            "voteCount": 3,
+            "vote": null,
+            "voteCount": 0,
             "externalUrl": null,
             "pois": [{
                 "id": null,
