@@ -60,20 +60,13 @@
     </div>
     <div class="col-lg-12">
         <ul ui-sortable="sortableOptions" ng-model="currentPath.images" class="list-group list-categories">
-            <li class="list-group-item" ng-repeat="image in currentPath.images">
-                <div class="row v-center">
+            <li class="list-group-item" ng-repeat="media in currentPath.images">
+                <div class="row v-center" ng-init="data.toggleImg[$index]">
                     <div class="col-md-2">
-                        <img class="path-img" ng-src="{{image.url}}" alt="{{image.title[languages[0]]}}">
+                        <img class="path-img" ng-src="{{media.url}}" alt="{{media.title[languages[0]]}}">
                     </div>
-                    <div class="col-md-8">
-                        <h5>Titolo immagine ({{data.lang | uppercase}}): {{image.title[data.lang] ? image.title[data.lang] : '-'}}</h5>
-                        <h5>URL: <a href="{{image.url}}" target="_blank">{{image.url}}</a></h5>
-                    </div>
-                    <div class="col-md-2 right">
-                        <a ng-hide="enableOrder" href="#/category/{{$index}}" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        <a ng-hide="enableOrder" ng-click="delete($index, currentPath.images)" class="btn btn-icon btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        <a ng-show="enableOrder" class="handle btn-icon btn-reorder"><i class="glyphicon glyphicon-align-justify"></i></a>
-                    </div>
+                    <div class="col-md-10" ng-if="data.toggleImg[$index]" ng-include="'templates/media/edit.html'" ng-controller="EditMediaCtrl"></div>
+                    <div class="col-md-10" ng-if="!data.toggleImg[$index]" ng-include="'templates/media/show.html'"></div>
                 </div>
             </li>
         </ul>
@@ -84,14 +77,14 @@
     </div>
     <div class="col-lg-12">
         <ul ui-sortable="sortableOptions" ng-model="currentPath.videos" class="list-group list-categories">
-            <li class="list-group-item" ng-repeat="video in currentPath.videos">
+            <li class="list-group-item" ng-repeat="media in currentPath.videos">
                 <div class="row v-center">
                     <div class="col-md-2">
 
                     </div>
                     <div class="col-md-8">
-                        <h5>Titolo video ({{data.lang | uppercase}}): {{video.title[data.lang] ? video.title[data.lang] : '-'}}</h5>
-                        <h5>URL: <a href="{{video.url}}" target="_blank">{{video.url}}</a></h5>
+                        <h5>Titolo video ({{data.lang | uppercase}}): {{media.title[data.lang] ? media.title[data.lang] : '-'}}</h5>
+                        <h5>URL: <a href="{{video.url}}" target="_blank">{{media.url}}</a></h5>
                     </div>
                     <div class="col-md-2 right">
                         <a ng-hide="enableOrder" href="#/category/{{$index}}" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
@@ -108,14 +101,14 @@
     </div>
     <div class="col-lg-12">
         <ul ui-sortable="sortableOptions" ng-model="currentPath.audios" class="list-group list-categories">
-            <li class="list-group-item" ng-repeat="audio in currentPath.audios">
+            <li class="list-group-item" ng-repeat="media in currentPath.audios">
                 <div class="row v-center">
                     <div class="col-md-2">
 
                     </div>
                     <div class="col-md-8">
-                        <h5>Titolo audio ({{data.lang | uppercase}}): {{audio.title[data.lang] ? audio.title[data.lang] : '-'}}</h5>
-                        <h5>URL: <a href="{{audio.url}}" target="_blank">{{audio.url}}</a></h5>
+                        <h5>Titolo audio ({{data.lang | uppercase}}): {{media.title[data.lang] ? media.title[data.lang] : '-'}}</h5>
+                        <h5>URL: <a href="{{audio.url}}" target="_blank">{{media.url}}</a></h5>
                     </div>
                     <div class="col-md-2 right">
                         <a ng-hide="enableOrder" href="#/category/{{$index}}" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>

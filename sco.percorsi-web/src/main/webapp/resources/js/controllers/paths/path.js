@@ -79,6 +79,8 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     };
 })
 
+.controller('EditMediaCtrl', function ($scope, $rootScope) {})
+
 .controller('PoisListCtrl', function ($scope, $rootScope, drawMap) {
     $scope.remove = function (idPoi) {
         $scope.currentPath.pois.splice(idPoi, 1);

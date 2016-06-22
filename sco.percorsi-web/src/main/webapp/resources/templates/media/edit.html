@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-10">
+        <div class="row">
+            <!-- Media name -->
+            <div class="col-lg-12 field add-media" ng-repeat="language in languages">
+                <div class="add-media-label">
+                    <p><b>Titolo ({{language | uppercase}}):</b></p>
+                </div>
+                <input class="form-control" type="text" ng-model="media.title[language]" />
+            </div>
+            <!-- Media link -->
+            <div class="col-lg-12 field add-media" style="margin-bottom: 0;">
+                <div class="add-media-label">
+                    <p><b>URL:</b></p>
+                </div>
+                <input class="form-control" type="text" ng-model="media.url" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 right">
+        <a ng-click="data.toggleImg[$index] = !data.toggleImg[$index]" class="btn btn-save btn-icon" role="button"><i class="fa fa-check" aria-hidden="true"></i></a>
+        <a ng-click="data.toggleImg[$index] = !data.toggleImg[$index]" class="btn btn-icon btn-danger" role="button"><i class="fa fa-times" aria-hidden="true"></i></a>
+    </div>
+</div>
