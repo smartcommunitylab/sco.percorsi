@@ -36,8 +36,91 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     };
 })
 
+.controller('InfoCtrl', function ($scope, $rootScope, DataService) {
+    // Get the categories list
+    DataService.getCategories().then(function (data) {
+        $scope.catList = data;
+    });
+})
+
+.controller('MultimediaCtrl', function ($scope, $rootScope, uploadImageOnImgur) {
+    $scope.newMedia = {};
+    // Add media to the current path
+    $scope.addMedia = function () {
+        switch ($scope.data.mediaType) {
+        case 'image':
+            $scope.currentPath.images.push($scope.newMedia);
+            break;
+        case 'video':
+            $scope.currentPath.videos.push($scope.newMedia);
+            break;
+        case 'audio':
+            $scope.currentPath.audios.push($scope.newMedia);
+            break;
+        default:
+            alert("Errore: il tipo dell'oggetto non è un tipo valido (solo immagine, audio o video).");
+        }
+        // Reset the newMedia object
+        $scope.newMedia = {};
+    };
+
+    $scope.delete = function (idx, array) {
+        array.splice(idx, 1);
+    };
+
+    // Upload image on imgur
+    $scope.uploadPic = function (file) {
+        uploadImageOnImgur(file).success(function (response) {
+            // Update the link of the new media with the imgur link
+            $scope.newMedia.url = response.data.link;
+            // Reset the input field
+            $scope.file = null;
+        });
+    };
+})
+
+.controller('PoisListCtrl', function ($scope, $rootScope, drawMap) {
+    $scope.remove = function (idPoi) {
+        $scope.currentPath.pois.splice(idPoi, 1);
+        drawMap.removeMarker(idPoi);
+    };
+})
+
+.controller('MapCtrl', function ($scope, $rootScope, drawMap) {
+    $scope.initMap = function () {
+        // Draw the map with pois of the path + shape
+        drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
+            lat: '45.8832637',
+            lng: '11.0014507'
+        } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
+            $scope.currentPath.shape = shape;
+            $scope.currentPath.length = drawMap.shapeLength();
+            $scope.currentPath.time = drawMap.shapeTime();
+            if (!$scope.$$phase)
+                $scope.$apply();
+        }, $scope.currentPath.pois);
+    };
+
+    // Updating the polyline on the map when the shape change
+    $scope.updateShape = function () {
+        drawMap.updatePoly($scope.currentPath.shape);
+    };
+
+    $scope.generatesPath = function () {
+        drawMap.generatesPath($scope.currentPath.pois);
+    };
+
+    $scope.toggleMarkers = function () {
+        $scope.toggle = !$scope.toggle;
+        if ($scope.toggle)
+            drawMap.showMarkers();
+        else
+            drawMap.hideMarkers();
+    };
+})
+
 // Edit an existing path
-.controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService, uploadImageOnImgur, drawMap) {
+.controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService) {
     // Active tab
     $scope.selectedTab = 'info';
     // Check if it should add or modify a path
@@ -72,76 +155,16 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     $rootScope.pathModified = false;
 
-    $scope.initMap = function () {
-        // Draw the map with pois of the path + shape
-        drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
-            lat: '45.8832637',
-            lng: '11.0014507'
-        } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
-            $scope.currentPath.shape = shape;
-            $scope.currentPath.length = drawMap.shapeLength();
-            $scope.currentPath.time = drawMap.shapeTime();
-            if (!$scope.$$phase)
-                $scope.$apply();
-        }, $scope.currentPath.pois);
-    };
-
-    // Updating the polyline on the map when the shape change
-    $scope.updateShape = function () {
-        drawMap.updatePoly($scope.currentPath.shape);
-    };
-
-    $scope.generatesPath = function () {
-        drawMap.generatesPath($scope.currentPath.pois);
-    };
-
-    $scope.toggleMarkers = function () {
-        $scope.toggle = !$scope.toggle;
-        if ($scope.toggle)
-            drawMap.showMarkers();
-        else
-            drawMap.hideMarkers();
-    };
-
-    // Get the categories list
-    DataService.getCategories().then(function (data) {
-        $scope.catList = data;
-    });
-
     // Set the default language to IT
     $scope.data = {
         lang: $rootScope.languages[0],
         mediaType: 'image'
     };
 
-    $scope.newMedia = {};
-
-    // Add media to the current path
-    $scope.addMedia = function () {
-        switch ($scope.data.mediaType) {
-        case 'image':
-            $scope.currentPath.images.push($scope.newMedia);
-            break;
-        case 'video':
-            $scope.currentPath.videos.push($scope.newMedia);
-            break;
-        case 'audio':
-            $scope.currentPath.audios.push($scope.newMedia);
-            break;
-        default:
-            alert("Errore: il tipo dell'oggetto non è un tipo valido (solo immagine, audio o video).");
-        }
-        // Reset the newMedia object
-        $scope.newMedia = {};
-    };
-
-    $scope.delete = function (idx, array) {
-        array.splice(idx, 1);
-    }
-
-    $scope.remove = function (idPoi) {
-        $scope.currentPath.pois.splice(idPoi, 1);
-        drawMap.removeMarker(idPoi);
+    // Reorder of the pois
+    $scope.sortableOptions = {
+        handle: ' .handle',
+        axis: 'y'
     };
 
     // Save the changes made to the path
@@ -155,16 +178,16 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     function checkFields() {
         var allCompiled = true;
-        var emptyFields = $('.error');
+        //var emptyFields = $('.error');
 
-        if (emptyFields.length > 0 || $scope.currentPath.images.length == 0 || $scope.currentPath.pois.length == 0 || $scope.currentPath.categories.length == 0) {
+        /*if (emptyFields.length > 0 || $scope.currentPath.images.length == 0 || $scope.currentPath.pois.length == 0 || $scope.currentPath.categories.length == 0) {
             $rootScope.errorTexts = [];
             $rootScope.errorTexts.push("Errore! Tutti i campi con bordo rosso devono essere compilati e deve essere selezionata almeno una categoria, inoltre deve essere presente almeno una foto per il percorso e un punto di interesse");
             $timeout(function () {
                 $rootScope.errorTexts = [];
             }, 5000);
             allCompiled = false;
-        }
+        }*/
         return allCompiled;
     }
 
@@ -172,21 +195,5 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.back = function () {
         if (confirm("Sei sicuro di voler uscire senza salvare? Le modifiche che hai effettuato andranno perse\nOk per uscire, annulla per annullare"))
             $location.path('paths-list');
-    };
-
-    // Upload image on imgur
-    $scope.uploadPic = function (file) {
-        uploadImageOnImgur(file).success(function (response) {
-            // Update the link of the new media with the imgur link
-            $scope.newMedia.url = response.data.link;
-            // Reset the input field
-            $scope.file = null;
-        });
-    };
-
-    // Reorder of the pois
-    $scope.sortableOptions = {
-        handle: ' .handle',
-        axis: 'y'
     };
 });

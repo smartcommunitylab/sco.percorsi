@@ -1,11 +1,11 @@
 <div class="col-md-12">
     <div class="row">
-        <div class="col-md-6 header-path-category">
+        <div class="col-md-8 header-path-category">
             <h4>{{currentPath.title[languages[0]] ? 'MODIFICA PERCORSO: ' + currentPath.title[languages[0]] : 'CREA NUOVO PERCORSO'}}</h4>
             <p>I campi contrassegnati col simbolo <span class="required-sign">*</span> sono obbligatori</p>
         </div>
 
-        <div class="col-md-6 right">
+        <div class="col-md-4 right">
             <a ng-click="save()" class="btn btn-save btn-margin" role="button">Salva</a>
             <a ng-click="back()" class="btn btn-danger" role="button">Annulla</a>
         </div>
@@ -14,19 +14,15 @@
     <div class="row">
         <!-- Menu tab -->
         <div class="col-md-2 tabs-menu">
-            <a ng-class="{'active-tab':selectedTab == 'info'}" ng-click="selectedTab = 'info'">INFO</a>
-            <a ng-class="{'active-tab':selectedTab == 'multimedia'}" ng-click="selectedTab = 'multimedia'">MULTIMEDIA</a>
-            <a ng-class="{'active-tab':selectedTab == 'pois'}" ng-click="selectedTab = 'pois'">TAPPE</a>
-            <a ng-class="{'active-tab':selectedTab == 'map'}" ng-click="selectedTab = 'map'">ITINERARIO</a>
+            <a ng-class="{'active-tab':selectedTab == 'info'}" ng-click="selectedTab = 'info'" ui-sref="root.path.info">INFO</a>
+            <a ng-class="{'active-tab':selectedTab == 'multimedia'}" ng-click="selectedTab = 'multimedia'" ui-sref="root.path.multimedia">MULTIMEDIA</a>
+            <a ng-class="{'active-tab':selectedTab == 'pois'}" ng-click="selectedTab = 'pois'" ui-sref="root.path.pois">TAPPE</a>
+            <a ng-class="{'active-tab':selectedTab == 'map'}" ng-click="selectedTab = 'map'" ui-sref="root.path.map">ITINERARIO</a>
         </div>
 
         <!-- Tabs container -->
         <div class="col-md-10 tabs-container">
-            <!-- Info tab -->
-            <div ng-include="'templates/paths/tabs/info.html'" ng-if="selectedTab == 'info'"></div>
-            <div ng-include="'templates/paths/tabs/multimedia.html'" ng-if="selectedTab == 'multimedia'"></div>
-            <div ng-include="'templates/paths/tabs/pois-list.html'" ng-if="selectedTab == 'pois'"></div>
-            <div ng-include="'templates/paths/tabs/path-shape.html'" ng-if="selectedTab == 'map'"></div>
+            <div ui-view></div>
         </div>
     </div>
 </div>

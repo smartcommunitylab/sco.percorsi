@@ -398,3 +398,20 @@ hr.border-paths {
 .map-shape-area {
     height: 200px!important;
 }
+
+
+/* Poi */
+
+.coordinates-label {
+    width: 110px;
+    display: inline-block;
+}
+
+.form-control.coordinates-input {
+    display: inline-block;
+    width: 325px;
+}
+
+.poi-media {
+    margin-top: 50px;
+}
