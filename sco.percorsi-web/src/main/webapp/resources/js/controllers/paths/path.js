@@ -37,6 +37,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 })
 
 .controller('InfoCtrl', function ($scope, $rootScope, DataService) {
+    $scope.$parent.selectedTab = 'info';
     // Get the categories list
     DataService.getCategories().then(function (data) {
         $scope.catList = data;
@@ -44,6 +45,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 })
 
 .controller('MultimediaCtrl', function ($scope, $rootScope, uploadImageOnImgur) {
+    $scope.$parent.selectedTab = 'multimedia';
     $scope.newMedia = {};
     // Add media to the current path
     $scope.addMedia = function () {
@@ -98,6 +100,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 })
 
 .controller('PoisListCtrl', function ($scope, $rootScope, drawMap) {
+    $scope.$parent.selectedTab = 'pois';
     $scope.remove = function (idPoi) {
         $scope.currentPath.pois.splice(idPoi, 1);
         drawMap.removeMarker(idPoi);
@@ -105,6 +108,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 })
 
 .controller('MapCtrl', function ($scope, $rootScope, drawMap) {
+    $scope.$parent.selectedTab = 'map';
     $scope.initMap = function () {
         // Draw the map with pois of the path + shape
         drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
@@ -139,8 +143,6 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
 // Edit an existing path
 .controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService) {
-    // Active tab
-    $scope.selectedTab = 'info';
     // Check if it should add or modify a path
     if ($stateParams.idPath)
         $scope.currentPath = $rootScope.paths[$stateParams.idPath];
