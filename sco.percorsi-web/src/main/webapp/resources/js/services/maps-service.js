@@ -21,11 +21,6 @@ angular.module('MapsService', [])
             zoom: 16
         });
 
-        // Add a listener for the click event (add new point shape)
-        map.addListener('click', function (e) {
-            pointsOfPolyline.push(e.latLng);
-        });
-
         var decodedPoints = google.maps.geometry.encoding.decodePath(shape);
 
         // Draw the polyline on the map
@@ -36,20 +31,12 @@ angular.module('MapsService', [])
             strokeOpacity: 1.0,
             strokeWeight: 4,
             map: map,
-            editable: true
+            editable: false
         });
 
         // Add reference to the global variable
         pointsOfPolyline = polyPath.getPath();
 
-        google.maps.event.addListener(polyPath, 'rightclick', function (e) {
-            // Check if click was on a vertex control point
-            if (e.vertex == undefined) return;
-            pointsOfPolyline.removeAt(e.vertex);
-        });
-
-        // Polyline events
-        resetEventOfPoly();
         markers = [];
         // Draw markers on the map
         drawMarkers(listOfPois);
@@ -74,21 +61,67 @@ angular.module('MapsService', [])
     };
 
     // Reset events change of the polyline
-    function resetEventOfPoly() {
+    function addListenerOfPoly() {
+        google.maps.event.addListener(polyPath, 'rightclick', function (e) {
+            // Check if click was on a vertex control point
+            if (e.vertex == undefined) return;
+            pointsOfPolyline.removeAt(e.vertex);
+        });
+
         google.maps.event.addListener(polyPath, "dragend", pathChanged);
         google.maps.event.addListener(pointsOfPolyline, "insert_at", pathChanged);
         google.maps.event.addListener(pointsOfPolyline, "remove_at", pathChanged);
         google.maps.event.addListener(pointsOfPolyline, "set_at", pathChanged);
+        // Add a listener for the click event (add new point shape)
+        map.addListener('click', function (e) {
+            pointsOfPolyline.push(e.latLng);
+        });
     };
+
+    function clearListenerOfPoly() {
+        google.maps.event.clearListeners(map, 'click');
+        google.maps.event.clearListeners(polyPath, 'rightclick');
+    }
+
+    this.editPoli = function () {
+        polyPath.setMap(null);
+        polyPath = new google.maps.Polyline({
+            path: pointsOfPolyline,
+            geodesic: true,
+            strokeColor: '#2980b9',
+            strokeOpacity: 1.0,
+            strokeWeight: 4,
+            map: map,
+            editable: true
+        });
+        clearListenerOfPoly();
+        addListenerOfPoly();
+    }
+
+    this.viewPoli = function () {
+        polyPath.setMap(null);
+        polyPath = new google.maps.Polyline({
+            path: pointsOfPolyline,
+            geodesic: true,
+            strokeColor: '#2980b9',
+            strokeOpacity: 1.0,
+            strokeWeight: 4,
+            map: map,
+            editable: false
+        });
+        clearListenerOfPoly();
+    }
+
 
     // Update map polyline from the controllers
     this.updatePoly = function (newShape) {
         var decodedPoints = google.maps.geometry.encoding.decodePath(newShape);
         polyPath.setPath(decodedPoints);
         pointsOfPolyline = polyPath.getPath();
-
-        // Reset polyline's event
-        resetEventOfPoly();
+        if (polyPath.editable) {
+            clearListenerOfPoly();
+            addListenerOfPoly();
+        }
     };
 
     // Shows markers on the map
@@ -118,7 +151,6 @@ angular.module('MapsService', [])
         for (var i = 0; i < pois.length; i++)
             calcRoute(pois[i].coordinates);
 
-        resetEventOfPoly();
         pathChanged();
     };
 
@@ -157,7 +189,7 @@ angular.module('MapsService', [])
             polyPath.setPath(globalPoints);
             // Check if the path is complete generated
             if (idx == (length - 1)) {
-                resetEventOfPoly();
+                addListenerOfPoly();
                 //eventHandler(google.maps.geometry.encoding.encodePath(globalPoints));
             }
         });*/

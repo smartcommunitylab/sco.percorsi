@@ -24,7 +24,6 @@ angular.module('consoleControllers.mainCtrl', [])
             $scope.profile = p;
             $rootScope.profile = $scope.profile;
         });
-
         // Languages option
         $rootScope.languages = ['it', 'en', 'de'];
 

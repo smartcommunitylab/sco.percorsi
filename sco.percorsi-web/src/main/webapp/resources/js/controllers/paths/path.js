@@ -139,6 +139,15 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         else
             drawMap.hideMarkers();
     };
+
+    $scope.editMap = false;
+    $scope.editLine = function () {
+        $scope.editMap = !$scope.editMap;
+        if ($scope.editMap)
+            drawMap.editPoli();
+        else
+            drawMap.viewPoli();
+    }
 })
 
 // Edit an existing path
