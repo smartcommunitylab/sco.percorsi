@@ -105,4 +105,22 @@ angular.module('consoleControllers.poi', [])
             $scope.file = null;
         });
     }
+
+    // Switch views
+    $scope.copyOfImages = {};
+    $scope.copyOfVideos = {};
+    $scope.copyOfAudios = {};
+
+    /* orArray = original $scope array;
+     * cpArray = copy of original $scope array;     
+     */
+    $scope.push = function (index, orArray, cpArray) {
+        cpArray[index] = angular.copy(orArray[index]);
+    }
+    $scope.pop = function (orArray, cpArray, index, save) {
+        if (save)
+            orArray[index] = cpArray[index];
+
+        cpArray[index] = null;
+    }
 });

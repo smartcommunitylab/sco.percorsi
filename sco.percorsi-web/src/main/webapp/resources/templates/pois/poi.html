@@ -80,7 +80,7 @@
     </div>
 
     <!-- Upload pic on imgur -->
-    <div class="col-lg-12" ng-show="data.mediaType == 'image'">
+    <div class="col-lg-12" ng-show="mediaType == 'image'">
         <div class="field add-media">
             <p>oppure</p>
         </div>
@@ -111,19 +111,14 @@
     </div>
     <div class="col-lg-12">
         <ul ui-sortable="sortableOptions" ng-model="poi.images" class="list-group list-categories">
-            <li class="list-group-item" ng-repeat="image in poi.images">
-                <div class="row v-center">
+            <li class="list-group-item" ng-repeat="media in poi.images">
+                <div class="row v-center" ng-init="orArray = poi.images; cpArray = copyOfImages">
                     <div class="col-md-2">
-                        <img class="path-img" ng-src="{{image.url}}" alt="{{image.title[languages[0]]}}">
+                        <img class="path-img" ng-src="{{media.url}}" alt="{{media.title[languages[0]]}}">
                     </div>
-                    <div class="col-md-8">
-                        <h5>Titolo immagine ({{data.lang | uppercase}}): {{image.title[data.lang] ? image.title[data.lang] : '-'}}</h5>
-                        <h5>URL: <a href="{{image.url}}" target="_blank">{{image.url}}</a></h5>
+                    <div class="col-md-10" ng-if="!cpArray[$index]" ng-include="'templates/media/show.html'">
                     </div>
-                    <div class="col-md-2 right">
-                        <a ng-hide="enableOrder" href="#/category/{{$index}}" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        <a ng-hide="enableOrder" ng-click="delete($index, currentPath.images)" class="btn btn-icon btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        <a ng-show="enableOrder" class="handle btn-icon btn-reorder"><i class="glyphicon glyphicon-align-justify"></i></a>
+                    <div ng-if="cpArray[$index]" class="col-md-10" ng-include="'templates/media/edit.html'">
                     </div>
                 </div>
             </li>
@@ -135,19 +130,14 @@
     </div>
     <div class="col-lg-12">
         <ul ui-sortable="sortableOptions" ng-model="poi.videos" class="list-group list-categories">
-            <li class="list-group-item" ng-repeat="video in poi.videos">
-                <div class="row v-center">
+            <li class="list-group-item" ng-repeat="media in poi.videos">
+                <div class="row v-center" ng-init="orArray = poi.videos; cpArray = copyOfVideos">
                     <div class="col-md-2">
 
                     </div>
-                    <div class="col-md-8">
-                        <h5>Titolo video ({{data.lang | uppercase}}): {{video.title[data.lang] ? video.title[data.lang] : '-'}}</h5>
-                        <h5>URL: <a href="{{video.url}}" target="_blank">{{video.url}}</a></h5>
+                    <div class="col-md-10" ng-if="!cpArray[$index]" ng-include="'templates/media/show.html'">
                     </div>
-                    <div class="col-md-2 right">
-                        <a ng-hide="enableOrder" href="#/category/{{$index}}" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        <a ng-hide="enableOrder" ng-click="delete($index, currentPath.videos)" class="btn btn-icon btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        <a ng-show="enableOrder" class="handle btn-icon btn-reorder"><i class="glyphicon glyphicon-align-justify"></i></a>
+                    <div ng-if="cpArray[$index]" class="col-md-10" ng-include="'templates/media/edit.html'">
                     </div>
                 </div>
             </li>
@@ -159,19 +149,14 @@
     </div>
     <div class="col-lg-12">
         <ul ui-sortable="sortableOptions" ng-model="poi.audios" class="list-group list-categories">
-            <li class="list-group-item" ng-repeat="audio in poi.audios">
-                <div class="row v-center">
+            <li class="list-group-item" ng-repeat="media in poi.audios">
+                <div class="row v-center" ng-init="orArray = poi.audios; cpArray = copyOfAudios">
                     <div class="col-md-2">
 
                     </div>
-                    <div class="col-md-8">
-                        <h5>Titolo audio ({{data.lang | uppercase}}): {{audio.title[data.lang] ? audio.title[data.lang] : '-'}}</h5>
-                        <h5>URL: <a href="{{audio.url}}" target="_blank">{{audio.url}}</a></h5>
+                    <div class="col-md-10" ng-if="!cpArray[$index]" ng-include="'templates/media/show.html'">
                     </div>
-                    <div class="col-md-2 right">
-                        <a ng-hide="enableOrder" href="#/category/{{$index}}" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        <a ng-hide="enableOrder" ng-click="delete($index, currentPath.audios)" class="btn btn-icon btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        <a ng-show="enableOrder" class="handle btn-icon btn-reorder"><i class="glyphicon glyphicon-align-justify"></i></a>
+                    <div ng-if="cpArray[$index]" class="col-md-10" ng-include="'templates/media/edit.html'">
                     </div>
                 </div>
             </li>

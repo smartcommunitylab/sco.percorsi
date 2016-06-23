@@ -1,11 +1,11 @@
-<div class="row">
+<div class="row v-center">
     <div class="col-md-10">
         <h5>Titolo immagine ({{data.lang | uppercase}}): {{media.title[data.lang] ? media.title[data.lang] : '-'}}</h5>
-        <h5>URL: <a href="{{image.url}}" target="_blank">{{media.url}}</a></h5>
+        <h5>URL: <a href="{{media.url}}" target="_blank">{{media.url}}</a></h5>
     </div>
     <div class="col-md-2 right">
-        <a ng-hide="enableOrder" ng-click="data.toggleImg[$index] = !data.toggleImg[$index]" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-        <a ng-hide="enableOrder" ng-click="delete($index, currentPath.images)" class="btn btn-icon btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        <a ng-hide="enableOrder" ng-click="push($index, orArray, cpArray)" class="btn btn-icon btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        <a ng-hide="enableOrder" ng-click="delete($index, orArray)" class="btn btn-icon btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
         <a ng-show="enableOrder" class="handle btn-icon btn-reorder"><i class="glyphicon glyphicon-align-justify"></i></a>
     </div>
 </div>
