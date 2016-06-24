@@ -1,13 +1,15 @@
 angular.module('consoleControllers.poi', [])
 
 // Edit the poi for the selected path
-.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, DataService, uploadImageOnImgur, drawMapPoi) {
+.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, DataService, uploadImageOnImgur, drawMapPoi) {
+    $scope.$parent.selectedTab = 'pois';
     // Check if the current path variable is null or not
     if (!$scope.$parent.currentPath) {
-        DataService.getPaths().then(function (list) {
-            $scope.$parent.currentPath = list[$stateParams.idPath];
-            InitPoiPage();
-        });
+        if ($stateParams.idPath)
+            DataService.getPaths().then(function (list) {
+                $scope.$parent.currentPath = list[$stateParams.idPath];
+                InitPoiPage();
+            });
     } else {
         InitPoiPage();
     }

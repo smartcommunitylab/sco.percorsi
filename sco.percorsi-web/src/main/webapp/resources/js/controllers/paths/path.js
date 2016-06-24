@@ -162,9 +162,14 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     DataService.getPaths().then(function (list) {
         $rootScope.paths = list;
         // Check if it should add or modify a path
-        if ($stateParams.idPath)
-            $scope.currentPath = $rootScope.paths[$stateParams.idPath];
-        else {
+        if ($stateParams.idPath) {
+            // Check if the path was modified by poi page
+            if ($rootScope.pathModified)
+            // if true it means that the $scope.currentPath is already defined
+                $rootScope.paths[$stateParams.idPath] = $scope.currentPath;
+            else
+                $scope.currentPath = $rootScope.paths[$stateParams.idPath];
+        } else {
             if (!$rootScope.pathModified)
                 $rootScope.paths.push({
                     images: [],
