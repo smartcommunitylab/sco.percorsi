@@ -5,11 +5,23 @@ angular.module('consoleControllers.poi', [])
     $scope.$parent.selectedTab = 'pois';
     // Check if the current path variable is null or not
     if (!$scope.$parent.currentPath) {
+        // Create $parent variable (the logic is the same of PathCtrl)
         if ($stateParams.idPath)
             DataService.getPaths().then(function (list) {
                 $scope.$parent.currentPath = list[$stateParams.idPath];
                 InitPoiPage();
             });
+        else {
+            $scope.$parent.currentPath = {
+                images: [],
+                videos: [],
+                audios: [],
+                localId: makeid(),
+                pois: [],
+                shape: ''
+            };
+            InitPoiPage();
+        }
     } else {
         InitPoiPage();
     }
@@ -44,6 +56,16 @@ angular.module('consoleControllers.poi', [])
             $scope.poi.coordinates.lng = lng;
             $scope.$apply();
         });
+    }
+
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 10; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return 'path' + text;
     }
 
     // Update the marker position when the user change coordinates
