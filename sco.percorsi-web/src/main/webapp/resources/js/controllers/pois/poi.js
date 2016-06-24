@@ -1,11 +1,11 @@
 angular.module('consoleControllers.poi', [])
 
 // Edit the poi for the selected path
-.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, DataService, uploadImageOnImgur, drawMapPoi) {
+.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, DataService, uploadImageOnImgur, drawMapPoi) {
     // Check if the current path variable is null or not
-    if (!$rootScope.currentPath) {
+    if (!$scope.$parent.currentPath) {
         DataService.getPaths().then(function (list) {
-            $rootScope.currentPath = list[$stateParams.idPath];
+            $scope.$parent.currentPath = list[$stateParams.idPath];
             InitPoiPage();
         });
     } else {
@@ -15,7 +15,7 @@ angular.module('consoleControllers.poi', [])
     // Create $scope.poi variable and init the map
     function InitPoiPage() {
         if ($stateParams.idPoi)
-            $scope.poi = angular.copy($rootScope.currentPath.pois[$stateParams.idPoi]);
+            $scope.poi = angular.copy($scope.$parent.currentPath.pois[$stateParams.idPoi]);
         else
             $scope.poi = {
                 "title": {
@@ -35,7 +35,7 @@ angular.module('consoleControllers.poi', [])
                 "images": [],
                 "videos": [],
                 "audios": [],
-                "localId": $rootScope.currentPath.localId + 'poi' + $rootScope.currentPath.pois.length + 1
+                "localId": $scope.$parent.currentPath.localId + 'poi' + $scope.$parent.currentPath.pois.length + 1
             };
         drawMapPoi.createMap('map-poi', $scope.poi.coordinates.lat, $scope.poi.coordinates.lng, function (lat, lng) {
             $scope.poi.coordinates.lat = lat;
@@ -78,9 +78,9 @@ angular.module('consoleControllers.poi', [])
     $scope.save = function () {
         if (checkFields()) {
             if ($stateParams.idPoi)
-                $rootScope.currentPath.pois[$stateParams.idPoi] = $scope.poi;
+                $scope.$parent.currentPath.pois[$stateParams.idPoi] = $scope.poi;
             else
-                $rootScope.currentPath.pois.push($scope.poi);
+                $scope.$parent.currentPath.pois.push($scope.poi);
 
             $rootScope.pathModified = true;
             // Back to the path

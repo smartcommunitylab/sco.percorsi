@@ -50,13 +50,13 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.addMedia = function () {
         switch ($scope.data.mediaType) {
         case 'image':
-            $rootScope.currentPath.images.push($scope.newMedia);
+            $scope.currentPath.images.push($scope.newMedia);
             break;
         case 'video':
-            $rootScope.currentPath.videos.push($scope.newMedia);
+            $scope.currentPath.videos.push($scope.newMedia);
             break;
         case 'audio':
-            $rootScope.currentPath.audios.push($scope.newMedia);
+            $scope.currentPath.audios.push($scope.newMedia);
             break;
         default:
             alert("Errore: il tipo dell'oggetto non è un tipo valido (solo immagine, audio o video).");
@@ -101,7 +101,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 .controller('PoisListCtrl', function ($scope, $rootScope, drawMap) {
     $scope.$parent.selectedTab = 'pois';
     $scope.remove = function (idPoi) {
-        $rootScope.currentPath.pois.splice(idPoi, 1);
+        $scope.currentPath.pois.splice(idPoi, 1);
         drawMap.removeMarker(idPoi);
     };
 })
@@ -110,25 +110,25 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.$parent.selectedTab = 'map';
     $scope.initMap = function () {
         // Draw the map with pois of the path + shape
-        drawMap.createMap('map', ($rootScope.currentPath.pois[0] == null ? {
+        drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
             lat: '45.8832637',
             lng: '11.0014507'
-        } : $rootScope.currentPath.pois[0].coordinates), $rootScope.currentPath.shape, function (shape) {
-            $rootScope.currentPath.shape = shape;
-            $rootScope.currentPath.length = drawMap.shapeLength();
-            $rootScope.currentPath.time = drawMap.shapeTime();
+        } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
+            $scope.currentPath.shape = shape;
+            $scope.currentPath.length = drawMap.shapeLength();
+            $scope.currentPath.time = drawMap.shapeTime();
             if (!$scope.$$phase)
                 $scope.$apply();
-        }, $rootScope.currentPath.pois);
+        }, $scope.currentPath.pois);
     };
 
     // Updating the polyline on the map when the shape change
     $scope.updateShape = function () {
-        drawMap.updatePoly($rootScope.currentPath.shape);
+        drawMap.updatePoly($scope.currentPath.shape);
     };
 
     $scope.generatesPath = function () {
-        drawMap.generatesPath($rootScope.currentPath.pois);
+        drawMap.generatesPath($scope.currentPath.pois);
     };
 
     $scope.toggleMarkers = function () {
@@ -161,7 +161,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         $rootScope.paths = list;
         // Check if it should add or modify a path
         if ($stateParams.idPath)
-            $rootScope.currentPath = $rootScope.paths[$stateParams.idPath];
+            $scope.currentPath = $rootScope.paths[$stateParams.idPath];
         else {
             if (!$rootScope.pathModified)
                 $rootScope.paths.push({
@@ -173,7 +173,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
                     shape: ''
                 });
 
-            $rootScope.currentPath = $rootScope.paths[$rootScope.paths.length - 1];
+            $scope.currentPath = $rootScope.paths[$rootScope.paths.length - 1];
         }
     });
 
@@ -219,7 +219,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     // Validation
     function checkFields() {
-        var path = $rootScope.currentPath;
+        var path = $scope.currentPath;
 
         if (!path.title || !path.description)
             return false;
