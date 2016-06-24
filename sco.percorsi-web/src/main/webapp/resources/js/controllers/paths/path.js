@@ -210,7 +210,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
             });
         else {
             $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Tutti i campi con bordo rosso devono essere compilati e deve essere selezionata almeno una categoria, inoltre deve essere presente almeno una foto per il percorso e un punto di interesse");
+            $rootScope.errorTexts.push("Errore! Tutti i campi con l'asterisco devono essere compilati e deve essere selezionata almeno una categoria, inoltre deve essere presente almeno una foto per il percorso e un punto di interesse");
             $timeout(function () {
                 $rootScope.errorTexts = [];
             }, 5000);

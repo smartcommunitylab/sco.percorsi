@@ -94,7 +94,7 @@ angular.module('consoleControllers.poi', [])
         // Get all inputs
         if (emptyFields.length > 0 || $scope.poi.images.length == 0) {
             $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Assicurati di aver compilato tutti i campi col bordo rosso e di aver inserito almeno una foto per il punto");
+            $rootScope.errorTexts.push("Errore! Assicurati di aver compilato tutti i campi con l'asterisco e di aver inserito almeno una foto per il punto");
             $timeout(function () {
                 $rootScope.errorTexts = [];
             }, 5000);
