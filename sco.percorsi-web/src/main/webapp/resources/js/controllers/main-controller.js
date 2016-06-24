@@ -6,6 +6,11 @@ angular.module('consoleControllers.mainCtrl', [])
         $scope.switchView = function (view) {
             $scope.view = view;
         }
+
+        // Reset success text when the close button alert is clicked
+        $scope.resetText = function ()  {
+            $rootScope.successText = null;
+        }
         $scope.modView = 'it.smartcommunitylab.percorsi.model.Path';
         $scope.moderated = {};
         $scope.paging = {

@@ -1,7 +1,7 @@
 angular.module('DataService', [])
     .factory('DataService', [
-        '$q', '$http', '$rootScope',
-  function ($q, $http, $rootScope)
+        '$q', '$http', '$rootScope', '$timeout',
+  function ($q, $http, $rootScope, $timeout)
         {
             var options = {};
             var logout = function () {
@@ -29,6 +29,11 @@ angular.module('DataService', [])
                     $http.get('console/paths', options).success(function (data) {
                         deferred.resolve(data);
                     }).error(function (e) {
+                        $rootScope.errorTexts = [];
+                        $rootScope.errorTexts.push(e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage);
+                        $timeout(function () {
+                            $rootScope.errorTexts = [];
+                        }, 6000);
                         deferred.reject(e);
                     });
                     return deferred.promise;
@@ -38,6 +43,11 @@ angular.module('DataService', [])
                     $http.get('console/categories', options).success(function (data) {
                         deferred.resolve(data.categories);
                     }).error(function (e) {
+                        $rootScope.errorTexts = [];
+                        $rootScope.errorTexts.push(e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage);
+                        $timeout(function () {
+                            $rootScope.errorTexts = [];
+                        }, 6000);
                         deferred.reject(e);
                     });
                     return deferred.promise;
@@ -45,8 +55,14 @@ angular.module('DataService', [])
                 savePaths: function (data) {
                     var deferred = $q.defer();
                     $http.post('console/paths', data, options).success(function (data, status, headers, config) {
+                        $rootScope.successText = "Dati dei percorsi salvati correttamente!";
                         deferred.resolve(data);
                     }).error(function (e) {
+                        $rootScope.errorTexts = [];
+                        $rootScope.errorTexts.push(e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage);
+                        $timeout(function () {
+                            $rootScope.errorTexts = [];
+                        }, 6000);
                         deferred.reject(e);
                     });
                     return deferred.promise;
@@ -54,8 +70,15 @@ angular.module('DataService', [])
                 saveCategories: function (data) {
                     var deferred = $q.defer();
                     $http.post('console/categories', data, options).success(function (data, status, headers, config) {
+                        $rootScope.successText = null;
+                        $rootScope.successText = "Dati delle categorie salvati correttamente!";
                         deferred.resolve(data);
                     }).error(function (e) {
+                        $rootScope.errorTexts = [];
+                        $rootScope.errorTexts.push(e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage);
+                        $timeout(function () {
+                            $rootScope.errorTexts = [];
+                        }, 6000);
                         deferred.reject(e);
                     });
                     return deferred.promise;
@@ -99,4 +122,17 @@ angular.module('DataService', [])
                 logout: logout
             };
   }
-]);
+])
+
+.service('ShareMedia', function () {
+    var obj;
+
+    return {
+        getObj: function () {
+            return obj;
+        },
+        setObj: function (value) {
+            obj = value;
+        }
+    };
+});
