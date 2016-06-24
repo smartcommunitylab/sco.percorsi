@@ -2,11 +2,16 @@ angular.module('MapsService', [])
 
 // Google maps shape drawing
 .service('drawMap', function (usSpinnerService) {
+    // This contains the google.maps.Map istance
     var map;
+    // This is the line drawed on the map
     var polyPath;
+    // Handler for update $scope variable when something chnage in this service
     var eventHandler;
 
+    // Array of pois markers
     var markers;
+    // Array of coordinates, polyPath reference to this
     var pointsOfPolyline;
 
     // Draw the map with his shape
@@ -83,6 +88,7 @@ angular.module('MapsService', [])
         google.maps.event.clearListeners(polyPath, 'rightclick');
     }
 
+    // Enable edit of the polyline
     this.editPoli = function () {
         polyPath.setMap(null);
         polyPath = new google.maps.Polyline({
@@ -99,6 +105,7 @@ angular.module('MapsService', [])
         usSpinnerService.stop('map-spinner');
     }
 
+    // Disable edit of the line
     this.viewPoli = function () {
         polyPath.setMap(null);
         polyPath = new google.maps.Polyline({
@@ -139,6 +146,7 @@ angular.module('MapsService', [])
         }
     };
 
+    // Called when a poi is deleted
     this.removeMarker = function (idMarker) {
         markers[idMarker].setMap(null);
         markers.splice(idMarker, 1);
@@ -228,6 +236,7 @@ angular.module('MapsService', [])
     };
 })
 
+// This service draw the map in the poi page
 .service("drawMapPoi", function () {
     var handler;
     var marker;

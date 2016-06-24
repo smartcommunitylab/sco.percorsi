@@ -1,37 +1,50 @@
 angular.module('consoleControllers.poi', [])
 
 // Edit the poi for the selected path
-.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, uploadImageOnImgur, drawMapPoi) {
-    if ($stateParams.idPoi)
-        $scope.poi = angular.copy($rootScope.currentPath.pois[$stateParams.idPoi]);
-    else
-        $scope.poi = {
-            "title": {
-                "de": "",
-                "it": "",
-                "en": ""
-            },
-            "description": {
-                "de": "",
-                "it": "",
-                "en": ""
-            },
-            "coordinates": {
-                lat: '45.8832637',
-                lng: '11.0014507'
-            },
-            "images": [],
-            "videos": [],
-            "audios": [],
-            "localId": $rootScope.currentPath.localId + 'poi' + $rootScope.currentPath.pois.length + 1
-        };
+.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, DataService, uploadImageOnImgur, drawMapPoi) {
+    // Check if the current path variable is null or not
+    if (!$rootScope.currentPath) {
+        DataService.getPaths().then(function (list) {
+            $rootScope.currentPath = list[$stateParams.idPath];
+            InitPoiPage();
+        });
+    } else {
+        InitPoiPage();
+    }
 
-    drawMapPoi.createMap('map-poi', $scope.poi.coordinates.lat, $scope.poi.coordinates.lng, function (lat, lng) {
-        $scope.poi.coordinates.lat = lat;
-        $scope.poi.coordinates.lng = lng;
-        $scope.$apply();
-    });
+    // Create $scope.poi variable and init the map
+    function InitPoiPage() {
+        if ($stateParams.idPoi)
+            $scope.poi = angular.copy($rootScope.currentPath.pois[$stateParams.idPoi]);
+        else
+            $scope.poi = {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "description": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "coordinates": {
+                    lat: '45.8832637',
+                    lng: '11.0014507'
+                },
+                "images": [],
+                "videos": [],
+                "audios": [],
+                "localId": $rootScope.currentPath.localId + 'poi' + $rootScope.currentPath.pois.length + 1
+            };
+        drawMapPoi.createMap('map-poi', $scope.poi.coordinates.lat, $scope.poi.coordinates.lng, function (lat, lng) {
+            $scope.poi.coordinates.lat = lat;
+            $scope.poi.coordinates.lng = lng;
+            $scope.$apply();
+        });
+    }
 
+    // Update the marker position when the user change coordinates
     $scope.updateMarkerPosition = function () {
         drawMapPoi.updateMarker($scope.poi.coordinates.lat, $scope.poi.coordinates.lng);
     }

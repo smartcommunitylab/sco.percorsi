@@ -8,6 +8,17 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     DataService.getCategories().then(function (data) {
         $scope.catList = data;
+        // Get names of categories for each category of the path (because the path contains only the id)
+        $scope.getCategoriesName = function (catOfPath) {
+            var output = '';
+            catOfPath.forEach(function (cat, idx) {
+                $scope.catList.forEach(function (rootCat, i) {
+                    if (cat == rootCat.id)
+                        output += rootCat.name[$rootScope.languages[0]] + ", ";
+                });
+            });
+            return output.slice(0, -2);
+        };
     });
 
     $scope.trustHTML = function (code) {
@@ -21,18 +32,6 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
                 $scope.paths = data;
             });
         });
-    };
-
-    // Get names of categories for each category of the path (because the path contains only the id)
-    $scope.getCategoriesName = function (catOfPath) {
-        var output = '';
-        catOfPath.forEach(function (cat, idx) {
-            $scope.catList.forEach(function (rootCat, i) {
-                if (cat == rootCat.id)
-                    output += rootCat.name[$rootScope.languages[0]] + ", ";
-            });
-        });
-        return output.slice(0, -2);
     };
 })
 
@@ -218,6 +217,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         }
     };
 
+    // Validation
     function checkFields() {
         var path = $rootScope.currentPath;
 
