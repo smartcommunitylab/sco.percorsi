@@ -3,11 +3,11 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 // Paths controller
 .controller('PathsCtrl', function ($scope, $rootScope, $sce, DataService) {
     DataService.getPaths().then(function (data) {
-        $rootScope.paths = data;
+        $scope.paths = data;
     });
 
     DataService.getCategories().then(function (data) {
-        $rootScope.catList = data;
+        $scope.catList = data;
     });
 
     $scope.trustHTML = function (code) {
@@ -15,10 +15,10 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     }
 
     $scope.delete = function (idPoi) {
-        $rootScope.paths.splice(idPoi, 1);
-        DataService.savePaths($rootScope.paths).then(function () {
+        $scope.paths.splice(idPoi, 1);
+        DataService.savePaths($scope.paths).then(function () {
             DataService.getPaths().then(function (data) {
-                $rootScope.paths = data;
+                $scope.paths = data;
             });
         });
     };
@@ -27,7 +27,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.getCategoriesName = function (catOfPath) {
         var output = '';
         catOfPath.forEach(function (cat, idx) {
-            $rootScope.catList.forEach(function (rootCat, i) {
+            $scope.catList.forEach(function (rootCat, i) {
                 if (cat == rootCat.id)
                     output += rootCat.name[$rootScope.languages[0]] + ", ";
             });
@@ -51,13 +51,13 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.addMedia = function () {
         switch ($scope.data.mediaType) {
         case 'image':
-            $scope.currentPath.images.push($scope.newMedia);
+            $rootScope.currentPath.images.push($scope.newMedia);
             break;
         case 'video':
-            $scope.currentPath.videos.push($scope.newMedia);
+            $rootScope.currentPath.videos.push($scope.newMedia);
             break;
         case 'audio':
-            $scope.currentPath.audios.push($scope.newMedia);
+            $rootScope.currentPath.audios.push($scope.newMedia);
             break;
         default:
             alert("Errore: il tipo dell'oggetto non è un tipo valido (solo immagine, audio o video).");
@@ -102,7 +102,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 .controller('PoisListCtrl', function ($scope, $rootScope, drawMap) {
     $scope.$parent.selectedTab = 'pois';
     $scope.remove = function (idPoi) {
-        $scope.currentPath.pois.splice(idPoi, 1);
+        $rootScope.currentPath.pois.splice(idPoi, 1);
         drawMap.removeMarker(idPoi);
     };
 })
@@ -111,25 +111,25 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.$parent.selectedTab = 'map';
     $scope.initMap = function () {
         // Draw the map with pois of the path + shape
-        drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
+        drawMap.createMap('map', ($rootScope.currentPath.pois[0] == null ? {
             lat: '45.8832637',
             lng: '11.0014507'
-        } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
-            $scope.currentPath.shape = shape;
-            $scope.currentPath.length = drawMap.shapeLength();
-            $scope.currentPath.time = drawMap.shapeTime();
+        } : $rootScope.currentPath.pois[0].coordinates), $rootScope.currentPath.shape, function (shape) {
+            $rootScope.currentPath.shape = shape;
+            $rootScope.currentPath.length = drawMap.shapeLength();
+            $rootScope.currentPath.time = drawMap.shapeTime();
             if (!$scope.$$phase)
                 $scope.$apply();
-        }, $scope.currentPath.pois);
+        }, $rootScope.currentPath.pois);
     };
 
     // Updating the polyline on the map when the shape change
     $scope.updateShape = function () {
-        drawMap.updatePoly($scope.currentPath.shape);
+        drawMap.updatePoly($rootScope.currentPath.shape);
     };
 
     $scope.generatesPath = function () {
-        drawMap.generatesPath($scope.currentPath.pois);
+        drawMap.generatesPath($rootScope.currentPath.pois);
     };
 
     $scope.toggleMarkers = function () {
@@ -158,22 +158,25 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
 // Edit an existing path
 .controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService) {
-    // Check if it should add or modify a path
-    if ($stateParams.idPath)
-        $scope.currentPath = $rootScope.paths[$stateParams.idPath];
-    else {
-        if (!$rootScope.pathModified)
-            $rootScope.paths.push({
-                images: [],
-                videos: [],
-                audios: [],
-                localId: makeid(),
-                pois: [],
-                shape: ''
-            });
+    DataService.getPaths().then(function (list) {
+        $rootScope.paths = list;
+        // Check if it should add or modify a path
+        if ($stateParams.idPath)
+            $rootScope.currentPath = $rootScope.paths[$stateParams.idPath];
+        else {
+            if (!$rootScope.pathModified)
+                $rootScope.paths.push({
+                    images: [],
+                    videos: [],
+                    audios: [],
+                    localId: makeid(),
+                    pois: [],
+                    shape: ''
+                });
 
-        $scope.currentPath = $rootScope.paths[$rootScope.paths.length - 1];
-    }
+            $rootScope.currentPath = $rootScope.paths[$rootScope.paths.length - 1];
+        }
+    });
 
     function makeid() {
         var text = "";
@@ -184,9 +187,6 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
         return 'path' + text;
     }
-
-    // Set the root current path (for change or add a new poi)
-    $rootScope.currentPath = $scope.currentPath;
 
     $rootScope.pathModified = false;
 
@@ -219,7 +219,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     };
 
     function checkFields() {
-        var path = $scope.currentPath;
+        var path = $rootScope.currentPath;
 
         if (!path.title || !path.description)
             return false;
