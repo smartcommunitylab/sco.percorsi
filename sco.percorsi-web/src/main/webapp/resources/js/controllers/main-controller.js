@@ -8,7 +8,7 @@ angular.module('consoleControllers.mainCtrl', [])
         }
 
         // Reset success text when the close button alert is clicked
-        $scope.resetText = function ()  {
+        $scope.resetText = function () {
             $rootScope.successText = null;
         }
         $scope.modView = 'it.smartcommunitylab.percorsi.model.Path';
