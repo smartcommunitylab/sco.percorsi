@@ -12,7 +12,8 @@ var consoleApp = angular.module('console', ['ui.bootstrap',
 'checklist-model',
 'textAngular',
 'naif.base64',
-'angular-loading-bar'
+'angular-loading-bar',
+'angularSpinner'
 ]);
 
 // Text editor toolbar config

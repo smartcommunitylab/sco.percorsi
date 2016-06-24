@@ -107,7 +107,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     };
 })
 
-.controller('MapCtrl', function ($scope, $rootScope, drawMap) {
+.controller('MapCtrl', function ($scope, $rootScope, $timeout, drawMap, usSpinnerService) {
     $scope.$parent.selectedTab = 'map';
     $scope.initMap = function () {
         // Draw the map with pois of the path + shape
@@ -141,12 +141,18 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     };
 
     $scope.editMap = false;
+    $scope.spinnerIsLoading = false;
     $scope.editLine = function () {
+        $scope.spinnerIsLoading = true;
+        usSpinnerService.spin('map-spinner');
         $scope.editMap = !$scope.editMap;
-        if ($scope.editMap)
-            drawMap.editPoli();
-        else
-            drawMap.viewPoli();
+        $timeout(function () {
+            if ($scope.editMap)
+                drawMap.editPoli();
+            else
+                drawMap.viewPoli();
+            $scope.spinnerIsLoading = false;
+        }, 50);
     }
 })
 

@@ -1,7 +1,7 @@
 angular.module('MapsService', [])
 
 // Google maps shape drawing
-.service('drawMap', function () {
+.service('drawMap', function (usSpinnerService) {
     var map;
     var polyPath;
     var eventHandler;
@@ -96,6 +96,7 @@ angular.module('MapsService', [])
         });
         clearListenerOfPoly();
         addListenerOfPoly();
+        usSpinnerService.stop('map-spinner');
     }
 
     this.viewPoli = function () {
@@ -110,6 +111,7 @@ angular.module('MapsService', [])
             editable: false
         });
         clearListenerOfPoly();
+        usSpinnerService.stop('map-spinner');
     }
 
 
