@@ -221,19 +221,20 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     // Validation
     function checkFields() {
+        var isValidate = true;
         var path = $scope.currentPath;
 
         if (!path.title || !path.description)
-            return false;
+            isValidate = false;
         $rootScope.languages.forEach(function (lang, idx) {
-            if (!path.title[lang] || !path.description[lang] || path.title[lang] == '' || path.description[lang] == '')
-                return false;
+            if (!path.title[lang] || !path.description[lang] || path.title[lang] == "" || path.description[lang] == "")
+                isValidate = false;
         })
 
         if (path.images.length == 0 || path.pois.length == 0 || path.categories.length == 0)
-            return false;
+            isValidate = false;
 
-        return true;
+        return isValidate;
     }
 
     // Back without saving changes
