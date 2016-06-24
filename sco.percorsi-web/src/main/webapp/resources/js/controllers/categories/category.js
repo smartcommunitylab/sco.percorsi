@@ -3,6 +3,7 @@ angular.module('consoleControllers.categories', [])
 // Categories management
 .controller('CategoriesCtrl', function ($scope, $rootScope, $timeout, DataService) {
     $scope.$parent.mainView = 'categories';
+    $scope.$parent.mainView = 'categories';
     // Get the list of all categories from the server
     DataService.getCategories().then(function (catList) {
         DataService.getPaths().then(function (list) {
@@ -78,6 +79,7 @@ angular.module('consoleControllers.categories', [])
 })
 
 .controller('CategoryCtrl', function ($scope, $rootScope, $stateParams, $location, $timeout, DataService, uploadImageOnImgur) {
+    $scope.$parent.mainView = 'categories';
     DataService.getCategories().then(function (list) {
         $scope.catList = list;
         if ($stateParams.idCat)

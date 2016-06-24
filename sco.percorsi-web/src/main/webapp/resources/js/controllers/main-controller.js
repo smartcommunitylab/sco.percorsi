@@ -3,7 +3,6 @@ angular.module('consoleControllers.mainCtrl', [])
 .controller('MainCtrl', ['$scope', '$rootScope', '$location', 'DataService',
   function ($scope, $rootScope, $location, DataService) {
         $scope.view = 'model';
-        $scope.mainView = 'paths';
         $scope.switchView = function (view) {
             $scope.view = view;
         }

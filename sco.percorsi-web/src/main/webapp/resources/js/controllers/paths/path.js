@@ -2,6 +2,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
 // Paths controller
 .controller('PathsCtrl', function ($scope, $rootScope, $sce, DataService) {
+    $scope.$parent.mainView = 'paths';
     DataService.getPaths().then(function (data) {
         $scope.paths = data;
     });
@@ -157,6 +158,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
 // Edit an existing path
 .controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService) {
+    $scope.$parent.mainView = 'paths';
     DataService.getPaths().then(function (list) {
         $rootScope.paths = list;
         // Check if it should add or modify a path
