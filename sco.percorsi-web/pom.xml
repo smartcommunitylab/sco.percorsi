@@ -188,6 +188,7 @@
                             <outputDirectory>src/main/generated-sources</outputDirectory>
                             <clearOutputDir>false</clearOutputDir>
                             <arguments>-Xvalue-constructor</arguments>
+                            <encoding>${file.encoding}</encoding>
                         </configuration>
                         <goals>
                             <goal>xjc</goal>

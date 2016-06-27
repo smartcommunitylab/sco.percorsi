@@ -1,37 +1,74 @@
 angular.module('consoleControllers.poi', [])
 
 // Edit the poi for the selected path
-.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, uploadImageOnImgur, drawMapPoi) {
-    if ($stateParams.idPoi)
-        $scope.poi = angular.copy($rootScope.currentPath.pois[$stateParams.idPoi]);
-    else
-        $scope.poi = {
-            "title": {
-                "de": "",
-                "it": "",
-                "en": ""
-            },
-            "description": {
-                "de": "",
-                "it": "",
-                "en": ""
-            },
-            "coordinates": {
-                lat: '45.8832637',
-                lng: '11.0014507'
-            },
-            "images": [],
-            "videos": [],
-            "audios": [],
-            "localId": $rootScope.currentPath.localId + 'poi' + $rootScope.currentPath.pois.length + 1
-        };
+.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, DataService, uploadImageOnImgur, drawMapPoi) {
+    $scope.$parent.selectedTab = 'pois';
+    // Check if the current path variable is null or not
+    if (!$scope.$parent.currentPath) {
+        // Create $parent variable (the logic is the same of PathCtrl)
+        if ($stateParams.idPath)
+            DataService.getPaths().then(function (list) {
+                $scope.$parent.currentPath = list[$stateParams.idPath];
+                InitPoiPage();
+            });
+        else {
+            $scope.$parent.currentPath = {
+                images: [],
+                videos: [],
+                audios: [],
+                localId: makeid(),
+                pois: [],
+                shape: ''
+            };
+            InitPoiPage();
+        }
+    } else {
+        InitPoiPage();
+    }
 
-    drawMapPoi.createMap('map-poi', $scope.poi.coordinates.lat, $scope.poi.coordinates.lng, function (lat, lng) {
-        $scope.poi.coordinates.lat = lat;
-        $scope.poi.coordinates.lng = lng;
-        $scope.$apply();
-    });
+    // Create $scope.poi variable and init the map
+    function InitPoiPage() {
+        if ($stateParams.idPoi)
+            $scope.poi = angular.copy($scope.$parent.currentPath.pois[$stateParams.idPoi]);
+        else
+            $scope.poi = {
+                "title": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "description": {
+                    "de": "",
+                    "it": "",
+                    "en": ""
+                },
+                "coordinates": {
+                    lat: '45.8832637',
+                    lng: '11.0014507'
+                },
+                "images": [],
+                "videos": [],
+                "audios": [],
+                "localId": $scope.$parent.currentPath.localId + 'poi' + $scope.$parent.currentPath.pois.length + 1
+            };
+        drawMapPoi.createMap('map-poi', $scope.poi.coordinates.lat, $scope.poi.coordinates.lng, function (lat, lng) {
+            $scope.poi.coordinates.lat = lat;
+            $scope.poi.coordinates.lng = lng;
+            $scope.$apply();
+        });
+    }
 
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 10; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return 'path' + text;
+    }
+
+    // Update the marker position when the user change coordinates
     $scope.updateMarkerPosition = function () {
         drawMapPoi.updateMarker($scope.poi.coordinates.lat, $scope.poi.coordinates.lng);
     }
@@ -65,9 +102,9 @@ angular.module('consoleControllers.poi', [])
     $scope.save = function () {
         if (checkFields()) {
             if ($stateParams.idPoi)
-                $rootScope.currentPath.pois[$stateParams.idPoi] = $scope.poi;
+                $scope.$parent.currentPath.pois[$stateParams.idPoi] = $scope.poi;
             else
-                $rootScope.currentPath.pois.push($scope.poi);
+                $scope.$parent.currentPath.pois.push($scope.poi);
 
             $rootScope.pathModified = true;
             // Back to the path
@@ -81,7 +118,7 @@ angular.module('consoleControllers.poi', [])
         // Get all inputs
         if (emptyFields.length > 0 || $scope.poi.images.length == 0) {
             $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Assicurati di aver compilato tutti i campi col bordo rosso e di aver inserito almeno una foto per il punto");
+            $rootScope.errorTexts.push("Errore! Assicurati di aver compilato tutti i campi con l'asterisco e di aver inserito almeno una foto per il punto");
             $timeout(function () {
                 $rootScope.errorTexts = [];
             }, 5000);
@@ -104,5 +141,23 @@ angular.module('consoleControllers.poi', [])
             // Reset the input field
             $scope.file = null;
         });
+    }
+
+    // Switch views
+    $scope.copyOfImages = {};
+    $scope.copyOfVideos = {};
+    $scope.copyOfAudios = {};
+
+    /* orArray = original $scope array;
+     * cpArray = copy of original $scope array;     
+     */
+    $scope.push = function (index, orArray, cpArray) {
+        cpArray[index] = angular.copy(orArray[index]);
+    }
+    $scope.pop = function (orArray, cpArray, index, save) {
+        if (save)
+            orArray[index] = cpArray[index];
+
+        cpArray[index] = null;
     }
 });

@@ -2,30 +2,44 @@ angular.module('consoleControllers.categories', [])
 
 // Categories management
 .controller('CategoriesCtrl', function ($scope, $rootScope, $timeout, DataService) {
+    $scope.$parent.mainView = 'categories';
+    $scope.$parent.mainView = 'categories';
     // Get the list of all categories from the server
-    DataService.getCategories().then(function (list) {
-        $rootScope.catList = list;
+    DataService.getCategories().then(function (catList) {
+        DataService.getPaths().then(function (list) {
+            $scope.paths = list;
+            $scope.catList = catList;
+            $scope.calPathsOfCategory = function (idCat) {
+                var numberOfPaths = 0;
+                $scope.paths.forEach(function (path, idx) {
+                    if (path.categories.indexOf($scope.catList[idCat].id) != -1)
+                        numberOfPaths++;
+                });
+                return numberOfPaths;
+            }
+        });
+
     });
 
     // Delete the category selected
     $scope.delete = function (idCat) {
         if (!checkCategory(idCat)) {
-            $rootScope.catList.splice(idCat, 1);
+            $scope.catList.splice(idCat, 1);
             // DataService to server
             var postRequest = {
                 "appId": $rootScope.profile.id,
                 "localId": '1',
-                "categories": $rootScope.catList
+                "categories": $scope.catList
             };
             DataService.saveCategories(postRequest).then(function () {
                 DataService.getCategories().then(function (list) {
-                    $rootScope.catList = list;
+                    $scope.catList = list;
                 });
             });
         } else {
             // Tell to user that this action is impossible
             $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Impossibile eliminare la categoria " + $rootScope.catList[idCat].name[$rootScope.languages[0]] + " perchè almeno un percorso è assegnato ad essa");
+            $rootScope.errorTexts.push("Impossibile eliminare la categoria " + $scope.catList[idCat].name[$rootScope.languages[0]] + " perchè almeno un percorso è assegnato ad essa");
             $timeout(function () {
                 $rootScope.errorTexts = [];
             }, 5000);
@@ -38,21 +52,12 @@ angular.module('consoleControllers.categories', [])
     */
     function checkCategory(idCat) {
         var isUsed = false;
-        $rootScope.paths.forEach(function (path, idx) {
-            if (path.categories.indexOf($rootScope.catList[idCat].id) != -1)
+        $scope.paths.forEach(function (path, idx) {
+            if (path.categories.indexOf($scope.catList[idCat].id) != -1)
                 isUsed = true;
         });
         return isUsed;
     };
-
-    $scope.calPathsOfCategory = function (idCat) {
-        var numberOfPaths = 0;
-        $rootScope.paths.forEach(function (path, idx) {
-            if (path.categories.indexOf($rootScope.catList[idCat].id) != -1)
-                numberOfPaths++;
-        });
-        return numberOfPaths;
-    }
 
     $scope.sortableOptions = {
         handle: ' .handle',
@@ -66,7 +71,7 @@ angular.module('consoleControllers.categories', [])
             var postRequest = {
                 "appId": $rootScope.profile.id,
                 "localId": '1',
-                "categories": $rootScope.catList
+                "categories": $scope.catList
             };
             DataService.saveCategories(postRequest);
         }
@@ -74,14 +79,18 @@ angular.module('consoleControllers.categories', [])
 })
 
 .controller('CategoryCtrl', function ($scope, $rootScope, $stateParams, $location, $timeout, DataService, uploadImageOnImgur) {
-    if ($stateParams.idCat)
-        $scope.cat = $rootScope.catList[$stateParams.idCat];
-    else {
-        $rootScope.catList.push({
-            "id": makeid()
-        });
-        $scope.cat = $rootScope.catList[$rootScope.catList.length - 1];
-    }
+    $scope.$parent.mainView = 'categories';
+    DataService.getCategories().then(function (list) {
+        $scope.catList = list;
+        if ($stateParams.idCat)
+            $scope.cat = $scope.catList[$stateParams.idCat];
+        else {
+            $scope.catList.push({
+                "id": makeid()
+            });
+            $scope.cat = $scope.catList[$scope.catList.length - 1];
+        }
+    });
 
     function makeid() {
         var text = "";
@@ -101,7 +110,7 @@ angular.module('consoleControllers.categories', [])
             var postRequest = {
                 "appId": $rootScope.profile.id,
                 "localId": '1',
-                "categories": $rootScope.catList
+                "categories": $scope.catList
             };
             DataService.saveCategories(postRequest).then(function () {
                 $location.path('categories-list');
@@ -115,7 +124,7 @@ angular.module('consoleControllers.categories', [])
         // Get all inputs
         if (emptyFields.length > 0) {
             $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Tutti i campi con bordo rosso sono richiesti per il salvataggio e devono essere compilati");
+            $rootScope.errorTexts.push("Errore! Tutti i campi con l'asterisco sono richiesti per il salvataggio e devono essere compilati");
             $timeout(function () {
                 $rootScope.errorTexts = [];
             }, 5000);

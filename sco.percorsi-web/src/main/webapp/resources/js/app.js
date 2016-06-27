@@ -12,7 +12,8 @@ var consoleApp = angular.module('console', ['ui.bootstrap',
 'checklist-model',
 'textAngular',
 'naif.base64',
-'angular-loading-bar'
+'angular-loading-bar',
+'angularSpinner'
 ]);
 
 // Text editor toolbar config
@@ -48,7 +49,27 @@ consoleApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/paths/path.html',
             controller: 'PathCtrl'
         })
-        .state('root.poi', {
+        .state('root.path.info', {
+            url: '/info',
+            templateUrl: 'templates/paths/tabs/info.html',
+            controller: 'InfoCtrl'
+        })
+        .state('root.path.multimedia', {
+            url: '/multimedia',
+            templateUrl: 'templates/paths/tabs/multimedia.html',
+            controller: 'MultimediaCtrl'
+        })
+        .state('root.path.pois', {
+            url: '/pois',
+            templateUrl: 'templates/paths/tabs/pois-list.html',
+            controller: 'PoisListCtrl'
+        })
+        .state('root.path.map', {
+            url: '/map',
+            templateUrl: 'templates/paths/tabs/path-shape.html',
+            controller: 'MapCtrl'
+        })
+        .state('root.path.poi', {
             url: '/poi/:idPoi',
             templateUrl: 'templates/pois/poi.html',
             controller: 'PoiCtrl'

@@ -3,9 +3,13 @@ angular.module('consoleControllers.mainCtrl', [])
 .controller('MainCtrl', ['$scope', '$rootScope', '$location', 'DataService',
   function ($scope, $rootScope, $location, DataService) {
         $scope.view = 'model';
-        $scope.mainView = 'paths';
         $scope.switchView = function (view) {
             $scope.view = view;
+        }
+
+        // Reset success text when the close button alert is clicked
+        $scope.resetText = function () {
+            $rootScope.successText = null;
         }
         $scope.modView = 'it.smartcommunitylab.percorsi.model.Path';
         $scope.moderated = {};
@@ -24,7 +28,6 @@ angular.module('consoleControllers.mainCtrl', [])
             $scope.profile = p;
             $rootScope.profile = $scope.profile;
         });
-
         // Languages option
         $rootScope.languages = ['it', 'en', 'de'];
 
