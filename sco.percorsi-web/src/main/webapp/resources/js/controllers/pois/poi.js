@@ -142,8 +142,11 @@ angular.module('consoleControllers.poi', [])
             $scope.file = null;
         });
     }
+    
+    $scope.delete = function (idx, array) {
+        array.splice(idx, 1);
+    };
 
-    // Switch views
     $scope.copyOfImages = {};
     $scope.copyOfVideos = {};
     $scope.copyOfAudios = {};
