@@ -38,10 +38,9 @@ angular.module('consoleControllers.categories', [])
             });
         } else {
             // Tell to user that this action is impossible
-            $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Impossibile eliminare la categoria " + $scope.catList[idCat].name[$rootScope.languages[0]] + " perchè almeno un percorso è assegnato ad essa");
+            $rootScope.modelErrors = "Impossibile eliminare la categoria " + $scope.catList[idCat].name[$rootScope.languages[0]] + " perchè almeno un percorso è assegnato ad essa";
             $timeout(function () {
-                $rootScope.errorTexts = [];
+                $rootScope.modelErrors = '';
             }, 5000);
         }
     };
@@ -123,10 +122,9 @@ angular.module('consoleControllers.categories', [])
         var emptyFields = $('.error');
         // Get all inputs
         if (emptyFields.length > 0) {
-            $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Tutti i campi con l'asterisco sono richiesti per il salvataggio e devono essere compilati");
+            $rootScope.modelErrors = "Errore! Controlla di aver compilato tutti i campi indicati con l'asterisco in tutte le lingue disponibili prima di salvare.";
             $timeout(function () {
-                $rootScope.errorTexts = [];
+                $rootScope.modelErrors = '';
             }, 5000);
             allCompiled = false;
         }

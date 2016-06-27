@@ -42,6 +42,14 @@
                 Percorsi
             </div>
         </a>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 alert alert-danger" role="alert" ng-if="modelErrors">
+                {{modelErrors}}
+            </div>
+            <div class="col-md-8 col-md-offset-2 alert alert-success alert-dismissible" role="alert" ng-if="modelSuccessText">
+                {{modelSuccessText}}
+            </div>
+        </div>
     </div>
     <!-- Main section -->
     <div ui-view></div>

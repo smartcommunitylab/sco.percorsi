@@ -117,10 +117,9 @@ angular.module('consoleControllers.poi', [])
         var emptyFields = $('.error');
         // Get all inputs
         if (emptyFields.length > 0 || $scope.poi.images.length == 0) {
-            $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Assicurati di aver compilato tutti i campi con l'asterisco e di aver inserito almeno una foto per il punto");
+            $rootScope.modelErrors = "Errore! Controlla di aver compilato tutti i campi indicati con l'asterisco in tutte le lingue disponibili e di avere inserito almeno una foto prima di salvare.";
             $timeout(function () {
-                $rootScope.errorTexts = [];
+                $rootScope.modelErrors = '';
             }, 5000);
             allCompiled = false;
         }
@@ -142,7 +141,7 @@ angular.module('consoleControllers.poi', [])
             $scope.file = null;
         });
     }
-    
+
     $scope.delete = function (idx, array) {
         array.splice(idx, 1);
     };

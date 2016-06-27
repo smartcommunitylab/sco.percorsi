@@ -98,10 +98,9 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
                 $location.path('paths-list');
             });
         else {
-            $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Tutti i campi con l'asterisco devono essere compilati e deve essere selezionata almeno una categoria, inoltre deve essere presente almeno una foto per il percorso e un punto di interesse");
+            $rootScope.modelErrors = "Errore! Controlla di aver compilato tutti i campi indicati con l'asterisco in tutte le lingue disponibili, di avere inserito almeno una foto e un punto di interesse prima di salvare.";
             $timeout(function () {
-                $rootScope.errorTexts = [];
+                $rootScope.modelErrors = '';
             }, 5000);
         }
     };
