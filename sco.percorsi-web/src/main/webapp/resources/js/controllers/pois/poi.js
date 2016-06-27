@@ -1,7 +1,7 @@
 angular.module('consoleControllers.poi', [])
 
 // Edit the poi for the selected path
-.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, DataService, uploadImageOnImgur, drawMapPoi) {
+.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, $modal, DataService, uploadImageOnImgur, drawMapPoi) {
     $scope.$parent.selectedTab = 'pois';
     // Check if the current path variable is null or not
     if (!$scope.$parent.currentPath) {
@@ -128,8 +128,23 @@ angular.module('consoleControllers.poi', [])
 
     // Exit without saving changes
     $scope.back = function () {
-        if (confirm("Sei sicuro di voler uscire senza salvare? Le modifiche che hai effettuato andranno perse\nOk per uscire, annulla per annullare"))
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di uscire senza salvare le modifiche?';
+                },
+                bodyText: function () {
+                    return 'Una volta uscito le modifiche che hai effettuato andranno perse.'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
             $window.history.back();
+        });
     }
 
     // Upload image on imgur
@@ -143,7 +158,23 @@ angular.module('consoleControllers.poi', [])
     }
 
     $scope.delete = function (idx, array) {
-        array.splice(idx, 1);
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di cancellare questo oggetto?';
+                },
+                bodyText: function () {
+                    return 'Una volta cancellato l\'oggetto non sarà più disponibile';
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            array.splice(idx, 1);
+        });
     };
 
     $scope.copyOfImages = {};

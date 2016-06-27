@@ -1,7 +1,7 @@
 angular.module('consoleControllers.paths', ['ngSanitize'])
 
 // Paths controller
-.controller('PathsCtrl', function ($scope, $rootScope, $sce, DataService) {
+.controller('PathsCtrl', function ($scope, $rootScope, $sce, $modal, DataService) {
     $scope.$parent.mainView = 'paths';
     DataService.getPaths().then(function (data) {
         $scope.paths = data;
@@ -27,10 +27,26 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     }
 
     $scope.delete = function (idPoi) {
-        $scope.paths.splice(idPoi, 1);
-        DataService.savePaths($scope.paths).then(function () {
-            DataService.getPaths().then(function (data) {
-                $scope.paths = data;
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di cancellare il percorso ' + $scope.paths[idPoi].title[$rootScope.languages[0]] + '?';
+                },
+                bodyText: function () {
+                    return 'Il percorso una volta cancellato non sarà più disponibile.'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            $scope.paths.splice(idPoi, 1);
+            DataService.savePaths($scope.paths).then(function () {
+                DataService.getPaths().then(function (data) {
+                    $scope.paths = data;
+                });
             });
         });
     };
@@ -39,7 +55,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
 
 // Edit an existing path
-.controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService) {
+.controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, $modal, DataService) {
     $scope.$parent.mainView = 'paths';
     DataService.getPaths().then(function (list) {
         $rootScope.paths = list;
@@ -125,8 +141,23 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     // Back without saving changes
     $scope.back = function () {
-        if (confirm("Sei sicuro di voler uscire senza salvare? Le modifiche che hai effettuato andranno perse\nOk per uscire, annulla per annullare"))
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di uscire senza salvare?'
+                },
+                bodyText: function () {
+                    return 'I cambiamenti e le modifiche effettuate al luogo andranno perse se continui.'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
             $location.path('paths-list');
+        });
     };
 })
 
@@ -138,14 +169,30 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     });
 })
 
-.controller('PoisListCtrl', function ($scope) {
+.controller('PoisListCtrl', function ($scope, $modal) {
     $scope.$parent.selectedTab = 'pois';
     $scope.remove = function (idPoi) {
-        $scope.currentPath.pois.splice(idPoi, 1);
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di cancellare la tappa selezionata?'
+                },
+                bodyText: function () {
+                    return 'Una volta cancellata non sarà più disponibile.'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            $scope.currentPath.pois.splice(idPoi, 1);
+        });
     };
 })
 
-.controller('MultimediaCtrl', function ($scope, uploadImageOnImgur) {
+.controller('MultimediaCtrl', function ($scope, $modal, uploadImageOnImgur) {
     $scope.$parent.selectedTab = 'multimedia';
     $scope.newMedia = {};
     // Add media to the current path
@@ -168,7 +215,23 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     };
 
     $scope.delete = function (idx, array) {
-        array.splice(idx, 1);
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di cancellare questo oggetto?';
+                },
+                bodyText: function () {
+                    return 'Una volta cancellato l\'oggetto non sarà più disponibile';
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            array.splice(idx, 1);
+        });
     };
 
     // Upload image on imgur

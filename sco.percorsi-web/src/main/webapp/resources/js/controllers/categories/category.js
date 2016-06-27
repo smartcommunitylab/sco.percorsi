@@ -1,7 +1,7 @@
 angular.module('consoleControllers.categories', [])
 
 // Categories management
-.controller('CategoriesCtrl', function ($scope, $rootScope, $timeout, DataService) {
+.controller('CategoriesCtrl', function ($scope, $rootScope, $timeout, $modal, DataService) {
     $scope.$parent.mainView = 'categories';
     $scope.$parent.mainView = 'categories';
     // Get the list of all categories from the server
@@ -24,16 +24,32 @@ angular.module('consoleControllers.categories', [])
     // Delete the category selected
     $scope.delete = function (idCat) {
         if (!checkCategory(idCat)) {
-            $scope.catList.splice(idCat, 1);
-            // DataService to server
-            var postRequest = {
-                "appId": $rootScope.profile.id,
-                "localId": '1',
-                "categories": $scope.catList
-            };
-            DataService.saveCategories(postRequest).then(function () {
-                DataService.getCategories().then(function (list) {
-                    $scope.catList = list;
+            var modalInstance = $modal.open({
+                templateUrl: 'templates/modal.html',
+                controller: 'ModalCtrl',
+                size: 'lg',
+                resolve: {
+                    titleText: function () {
+                        return 'Sei sicuro di cancellare la categoria ' + $scope.catList[idCat].name[$rootScope.languages[0]] + '?';
+                    },
+                    bodyText: function () {
+                        return 'La categoria una volta cancellata non sarà più disponibile.'
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                $scope.catList.splice(idCat, 1);
+                // DataService to server
+                var postRequest = {
+                    "appId": $rootScope.profile.id,
+                    "localId": '1',
+                    "categories": $scope.catList
+                };
+                DataService.saveCategories(postRequest).then(function () {
+                    DataService.getCategories().then(function (list) {
+                        $scope.catList = list;
+                    });
                 });
             });
         } else {
@@ -77,7 +93,7 @@ angular.module('consoleControllers.categories', [])
     }
 })
 
-.controller('CategoryCtrl', function ($scope, $rootScope, $stateParams, $location, $timeout, DataService, uploadImageOnImgur) {
+.controller('CategoryCtrl', function ($scope, $rootScope, $stateParams, $location, $timeout, $modal, DataService, uploadImageOnImgur) {
     $scope.$parent.mainView = 'categories';
     DataService.getCategories().then(function (list) {
         $scope.catList = list;
@@ -132,7 +148,23 @@ angular.module('consoleControllers.categories', [])
     }
 
     $scope.back = function () {
-        $location.path('categories-list');
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di uscire senza salvare le modifiche?';
+                },
+                bodyText: function () {
+                    return 'Una volta uscito le modifiche che hai effettuato andranno perse.'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            $location.path('categories-list');
+        });
     }
 
     // Upload image on imgur
