@@ -13,6 +13,7 @@
     <select class="form-control" ng-model="lang">
         <option ng-repeat="language in languages" value="{{language}}">{{ language }}</option>
     </select>
+    <p class="info-lang-text">E' necessario completare la compilazione di tutti i campi obbligatori per tutte le lingue prima di salvare la categoria.</p>
 </div>
 
 <div ng-repeat="language in languages" ng-show="lang == language">

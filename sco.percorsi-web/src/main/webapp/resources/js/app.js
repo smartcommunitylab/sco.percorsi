@@ -31,7 +31,7 @@ consoleApp.config(['$provide', function ($provide) {
 
 
 consoleApp.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/paths-list');
+    $urlRouterProvider.otherwise('/categories-list');
     $stateProvider
         .state('root', {
             url: '',

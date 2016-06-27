@@ -1,7 +1,7 @@
 angular.module('consoleControllers.categories', [])
 
 // Categories management
-.controller('CategoriesCtrl', function ($scope, $rootScope, $timeout, DataService) {
+.controller('CategoriesCtrl', function ($scope, $rootScope, $timeout, $modal, DataService) {
     $scope.$parent.mainView = 'categories';
     $scope.$parent.mainView = 'categories';
     // Get the list of all categories from the server
@@ -24,24 +24,39 @@ angular.module('consoleControllers.categories', [])
     // Delete the category selected
     $scope.delete = function (idCat) {
         if (!checkCategory(idCat)) {
-            $scope.catList.splice(idCat, 1);
-            // DataService to server
-            var postRequest = {
-                "appId": $rootScope.profile.id,
-                "localId": '1',
-                "categories": $scope.catList
-            };
-            DataService.saveCategories(postRequest).then(function () {
-                DataService.getCategories().then(function (list) {
-                    $scope.catList = list;
+            var modalInstance = $modal.open({
+                templateUrl: 'templates/modal.html',
+                controller: 'ModalCtrl',
+                size: 'lg',
+                resolve: {
+                    titleText: function () {
+                        return 'Attenzione!';
+                    },
+                    bodyText: function () {
+                        return 'Confermi di voler cancellare la categoria ' + $scope.catList[idCat].name[$rootScope.languages[0]] + '?';
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                $scope.catList.splice(idCat, 1);
+                // DataService to server
+                var postRequest = {
+                    "appId": $rootScope.profile.id,
+                    "localId": '1',
+                    "categories": $scope.catList
+                };
+                DataService.saveCategories(postRequest).then(function () {
+                    DataService.getCategories().then(function (list) {
+                        $scope.catList = list;
+                    });
                 });
             });
         } else {
             // Tell to user that this action is impossible
-            $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Impossibile eliminare la categoria " + $scope.catList[idCat].name[$rootScope.languages[0]] + " perchè almeno un percorso è assegnato ad essa");
+            $rootScope.modelErrors = "Impossibile eliminare la categoria " + $scope.catList[idCat].name[$rootScope.languages[0]] + " perchè almeno un percorso è assegnato ad essa";
             $timeout(function () {
-                $rootScope.errorTexts = [];
+                $rootScope.modelErrors = '';
             }, 5000);
         }
     };
@@ -78,7 +93,7 @@ angular.module('consoleControllers.categories', [])
     }
 })
 
-.controller('CategoryCtrl', function ($scope, $rootScope, $stateParams, $location, $timeout, DataService, uploadImageOnImgur) {
+.controller('CategoryCtrl', function ($scope, $rootScope, $stateParams, $location, $timeout, $modal, DataService, uploadImageOnImgur) {
     $scope.$parent.mainView = 'categories';
     DataService.getCategories().then(function (list) {
         $scope.catList = list;
@@ -123,10 +138,9 @@ angular.module('consoleControllers.categories', [])
         var emptyFields = $('.error');
         // Get all inputs
         if (emptyFields.length > 0) {
-            $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Tutti i campi con l'asterisco sono richiesti per il salvataggio e devono essere compilati");
+            $rootScope.modelErrors = "Errore! Controlla di aver compilato tutti i campi indicati con l'asterisco in tutte le lingue disponibili prima di salvare.";
             $timeout(function () {
-                $rootScope.errorTexts = [];
+                $rootScope.modelErrors = '';
             }, 5000);
             allCompiled = false;
         }
@@ -134,7 +148,23 @@ angular.module('consoleControllers.categories', [])
     }
 
     $scope.back = function () {
-        $location.path('categories-list');
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di voler uscire senza salvare?';
+                },
+                bodyText: function () {
+                    return 'Le modifiche effettuate andranno perse.'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            $location.path('categories-list');
+        });
     }
 
     // Upload image on imgur

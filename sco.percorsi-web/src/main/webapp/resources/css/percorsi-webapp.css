@@ -238,28 +238,28 @@ hr.border-paths {
 /* Paths or Cateogries tab */
 
 .selection-tab {
-    font-size: 15px;
-    font-weight: 500;
-    padding: 6px 0;
-    text-align: center;
-    background-color: rgb(193, 193, 193);
-    border-bottom: 5px solid rgb(17, 133, 117);
-    width: 50%;
-    display: inline-block;
-    margin-bottom: 40px;
+    font-size: 15px!important;
+    font-weight: 500!important;
+    padding: 6px 0!important;
+    text-align: center!important;
+    background-color: rgb(193, 193, 193)!important;
+    border-bottom: 5px solid rgb(17, 133, 117)!important;
+    width: 50%!important;
+    display: inline-block!important;
+    margin-bottom: 40px!important;
 }
 
-.selection-tab a {
-    color: #fff;
-    text-decoration: none;
+.selection-tab {
+    color: #fff!important;
+    text-decoration: none!important;
 }
 
 .selection-tab.active {
-    background-color: rgb(17, 133, 117);
+    background-color: rgb(17, 133, 117)!important;
 }
 
 .selection-tab.active a {
-    color: #fff;
+    color: #fff!important;
 }
 
 
@@ -319,6 +319,11 @@ hr.border-paths {
     background: transparent url('../img/arrow.png') no-repeat 80px center;
     border-radius: 6px;
     border: 1px solid rgb(193, 193, 193);
+}
+
+p.info-lang-text {
+    font-size: 12px;
+    margin-left: 10px;
 }
 
 .field input {
@@ -487,42 +492,4 @@ hr.border-paths {
 
 .poi-media {
     margin-top: 50px;
-}
-
-
-/* Just a test */
-
-#loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 150px;
-    height: 150px;
-    margin: -75px 0 0 -75px;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }

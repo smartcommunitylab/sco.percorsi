@@ -100,4 +100,15 @@ angular.module('consoleControllers.mainCtrl', [])
                 });
         };
 
-  }]);
+  }])
+
+.controller('ModalCtrl', function ($scope, $modalInstance, titleText, bodyText) {
+    $scope.title = titleText;
+    $scope.body = bodyText;
+    $scope.ok = function () {
+        $modalInstance.close();
+    }
+    $scope.cancel = function ()  {
+        $modalInstance.dismiss();
+    }
+});

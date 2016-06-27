@@ -3,7 +3,7 @@
         <span>{{profile.id}}</span>
     </div>
     <ul class="nav navbar-nav">
-        <li ng-click="switchView('model')" role="presentation" ng-class="{'active':view == 'model'}"><a href="#/paths-list">Data</a></li>
+        <li ng-click="switchView('model')" role="presentation" ng-class="{'active':view == 'model'}"><a href="#/categories-list">Data</a></li>
         <li ng-click="switchView('moderate')" ng-if="profile.moderation" role="presentation" ng-class="{'active':view == 'moderate'}"><a href="#/moderate">Moderation</a></li>
     </ul>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -32,11 +32,23 @@
     <div ng-include="'templates/update.html'" ng-if="view=='model'">
     </div>
     <div class="col-lg-12" ng-if="view=='model'">
-        <div style="float: left;" class="selection-tab categories-tab" ng-class="{'active':mainView == 'categories'}">
-            <a href="#/categories-list">Categorie</a>
-        </div>
-        <div style="float:right;" class="selection-tab paths-tab" ng-class="{'active':mainView == 'paths'}">
-            <a href="#/paths-list">Percorsi</a>
+        <a href="#/categories-list">
+            <div style="float: left;" class="selection-tab categories-tab" ng-class="{'active':mainView == 'categories'}">
+                Categorie
+            </div>
+        </a>
+        <a href="#/paths-list">
+            <div style="float:right;" class="selection-tab paths-tab" ng-class="{'active':mainView == 'paths'}">
+                Percorsi
+            </div>
+        </a>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 alert alert-danger" role="alert" ng-if="modelErrors">
+                {{modelErrors}}
+            </div>
+            <div class="col-md-8 col-md-offset-2 alert alert-success alert-dismissible" role="alert" ng-if="modelSuccessText">
+                {{modelSuccessText}}
+            </div>
         </div>
     </div>
     <!-- Main section -->

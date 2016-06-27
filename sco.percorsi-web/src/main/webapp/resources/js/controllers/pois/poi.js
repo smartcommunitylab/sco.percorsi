@@ -1,7 +1,7 @@
 angular.module('consoleControllers.poi', [])
 
 // Edit the poi for the selected path
-.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, DataService, uploadImageOnImgur, drawMapPoi) {
+.controller('PoiCtrl', function ($scope, $stateParams, $rootScope, $window, $timeout, $modal, DataService, uploadImageOnImgur, drawMapPoi) {
     $scope.$parent.selectedTab = 'pois';
     // Check if the current path variable is null or not
     if (!$scope.$parent.currentPath) {
@@ -117,10 +117,9 @@ angular.module('consoleControllers.poi', [])
         var emptyFields = $('.error');
         // Get all inputs
         if (emptyFields.length > 0 || $scope.poi.images.length == 0) {
-            $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Assicurati di aver compilato tutti i campi con l'asterisco e di aver inserito almeno una foto per il punto");
+            $rootScope.modelErrors = "Errore! Controlla di aver compilato tutti i campi indicati con l'asterisco in tutte le lingue disponibili e di avere inserito almeno una foto prima di salvare.";
             $timeout(function () {
-                $rootScope.errorTexts = [];
+                $rootScope.modelErrors = '';
             }, 5000);
             allCompiled = false;
         }
@@ -129,8 +128,23 @@ angular.module('consoleControllers.poi', [])
 
     // Exit without saving changes
     $scope.back = function () {
-        if (confirm("Sei sicuro di voler uscire senza salvare? Le modifiche che hai effettuato andranno perse\nOk per uscire, annulla per annullare"))
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di uscire senza salvare?';
+                },
+                bodyText: function () {
+                    return 'Le modifiche effettuate andranno perse.'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
             $window.history.back();
+        });
     }
 
     // Upload image on imgur
@@ -143,7 +157,26 @@ angular.module('consoleControllers.poi', [])
         });
     }
 
-    // Switch views
+    $scope.delete = function (idx, array) {
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Attenzione!';
+                },
+                bodyText: function () {
+                    return 'Sei sicuro di voler cancellare questo oggetto?';
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            array.splice(idx, 1);
+        });
+    };
+
     $scope.copyOfImages = {};
     $scope.copyOfVideos = {};
     $scope.copyOfAudios = {};

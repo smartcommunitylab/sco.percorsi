@@ -146,11 +146,12 @@ angular.module('MapsService', [])
         }
     };
 
-    // Called when a poi is deleted
+    /* Called when a poi is deleted
     this.removeMarker = function (idMarker) {
+        console.log(markers);
         markers[idMarker].setMap(null);
         markers.splice(idMarker, 1);
-    }
+    }*/
 
     // Generates the new path from the list of pois
     this.generatesPath = function (pois) {

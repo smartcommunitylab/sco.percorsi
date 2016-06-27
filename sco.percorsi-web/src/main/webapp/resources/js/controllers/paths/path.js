@@ -1,7 +1,7 @@
 angular.module('consoleControllers.paths', ['ngSanitize'])
 
 // Paths controller
-.controller('PathsCtrl', function ($scope, $rootScope, $sce, DataService) {
+.controller('PathsCtrl', function ($scope, $rootScope, $sce, $modal, DataService) {
     $scope.$parent.mainView = 'paths';
     DataService.getPaths().then(function (data) {
         $scope.paths = data;
@@ -26,138 +26,36 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         return $sce.trustAsHtml(code);
     }
 
-    $scope.delete = function (idPoi) {
-        $scope.paths.splice(idPoi, 1);
-        DataService.savePaths($scope.paths).then(function () {
-            DataService.getPaths().then(function (data) {
-                $scope.paths = data;
+    $scope.delete = function (idPath) {
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Attenzione!';
+                },
+                bodyText: function () {
+                    return 'Confermi di voler cancellare il percorso ' + $scope.paths[idPath].title[$rootScope.languages[0]] + '?';
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            $scope.paths.splice(idPath, 1);
+            DataService.savePaths($scope.paths).then(function () {
+                DataService.getPaths().then(function (data) {
+                    $scope.paths = data;
+                });
             });
         });
     };
 })
 
-.controller('InfoCtrl', function ($scope, $rootScope, DataService) {
-    $scope.$parent.selectedTab = 'info';
-    // Get the categories list
-    DataService.getCategories().then(function (data) {
-        $scope.catList = data;
-    });
-})
 
-.controller('MultimediaCtrl', function ($scope, $rootScope, uploadImageOnImgur) {
-    $scope.$parent.selectedTab = 'multimedia';
-    $scope.newMedia = {};
-    // Add media to the current path
-    $scope.addMedia = function () {
-        switch ($scope.data.mediaType) {
-        case 'image':
-            $scope.currentPath.images.push($scope.newMedia);
-            break;
-        case 'video':
-            $scope.currentPath.videos.push($scope.newMedia);
-            break;
-        case 'audio':
-            $scope.currentPath.audios.push($scope.newMedia);
-            break;
-        default:
-            alert("Errore: il tipo dell'oggetto non è un tipo valido (solo immagine, audio o video).");
-        }
-        // Reset the newMedia object
-        $scope.newMedia = {};
-    };
-
-    $scope.delete = function (idx, array) {
-        array.splice(idx, 1);
-    };
-
-    // Upload image on imgur
-    $scope.uploadPic = function (file) {
-        uploadImageOnImgur(file).success(function (response) {
-            // Update the link of the new media with the imgur link
-            $scope.newMedia.url = response.data.link;
-            // Reset the input field
-            $scope.file = null;
-        });
-    };
-
-    // Switch views
-    $scope.copyOfImages = {};
-    $scope.copyOfVideos = {};
-    $scope.copyOfAudios = {};
-
-    /* orArray = original $scope array;
-     * cpArray = copy of original $scope array;     
-     */
-    $scope.push = function (index, orArray, cpArray) {
-        cpArray[index] = angular.copy(orArray[index]);
-    }
-    $scope.pop = function (orArray, cpArray, index, save) {
-        if (save)
-            orArray[index] = cpArray[index];
-
-        cpArray[index] = null;
-    }
-})
-
-.controller('PoisListCtrl', function ($scope, $rootScope, drawMap) {
-    $scope.$parent.selectedTab = 'pois';
-    $scope.remove = function (idPoi) {
-        $scope.currentPath.pois.splice(idPoi, 1);
-        drawMap.removeMarker(idPoi);
-    };
-})
-
-.controller('MapCtrl', function ($scope, $rootScope, $timeout, drawMap, usSpinnerService) {
-    $scope.$parent.selectedTab = 'map';
-    $scope.initMap = function () {
-        // Draw the map with pois of the path + shape
-        drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
-            lat: '45.8832637',
-            lng: '11.0014507'
-        } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
-            $scope.currentPath.shape = shape;
-            $scope.currentPath.length = drawMap.shapeLength();
-            $scope.currentPath.time = drawMap.shapeTime();
-            if (!$scope.$$phase)
-                $scope.$apply();
-        }, $scope.currentPath.pois);
-    };
-
-    // Updating the polyline on the map when the shape change
-    $scope.updateShape = function () {
-        drawMap.updatePoly($scope.currentPath.shape);
-    };
-
-    $scope.generatesPath = function () {
-        drawMap.generatesPath($scope.currentPath.pois);
-    };
-
-    $scope.toggleMarkers = function () {
-        $scope.toggle = !$scope.toggle;
-        if ($scope.toggle)
-            drawMap.showMarkers();
-        else
-            drawMap.hideMarkers();
-    };
-
-    $scope.editMap = false;
-    $scope.spinnerIsLoading = false;
-    $scope.editLine = function () {
-        $scope.spinnerIsLoading = true;
-        usSpinnerService.spin('map-spinner');
-        $scope.editMap = !$scope.editMap;
-        $timeout(function () {
-            if ($scope.editMap)
-                drawMap.editPoli();
-            else
-                drawMap.viewPoli();
-            $scope.spinnerIsLoading = false;
-        }, 50);
-    }
-})
 
 // Edit an existing path
-.controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, DataService) {
+.controller('PathCtrl', function ($scope, $stateParams, $rootScope, $location, $timeout, $modal, DataService) {
     $scope.$parent.mainView = 'paths';
     DataService.getPaths().then(function (list) {
         $rootScope.paths = list;
@@ -216,10 +114,9 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
                 $location.path('paths-list');
             });
         else {
-            $rootScope.errorTexts = [];
-            $rootScope.errorTexts.push("Errore! Tutti i campi con l'asterisco devono essere compilati e deve essere selezionata almeno una categoria, inoltre deve essere presente almeno una foto per il percorso e un punto di interesse");
+            $rootScope.modelErrors = "Errore! Controlla di aver compilato tutti i campi indicati con l'asterisco in tutte le lingue disponibili, di avere inserito almeno una foto e un punto di interesse prima di salvare.";
             $timeout(function () {
-                $rootScope.errorTexts = [];
+                $rootScope.modelErrors = '';
             }, 5000);
         }
     };
@@ -244,7 +141,173 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
 
     // Back without saving changes
     $scope.back = function () {
-        if (confirm("Sei sicuro di voler uscire senza salvare? Le modifiche che hai effettuato andranno perse\nOk per uscire, annulla per annullare"))
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Sei sicuro di uscire senza salvare?'
+                },
+                bodyText: function () {
+                    return 'Le modifiche effettuate andranno perse.'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
             $location.path('paths-list');
+        });
     };
+})
+
+.controller('InfoCtrl', function ($scope, DataService) {
+    $scope.$parent.selectedTab = 'info';
+    // Get the categories list
+    DataService.getCategories().then(function (data) {
+        $scope.catList = data;
+    });
+})
+
+.controller('PoisListCtrl', function ($scope, $modal) {
+    $scope.$parent.selectedTab = 'pois';
+    $scope.remove = function (idPoi) {
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Attenzione!'
+                },
+                bodyText: function () {
+                    return 'Sei sicuro di voler cancellare la tappa selezionata?'
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            $scope.currentPath.pois.splice(idPoi, 1);
+        });
+    };
+})
+
+.controller('MultimediaCtrl', function ($scope, $modal, uploadImageOnImgur) {
+    $scope.$parent.selectedTab = 'multimedia';
+    $scope.newMedia = {};
+    // Add media to the current path
+    $scope.addMedia = function () {
+        switch ($scope.data.mediaType) {
+        case 'image':
+            $scope.currentPath.images.push($scope.newMedia);
+            break;
+        case 'video':
+            $scope.currentPath.videos.push($scope.newMedia);
+            break;
+        case 'audio':
+            $scope.currentPath.audios.push($scope.newMedia);
+            break;
+        default:
+            alert("Errore: il tipo dell'oggetto non è un tipo valido (solo immagine, audio o video).");
+        }
+        // Reset the newMedia object
+        $scope.newMedia = {};
+    };
+
+    $scope.delete = function (idx, array) {
+        var modalInstance = $modal.open({
+            templateUrl: 'templates/modal.html',
+            controller: 'ModalCtrl',
+            size: 'lg',
+            resolve: {
+                titleText: function () {
+                    return 'Attenzione!';
+                },
+                bodyText: function () {
+                    return 'Sei sicuro di voler cancellare questo oggetto?';
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+            array.splice(idx, 1);
+        });
+    };
+
+    // Upload image on imgur
+    $scope.uploadPic = function (file) {
+        uploadImageOnImgur(file).success(function (response) {
+            // Update the link of the new media with the imgur link
+            $scope.newMedia.url = response.data.link;
+            // Reset the input field
+            $scope.file = null;
+        });
+    };
+
+    // Switch views
+    $scope.copyOfImages = {};
+    $scope.copyOfVideos = {};
+    $scope.copyOfAudios = {};
+
+    /* orArray = original $scope array;
+     * cpArray = copy of original $scope array;     
+     */
+    $scope.push = function (index, orArray, cpArray) {
+        cpArray[index] = angular.copy(orArray[index]);
+    }
+    $scope.pop = function (orArray, cpArray, index, save) {
+        if (save)
+            orArray[index] = cpArray[index];
+
+        cpArray[index] = null;
+    }
+})
+
+.controller('MapCtrl', function ($scope, $rootScope, $timeout, drawMap, usSpinnerService) {
+    $scope.$parent.selectedTab = 'map';
+    $scope.initMap = function () {
+        // Draw the map with pois of the path + shape
+        drawMap.createMap('map', ($scope.currentPath.pois[0] == null ? {
+            lat: '45.8832637',
+            lng: '11.0014507'
+        } : $scope.currentPath.pois[0].coordinates), $scope.currentPath.shape, function (shape) {
+            $scope.currentPath.shape = shape;
+            $scope.currentPath.length = drawMap.shapeLength();
+            $scope.currentPath.time = drawMap.shapeTime();
+            if (!$scope.$$phase)
+                $scope.$apply();
+        }, $scope.currentPath.pois);
+    };
+
+    // Updating the polyline on the map when the shape change
+    $scope.updateShape = function () {
+        drawMap.updatePoly($scope.currentPath.shape);
+    };
+
+    $scope.generatesPath = function () {
+        drawMap.generatesPath($scope.currentPath.pois);
+    };
+
+    $scope.toggleMarkers = function () {
+        $scope.toggle = !$scope.toggle;
+        if ($scope.toggle)
+            drawMap.showMarkers();
+        else
+            drawMap.hideMarkers();
+    };
+
+    $scope.editMap = false;
+    $scope.spinnerIsLoading = false;
+    $scope.editLine = function () {
+        $scope.spinnerIsLoading = true;
+        usSpinnerService.spin('map-spinner');
+        $scope.editMap = !$scope.editMap;
+        $timeout(function () {
+            if ($scope.editMap)
+                drawMap.editPoli();
+            else
+                drawMap.viewPoli();
+            $scope.spinnerIsLoading = false;
+        }, 50);
+    }
 });

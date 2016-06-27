@@ -29,10 +29,9 @@ angular.module('DataService', [])
                     $http.get('console/paths', options).success(function (data) {
                         deferred.resolve(data);
                     }).error(function (e) {
-                        $rootScope.errorTexts = [];
-                        $rootScope.errorTexts.push(e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage);
+                        $rootScope.modelErrors = e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage;
                         $timeout(function () {
-                            $rootScope.errorTexts = [];
+                            $rootScope.modelErrors = '';
                         }, 6000);
                         deferred.reject(e);
                     });
@@ -43,10 +42,9 @@ angular.module('DataService', [])
                     $http.get('console/categories', options).success(function (data) {
                         deferred.resolve(data.categories);
                     }).error(function (e) {
-                        $rootScope.errorTexts = [];
-                        $rootScope.errorTexts.push(e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage);
+                        $rootScope.modelErrors = e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage;
                         $timeout(function () {
-                            $rootScope.errorTexts = [];
+                            $rootScope.modelErrors = '';
                         }, 6000);
                         deferred.reject(e);
                     });
@@ -55,13 +53,15 @@ angular.module('DataService', [])
                 savePaths: function (data) {
                     var deferred = $q.defer();
                     $http.post('console/paths', data, options).success(function (data, status, headers, config) {
-                        $rootScope.successText = "Dati dei percorsi salvati correttamente!";
+                        $rootScope.modelSuccessText = "Dati dei percorsi salvati e caricati correttamente sul server";
+                        $timeout(function () {
+                            $rootScope.modelSuccessText = '';
+                        }, 6000);
                         deferred.resolve(data);
                     }).error(function (e) {
-                        $rootScope.errorTexts = [];
-                        $rootScope.errorTexts.push(e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage);
+                        $rootScope.modelErrors = e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage;
                         $timeout(function () {
-                            $rootScope.errorTexts = [];
+                            $rootScope.modelErrors = '';
                         }, 6000);
                         deferred.reject(e);
                     });
@@ -70,14 +70,15 @@ angular.module('DataService', [])
                 saveCategories: function (data) {
                     var deferred = $q.defer();
                     $http.post('console/categories', data, options).success(function (data, status, headers, config) {
-                        $rootScope.successText = null;
-                        $rootScope.successText = "Dati delle categorie salvati correttamente!";
+                        $rootScope.modelSuccessText = "Dati delle categorie salvati e caricati sul server correttamente";
+                        $timeout(function () {
+                            $rootScope.modelSuccessText = '';
+                        }, 6000);
                         deferred.resolve(data);
                     }).error(function (e) {
-                        $rootScope.errorTexts = [];
-                        $rootScope.errorTexts.push(e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage);
+                        $rootScope.modelErrors = e == '' ? 'Errore di connessione, riprova più tardi' : e.errorCode + ': ' + e.errorMessage;
                         $timeout(function () {
-                            $rootScope.errorTexts = [];
+                            $rootScope.modelErrors = '';
                         }, 6000);
                         deferred.reject(e);
                     });
