@@ -32,12 +32,16 @@
     <div ng-include="'templates/update.html'" ng-if="view=='model'">
     </div>
     <div class="col-lg-12" ng-if="view=='model'">
-        <div style="float: left;" class="selection-tab categories-tab" ng-class="{'active':mainView == 'categories'}">
-            <a href="#/categories-list">Categorie</a>
-        </div>
-        <div style="float:right;" class="selection-tab paths-tab" ng-class="{'active':mainView == 'paths'}">
-            <a href="#/paths-list">Percorsi</a>
-        </div>
+        <a href="#/categories-list">
+            <div style="float: left;" class="selection-tab categories-tab" ng-class="{'active':mainView == 'categories'}">
+                Categorie
+            </div>
+        </a>
+        <a href="#/paths-list">
+            <div style="float:right;" class="selection-tab paths-tab" ng-class="{'active':mainView == 'paths'}">
+                Percorsi
+            </div>
+        </a>
     </div>
     <!-- Main section -->
     <div ui-view></div>

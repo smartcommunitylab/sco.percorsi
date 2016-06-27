@@ -238,28 +238,28 @@ hr.border-paths {
 /* Paths or Cateogries tab */
 
 .selection-tab {
-    font-size: 15px;
-    font-weight: 500;
-    padding: 6px 0;
-    text-align: center;
-    background-color: rgb(193, 193, 193);
-    border-bottom: 5px solid rgb(17, 133, 117);
-    width: 50%;
-    display: inline-block;
-    margin-bottom: 40px;
+    font-size: 15px!important;
+    font-weight: 500!important;
+    padding: 6px 0!important;
+    text-align: center!important;
+    background-color: rgb(193, 193, 193)!important;
+    border-bottom: 5px solid rgb(17, 133, 117)!important;
+    width: 50%!important;
+    display: inline-block!important;
+    margin-bottom: 40px!important;
 }
 
-.selection-tab a {
-    color: #fff;
-    text-decoration: none;
+.selection-tab {
+    color: #fff!important;
+    text-decoration: none!important;
 }
 
 .selection-tab.active {
-    background-color: rgb(17, 133, 117);
+    background-color: rgb(17, 133, 117)!important;
 }
 
 .selection-tab.active a {
-    color: #fff;
+    color: #fff!important;
 }
 
 
