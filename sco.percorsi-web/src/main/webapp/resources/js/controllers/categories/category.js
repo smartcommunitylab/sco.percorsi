@@ -30,10 +30,10 @@ angular.module('consoleControllers.categories', [])
                 size: 'lg',
                 resolve: {
                     titleText: function () {
-                        return 'Sei sicuro di cancellare la categoria ' + $scope.catList[idCat].name[$rootScope.languages[0]] + '?';
+                        return 'Attenzione!';
                     },
                     bodyText: function () {
-                        return 'La categoria una volta cancellata non sarà più disponibile.'
+                        return 'Confermi di voler cancellare la categoria ' + $scope.catList[idCat].name[$rootScope.languages[0]] + '?';
                     }
                 }
             });
@@ -154,10 +154,10 @@ angular.module('consoleControllers.categories', [])
             size: 'lg',
             resolve: {
                 titleText: function () {
-                    return 'Sei sicuro di uscire senza salvare le modifiche?';
+                    return 'Sei sicuro di voler uscire senza salvare?';
                 },
                 bodyText: function () {
-                    return 'Una volta uscito le modifiche che hai effettuato andranno perse.'
+                    return 'Le modifiche effettuate andranno perse.'
                 }
             }
         });

@@ -26,23 +26,23 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
         return $sce.trustAsHtml(code);
     }
 
-    $scope.delete = function (idPoi) {
+    $scope.delete = function (idPath) {
         var modalInstance = $modal.open({
             templateUrl: 'templates/modal.html',
             controller: 'ModalCtrl',
             size: 'lg',
             resolve: {
                 titleText: function () {
-                    return 'Sei sicuro di cancellare il percorso ' + $scope.paths[idPoi].title[$rootScope.languages[0]] + '?';
+                    return 'Attenzione!';
                 },
                 bodyText: function () {
-                    return 'Il percorso una volta cancellato non sarà più disponibile.'
+                    return 'Confermi di voler cancellare il percorso ' + $scope.paths[idPath].title[$rootScope.languages[0]] + '?';
                 }
             }
         });
 
         modalInstance.result.then(function () {
-            $scope.paths.splice(idPoi, 1);
+            $scope.paths.splice(idPath, 1);
             DataService.savePaths($scope.paths).then(function () {
                 DataService.getPaths().then(function (data) {
                     $scope.paths = data;
@@ -150,7 +150,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
                     return 'Sei sicuro di uscire senza salvare?'
                 },
                 bodyText: function () {
-                    return 'I cambiamenti e le modifiche effettuate al luogo andranno perse se continui.'
+                    return 'Le modifiche effettuate andranno perse.'
                 }
             }
         });
@@ -178,10 +178,10 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
             size: 'lg',
             resolve: {
                 titleText: function () {
-                    return 'Sei sicuro di cancellare la tappa selezionata?'
+                    return 'Attenzione!'
                 },
                 bodyText: function () {
-                    return 'Una volta cancellata non sarà più disponibile.'
+                    return 'Sei sicuro di voler cancellare la tappa selezionata?'
                 }
             }
         });
@@ -221,10 +221,10 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
             size: 'lg',
             resolve: {
                 titleText: function () {
-                    return 'Sei sicuro di cancellare questo oggetto?';
+                    return 'Attenzione!';
                 },
                 bodyText: function () {
-                    return 'Una volta cancellato l\'oggetto non sarà più disponibile';
+                    return 'Sei sicuro di voler cancellare questo oggetto?';
                 }
             }
         });

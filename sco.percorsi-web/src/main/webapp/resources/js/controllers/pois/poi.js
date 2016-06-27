@@ -134,10 +134,10 @@ angular.module('consoleControllers.poi', [])
             size: 'lg',
             resolve: {
                 titleText: function () {
-                    return 'Sei sicuro di uscire senza salvare le modifiche?';
+                    return 'Sei sicuro di uscire senza salvare?';
                 },
                 bodyText: function () {
-                    return 'Una volta uscito le modifiche che hai effettuato andranno perse.'
+                    return 'Le modifiche effettuate andranno perse.'
                 }
             }
         });
@@ -164,10 +164,10 @@ angular.module('consoleControllers.poi', [])
             size: 'lg',
             resolve: {
                 titleText: function () {
-                    return 'Sei sicuro di cancellare questo oggetto?';
+                    return 'Attenzione!';
                 },
                 bodyText: function () {
-                    return 'Una volta cancellato l\'oggetto non sarà più disponibile';
+                    return 'Sei sicuro di voler cancellare questo oggetto?';
                 }
             }
         });
