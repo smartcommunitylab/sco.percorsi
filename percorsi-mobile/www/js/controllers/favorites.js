@@ -5,7 +5,7 @@ angular.module('roveretoPercorsi.controllers.favorites', [])
     $scope.paths = [];
     $scope.noMorePathsAvailable = false;
     categoriesService.setSelectedCategory(null);
-
+    var length = 0;
 
 
     $scope.orderList = [
