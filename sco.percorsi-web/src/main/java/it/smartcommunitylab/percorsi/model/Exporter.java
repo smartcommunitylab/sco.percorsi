@@ -1,4 +1,5 @@
 package it.smartcommunitylab.percorsi.model;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -12,6 +13,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author rafael
  */
 public class Exporter {
+    FileOutputStream fileOut;
+    XSSFWorkbook wb;
     String excelFileName;//name of excel file
     final  String titoliCategorie="id,name it,name en,name de,image";
     String[]titCat;
@@ -19,18 +22,41 @@ public class Exporter {
     String[]titPerc;
     final  String titoliPOI="id,title it,title en,title de,description it,description en,description de,images,videos,audios,coordinates";
     String[]titPOI;
-    public Exporter(String nome)
+    public Exporter(String nome) throws FileNotFoundException
     {
         excelFileName=nome;
+        fileOut = new FileOutputStream(excelFileName);
         titCat=titoliCategorie.split(",");
         titPerc=titoliPercorsi.split(",");
         titPOI=titoliPOI.split(",");
     }
-    public void ExportData(Categories categorie,PathData percorsi,XSSFWorkbook wb) throws IOException
+    public XSSFWorkbook getWorkbook()
     {
+        return wb;
+    }
+    public FileOutputStream getFile()      
+    {
+        return fileOut;
+    }
+     public FileOutputStream ExportDataStream(Categories categorie,PathData percorsi) throws IOException
+    {
+        wb = new XSSFWorkbook();
         writeCategories(categorie,wb);
         writePaths(percorsi,wb);
         writePOI(percorsi,wb);
+      //  wb.write(fileOut);
+        // fileOut.flush();
+         return fileOut;
+    }
+    public XSSFWorkbook ExportData(Categories categorie,PathData percorsi) throws IOException
+    {
+        wb = new XSSFWorkbook();
+        writeCategories(categorie,wb);
+        writePaths(percorsi,wb);
+        writePOI(percorsi,wb);
+      //  wb.write(fileOut);
+        // fileOut.flush();
+         return wb;
     }
     private void writeCategories(Categories categorie,XSSFWorkbook wb) throws IOException {
 		String sheetName = "Categorie";//name of sheet
@@ -321,9 +347,9 @@ private void writePOI(PathData percorsi,XSSFWorkbook wb) throws IOException {
                 }
                 i++;
         }
-     try (FileOutputStream fileOut = new FileOutputStream(excelFileName)) {
+  /*   try (FileOutputStream fileOut = new FileOutputStream(excelFileName)) {
          wb.write(fileOut);
          fileOut.flush();
-     }
+     }*/
 }
 }
