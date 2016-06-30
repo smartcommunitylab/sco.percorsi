@@ -17,6 +17,7 @@
 package it.smartcommunitylab.percorsi.controllers;
 
 import it.smartcommunitylab.percorsi.model.Categories;
+import it.smartcommunitylab.percorsi.model.Importer;
 import it.smartcommunitylab.percorsi.model.ModObj;
 import it.smartcommunitylab.percorsi.model.Path;
 import it.smartcommunitylab.percorsi.model.PathData;
@@ -51,9 +52,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import eu.trentorise.smartcampus.presentation.common.exception.DataException;
-import it.smartcommunitylab.percorsi.model.Importer;
-import java.io.File;
-import java.io.FileInputStream;
 
 /**
  * @author raman
@@ -121,22 +119,6 @@ public class ConsoleController {
 		return getProvider(appId);
 	}
         
-        @RequestMapping(value = "/console/uploadexcel", method = RequestMethod.POST)
-         public @ResponseBody ProviderSettings
-         uploadExcel(MultipartHttpServletRequest req) throws Exception {
-             String excelFilePath ="DatiPAthRivaExample.xlsx";
-        File fileExcel=new File(excelFilePath);
-        FileInputStream inputStream = new FileInputStream(fileExcel);
-        Importer importa=new Importer();
-         MultiValueMap<String, MultipartFile> multiFileMap = req.getMultiFileMap();
-         MultipartFile file = multiFileMap.getFirst("excel");
-         if (file == null) throw new IllegalArgumentException("File not found");
-         importa.importData(inputStream);
-         //HSSFWorkbook wb = new HSSFWorkbook(new POIFSFileSystem(file.getInputStream()));
-         manager.storeDraftPaths(importa.getCategories().getAppId(), importa.getPaths().getData());
-         return getProvider(importa.getCategories().getAppId());
-         }
-
 	@RequestMapping(value = "/console/uploadxml", method = RequestMethod.POST)
 	public @ResponseBody ProviderSettings uploadXML(MultipartHttpServletRequest req) throws Exception {
 		MultiValueMap<String, MultipartFile> multiFileMap = req.getMultiFileMap();
@@ -156,6 +138,21 @@ public class ConsoleController {
 		}
 		return getProvider(appId);
 	}
+	
+	@RequestMapping(value = "/console/uploadexcel", method = RequestMethod.POST)
+	public @ResponseBody ProviderSettings uploadExcel(MultipartHttpServletRequest req) throws Exception {
+		Importer importa = new Importer();
+		MultiValueMap<String, MultipartFile> multiFileMap = req.getMultiFileMap();
+		MultipartFile file = multiFileMap.getFirst("data");
+		if (file == null) {
+			throw new IllegalArgumentException("File not found");
+		}
+		String appId = getAppId();
+		importa.importData(file.getInputStream());
+		manager.storeDraftPaths(appId, importa.getPaths().getData());
+		manager.storeDraftCategories(appId, importa.getCategories());
+		return getProvider(appId);
+	}	
 
 	@RequestMapping(value = "/console/export", method = RequestMethod.GET) 
 	@ResponseBody 
