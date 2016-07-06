@@ -17,6 +17,7 @@
 package it.smartcommunitylab.percorsi.controllers;
 
 import it.smartcommunitylab.percorsi.model.Categories;
+import it.smartcommunitylab.percorsi.model.Exporter;
 import it.smartcommunitylab.percorsi.model.Importer;
 import it.smartcommunitylab.percorsi.model.ModObj;
 import it.smartcommunitylab.percorsi.model.Path;
@@ -30,8 +31,10 @@ import it.smartcommunitylab.percorsi.services.ModerationManager;
 import it.smartcommunitylab.percorsi.services.PercorsiManager;
 import it.smartcommunitylab.percorsi.utils.XMLUtils;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXB;
 
@@ -152,6 +155,29 @@ public class ConsoleController {
 		manager.storeDraftPaths(appId, importa.getPaths().getData());
 		manager.storeDraftCategories(appId, importa.getCategories());
 		return getProvider(appId);
+	}	
+	
+	@RequestMapping(value = "/console/exportexcel", method = RequestMethod.GET) 
+	@ResponseBody 
+	void exportExcel(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		try {
+		String appId = getAppId();
+		
+		response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+		response.addHeader("Content-Disposition", "attachment; filename=\"draft-" + appId + ".xlsx\"");
+		response.addHeader("Content-Transfer-Encoding", "binary");		
+		
+		Exporter exporter = new Exporter();
+		
+		ByteArrayOutputStream bos = exporter.exportDataStream(manager.getDraftCategories(appId), new PathData(manager.getDraftPaths(appId)));
+		
+		response.getOutputStream().write(bos.toByteArray());
+		response.getOutputStream().flush();
+		bos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}	
 
 	@RequestMapping(value = "/console/export", method = RequestMethod.GET) 
