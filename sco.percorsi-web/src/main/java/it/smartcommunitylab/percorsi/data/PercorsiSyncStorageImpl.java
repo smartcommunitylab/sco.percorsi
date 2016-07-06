@@ -246,7 +246,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	public List<PercorsiObject> getAllAppObjects(String appId)  throws DataException{
 		Criteria criteria = createBaseCriteria(appId);
-		criteria.and("deleted").is(false);
+		criteria = criteria.and("deleted").is(false);
 		return find(Query.query(criteria), (Class<PercorsiObject>) PercorsiObject.class);
 	}
 
@@ -259,16 +259,16 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	public <T extends PercorsiObject> List<T> getAppObjectsByType(String appId, Class<T> cls) throws DataException {
 		Criteria criteria = createBaseCriteria(appId);
-		criteria.and("deleted").is(false);
-		criteria.and("type").is(cls.getCanonicalName());
+		criteria = criteria.and("deleted").is(false);
+		criteria = criteria.and("type").is(cls.getCanonicalName());
 		return find(Query.query(criteria), (Class<T>) cls);
 	}
 
 	@Override
 	public PercorsiObject getObjectById(String id, String appId) throws DataException {
 		Criteria criteria = createBaseCriteria(appId);
-		criteria.and("deleted").is(false);
-		criteria.and("localId").is(id);
+		criteria = criteria.and("deleted").is(false);
+		criteria = criteria.and("localId").is(id);
 		List<PercorsiObject> objs = find(Query.query(criteria), (Class<PercorsiObject>) PercorsiObject.class);
 		return objs == null || objs.size() == 0 ? null : objs.get(0);
 	}
@@ -276,15 +276,15 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	public <T extends PercorsiObject> T getObjectById(String id, Class<T> cls, String appId)  throws DataException{
 		Criteria criteria = createBaseCriteria(appId);
-		criteria.and("deleted").is(false);
-		criteria.and("localId").is(id);
+		criteria = criteria.and("deleted").is(false);
+		criteria = criteria.and("localId").is(id);
 		List<T> objs = find(Query.query(criteria), cls);
 		return objs == null || objs.size() == 0 ? null : objs.get(0);
 	}
 
 	protected <T> Criteria createBaseCriteria(String appId) {
 		Criteria criteria = new Criteria();
-		criteria.and("appId").is(appId);
+		criteria = criteria.and("appId").is(appId);
 		return criteria;
 	}
 
@@ -328,8 +328,8 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 
 	private List<PercorsiBean> searchWithVersion(String appId, long fromVersion, long toVersion, Map<String, Object> include, Map<String, Object> exclude) {
 		Criteria criteria = new Criteria();
-		criteria.and("appId").is(appId);
-		criteria.and("version").gt(fromVersion).lt(toVersion);
+		criteria = criteria.and("appId").is(appId);
+		criteria = criteria.and("version").gt(fromVersion).lt(toVersion);
 		if (include != null && !include.isEmpty()) {
 			for (String key : include.keySet()) {
 				Object value = include.get(key);
@@ -429,7 +429,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	private <T extends PercorsiObject> PercorsiBean getBean(T obj, String appId, String collection) {
 		PercorsiBean old = null;
 		Criteria criteria = createBaseCriteria(appId);
-		criteria.and("localId").is(obj.getLocalId());
+		criteria = criteria.and("localId").is(obj.getLocalId());
 		List<PercorsiBean> result = mongoTemplate.find(Query.query(criteria), getObjectClass(), collection);
 		if (result != null && !result.isEmpty()) {
 			old = result.get(0);
@@ -460,9 +460,9 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	public Categories getDraftCategories(String appId) throws DataException {
 		Criteria criteria = createBaseCriteria(appId);
-		criteria.and("deleted").is(false);
-		criteria.and("localId").is("1");
-		criteria.and("type").is(Categories.class.getCanonicalName());
+		criteria = criteria.and("deleted").is(false);
+		criteria = criteria.and("localId").is("1");
+		criteria = criteria.and("type").is(Categories.class.getCanonicalName());
 		List<Categories> objs = findDraft(Query.query(criteria), Categories.class);
 		return objs == null || objs.size() == 0 ? null : objs.get(0);
 	}
@@ -470,11 +470,10 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 	@Override
 	public List<Path> getDraftPaths(String appId) throws DataException {
 		Criteria criteria = createBaseCriteria(appId);
-		criteria.and("deleted").is(false);
-		criteria.and("type").is(Path.class.getCanonicalName());
+		criteria = criteria.and("deleted").is(false);
+		criteria = criteria.and("type").is(Path.class.getCanonicalName());
 		List<Path> objs = findDraft(Query.query(criteria), Path.class);
 		return objs;
 	}
-
 
 }
