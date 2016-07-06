@@ -50,7 +50,7 @@ angular.module('consoleControllers.mainCtrl', [])
         };
 
         $scope.exportPaths = function () {
-            window.open('console/export', '_blank');
+            window.open('console/exportexcel', '_blank');
         };
 
         $scope.publish = function () {
@@ -100,15 +100,4 @@ angular.module('consoleControllers.mainCtrl', [])
                 });
         };
 
-  }])
-
-.controller('ModalCtrl', function ($scope, $modalInstance, titleText, bodyText) {
-    $scope.title = titleText;
-    $scope.body = bodyText;
-    $scope.ok = function () {
-        $modalInstance.close();
-    }
-    $scope.cancel = function ()  {
-        $modalInstance.dismiss();
-    }
-});
+  }]);
