@@ -80,7 +80,7 @@ angular.module('services.geo', [])
                 var deferred = $q.defer();
 
                 leafletData.getMap(mapId).then(function (map) {
-                        L.tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png', {
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/cycle/{z}/{x}/{y}.png', {
                             type: 'map',
                             ext: 'jpg',
                             attribution: '',

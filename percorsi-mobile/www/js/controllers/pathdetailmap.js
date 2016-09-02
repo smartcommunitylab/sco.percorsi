@@ -73,7 +73,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
 
     if (singlePoiService.getIndexPoi() == null) {
         angular.extend($scope, {
-            tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+            tileLayer: "http://{s}.tile.openstreetmap.org/cycle/{z}/{x}/{y}.png",
             center: {
                 lat: $scope.path.pois[0].coordinates.lat,
                 lng: $scope.path.pois[0].coordinates.lng,
@@ -85,7 +85,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailmap', [])
         });
     } else {
         angular.extend($scope, {
-            tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+            tileLayer: "http://{s}.tile.openstreetmap.org/cycle/{z}/{x}/{y}.png",
             center: {
                 lat: $scope.path.pois[singlePoiService.getIndexPoi()].coordinates.lat,
                 lng: $scope.path.pois[singlePoiService.getIndexPoi()].coordinates.lng,

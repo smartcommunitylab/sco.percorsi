@@ -1,10 +1,10 @@
 appId = 'Trento';
-APP_VERSION = '1.0.0';
+APP_VERSION = '1.0.3';
 
 cityName = {
-    'it': 'Vivo La Città',
-    'en': 'Vivo La Città',
-    'de': 'Vivo La Città'
+    'it': 'Vivo La Città – Trento',
+    'en': 'Vivo La Città – Trento',
+    'de': 'Vivo La Città – Trento'
 };
 
 SCHEMA_VERSION = 3;
