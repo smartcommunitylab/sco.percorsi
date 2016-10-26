@@ -50,7 +50,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
 
     $scope.syncRating = function () {
         // user rating
-        if ($scope.userIsLogged) {
+        if ($rootScope.userIsLogged()) {
             reviewsService.getUserRate($scope.path.localId).then(function (data) {
                 if (!!data) {
                     $scope.rating.review = data.comment;
@@ -145,7 +145,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     }
     $scope.showVote = function (name) {
         $scope.rating.myvote = $scope.rating.current;
-        if ($scope.userIsLogged) { //$scope.userIsLogged
+        if ($rootScope.userIsLogged()) { //$scope.userIsLogged
             $scope.reviewModal.show();
         } else {
             $scope.loginModal.show();

@@ -1,4 +1,4 @@
-appId = 'Trento';
+appId = 'ComuneTrento';
 APP_VERSION = '1.0.3';
 
 cityName = {
@@ -13,6 +13,6 @@ SCHEMA_VERSION = 3;
 FORCED_LANGUAGE = null;
 
 FILTERSOCIALSLIDE = true;
-FILTERSOCIALTAB = false;
-FILTERSOCIALADDIMAGE = false;
+FILTERSOCIALTAB = true;
+FILTERSOCIALADDIMAGE = true;
 FILTERMAXNUMBERSLIDE = 6;

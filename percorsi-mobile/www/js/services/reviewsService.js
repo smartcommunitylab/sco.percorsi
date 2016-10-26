@@ -13,9 +13,10 @@ angular.module('roveretoPercorsi.services.reviews', [])
         var start = length;
         var deferred = $q.defer();
 
+		var url = Config.URL() + '/' + Config.app() + '/paths/' + Config.appId() + '/' + pathId + '/' + 'rate';
         $http({
             method: 'GET',
-            url: Config.URL() + '/' + Config.app() + '/paths/' + Config.appId() + '/' + pathId + '/' + 'rate',
+            url: url,
             params: {
                 'start': start,
                 'count': counter

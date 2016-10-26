@@ -25,14 +25,14 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.pathdetailinfo',
     'roveretoPercorsi.controllers.pathdetailmap',
     'roveretoPercorsi.controllers.pathdetailturist',
-        'roveretoPercorsi.controllers.pathdetailnear',
-
+    'roveretoPercorsi.controllers.pathdetailnear',
     'roveretoPercorsi.controllers.poidetail',
     'roveretoPercorsi.controllers.favorites',
     'roveretoPercorsi.controllers.gallery',
     'roveretoPercorsi.services.conf',
     'roveretoPercorsi.services.mapService',
-    'roveretoPercorsi.services.login',
+    //'roveretoPercorsi.services.login',
+	'smartcommunitylab.services.login',
     'roveretoPercorsi.services.categories',
     'roveretoPercorsi.services.listPathsService',
     'roveretoPercorsi.services.singlePathService',
@@ -44,14 +44,14 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.services.favoritesService'
 ])
 
-.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, Login, GeoLocate, Config) {
-	$rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
-
-
+.run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, GeoLocate, Config, LoginService) {
+	$rootScope.userIsLogged = function () {
+		return LoginService.userIsLogged();
+	};
 
 	$rootScope.getUserId = function () {
-		if ($rootScope.userIsLogged) {
-			return localStorage.userId;
+		if ($rootScope.userIsLogged()) {
+			return LoginService.localStorage.getProfile().userId;
 		}
 		return null;
 	};
@@ -116,11 +116,37 @@ angular.module('roveretoPercorsi', [
 		});
 	});
 
-	GeoLocate.initLocalization();
+	LoginService.init({
+		loginType: LoginService.LOGIN_TYPE.COOKIE,
+		googleWebClientId: '453601816446-7vl1af54q3q7u2irk0c6vl85enl3ah8f.apps.googleusercontent.com',
+		customConfig: {
+			BASE_URL: Config.URL() + '/' + Config.app(),
+			AUTHORIZE_URI: '/userlogin',
+			SUCCESS_REGEX: /userloginsuccess\?profile=(.+)$/,
+			ERROR_REGEX: /userloginerror\?error=(.+)$/,
+			LOGIN_URI: null,
+			REGISTER_URI: null,
+			REVOKE_URI: '/logout',
+			REDIRECT_URL: 'http://localhost'
+		}
+	});
 
 	$rootScope.login = function () {
 		var deferred = $q.defer();
-		Login.login().then(
+		LoginService.login(LoginService.PROVIDER.GOOGLE).then(
+			function (data) {
+				deferred.resolve(data);
+			},
+			function (error) {
+				deferred.reject(error);
+			}
+		);
+		return deferred.promise;
+	};
+
+	$rootScope.logout = function () {
+		var deferred = $q.defer();
+		LoginService.logout().then(
 			function (data) {
 				deferred.resolve(data);
 			},
@@ -129,6 +155,8 @@ angular.module('roveretoPercorsi', [
 			});
 		return deferred.promise;
 	};
+
+	GeoLocate.initLocalization();
 
 	$rootScope.openFavorites = function () {
 		window.location.assign('#/app/favorites');
