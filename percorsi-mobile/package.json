@@ -33,7 +33,23 @@
     "ionic-plugin-keyboard",
     "cordova-sqlite-storage@0.7.14",
     "cordova-plugin-x-socialsharing",
-    "https://github.com/deefactorial/Cordova-open-native-settings.git"
+    "https://github.com/deefactorial/Cordova-open-native-settings.git",
+	{
+		"variables": {
+			"REVERSED_CLIENT_ID": ""
+		},
+		"locator": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus",
+		"id": "cordova-plugin-googleplus"
+	},
+	{
+		"variables": {
+			"APP_ID": "",
+			"APP_NAME": ""
+		},
+		"locator": "cordova-plugin-facebook4",
+		"id": "cordova-plugin-facebook4"
+	},
+	"https://github.com/bez4pieci/Phonegap-Cookies-Plugin.git"
   ],
   "cordovaPlatforms": [
     "ios",

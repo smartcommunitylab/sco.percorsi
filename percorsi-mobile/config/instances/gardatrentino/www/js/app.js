@@ -118,7 +118,7 @@ angular.module('roveretoPercorsi', [
 
 	LoginService.init({
 		loginType: LoginService.LOGIN_TYPE.COOKIE,
-		googleWebClientId: '453601816446-7vl1af54q3q7u2irk0c6vl85enl3ah8f.apps.googleusercontent.com',
+		googleWebClientId: '',
 		customConfig: {
 			BASE_URL: Config.URL() + '/' + Config.app(),
 			AUTHORIZE_URI: '/userlogin',
