@@ -5,3 +5,6 @@ node_modules/
 platforms/
 plugins/
 hooks/
+#
+variables_do_not_commit.json
+www/js/conf_do_not_commit.js
