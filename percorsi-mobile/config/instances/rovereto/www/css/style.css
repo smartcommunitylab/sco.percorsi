@@ -1061,11 +1061,6 @@ ion-side-menu ion-item .icon {
     padding: 8px;
 }
 
-.login-title {
-    text-align: center;
-    margin: 8px;
-}
-
 .list-path .item-content {
     padding-right: 8px;
 }
@@ -1107,9 +1102,22 @@ ion-side-menu ion-item .icon {
     color: #dadada!important;
 }
 
-.login-label {
+#login-modal .login-title {
+    text-align: center;
+    margin: 8px;
+}
+
+#login-modal .login-label {
     padding: 10px;
     text-align: center;
+}
+
+#login-modal .bar-footer {
+	background: none;
+}
+
+#login-modal .bar-footer .button.button-block {
+	margin:  0;
 }
 
 .button-bottom {

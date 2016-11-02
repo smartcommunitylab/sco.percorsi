@@ -1084,11 +1084,6 @@ ion-side-menu ion-item .icon {
     text-align: center;
 }
 
-.login-title {
-    text-align: center;
-    margin: 8px;
-}
-
 .list-path .item-content {
     padding-right: 8px;
 }
@@ -1130,9 +1125,31 @@ ion-side-menu ion-item .icon {
     color: #dadada!important;
 }
 
-.login-label {
-    padding: 10px;
+#login-modal .login-title {
     text-align: center;
+    margin: 8px;
+}
+
+#login-modal .login-label {
+    /*padding: 10px;*/
+    text-align: center;
+}
+
+#login-modal .bar-footer {
+	background: none;
+}
+
+#login-modal .bar-footer .button.button-block {
+	margin:  0;
+}
+
+#login-modal .login-register {
+	text-align: center;
+	margin-right:  10px;
+	margin-left: 10px;
+	border-top: 1px solid #ddd;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .button-bottom {

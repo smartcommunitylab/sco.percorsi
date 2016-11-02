@@ -117,6 +117,11 @@ angular.module('roveretoPercorsi', [
 		});
 	});
 
+	$rootScope.loginCredentials = {
+		email: null,
+		password: null
+	};
+
 	LoginService.init({
 		loginType: LoginService.LOGIN_TYPE.COOKIE,
 		googleWebClientId: CONF.googleWebClientId,
@@ -125,17 +130,22 @@ angular.module('roveretoPercorsi', [
 			AUTHORIZE_URI: '/userlogin',
 			SUCCESS_REGEX: /userloginsuccess\?profile=(.+)$/,
 			ERROR_REGEX: /userloginerror\?error=(.+)$/,
-			LOGIN_URI: null,
-			REGISTER_URI: null,
+			LOGIN_URI: '/userlogininternal',
+			REGISTER_URI: '/register',
 			REVOKE_URI: '/logout',
+			RESET_URL: 'https://dev.smartcommunitylab.it/aac/internal/reset',
 			REDIRECT_URL: 'http://localhost'
 		}
 	});
 
-	$rootScope.login = function () {
+	$rootScope.login = function (provider, credentials) {
 		var deferred = $q.defer();
-		LoginService.login(LoginService.PROVIDER.GOOGLE).then(
+		LoginService.login(provider, credentials).then(
 			function (data) {
+				$rootScope.loginCredentials = {
+					email: null,
+					password: null
+				};
 				deferred.resolve(data);
 			},
 			function (error) {
@@ -155,6 +165,13 @@ angular.module('roveretoPercorsi', [
 				deferred.reject(error);
 			});
 		return deferred.promise;
+	};
+
+	$rootScope.resetPassword = function (email) {
+		LoginService.resetPassword(email).then(
+			function () {},
+			function () {}
+		);
 	};
 
 	GeoLocate.initLocalization();
@@ -382,7 +399,12 @@ angular.module('roveretoPercorsi', [
 		close: 'Chiudi',
 		details: 'Dettagli',
 		login_label: 'Login',
+		login_button: 'Entra',
 		login_message: 'Per utilizzare la funzionalità devi prima effettuare il login',
+		login_message_or: 'oppure accedi con',
+		login_forgot_password: 'Password dimenticata?',
+		login_no_account: "Non hai un account?",
+		login_create_account: 'Iscriviti',
 		login_popup_cancel: 'Non adesso',
 		login_popup_ok: 'Login',
 		login_done: 'Login effettuato con successo',
@@ -477,7 +499,12 @@ angular.module('roveretoPercorsi', [
 		close: 'Close',
 		details: 'Details',
 		login_label: 'Login',
+		login_button: 'Login',
 		login_message: 'You must login to use this functionality',
+		login_message_or: 'or login with',
+		login_forgot_password: 'Forgot password?',
+		login_no_account: "You don't have an account?",
+		login_create_account: 'Create one',
 		login_popup_cancel: 'Not now',
 		login_popup_ok: 'Login',
 		login_done: 'Login done',

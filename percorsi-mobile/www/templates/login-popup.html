@@ -1,24 +1,47 @@
 <ion-modal-view id="login-modal">
-    <ion-header-bar align-title="center">
-        <h1 class="title">{{'login_label'|translate}}</h1>
-    </ion-header-bar>
-    <ion-content>
-        <div class="login-label">
-            <p>
-                {{'login_message'|translate}}
-            </p>
-        </div>
+	<ion-header-bar align-title="center">
+		<h1 class="title">{{'login_label' | translate}}</h1>
+	</ion-header-bar>
 
+	<ion-content class="has-header has-footer">
+		<div class="login-label padding-top">
+			<p>{{'login_message' | translate}}</p>
+		</div>
 
-    </ion-content>
-    <div class="bar bar-footer">
-        <div class="row actions-buttons">
-            <div class="col">
-                <button class="button button-percorsi button-block button-bottom" ng-click="loginClose()">{{'login_popup_cancel' | translate}}</button>
-            </div>
-            <div class="col">
-                <button class="button button-percorsi button-block button-bottom" ng-click="loginOpen()">{{'login_popup_ok' | translate}}</button>
-            </div>
-        </div>
-    </div>
+		<div class="list list-inset">
+			<label class="item item-input">
+    				<input type="email" placeholder="{{'email' | translate}}" ng-model="loginCredentials.email" />
+  			</label>
+			<label class="item item-input">
+    				<input type="password" placeholder="{{'password' | translate}}" ng-model="loginCredentials.password" />
+  			</label>
+			<button class="button button-block button-percorsi" ng-click="loginOpen('internal', loginCredentials)" ng-disabled="!loginCredentials || !loginCredentials.email || !loginCredentials.password">
+					{{'login' | translate}}
+			</button>
+			<div class="login-label">
+				<a href="" ng-click="resetPassword()">{{'login_forgot_password' | translate}}</a>
+			</div>
+		</div>
+
+		<div class="login-label">
+			{{'login_message_or' | translate}}
+		</div>
+
+		<div class="row">
+			<div class="col col-50">
+				<button class="button button-block button-assertive icon-left ion-social-google" ng-click="loginOpen('google')">Google</button>
+			</div>
+			<div class="col col-50">
+				<button class="button button-block button-positive icon-left ion-social-facebook" ng-click="loginOpen('facebook')">Facebook</button>
+			</div>
+		</div>
+
+		<div class="login-register">
+			{{'login_no_account' | translate}} <a href="">{{'login_create_account' | translate}}</a>
+		</div>
+	</ion-content>
+
+	<div class="bar bar-footer">
+		<button class="button button-percorsi button-block" ng-click="loginClose()">{{'login_popup_cancel' | translate}}</button>
+	</div>
 </ion-modal-view>
