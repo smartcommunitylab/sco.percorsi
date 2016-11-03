@@ -1135,12 +1135,12 @@ ion-side-menu ion-item .icon {
     text-align: center;
 }
 
-#login-modal .bar-footer {
+.bar-footer {
 	background: none;
 }
 
-#login-modal .bar-footer .button.button-block {
-	margin:  0;
+.bar-footer .button.button-block {
+	margin: 0;
 }
 
 #login-modal .login-register {

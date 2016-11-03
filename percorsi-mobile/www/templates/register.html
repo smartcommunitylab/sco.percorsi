@@ -1,0 +1,31 @@
+<ion-view id="registration" title="{{appName | translate_remote}}">
+	<ion-content>
+		<div class="registration-label padding">
+			<p>{{'registration_message' | translate}}</p>
+		</div>
+
+		<div class="list list-inset">
+			<label class="item item-input">
+    				<input type="text" placeholder="{{'registration_name' | translate}}" ng-model="newUser.name" />
+  			</label>
+			<label class="item item-input">
+    				<input type="text" placeholder="{{'registration_surname' | translate}}" ng-model="newUser.surname" />
+  			</label>
+			<label class="item item-input">
+    				<input type="email" placeholder="{{'registration_email' | translate}}" ng-model="newUser.email" />
+  			</label>
+			<label class="item item-input">
+    				<input type="password" placeholder="{{'registration_password' | translate}}" ng-model="newUser.password" />
+  			</label>
+			<label class="item item-input">
+    				<input type="password" placeholder="{{'registration_password_repeat' | translate}}" ng-model="newUser.passwordagain" />
+  			</label>
+		</div>
+	</ion-content>
+
+	<ion-footer-bar>
+		<button class="button button-block button-percorsi" ng-click="register(newUser)" ng-disabled="!newUser || !newUser.name || !newUser.surname || !newUser.email || !newUser.password || !newUser.passwordagain">
+					{{'register' | translate}}
+		</button>
+	</ion-footer-bar>
+</ion-view>

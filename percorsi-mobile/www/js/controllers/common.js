@@ -217,6 +217,11 @@ angular.module('roveretoPercorsi.controllers.common', [])
 	$scope.loginClose = function () {
 		$scope.loginModal.hide();
 	};
+
+	$scope.goToRegistration = function () {
+		$scope.loginModal.hide();
+		$state.go('app.registration');
+	};
 });
 
 function showNoPlace() {

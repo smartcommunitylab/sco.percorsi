@@ -116,25 +116,36 @@ angular.module('roveretoPercorsi', [
 		});
 	});
 
+	$rootScope.loginCredentials = {
+		email: null,
+		password: null
+	};
+
+	const baseUrl = Config.URL() + '/' + Config.app();
 	LoginService.init({
 		loginType: LoginService.LOGIN_TYPE.COOKIE,
 		googleWebClientId: CONF.googleWebClientId,
 		customConfig: {
-			BASE_URL: Config.URL() + '/' + Config.app(),
-			AUTHORIZE_URI: '/userlogin',
+			BASE_URL: baseUrl,
+			AUTHORIZE_URL: baseUrl + '/userlogin',
 			SUCCESS_REGEX: /userloginsuccess\?profile=(.+)$/,
 			ERROR_REGEX: /userloginerror\?error=(.+)$/,
-			LOGIN_URI: null,
-			REGISTER_URI: null,
-			REVOKE_URI: '/logout',
+			LOGIN_URL: baseUrl + '/userlogininternal',
+			REGISTER_URL: baseUrl + '/register',
+			REVOKE_URL: baseUrl + '/logout',
+			RESET_URL: 'https://dev.smartcommunitylab.it/aac/internal/reset',
 			REDIRECT_URL: 'http://localhost'
 		}
 	});
 
-	$rootScope.login = function () {
+	$rootScope.login = function (provider, credentials) {
 		var deferred = $q.defer();
-		LoginService.login(LoginService.PROVIDER.GOOGLE).then(
+		LoginService.login(provider, credentials).then(
 			function (data) {
+				$rootScope.loginCredentials = {
+					email: null,
+					password: null
+				};
 				deferred.resolve(data);
 			},
 			function (error) {
@@ -154,6 +165,17 @@ angular.module('roveretoPercorsi', [
 				deferred.reject(error);
 			});
 		return deferred.promise;
+	};
+
+	$rootScope.resetPassword = function (email) {
+		LoginService.resetPassword(email).then(
+			function (response) {
+				console.log(response);
+			},
+			function (reason) {
+				console.log(reason);
+			}
+		);
 	};
 
 	GeoLocate.initLocalization();
@@ -399,6 +421,14 @@ angular.module('roveretoPercorsi', [
 		login_popup_ok: 'Login',
 		login_done: 'Login effettuato con successo',
 		logout_done: 'Logout effettuato con successo',
+		register: 'Crea account',
+		registration_message: 'Inserisci un indirizzo email valido e la password',
+		registration_name: 'Nome',
+		registration_surname: 'Cognome',
+		registration_email: 'Email',
+		registration_password: 'Password',
+		registration_password_repeat: 'Ripeti password',
+		registration_successful: 'Registrazione completata! Completa la registrazione cliccando sul link che trovi nella email che ti abbiamo inviato.',
 		syncing: 'aggiornamento in corso...',
 		cleaning: 'pulizia in corso...',
 		review_empty_error: 'Inserire uuna recensione',
@@ -496,6 +526,14 @@ angular.module('roveretoPercorsi', [
 		login_popup_ok: 'Login',
 		login_done: 'Login done',
 		logout_done: 'Logout done',
+		register: 'Create new account',
+		registration_message: 'Insert a valid email address and choose your password',
+		registration_name: 'Name',
+		registration_surname: 'Surname',
+		registration_email: 'Email',
+		registration_password: 'Password',
+		registration_password_repeat: 'Repeat password',
+		registration_successful: 'Registration complete! Complete the registration by clicking the link you can find in the mail we have just sent you.',
 		syncing: 'Syncing....',
 		cleaning: 'Cleaning...',
 		review_empty_error: 'Insert a review',
@@ -594,6 +632,14 @@ angular.module('roveretoPercorsi', [
 		login_popup_ok: 'Login',
 		login_done: 'Login erfolgreich',
 		logout_done: 'Logout erfolgreich',
+		register: 'Create new account',
+		registration_message: 'Insert a valid email address and choose your password',
+		registration_name: 'Name',
+		registration_surname: 'Surname',
+		registration_email: 'Email',
+		registration_password: 'Password',
+		registration_password_repeat: 'Repeat password',
+		registration_successful: 'Registration complete! Complete the registration by clicking the link you can find in the mail we have just sent you.',
 		syncing: 'Aktualisierung im Gange...',
 		cleaning: 'Reinigung im Gange...',
 		review_empty_error: 'Fazit veröffentlichen',
