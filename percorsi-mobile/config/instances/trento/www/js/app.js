@@ -46,7 +46,6 @@ angular.module('roveretoPercorsi', [
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, GeoLocate, Config, LoginService) {
-	//$rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 	$rootScope.userIsLogged = function () {
 		return LoginService.userIsLogged();
 	};
