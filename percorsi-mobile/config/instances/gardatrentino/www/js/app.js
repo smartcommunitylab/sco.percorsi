@@ -80,6 +80,8 @@ angular.module('roveretoPercorsi', [
 			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 		}
 
+      	GeoLocate.initLocalization();
+
 		if (window.StatusBar) {
 			// org.apache.cordova.statusbar required
 			StatusBar.styleDefault();
@@ -178,8 +180,6 @@ angular.module('roveretoPercorsi', [
 		);
 	};
 
-	GeoLocate.initLocalization();
-
 	$rootScope.openFavorites = function () {
 		window.location.assign('#/app/favorites');
 		$ionicHistory.nextViewOptions({
@@ -202,7 +202,7 @@ angular.module('roveretoPercorsi', [
 
 	// for BlackBerry 10, WP8, iOS
 	setTimeout(function () {
-		$cordovaSplashscreen.hide();
+		if (navigator.splashscreen) navigator.splashscreen.hide();
 		//navigator.splashscreen.hide();
 	}, 3000);
 

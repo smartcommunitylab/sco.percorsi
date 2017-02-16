@@ -20,7 +20,6 @@
     "cordova-plugin-device",
     "cordova-plugin-statusbar",
     "cordova-plugin-splashscreen",
-    "cordova-plugin-inappbrowser",
     "cordova-plugin-camera",
     "cordova-plugin-geolocation",
     "cordova-plugin-globalization",
@@ -28,31 +27,39 @@
     "cordova-plugin-file",
     "cordova-plugin-media",
     "cordova-plugin-network-information",
-    "cordova-custom-config",
     "cordova-plugin-x-toast",
     "ionic-plugin-keyboard",
     "cordova-sqlite-storage@0.7.14",
     "cordova-plugin-x-socialsharing",
     "https://github.com/deefactorial/Cordova-open-native-settings.git",
-	{
-		"variables": {
-			"REVERSED_CLIENT_ID": ""
-		},
-		"locator": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus",
-		"id": "cordova-plugin-googleplus"
-	},
-	{
-		"variables": {
-			"APP_ID": "",
-			"APP_NAME": ""
-		},
-		"locator": "cordova-plugin-facebook4",
-		"id": "cordova-plugin-facebook4"
-	},
-	"https://github.com/bez4pieci/Phonegap-Cookies-Plugin.git"
+    {
+      "variables": {
+        "REVERSED_CLIENT_ID": ""
+      },
+      "locator": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus",
+      "id": "cordova-plugin-googleplus"
+    },
+    {
+      "variables": {
+        "APP_ID": "",
+        "APP_NAME": ""
+      },
+      "locator": "cordova-plugin-facebook4",
+      "id": "cordova-plugin-facebook4"
+    },
+    "https://github.com/bez4pieci/Phonegap-Cookies-Plugin.git",
+    "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    {
+      "platform": "android",
+      "version": "5.1.1",
+      "locator": "android@5.1.1"
+    },
+    {
+      "platform": "ios",
+      "version": "4.1.1",
+      "locator": "ios@4.1.1"
+    }
   ]
 }
