@@ -115,6 +115,10 @@ public class UserAuthController {
 			if (status == 200) {
 				String str = EntityUtils.toString(postResult.getEntity(),"UTF-8");
 				TokenData data = TokenData.valueOf(str);
+				if (data == null) {
+					response.setStatus(HttpStatus.SC_BAD_REQUEST);
+					return null;
+				}
 				return processTokenData(request, response, data);
 			}
 			response.setStatus(status);
@@ -218,6 +222,7 @@ public class UserAuthController {
 
 		
 		resp = httpClient.execute(post);
+		System.err.println(EntityUtils.toString(resp.getEntity(),"UTF-8"));
 		return resp;
 	}
 }
