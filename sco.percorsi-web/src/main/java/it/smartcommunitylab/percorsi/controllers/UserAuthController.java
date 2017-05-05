@@ -119,6 +119,7 @@ public class UserAuthController {
 			}
 			response.setStatus(status);
 		} catch (Exception e) {
+			e.printStackTrace();
 			response.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR);
 		}
 		return null;
