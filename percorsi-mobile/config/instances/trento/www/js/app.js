@@ -136,7 +136,7 @@ angular.module('roveretoPercorsi', [
 			LOGIN_URL: baseUrl + '/userlogininternal',
 			REGISTER_URL: baseUrl + '/register',
 			REVOKE_URL: baseUrl + '/logout',
-			RESET_URL: 'https://dev.smartcommunitylab.it/aac/internal/reset',
+			RESET_URL: 'https://tn.smartcommunitylab.it/aac/internal/reset',
 			REDIRECT_URL: 'http://localhost'
 		}
 	});
@@ -427,6 +427,7 @@ angular.module('roveretoPercorsi', [
 		login_popup_cancel: 'Non adesso',
 		login_popup_ok: 'Login',
 		login_done: 'Login effettuato con successo',
+		login_error: 'Errore di login. Verifica credenziali e riprova più tardi',
 		logout_done: 'Logout effettuato con successo',
 		register: 'Crea account',
 		registration_message: 'Inserisci un indirizzo email valido e la password',
@@ -535,6 +536,7 @@ angular.module('roveretoPercorsi', [
 		login_popup_cancel: 'Not now',
 		login_popup_ok: 'Login',
 		login_done: 'Login done',
+		login_error: 'Login error. Check your credentials and retry later',
 		logout_done: 'Logout done',
 		register: 'Create new account',
 		registration_message: 'Insert a valid email address and choose your password',

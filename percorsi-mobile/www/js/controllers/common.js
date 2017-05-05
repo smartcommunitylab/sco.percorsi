@@ -204,6 +204,7 @@ angular.module('roveretoPercorsi.controllers.common', [])
 			$scope.loginModal.hide();
 			$ionicLoading.hide();
 		}, function (err) {
+			Toast.show($filter('translate')('login_error'), 'long', 'bottom');
 			$ionicLoading.hide();
 		});
 	};

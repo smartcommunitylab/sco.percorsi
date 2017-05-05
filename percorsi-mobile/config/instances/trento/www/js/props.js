@@ -1,5 +1,5 @@
 appId = 'ComuneTrento';
-APP_VERSION = '1.0.3';
+APP_VERSION = '1.1.0';
 
 cityName = {
     'it': 'Vivo La Città – Trento',

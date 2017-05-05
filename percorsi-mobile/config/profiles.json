@@ -16,8 +16,8 @@
 	"trento": {
 		"resource_folder": "config/instances/trento",
 		"widget_id": "it.smartcommunitylab.percorsi.trento",
-		"version": "1.0.3",
-		"version_code": "4",
+		"version": "1.1.0",
+		"version_code": "5",
 		"app_name": " Vivo La Città – Trento"
 	}
 

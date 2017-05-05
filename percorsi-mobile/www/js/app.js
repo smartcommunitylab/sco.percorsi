@@ -18,6 +18,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.detailsslidebox',
     'roveretoPercorsi.controllers.galleryslidebox',
     'roveretoPercorsi.controllers.audioplayer',
+	'roveretoPercorsi.controllers.registration',
     'roveretoPercorsi.controllers.categories',
     'roveretoPercorsi.controllers.profile',
     'roveretoPercorsi.controllers.paths',
@@ -45,7 +46,6 @@ angular.module('roveretoPercorsi', [
 ])
 
 .run(function ($ionicPlatform, $rootScope, $cordovaSplashscreen, $state, $translate, $q, $ionicHistory, $ionicConfig, GeoLocate, Config, LoginService) {
-	//$rootScope.userIsLogged = (localStorage.userId != null && localStorage.userId != "null");
 	$rootScope.userIsLogged = function () {
 		return LoginService.userIsLogged();
 	};
@@ -80,6 +80,8 @@ angular.module('roveretoPercorsi', [
 		if (window.cordova && window.cordova.plugins.Keyboard) {
 			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 		}
+
+      	GeoLocate.initLocalization();
 
 		if (window.StatusBar) {
 			// org.apache.cordova.statusbar required
@@ -117,25 +119,36 @@ angular.module('roveretoPercorsi', [
 		});
 	});
 
+	$rootScope.loginCredentials = {
+		email: null,
+		password: null
+	};
+
+	const baseUrl = Config.URL() + '/' + Config.app();
 	LoginService.init({
 		loginType: LoginService.LOGIN_TYPE.COOKIE,
-		googleWebClientId: '453601816446-7vl1af54q3q7u2irk0c6vl85enl3ah8f.apps.googleusercontent.com',
+		googleWebClientId: CONF.googleWebClientId,
 		customConfig: {
-			BASE_URL: Config.URL() + '/' + Config.app(),
-			AUTHORIZE_URI: '/userlogin',
+			BASE_URL: baseUrl,
+			AUTHORIZE_URL: baseUrl + '/userlogin',
 			SUCCESS_REGEX: /userloginsuccess\?profile=(.+)$/,
 			ERROR_REGEX: /userloginerror\?error=(.+)$/,
-			LOGIN_URI: null,
-			REGISTER_URI: null,
-			REVOKE_URI: '/logout',
+			LOGIN_URL: baseUrl + '/userlogininternal',
+			REGISTER_URL: baseUrl + '/register',
+			REVOKE_URL: baseUrl + '/logout',
+			RESET_URL: 'https://tn.smartcommunitylab.it/aac/internal/reset',
 			REDIRECT_URL: 'http://localhost'
 		}
 	});
 
-	$rootScope.login = function () {
+	$rootScope.login = function (provider, credentials) {
 		var deferred = $q.defer();
-		LoginService.login(LoginService.PROVIDER.GOOGLE).then(
+		LoginService.login(provider, credentials).then(
 			function (data) {
+				$rootScope.loginCredentials = {
+					email: null,
+					password: null
+				};
 				deferred.resolve(data);
 			},
 			function (error) {
@@ -157,7 +170,17 @@ angular.module('roveretoPercorsi', [
 		return deferred.promise;
 	};
 
-	GeoLocate.initLocalization();
+	$rootScope.resetPassword = function (email) {
+		LoginService.resetPassword(email).then(
+			function (response) {
+				console.log(response);
+			},
+			function (reason) {
+				console.log(reason);
+			}
+		);
+	};
+
 
 	$rootScope.openFavorites = function () {
 		window.location.assign('#/app/favorites');
@@ -169,7 +192,7 @@ angular.module('roveretoPercorsi', [
 
 	// for BlackBerry 10, WP8, iOS
 	setTimeout(function () {
-		$cordovaSplashscreen.hide();
+		if (navigator.splashscreen) navigator.splashscreen.hide();
 		//navigator.splashscreen.hide();
 	}, 3000);
 
@@ -209,6 +232,17 @@ angular.module('roveretoPercorsi', [
 		abstract: true,
 		templateUrl: "templates/menu.html",
 		controller: 'AppCtrl'
+	})
+
+	.state('app.registration', {
+		cache: false,
+		url: "/register",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/register.html",
+				controller: 'RegistrationCtrl'
+			}
+		}
 	})
 
 	.state('app.categories', {
@@ -269,36 +303,38 @@ angular.module('roveretoPercorsi', [
 	})
 
 	.state('app.pathdetail.turist', {
-			cache: false,
-			url: '/turist',
-			views: {
-				'app-pathdetail-turist': {
-					templateUrl: 'templates/pathdetail-turist.html',
-					controller: 'PathDetailTuristCtrl'
-				}
+		cache: false,
+		url: '/turist',
+		views: {
+			'app-pathdetail-turist': {
+				templateUrl: 'templates/pathdetail-turist.html',
+				controller: 'PathDetailTuristCtrl'
 			}
-		})
-		.state('app.pathdetail.near', {
-			cache: false,
-			url: '/near',
-			views: {
-				'app-pathdetail-near': {
-					templateUrl: 'templates/pathdetail-near.html',
-					controller: 'PathDetailNearCtrl'
-				}
+		}
+	})
+
+	.state('app.pathdetail.near', {
+		cache: false,
+		url: '/near',
+		views: {
+			'app-pathdetail-near': {
+				templateUrl: 'templates/pathdetail-near.html',
+				controller: 'PathDetailNearCtrl'
 			}
-		})
-		.state('app.poidetail', {
-			cache: false,
-			url: '/poidetail',
-			abstract: false,
-			views: {
-				'menuContent': {
-					templateUrl: "templates/poidetail.html",
-					controller: 'PoiDetailCtrl'
-				}
+		}
+	})
+
+	.state('app.poidetail', {
+		cache: false,
+		url: '/poidetail',
+		abstract: false,
+		views: {
+			'menuContent': {
+				templateUrl: "templates/poidetail.html",
+				controller: 'PoiDetailCtrl'
 			}
-		})
+		}
+	})
 
 	.state('app.favorites', {
 		cache: false,
@@ -382,11 +418,25 @@ angular.module('roveretoPercorsi', [
 		close: 'Chiudi',
 		details: 'Dettagli',
 		login_label: 'Login',
+		login_button: 'Entra',
 		login_message: 'Per utilizzare la funzionalità devi prima effettuare il login',
+		login_message_or: 'oppure accedi con',
+		login_forgot_password: 'Password dimenticata?',
+		login_no_account: "Non hai un account?",
+		login_create_account: 'Iscriviti',
 		login_popup_cancel: 'Non adesso',
 		login_popup_ok: 'Login',
 		login_done: 'Login effettuato con successo',
+		login_error: 'Errore di login. Verifica credenziali e riprova più tardi',
 		logout_done: 'Logout effettuato con successo',
+		register: 'Crea account',
+		registration_message: 'Inserisci un indirizzo email valido e la password',
+		registration_name: 'Nome',
+		registration_surname: 'Cognome',
+		registration_email: 'Email',
+		registration_password: 'Password',
+		registration_password_repeat: 'Ripeti password',
+		registration_successful: 'Registrazione completata! Completa la registrazione cliccando sul link che trovi nella email che ti abbiamo inviato.',
 		syncing: 'aggiornamento in corso...',
 		cleaning: 'pulizia in corso...',
 		review_empty_error: 'Inserire uuna recensione',
@@ -477,11 +527,25 @@ angular.module('roveretoPercorsi', [
 		close: 'Close',
 		details: 'Details',
 		login_label: 'Login',
+		login_button: 'Login',
 		login_message: 'You must login to use this functionality',
+		login_message_or: 'or login with',
+		login_forgot_password: 'Forgot password?',
+		login_no_account: "You don't have an account?",
+		login_create_account: 'Create one',
 		login_popup_cancel: 'Not now',
 		login_popup_ok: 'Login',
 		login_done: 'Login done',
+		login_error: 'Login error. Check your credentials and retry later',
 		logout_done: 'Logout done',
+		register: 'Create new account',
+		registration_message: 'Insert a valid email address and choose your password',
+		registration_name: 'Name',
+		registration_surname: 'Surname',
+		registration_email: 'Email',
+		registration_password: 'Password',
+		registration_password_repeat: 'Repeat password',
+		registration_successful: 'Registration complete! Complete the registration by clicking the link you can find in the mail we have just sent you.',
 		syncing: 'Syncing....',
 		cleaning: 'Cleaning...',
 		review_empty_error: 'Insert a review',
