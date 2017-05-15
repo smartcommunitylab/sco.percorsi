@@ -1,5 +1,5 @@
 #!/bin/sh
-DATA_WEBAPP="Trento"
+DATA_WEBAPP="Ingarda"
 
 grep "var DEVELOPMENT = false;" www/js/services/conf.js &>/dev/null
 #if [ $? == 0 ]; then

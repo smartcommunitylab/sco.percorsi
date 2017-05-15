@@ -34,15 +34,15 @@
     "https://github.com/deefactorial/Cordova-open-native-settings.git",
     {
       "variables": {
-        "REVERSED_CLIENT_ID": ""
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.453601816446-b28hk43peosdnql24blv3dqbgatpi5sd"
       },
       "locator": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus",
       "id": "cordova-plugin-googleplus"
     },
     {
       "variables": {
-        "APP_ID": "",
-        "APP_NAME": ""
+        "APP_ID": "107047853109128",
+        "APP_NAME": "Tesori Nascosti"
       },
       "locator": "cordova-plugin-facebook4",
       "id": "cordova-plugin-facebook4"

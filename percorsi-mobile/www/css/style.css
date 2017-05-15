@@ -95,8 +95,8 @@ body {
 }
 
 .button.button-percorsi {
-    border-color: #03579b;
-    background-color: #03579b;
+    border-color: #01b2c4;
+    background-color: #01b2c4;
     color: #fff;
 }
 
@@ -107,7 +107,7 @@ body {
 .button.button-percorsi.button-clear {
     border: none;
     background: none;
-    color: #03579b;
+    color: #01b2c4;
 }
 
 .button.button-percorsi.button-start {
@@ -116,8 +116,8 @@ body {
 }
 
 .bar.bar-percorsi {
-    border-color: #0677bd;
-    background-color: #0677bd;
+    border-color: #009688;
+    background-color: #009688;
     /*background-image: none;*/
     color: #fff;
 }
@@ -135,16 +135,15 @@ body {
 
 .tabs-percorsi>.tabs,
 .tabs.tabs-percorsi {
-    border-color: #0677bd;
+    border-color: #009688;
     border-color: transparent;
-    background-color: #0677bd;
-    background-image: linear-gradient(0deg, #0677bd, #0677bd 50%, transparent 50%);
+    background-color: #009688;
+    background-image: linear-gradient(0deg, #009688, #009688 50%, transparent 50%);
     color: #fff;
 }
 
 .tabs-striped.tabs-percorsi .tabs {
-    background-color: #0677bd;
-    padding-bottom: 2px;
+    background-color: #009688;
 }
 
 .tabs-striped.tabs-percorsi .tab-item {
@@ -160,7 +159,7 @@ body {
     color: #fff;
     border-style: solid;
     border-width: 0 0 4px !important;
-    border-color: #fff;
+    border-color: #01B2C4;
 }
 
 .card {
@@ -185,7 +184,7 @@ body {
     /*0.5em;*/
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
-    color: #0677bd;
+    color: #009688;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -211,7 +210,7 @@ body {
 }
 
 .path-numbers span {
-    /*    color: #0677bd;*/
+    /*    color: #009688;*/
     vertical-align: super;
 }
 
@@ -391,7 +390,7 @@ ion-slide div[cover-img] i {
 .vote-star {
     padding: 4px;
     font-size: 55px;
-    color: #03579b;
+    color: #01b2c4;
 }
 
 .slide-box-container ion-slide div[cover-img] {
@@ -739,7 +738,7 @@ ion-side-menu ion-item .icon {
 }
 
 .text-button {
-    color: #03579b;
+    color: #01b2c4;
 }
 
 .item.active.item-stable {
@@ -774,10 +773,6 @@ ion-side-menu ion-item .icon {
     text-align: justify;
     text-overflow: ellipsis;
     overflow: hidden;
-}
-
-.description-info.pathdetail {
-    margin-bottom: 20px;
 }
 
 .expanded .description-info {
@@ -914,8 +909,8 @@ ion-side-menu ion-item .icon {
 }
 
 .button.button-percorsi.circle-type {
-    border-color: #0677bd;
-    background-color: #0677bd;
+    border-color: #009688;
+    background-color: #009688;
 }
 
 .type-overlay.sco-institutional:before {
@@ -970,7 +965,7 @@ ion-side-menu ion-item .icon {
 }
 
 .leftmenu {
-    background: #0677bd;
+    background: url(../img/menu-bg.png);
     background-attachment: fixed;
     background-position: center;
 }
@@ -989,7 +984,7 @@ ion-side-menu ion-item .icon {
 }
 
 .social-numbers span {
-    /*    color: #0677bd;*/
+    /*    color: #009688;*/
     font-size: 18px;
     vertical-align: super;
 }
@@ -1002,7 +997,7 @@ ion-side-menu ion-item .icon {
 .myreview {
     margin-bottom: 20px !important;
     border-width: 2px;
-    border-color: #03579b;
+    border-color: #01b2c4;
 }
 
 .myreview .icon-rating {
@@ -1020,7 +1015,7 @@ ion-side-menu ion-item .icon {
 
 .credits_title {
     text-align: center;
-    color: #0677bd;
+    color: #009688;
     font-size: 24px;
     font-weight: bold;
     margin-top: 20px;
@@ -1029,23 +1024,14 @@ ion-side-menu ion-item .icon {
 
 .credits_subtitle {
     text-align: center;
-    color: #0677bd;
+    color: #009688;
     font-size: 18px;
     font-weight: bold;
 }
 
-.credits_thanks {
-    font-weight: normal!important;
-    color: black;
-    font-size: 14px!important;
-    text-align: justify!important;
-}
-
 .credits_row {
     padding: 0;
-    margin-bottom: 15px;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin-bottom: 10px;
 }
 
 .credits_row.last {
@@ -1075,15 +1061,6 @@ ion-side-menu ion-item .icon {
     padding: 8px;
 }
 
-.close-modal {
-    font-size: 24px;
-    padding-left: 16px;
-    padding-top: 4px;
-    padding-right: 16px;
-    margin-bottom: 4px;
-    text-align: center;
-}
-
 .list-path .item-content {
     padding-right: 8px;
 }
@@ -1102,7 +1079,7 @@ ion-side-menu ion-item .icon {
 
 .place-icons {
     min-width: 25px;
-    color: #0677bd;
+    color: #009688;
 }
 
 .item-button-right {
@@ -1131,25 +1108,16 @@ ion-side-menu ion-item .icon {
 }
 
 #login-modal .login-label {
-    /*padding: 10px;*/
+    padding: 10px;
     text-align: center;
 }
 
-.bar-footer {
+#login-modal .bar-footer {
 	background: none;
 }
 
-.bar-footer .button.button-block {
-	margin: 0;
-}
-
-#login-modal .login-register {
-	text-align: center;
-	margin-right:  10px;
-	margin-left: 10px;
-	border-top: 1px solid #ddd;
-	padding-top: 10px;
-	padding-bottom: 10px;
+#login-modal .bar-footer .button.button-block {
+	margin:  0;
 }
 
 .button-bottom {
@@ -1209,7 +1177,7 @@ ion-side-menu ion-item .icon {
 /*redefine style for checkbox*/
 
 .ion-checkmark:before {
-    color: #0677bd;
+    color: #009688;
 }
 
 .item-radio input:checked ~ .item-content {
@@ -1225,8 +1193,8 @@ ion-side-menu ion-item .icon {
 }
 
 .fb-places-modal {
-    background-color: #0677bd;
-    color: #0677bd;
+    background-color: #009688;
+    color: #009688;
     width: 100% !important;
     height: 100%;
     top: 0 !important;
@@ -1234,7 +1202,7 @@ ion-side-menu ion-item .icon {
 }
 
 .fb-places-modal ion-header-bar {
-    background-color: #0677bd;
+    background-color: #009688;
 }
 
 .fb-icon {
@@ -1243,8 +1211,4 @@ ion-side-menu ion-item .icon {
 
 .my-review-textarea {
     padding-left: 10px;
-}
-
-.menu .bar-header {
-    z-index: 0;
 }

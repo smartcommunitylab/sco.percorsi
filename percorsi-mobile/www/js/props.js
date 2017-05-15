@@ -1,10 +1,10 @@
-appId = 'ComuneTrento';
-APP_VERSION = '1.1.0';
+appId = 'Ingarda';
+APP_VERSION = '0.2.0';
 
 cityName = {
-    'it': 'Vivo La Città – Trento',
-    'en': 'Vivo La Città – Trento',
-    'de': 'Vivo La Città – Trento'
+    'it': 'Tesori Nascosti',
+    'en': 'Hidden Treasures',
+    'de': 'Geheime Shätze'
 };
 
 SCHEMA_VERSION = 3;
@@ -12,7 +12,7 @@ SCHEMA_VERSION = 3;
 
 FORCED_LANGUAGE = null;
 
-FILTERSOCIALSLIDE = true;
+FILTERSOCIALSLIDE = false;
 FILTERSOCIALTAB = true;
 FILTERSOCIALADDIMAGE = true;
 FILTERMAXNUMBERSLIDE = 6;
