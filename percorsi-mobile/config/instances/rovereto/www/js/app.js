@@ -18,6 +18,7 @@ angular.module('roveretoPercorsi', [
     'roveretoPercorsi.controllers.detailsslidebox',
     'roveretoPercorsi.controllers.galleryslidebox',
     'roveretoPercorsi.controllers.audioplayer',
+	'roveretoPercorsi.controllers.registration',
     'roveretoPercorsi.controllers.categories',
     'roveretoPercorsi.controllers.profile',
     'roveretoPercorsi.controllers.paths',
@@ -134,7 +135,7 @@ angular.module('roveretoPercorsi', [
 			LOGIN_URL: baseUrl + '/userlogininternal',
 			REGISTER_URL: baseUrl + '/register',
 			REVOKE_URL: baseUrl + '/logout',
-			RESET_URL: 'https://dev.smartcommunitylab.it/aac/internal/reset',
+			RESET_URL: 'https://tn.smartcommunitylab.it/aac/internal/reset',
 			REDIRECT_URL: 'http://localhost'
 		}
 	});
@@ -179,6 +180,13 @@ angular.module('roveretoPercorsi', [
 		);
 	};
 
+	$rootScope.openFavorites = function () {
+		window.location.assign('#/app/favorites');
+		$ionicHistory.nextViewOptions({
+			disableAnimate: true,
+			disableBack: true
+		});
+	};
 	// for BlackBerry 10, WP8, iOS
 	setTimeout(function () {
 		if (navigator.splashscreen) navigator.splashscreen.hide();
@@ -190,27 +198,27 @@ angular.module('roveretoPercorsi', [
 	if (typeof (Number.prototype.toRad) === "undefined") {
 		Number.prototype.toRad = function () {
 			return this * Math.PI / 180;
-		}
+		};
 	}
 
 	$rootScope.appName = Config.cityName;
 
 	$rootScope.previousState;
 	$rootScope.currentState;
-	var comeFrom = null;
+	$rootScope.comeFrom = null;
 
 	$rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
 		$rootScope.previousState = from.name;
 		$rootScope.currentState = to.name;
 		//tmp workaraound for tabs
 		if ($rootScope.currentState == "app.favorites") {
-			comeFrom = "#app/favorites";
+			$rootScope.comeFrom = "#app/favorites";
 		}
 		if ($rootScope.currentState == "app.paths") {
-			comeFrom = "#/app/categories/" + toParams.id;
+			$rootScope.comeFrom = "#/app/categories/" + toParams.id;
 		}
 		if ($rootScope.previousState == "app.pathdetail.info" && $rootScope.currentState == "app.pathdetail") {
-			window.location.assign(comeFrom);
+			window.location.assign($rootScope.comeFrom);
 		}
 	});
 })
@@ -221,6 +229,17 @@ angular.module('roveretoPercorsi', [
 		abstract: true,
 		templateUrl: "templates/menu.html",
 		controller: 'AppCtrl'
+	})
+
+	.state('app.registration', {
+		cache: false,
+		url: "/register",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/register.html",
+				controller: 'RegistrationCtrl'
+			}
+		}
 	})
 
 	.state('app.categories', {
@@ -394,7 +413,7 @@ angular.module('roveretoPercorsi', [
 		details: 'Dettagli',
 		login_label: 'Login',
 		login_button: 'Entra',
-		login_message: 'Per utilizzare la funzionalita\' devi prima effettuare il login',
+		login_message: 'Per utilizzare la funzionalità devi prima effettuare il login',
 		login_message_or: 'oppure accedi con',
 		login_forgot_password: 'Password dimenticata?',
 		login_no_account: "Non hai un account?",
@@ -402,6 +421,7 @@ angular.module('roveretoPercorsi', [
 		login_popup_cancel: 'Non adesso',
 		login_popup_ok: 'Login',
 		login_done: 'Login effettuato con successo',
+		login_error: 'Errore di login. Verifica credenziali e riprova più tardi',
 		logout_done: 'Logout effettuato con successo',
 		register: 'Crea account',
 		registration_message: 'Inserisci un indirizzo email valido e la password',
@@ -506,6 +526,7 @@ angular.module('roveretoPercorsi', [
 		login_popup_cancel: 'Not now',
 		login_popup_ok: 'Login',
 		login_done: 'Login done',
+		login_error: 'Login error. Check your credentials and retry later',
 		logout_done: 'Logout done',
 		register: 'Create new account',
 		registration_message: 'Insert a valid email address and choose your password',
