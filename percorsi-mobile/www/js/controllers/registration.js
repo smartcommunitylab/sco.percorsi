@@ -17,6 +17,8 @@ angular.module('roveretoPercorsi.controllers.registration', [])
 				$state.go('app.categories');
 			},
 			function (reason) {
+              Toast.show($filter('translate')('register_error'), 'long', 'bottom');
+              $ionicLoading.hide();
 				console.log(reason);
 			}
 		);

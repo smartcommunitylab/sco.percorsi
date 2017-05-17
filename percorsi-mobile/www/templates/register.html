@@ -24,7 +24,8 @@
 	</ion-content>
 
 	<ion-footer-bar>
-		<button class="button button-block button-percorsi" ng-click="register(newUser)" ng-disabled="!newUser || !newUser.name || !newUser.surname || !newUser.email || !newUser.password || !newUser.passwordagain">
+		<button class="button button-block button-percorsi" ng-click="register(newUser)"
+                ng-disabled="!newUser || !newUser.name || !newUser.surname || !newUser.email || !newUser.password || !newUser.passwordagain || newUser.password != newUser.passwordagain || new.user.password.length < 6">
 					{{'register' | translate}}
 		</button>
 	</ion-footer-bar>
