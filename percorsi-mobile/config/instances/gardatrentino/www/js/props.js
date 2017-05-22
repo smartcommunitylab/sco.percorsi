@@ -1,5 +1,5 @@
 appId = 'Ingarda';
-APP_VERSION = '0.2.0';
+APP_VERSION = '0.2.1';
 
 cityName = {
     'it': 'Tesori Nascosti',

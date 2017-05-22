@@ -422,7 +422,7 @@ angular.module('roveretoPercorsi', [
 		login_popup_ok: 'Login',
 		login_done: 'Login effettuato con successo',
 		login_error: 'Errore di login. Verifica credenziali e riprova più tardi',
-		register_error: 'Errore di registrazioni. Verifica i dati e riprova più tardi',
+		register_error: 'Errore di registrazione. Verifica i dati e riprova più tardi',
 		logout_done: 'Logout effettuato con successo',
 		register: 'Crea account',
 		registration_message: 'Inserisci un indirizzo email valido e la password',

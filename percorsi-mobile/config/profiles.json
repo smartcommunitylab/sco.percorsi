@@ -2,8 +2,8 @@
 	"gardatrentino": {
 		"resource_folder": "config/instances/gardatrentino",
 		"widget_id": "it.smartcommunitylab.percorsi.riva",
-		"version": "0.2.0",
-		"version_code": "4",
+		"version": "0.2.1",
+		"version_code": "5",
 		"app_name": "Tesori Nascosti"
 	},
 	"rovereto": {
