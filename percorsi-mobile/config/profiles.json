@@ -18,7 +18,10 @@
 		"widget_id": "it.smartcommunitylab.percorsi.trento",
 		"version": "1.1.0",
 		"version_code": "5",
-		"app_name": " Vivo La Città – Trento"
+		"app_name": " Vivo La Città – Trento",
+		"REVERSE_CLIENT_ID": "com.googleusercontent.apps.453601816446-bs9vtikvubnm4k3aa7n5vh9vdl17v893Y",
+		"APP_ID": "276912202708991",
+		"APP_NAME": "Vivo la Città - Trento"
 	}
 
 }
