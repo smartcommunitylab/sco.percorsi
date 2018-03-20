@@ -102,6 +102,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			if (list != null && !list.isEmpty()) {
 				Criteria criteria = createBaseCriteria(appId);
 				criteria.and("deleted").is(false);
+				criteria = criteria.and("type").is(Path.class.getCanonicalName());
 				List<Path> oldPaths = find(Query.query(criteria), Path.class);
 
 				Map<String, Path> oldIds = new HashMap<String, Path>();
