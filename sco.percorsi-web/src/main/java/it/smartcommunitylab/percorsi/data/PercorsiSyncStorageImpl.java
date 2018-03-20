@@ -155,7 +155,7 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			version = getPublicVersion(appId);
 		}
 
-		updateVersion(appId, version);
+//		updateVersion(appId, version);
 		return version;
 	}
 
