@@ -49,7 +49,9 @@ angular.module('roveretoPercorsi.services.db', [])
             dbObj = window.sqlitePlugin.openDatabase({
                 name: dbName,
                 bgType: 1,
-                skipBackup: true
+                skipBackup: true,
+                location:'default',
+                androidDatabaseImplementation: 2
             });
             dbopenDeferred.resolve(dbObj);
         }, false);
@@ -167,7 +169,7 @@ angular.module('roveretoPercorsi.services.db', [])
             syncinprogress = syncronization.promise;
             db.then(function (dbObj) {
                 Profiling.start('dbsync');
-                if (ionic.Platform.isWebView() && navigator.connection.type == Connection.NONE && currentDbVersion != 0) {
+                if (ionic.Platform.isWebView() && navigator.connection.type == Connection.NONE) {
                     $ionicLoading.hide();
                     console.log('no network connection');
                     Profiling._do('dbsync');

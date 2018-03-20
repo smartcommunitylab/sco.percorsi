@@ -1,3 +1,15 @@
 /percorsi-mobile/node_modules/
 /percorsi-mobile/variables_do_not_commit.json
 /percorsi-mobile/www/js/conf_do_not_commit.js
+/TRENTO/
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/package-info.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/Categories.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/Category.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/CustomAttribute.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/I18NText.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/Location.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/Multimedia.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/ObjectFactory.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/POI.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/Path.java
+sco.percorsi-web/src/main/generated-sources/it/smartcommunitylab/percorsi/xml/PathData.java

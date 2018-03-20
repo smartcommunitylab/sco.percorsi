@@ -95,7 +95,11 @@ public class PercorsiSyncStorageImpl extends GenericObjectSyncMongoStorage<Perco
 			// update categories if changed
 			Categories draftCategories = getDraftCategories(appId);
 			if (draftCategories != null) {
-				storeObject(draftCategories);
+				Categories old = getObjectById("1", Categories.class, appId);
+				if (old != null) {
+					draftCategories.setId(old.getId());
+				}
+				storeObject(draftCategories);					
 			}
 			// update paths, merging the user images inside
 			List<Path> list = getDraftPaths(appId);
