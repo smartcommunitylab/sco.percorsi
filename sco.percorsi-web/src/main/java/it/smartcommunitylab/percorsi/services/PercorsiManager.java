@@ -129,7 +129,13 @@ public class PercorsiManager {
 		if (data.getCategories() != null) {
 			data.setLocalId("1");
 			data.setAppId(appId);
-			repository.storeDraftObject(data, appId);
+			Categories old = repository.getDraftCategories(appId);
+			if (old != null) {
+				old.setCategories(data.getCategories());
+				repository.storeDraftObject(old, appId);
+			} else {
+				repository.storeDraftObject(data, appId);
+			}
 		}
 	}
 	

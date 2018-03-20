@@ -104,7 +104,7 @@ public class ConsoleController {
 	}
 
 	@RequestMapping(value = "/console/publish", method = RequestMethod.POST)
-	public @ResponseBody ProviderSettings publish(MultipartHttpServletRequest req) throws Exception {
+	public @ResponseBody ProviderSettings publish(HttpServletRequest req) throws Exception {
 		String appId = getAppId();
 		manager.publish(appId);
 		return getProvider(appId);

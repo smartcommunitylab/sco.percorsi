@@ -54,7 +54,9 @@ angular.module('consoleControllers.mainCtrl', [])
         };
 
         $scope.publish = function () {
-            DataService.publish($scope.profile.id);
+            DataService.publish($scope.profile.id).then((function(profile) {
+            	$scope.profile = profile;
+            }));
         };
 
         $scope.next = function (type) {
