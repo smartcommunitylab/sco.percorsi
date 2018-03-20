@@ -238,7 +238,7 @@ angular.module('roveretoPercorsi.services.db', [])
 
                                             }
 
-                                            values = [item.id ? item.id : item.localId, item.localId, item.version, contentTypeClassName, item.categoriesStr, JSON.stringify(item)];
+                                            values = [item.localId, item.localId, item.version, contentTypeClassName, item.categoriesStr, JSON.stringify(item)];
                                             itemsToInsert.push(values)
                                         });
 
