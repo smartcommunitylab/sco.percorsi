@@ -11,6 +11,8 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
         max: 5
     };
 
+    $scope.stars = [];
+
     $scope.back = function () {
         if ($ionicHistory.length > 0) {
             $ionicHistory.goBack();
@@ -68,7 +70,7 @@ angular.module('roveretoPercorsi.controllers.pathdetailturist', [])
     $scope.getStars = function () {
         if ($scope.path && $scope.path.vote)
             return getStars($scope.path.vote);
-        return 0;
+        return getStars(0);
     };
 
 

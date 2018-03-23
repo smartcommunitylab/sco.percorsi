@@ -68,9 +68,9 @@ angular.module('roveretoPercorsi.filters', [])
                 } else {
                     if (debug) console.log('input it: ' + (input.it || 'FALSY'));
                     if (debug) console.log('input.2: ' + JSON.stringify(input));
-                    if (input.hasOwnProperty('en')) {
+                    if (input.hasOwnProperty('en') && input['en']) {
                         return input.en || '';
-                    } else if (input.hasOwnProperty('it')) {
+                    } else if (input.hasOwnProperty('it') && input['it']) {
                         return input.it || '';
                     } else {
                         return (typeof input == 'string' ? input : '') || '';
