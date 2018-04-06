@@ -1,10 +1,10 @@
-appId = 'Ingarda';
-APP_VERSION = '0.2.0';
+appId = 'Trento';
+APP_VERSION = '1.2.0';
 
 cityName = {
-    'it': 'Tesori Nascosti',
-    'en': 'Hidden Treasures',
-    'de': 'Geheime Shätze'
+    'it': 'Trento Percorsi',
+    'en': 'Trento Percorsi',
+    'de': 'Trento Percorsi'
 };
 
 SCHEMA_VERSION = 3;
@@ -12,7 +12,7 @@ SCHEMA_VERSION = 3;
 
 FORCED_LANGUAGE = null;
 
-FILTERSOCIALSLIDE = false;
+FILTERSOCIALSLIDE = true;
 FILTERSOCIALTAB = true;
 FILTERSOCIALADDIMAGE = true;
 FILTERMAXNUMBERSLIDE = 6;

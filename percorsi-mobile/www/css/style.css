@@ -95,8 +95,8 @@ body {
 }
 
 .button.button-percorsi {
-    border-color: #01b2c4;
-    background-color: #01b2c4;
+    border-color: #03579b;
+    background-color: #03579b;
     color: #fff;
 }
 
@@ -107,7 +107,7 @@ body {
 .button.button-percorsi.button-clear {
     border: none;
     background: none;
-    color: #01b2c4;
+    color: #03579b;
 }
 
 .button.button-percorsi.button-start {
@@ -116,8 +116,8 @@ body {
 }
 
 .bar.bar-percorsi {
-    border-color: #009688;
-    background-color: #009688;
+    border-color: #0677bd;
+    background-color: #0677bd;
     /*background-image: none;*/
     color: #fff;
 }
@@ -135,15 +135,16 @@ body {
 
 .tabs-percorsi>.tabs,
 .tabs.tabs-percorsi {
-    border-color: #009688;
+    border-color: #0677bd;
     border-color: transparent;
-    background-color: #009688;
-    background-image: linear-gradient(0deg, #009688, #009688 50%, transparent 50%);
+    background-color: #0677bd;
+    background-image: linear-gradient(0deg, #0677bd, #0677bd 50%, transparent 50%);
     color: #fff;
 }
 
 .tabs-striped.tabs-percorsi .tabs {
-    background-color: #009688;
+    background-color: #0677bd;
+    padding-bottom: 2px;
 }
 
 .tabs-striped.tabs-percorsi .tab-item {
@@ -159,7 +160,7 @@ body {
     color: #fff;
     border-style: solid;
     border-width: 0 0 4px !important;
-    border-color: #01B2C4;
+    border-color: #fff;
 }
 
 .card {
@@ -184,7 +185,7 @@ body {
     /*0.5em;*/
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
-    color: #009688;
+    color: #0677bd;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -196,6 +197,7 @@ body {
 
 .path-numbers div {
     display: inline-block;
+    font-size: 14px;
 }
 
 .path-numbers div:not(:first-child) {
@@ -205,12 +207,12 @@ body {
 }
 
 .path-numbers i {
-    font-size: 32px;
+    font-size: 28px;
     /*2em;*/
 }
 
 .path-numbers span {
-    /*    color: #009688;*/
+    /*    color: #0677bd;*/
     vertical-align: super;
 }
 
@@ -287,9 +289,9 @@ body {
 }
 
 .icon-difficulty {
-    width: 40px;
+    /* width: 40px; */
     align-items: center;
-    padding-left: 16px;
+    /* padding-left: 16px; */
 }
 
 .v-center {
@@ -313,7 +315,12 @@ body {
 
 #paths .path-numbers {
     position: absolute;
-    bottom: 8px;
+    bottom: 0px;
+    padding-bottom: 0;
+}
+
+#paths .item-content {
+    padding-bottom: 0;
 }
 
 #paths .fav {
@@ -390,7 +397,7 @@ ion-slide div[cover-img] i {
 .vote-star {
     padding: 4px;
     font-size: 55px;
-    color: #01b2c4;
+    color: #03579b;
 }
 
 .slide-box-container ion-slide div[cover-img] {
@@ -738,7 +745,7 @@ ion-side-menu ion-item .icon {
 }
 
 .text-button {
-    color: #01b2c4;
+    color: #03579b;
 }
 
 .item.active.item-stable {
@@ -773,6 +780,10 @@ ion-side-menu ion-item .icon {
     text-align: justify;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.description-info.pathdetail {
+    margin-bottom: 20px;
 }
 
 .expanded .description-info {
@@ -895,7 +906,7 @@ ion-side-menu ion-item .icon {
     bottom: 10%;
     right: 2%;
     border-color: #e1e1e1;
-    !important background-color: #e1e1e1;
+    background-color: #e1e1e1 !important ;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -909,8 +920,8 @@ ion-side-menu ion-item .icon {
 }
 
 .button.button-percorsi.circle-type {
-    border-color: #009688;
-    background-color: #009688;
+    border-color: #0677bd;
+    background-color: #0677bd;
 }
 
 .type-overlay.sco-institutional:before {
@@ -965,7 +976,7 @@ ion-side-menu ion-item .icon {
 }
 
 .leftmenu {
-    background: url(../img/menu-bg.png);
+    background: #0677bd;
     background-attachment: fixed;
     background-position: center;
 }
@@ -984,7 +995,7 @@ ion-side-menu ion-item .icon {
 }
 
 .social-numbers span {
-    /*    color: #009688;*/
+    /*    color: #0677bd;*/
     font-size: 18px;
     vertical-align: super;
 }
@@ -997,7 +1008,7 @@ ion-side-menu ion-item .icon {
 .myreview {
     margin-bottom: 20px !important;
     border-width: 2px;
-    border-color: #01b2c4;
+    border-color: #03579b;
 }
 
 .myreview .icon-rating {
@@ -1015,7 +1026,7 @@ ion-side-menu ion-item .icon {
 
 .credits_title {
     text-align: center;
-    color: #009688;
+    color: #0677bd;
     font-size: 24px;
     font-weight: bold;
     margin-top: 20px;
@@ -1024,14 +1035,23 @@ ion-side-menu ion-item .icon {
 
 .credits_subtitle {
     text-align: center;
-    color: #009688;
+    color: #0677bd;
     font-size: 18px;
     font-weight: bold;
 }
 
+.credits_thanks {
+    font-weight: normal!important;
+    color: black;
+    font-size: 14px!important;
+    text-align: justify!important;
+}
+
 .credits_row {
     padding: 0;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .credits_row.last {
@@ -1061,6 +1081,15 @@ ion-side-menu ion-item .icon {
     padding: 8px;
 }
 
+.close-modal {
+    font-size: 24px;
+    padding-left: 16px;
+    padding-top: 4px;
+    padding-right: 16px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
 .list-path .item-content {
     padding-right: 8px;
 }
@@ -1079,7 +1108,7 @@ ion-side-menu ion-item .icon {
 
 .place-icons {
     min-width: 25px;
-    color: #009688;
+    color: #0677bd;
 }
 
 .item-button-right {
@@ -1108,16 +1137,25 @@ ion-side-menu ion-item .icon {
 }
 
 #login-modal .login-label {
-    padding: 10px;
+    /*padding: 10px;*/
     text-align: center;
 }
 
-#login-modal .bar-footer {
+.bar-footer {
 	background: none;
 }
 
-#login-modal .bar-footer .button.button-block {
-	margin:  0;
+.bar-footer .button.button-block {
+	margin: 0;
+}
+
+#login-modal .login-register {
+	text-align: center;
+	margin-right:  10px;
+	margin-left: 10px;
+	border-top: 1px solid #ddd;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .button-bottom {
@@ -1177,7 +1215,7 @@ ion-side-menu ion-item .icon {
 /*redefine style for checkbox*/
 
 .ion-checkmark:before {
-    color: #009688;
+    color: #0677bd;
 }
 
 .item-radio input:checked ~ .item-content {
@@ -1193,8 +1231,8 @@ ion-side-menu ion-item .icon {
 }
 
 .fb-places-modal {
-    background-color: #009688;
-    color: #009688;
+    background-color: #0677bd;
+    color: #0677bd;
     width: 100% !important;
     height: 100%;
     top: 0 !important;
@@ -1202,7 +1240,7 @@ ion-side-menu ion-item .icon {
 }
 
 .fb-places-modal ion-header-bar {
-    background-color: #009688;
+    background-color: #0677bd;
 }
 
 .fb-icon {
@@ -1211,4 +1249,8 @@ ion-side-menu ion-item .icon {
 
 .my-review-textarea {
     padding-left: 10px;
+}
+
+.menu .bar-header {
+    z-index: 0;
 }
