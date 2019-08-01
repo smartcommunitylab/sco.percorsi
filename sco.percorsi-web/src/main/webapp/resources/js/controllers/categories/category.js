@@ -26,7 +26,7 @@ angular.module('consoleControllers.categories', [])
         if (!checkCategory(idCat)) {
             var modalInstance = $modal.open({
                 templateUrl: 'templates/modal.html',
-//                controller: 'ModalCtrl',
+                controller: 'ModalCtrl',
                 size: 'lg',
                 resolve: {
                     titleText: function () {
@@ -150,7 +150,7 @@ angular.module('consoleControllers.categories', [])
     $scope.back = function () {
         var modalInstance = $modal.open({
             templateUrl: 'templates/modal.html',
-//            controller: 'ModalCtrl',
+            controller: 'ModalCtrl',
             size: 'lg',
             resolve: {
                 titleText: function () {

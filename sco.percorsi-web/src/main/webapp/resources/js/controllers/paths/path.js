@@ -29,7 +29,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.delete = function (idPath) {
         var modalInstance = $modal.open({
             templateUrl: 'templates/modal.html',
-//            controller: 'ModalCtrl',
+            controller: 'ModalCtrl',
             size: 'lg',
             resolve: {
                 titleText: function () {
@@ -143,7 +143,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.back = function () {
         var modalInstance = $modal.open({
             templateUrl: 'templates/modal.html',
-//            controller: 'ModalCtrl',
+            controller: 'ModalCtrl',
             size: 'lg',
             resolve: {
                 titleText: function () {
@@ -174,7 +174,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.remove = function (idPoi) {
         var modalInstance = $modal.open({
             templateUrl: 'templates/modal.html',
-//            controller: 'ModalCtrl',
+            controller: 'ModalCtrl',
             size: 'lg',
             resolve: {
                 titleText: function () {
@@ -217,7 +217,7 @@ angular.module('consoleControllers.paths', ['ngSanitize'])
     $scope.delete = function (idx, array) {
         var modalInstance = $modal.open({
             templateUrl: 'templates/modal.html',
-//            controller: 'ModalCtrl',
+            controller: 'ModalCtrl',
             size: 'lg',
             resolve: {
                 titleText: function () {
