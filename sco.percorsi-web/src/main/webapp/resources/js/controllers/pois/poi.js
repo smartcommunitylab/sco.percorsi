@@ -130,7 +130,7 @@ angular.module('consoleControllers.poi', [])
     $scope.back = function () {
         var modalInstance = $modal.open({
             templateUrl: 'templates/modal.html',
-            controller: 'ModalCtrl',
+//            controller: 'ModalCtrl',
             size: 'lg',
             resolve: {
                 titleText: function () {
@@ -160,7 +160,7 @@ angular.module('consoleControllers.poi', [])
     $scope.delete = function (idx, array) {
         var modalInstance = $modal.open({
             templateUrl: 'templates/modal.html',
-            controller: 'ModalCtrl',
+//            controller: 'ModalCtrl',
             size: 'lg',
             resolve: {
                 titleText: function () {
