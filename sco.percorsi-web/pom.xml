@@ -10,7 +10,7 @@
 	<properties>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<spring-security-version>3.2.4.RELEASE</spring-security-version>
-		<spring-data-mongodb.version>1.6.2.RELEASE</spring-data-mongodb.version>
+		<spring-data-mongodb.version>3.3.5</spring-data-mongodb.version>
 		<joda.time.version>2.3</joda.time.version>
 		<profile.service.version>2.1</profile.service.version>
 		<aac.version>1.2</aac.version>
